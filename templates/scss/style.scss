@@ -1,0 +1,60 @@
+@import 'settings',
+'mixins',
+'normalize',
+'base',
+'helpers',
+'modules/browse-happy',
+'modules/grid',
+'modules/grid-blocks',
+'modules/graybox',
+'modules/menu',
+'modules/sub-menu',
+'layout/common';
+
+// SUB MENU DEMO
+.sub-menu-demo {
+  a {
+    background: $light-gray;
+    padding: vertical-rhythm( .5 ) 1em;
+    &:hover {
+      background: $dark-gray;
+      color:#fff;
+    }
+  }
+}
+
+// Primary Navigation
+.primary-navigation {
+
+  a {
+    padding: vertical-rhythm( .5 ) 1em;
+    text-decoration: none;
+  }
+
+  .menu__item {
+    background: $light-gray;
+    &:hover {
+      background: $dark-gray;
+      & > a {
+        color:$white;
+      }
+    }
+    &+.menu__item {
+      border-left:1px solid $dark-gray;
+      @media ( max-width: $small-screen ) {
+        border-left:none;
+        border-top:1px solid $dark-gray;
+      }
+    }
+  }
+
+  .menu--stacked {
+    .menu__item {
+      &+.menu__item {
+          border-left:none;
+          border-top:1px solid $dark-gray;
+      }
+    }
+  }
+
+}

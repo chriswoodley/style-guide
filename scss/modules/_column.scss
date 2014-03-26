@@ -1,0 +1,28 @@
+.column {
+  -webkit-column-gap: pxtoem( $column-gap, $base-font-size );
+  -moz-column-gap: pxtoem( $column-gap, $base-font-size );
+  column-gap: pxtoem( $column-gap, $base-font-size );
+}
+
+.column--rule {
+  -webkit-column-rule: 1px solid $black;
+  -moz-column-rule: 1px solid $black;
+  column-rule: 1px solid $black;
+}
+
+@for $i from 1 through $column-count {
+  .column--#{$i} {
+    -webkit-column-count: $i;
+    -moz-column-count: $i;
+    column-count: $i;
+    @extend %column--small-screen;
+  }
+}
+
+%column--small-screen {
+  @media ( max-width: $small-screen ) {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+  }
+}

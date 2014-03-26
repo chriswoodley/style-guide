@@ -1,0 +1,185 @@
+@import 'settings',
+'mixins',
+'normalize',
+'base',
+'helpers',
+'modules/alert',
+'modules/breadcrumb',
+'modules/browse-happy',
+'modules/button',
+'modules/button-dropdown',
+'modules/column',
+'modules/grid',
+'modules/grid-blocks',
+'modules/graybox',
+'modules/icon',
+'modules/input-group',
+'modules/label',
+'modules/modal',
+'modules/media',
+'modules/menu',
+'modules/off-canvas',
+'modules/pagination',
+'modules/responsive-embeds',
+'modules/rule',
+'modules/sub-menu',
+'modules/tabs',
+'modules/tabular-data',
+'modules/tool-tip',
+'modules/transitions',
+'modules/quote',
+'modules/widget',
+'layout/common';
+
+/* Color swatches
+   ========================================================================== */
+.sg-color--a .sg-color-swatch {background: $navy;}
+.sg-color--b .sg-color-swatch {background: $blue;}
+.sg-color--c .sg-color-swatch {background: $aqua;}
+.sg-color--d .sg-color-swatch {background: $teal;}
+.sg-color--e .sg-color-swatch {background: $olive;}
+.sg-color--f .sg-color-swatch {background: $green;}
+.sg-color--g .sg-color-swatch {background: $lime;}
+.sg-color--h .sg-color-swatch {background: $yellow;}
+.sg-color--i .sg-color-swatch {background: $orange;}
+.sg-color--j .sg-color-swatch {background: $red;}
+.sg-color--k .sg-color-swatch {background: $maroon;}
+.sg-color--l .sg-color-swatch {background: $fuchsia;}
+.sg-color--m .sg-color-swatch {background: $purple;}
+.sg-color--n .sg-color-swatch {background: $white;}
+.sg-color--o .sg-color-swatch {background: $light-gray;}
+.sg-color--p .sg-color-swatch {background: $gray;}
+.sg-color--q .sg-color-swatch {background: $dark-gray;}
+.sg-color--r .sg-color-swatch {background: $black;}
+
+// SUB MENU DEMO
+.sub-menu-demo {
+  a {
+    background: $light-gray;
+    padding: vertical-rhythm( .5 ) 1em;
+    &:hover {
+      background: $dark-gray;
+      color:#fff;
+    }
+  }
+}
+
+// MENU DEMO
+.menu-demo {
+
+  a {
+    padding: vertical-rhythm( .5 ) 1em;
+    text-decoration: none;
+  }
+
+  .menu__item {
+    background: $light-gray;
+    &:hover {
+      background: $dark-gray;
+      & > a {
+        color:$white;
+      }
+    }
+    &+.menu__item {
+      border-left:1px solid $dark-gray;
+      @media ( max-width: $small-screen ) {
+        border-left:none;
+        border-top:1px solid $dark-gray;
+      }
+    }
+  }
+
+  .menu--stacked {
+    .menu__item {
+      &+.menu__item {
+          border-left:none;
+          border-top:1px solid $dark-gray;
+      }
+    }
+  }
+
+}
+
+// PAGINATION DEMO
+.pagination-demo {
+  .pagination__item {
+    & + .pagination__item {
+      border-left:1px solid $white;
+    }
+  }
+  a {
+    background:$light-gray;
+    &:hover {
+      background:$dark-gray;
+      color:$white;
+    }
+  }
+}
+
+// GRID BLOCKS DEMO
+.grid-blocks-demo {
+  max-width:600px;
+  @include grid-block-widths( $parent-container-width: 600px, $grid-columns: 6 );
+}
+
+// OFF-CANVAS DEMO
+.off-canvas-demo {
+  .off-canvas__body {
+    background:$light-gray;
+    color:$black;
+  }
+
+  .off-canvas__element {
+    background:$dark-gray;
+    .menu {
+      width:100%;
+    }
+  }
+}
+
+// BOX ARROW DEMO
+.box-arrow-top,
+.box-arrow-right,
+.box-arrow-top-right,
+.box-arrow-bottom-right,
+.box-arrow-bottom,
+.box-arrow-bottom-left,
+.box-arrow-left,
+.box-arrow-top-left {
+  background:$blue;
+}
+
+.box-arrow-top {
+  @include box-arrow($side: top, $color: $blue, $width: $base-font-size);
+}
+.box-arrow-top-right {
+  @include box-arrow($side: top-right, $color: $blue, $width: $base-font-size);
+}
+.box-arrow-right {
+  @include box-arrow($side: right, $color: $blue, $width: $base-font-size);
+}
+.box-arrow-bottom-right {
+  @include box-arrow($side: bottom-right, $color: $blue, $width: $base-font-size);
+}
+.box-arrow-bottom {
+  @include box-arrow($side: bottom, $color: $blue, $width: $base-font-size);
+}
+.box-arrow-bottom-left {
+  @include box-arrow($side: bottom-left, $color: $blue, $width: $base-font-size);
+}
+.box-arrow-left {
+  @include box-arrow($side: left, $color: $blue, $width: $base-font-size);
+}
+.box-arrow-top-left {
+  @include box-arrow($side: top-left, $color: $blue, $width: $base-font-size);
+}
+
+
+// BUTTON DROPDOWN DEMO
+.button-dropdown-demo {
+  .button-dropdown__content {
+    background: #eee;
+    padding:10px;
+    box-shadow: 2px 2px 2px 0px rgba($black, .25);
+  }
+}

@@ -1,0 +1,58 @@
+// TYPE
+$base-font-size:14px;
+$base-line-height: 21px;
+$font-primary: "HelveticaNeue", "Helvetica", Arial, sans-serif;
+$font-secondary: Georgia, Times, "Times New Roman", serif;
+$double-quotes: "\201C" "\201D";
+
+// http://modularscale.com/scale/?px1=320&px2=14&ra1=1.618&ra2=0
+$small-font-size: 11.023px;
+$large-font-size: 17.835px;
+
+$h1-font-size: 36.651px;
+$h2-font-size: 28.857px;
+$h3-font-size: 22.652px;
+$h4-font-size: 17.835px;
+$h5-font-size: 14.000px;
+$h6-font-size: 11.023px;
+
+// THEME COLORS
+$navy: #001F3F;
+$blue: #0074D9;
+$aqua: #7FDBFF;
+$teal: #39CCCC;
+$olive: #3D9970;
+$green: #2ECC40;
+$lime: #01FF70;
+$yellow: #FFDC00;
+$orange: #FF851B;
+$red: #FF4136;
+$maroon: #85144B;
+$fuchsia: #F012BE;
+$purple: #B10DC9;
+$white: #ffffff;
+$light-gray: #cccccc;
+$gray: #999999;
+$dark-gray: #666666;
+$black: #222222;
+
+// INDENTS
+$indent: 36.651px;
+
+// GRID
+$grid-columns: 12;
+$grid-gutter: 8.653px;
+$large-grid-gutter: 17.835px;
+
+// COLUMNS
+$column-gap: 22.652px;
+$column-count: 4;
+
+// BORDER RADIUS
+$radius: 4px;
+
+// LAYOUT
+$site-width:1140px;
+
+// BREAK POINTS
+$small-screen: 480px;

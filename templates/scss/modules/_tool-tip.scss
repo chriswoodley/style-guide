@@ -1,0 +1,120 @@
+$duration: .125s;
+$timing:ease-in;
+$delay: .25s;
+
+.tool-tip {
+  position: relative;
+
+  &:before,
+  &:after {
+    -webkit-transition: $duration $timing $delay opacity;
+    -moz-transition: $duration $timing $delay opacity;
+    -o-transition: $duration $timing $delay opacity;
+    transition: $duration $timing $delay opacity;
+  }
+
+  &:after {
+    content: attr(title);
+    position: absolute;
+    @include font-size( $small-font-size );
+    padding: vertical-rhythm(0.5, $small-font-size) 2em;
+    text-align: center;
+    white-space: nowrap;
+    background: rgba($black, .75);
+    color:$white;
+    z-index: 999;
+    border-radius: $radius;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &:hover:after {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-style: solid;
+    @include font-size( $small-font-size );
+    visibility: hidden;
+    opacity:0;
+    }
+
+    &:hover:before {
+        visibility: visible;
+        opacity:1;
+    }
+
+
+}
+
+.tool-tip--top,
+.tool-tip--bottom {
+    &:after {
+        left:0;
+    }
+
+    &:before {
+        left: $small-font-size;
+    }
+}
+
+.tool-tip--top {
+    &:after {
+        top: - vertical-rhythm(3, $small-font-size);
+    }
+
+    &:before {
+        top: - vertical-rhythm(1, $small-font-size, -1px);
+        border-color: rgba($black, .75) transparent transparent transparent;
+    }
+}
+
+.tool-tip--bottom {
+    &:after {
+        bottom: - vertical-rhythm(3, $small-font-size);
+    }
+
+    &:before {
+        bottom: - vertical-rhythm(1, $small-font-size, -1px);
+        border-color: transparent transparent rgba($black, .75) transparent;
+    }
+}
+
+.tool-tip--right,
+.tool-tip--left {
+    &:after {
+        top: -85%;
+    }
+
+    &:before {
+        top: -15%;
+    }
+}
+
+.tool-tip--right {
+    &:after {
+        left:185%;
+    }
+
+    &:before {
+        right:-85%;
+        border-color: transparent rgba($black, .75) transparent transparent;
+    }
+}
+
+.tool-tip--left {
+    &:after {
+        right:215%;
+    }
+
+    &:before {
+        left:-115%;
+        border-color: transparent transparent transparent rgba($black, .75);
+    }
+}

@@ -1,0 +1,81 @@
+// BLOCKQUOTES & PULL QUOTES
+
+.quote {
+  display: block;
+  margin-left: calc-width( $indent, $base-font-size, em );
+  margin-right: calc-width( $indent, $base-font-size, em );
+
+  .quote__citation {
+    margin-top: vertical-rhythm();
+  }
+}
+
+.quote--horizontal-rules,
+.quote--vertical-rules,
+.quote--box {
+  padding:vertical-rhythm($offset:2px) pxtoem($indent, $base-font-size);
+}
+
+.quote--horizontal-rules {
+  border-top: 1px solid $black;
+  border-bottom: 1px solid $black;
+}
+
+.quote--vertical-rules {
+  border-left: 1px solid $black;
+  border-right: 1px solid $black;
+}
+
+.quote--left-vertical-rule {
+  border-left: 1px solid $black;
+  padding-left:vertical-rhythm($offset:2px);
+}
+
+.quote--right-vertical-rule {
+  border-right: 1px solid $black;
+  padding-right:vertical-rhythm($offset:2px);
+}
+
+.quote--thick-rule {
+  border-width: 4px;
+}
+
+.quote--box {
+  background:scale-color($light-gray, $lightness:75%);
+  border:1px dashed $light-gray;
+}
+
+.quote--open-quote {
+  position: relative;
+  padding-left: 2em;
+  &:before {
+    content: "\201C";
+    position: absolute;
+    top:-$base-font-size;
+    left: 0;
+    font-size: pxtoem(46.691px, $base-font-size);
+  }
+}
+
+
+// PULL QUOTES
+.quote--pull-right {
+  float: right;
+}
+
+.quote--pull-left {
+  float: left;
+}
+
+.quote--pull-right,
+.quote--pull-left {
+  width: percentage(1 / 4);
+  margin-bottom: vertical-rhythm(2, $large-font-size);
+  @include font-size( $to-size: $large-font-size, $from-size: $base-font-size, $lines: 1.5 );
+  font-style: italic;
+
+  @media screen and (max-width: $small-screen) {
+    width: inherit;
+    float: none;
+  }
+}

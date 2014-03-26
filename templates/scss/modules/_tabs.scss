@@ -1,0 +1,25 @@
+.tabs {
+
+  .tabs__nav {
+    display: block;
+    overflow: hidden;
+    .tabs__nav-item {
+      display: block;
+      float: left;
+    }
+  }
+
+   .tabs__nav {
+
+    a {
+      display:block;
+      padding: vertical-rhythm(0.5) 1em;
+    }
+
+  }
+
+  .tabs__content {
+
+  }
+
+}

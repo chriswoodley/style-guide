@@ -1,0 +1,92 @@
+$off-canvas-element-width: 75%;
+
+.off-canvas,
+.off-canvas__body {
+  position: relative;
+  width: 100%;
+}
+
+.off-canvas {
+  overflow-x: hidden;
+  .off-canvas__body {
+    @extend .clearfix;
+  }
+  .off-canvas__element {
+    width: $off-canvas-element-width;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+  }
+  .off-canvas__body,
+  .off-canvas__element {
+    -webkit-transition-property: left, right;
+    -moz-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.25s;
+    -moz-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+  }
+}
+
+// Hide off canvas element
+.off-canvas--left {
+  .off-canvas__body {
+    left:0;
+  }
+  .off-canvas__element {
+    left: -$off-canvas-element-width;
+  }
+}
+
+.off-canvas--right {
+  .off-canvas__body {
+    right:0;
+  }
+  .off-canvas__element {
+    right: -$off-canvas-element-width;
+  }
+}
+
+// Show off-canvas element
+// If JS is disabled then the psudeo target class will fire and show the off-canvas element
+// Otherwise, we will use JS to append is-active class to show the off-canvas element.
+// :target does not work in IE8. a polyfill is requred or we use javascript.
+.off-canvas--left.is-active,
+.off-canvas--left:target,
+.off-canvas--right.is-active,
+.off-canvas--right:target {
+  .off-canvas__body {
+    .off-canvas__toggle {
+      display:none;
+    }
+  }
+
+  .off-canvas__element {
+    .off-canvas__toggle {
+      display:block;
+    }
+  }
+}
+
+.off-canvas--left.is-active,
+.off-canvas--left:target {
+  .off-canvas__body {
+    left: $off-canvas-element-width;
+  }
+  .off-canvas__element {
+    left: -$off-canvas-element-width;
+  }
+}
+
+.off-canvas--right.is-active,
+.off-canvas--right:target {
+  .off-canvas__body {
+    right: $off-canvas-element-width;
+  }
+  .off-canvas__element {
+    right: -$off-canvas-element-width;
+  }
+}

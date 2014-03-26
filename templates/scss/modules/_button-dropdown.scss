@@ -1,0 +1,26 @@
+.button-dropdown {
+  position: relative;
+  display: inline-block;
+  .button-dropdown__content {
+    position: absolute;
+    left:-9999px;
+    z-index: 999;
+    min-width: 300%;
+    a {
+      display: block;
+    }
+
+    &:target,
+    &.is-active {
+      left:0;
+    }
+  }
+
+  button {
+    &:focus {
+      &+.button-dropdown__content {
+        left:0;
+      }
+    }
+  }
+}

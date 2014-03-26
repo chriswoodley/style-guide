@@ -1,0 +1,110 @@
+@function vertical-rhythm( $lines: 1, $font-size: $base-font-size, $offset: 0px, $unitless: false ) {
+  $unit: if($unitless, 1, 1em);
+  $offset: ( $offset / $font-size );
+  $rhythm: ( $base-line-height / $font-size ) * $lines;
+  @return $rhythm - $offset * $unit;
+}
+
+@function calc-width($target, $context, $unit:percent) {
+  @if($unit == percent) {
+      @return percentage($target / $context);
+  } @else if ($unit == em) {
+      @return ($target / $context) * 1em;
+  } @else if ($unit == px) {
+      @return $context - $target;
+  }
+}
+
+// note: this function is only valid for elements that use box-sizing: content-box
+@function calc-height($border, $padding, $height: $base-line-height) {
+  @return $height - ( $border + $padding );
+}
+
+@function pxtoem( $to-size, $from-size ) {
+  @return ($to-size / $from-size) * 1em;
+}
+
+
+@mixin box-sizing( $value ) {
+  -webkit-box-sizing: $value;
+  -moz-box-sizing: $value;
+  box-sizing: $value;
+}
+
+@mixin baseline-grid-bg ( $rgb: 204 40 130 ) {
+  $line-height: ( $base-line-height / 1px );
+  background-image: url(http://basehold.it/i/#{$line-height}/#{nth($rgb, 1)}/#{nth($rgb, 2)}/#{nth($rgb, 3)}); // with RGB colour
+  background-repeat: repeat;
+}
+
+@mixin font-size( $to-size: $base-font-size, $from-size: $base-font-size, $lines: 1 ) {
+  font-size: ( $to-size / $from-size) * 1em;
+  line-height:ceil($to-size / ( $base-line-height * $lines ) ) * ( ( $base-line-height * $lines ) / $to-size);
+}
+
+@mixin link-colors( $link-color: false, $link-visited-color: false, $link-hover-color: false, $link-active-color: false, $link-focus-color: false ) {
+  @if $link-color {
+    &:link {
+      color: $link-color;
+    }
+  }
+  @if $link-visited-color {
+    &:visited {
+      color: $link-visited-color;
+    }
+  }
+  @if $link-hover-color {
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+  @if $link-active-color {
+    &:active {
+      color: $link-active-color;
+    }
+  }
+  @if $link-focus-color {
+    &:focus {
+      color: $link-focus-color;
+    }
+  }
+}
+
+@mixin box-arrow($side: top, $color: $blue, $width: $base-font-size) {
+  position: relative;
+  padding: vertical-rhythm( 0.5 ) 1em;
+  margin-bottom: vertical-rhythm();
+  &:after {
+    content:"";
+    display: block;
+    position: absolute;
+    border: $width solid transparent;
+    @if $side == top or $side == bottom {
+      left:50%;
+      margin-left: -$width;
+    } @else if $side == top-left or $side == bottom-left {
+      left:$width;
+    } @else if $side == top-right or $side == bottom-right {
+      right:$width;
+    } @else if $side == right or $side == left {
+      top:50%;
+      margin-top: -$width;
+    }
+    @if $side == top or $side == top-left or $side == top-right {
+      top: -$width * 2;
+      border-bottom-color:$color;
+    } @else if $side == bottom or $side == bottom-left or $side == bottom-right {
+      bottom: -$width * 2;
+      border-top-color:$color;
+    } @else if $side == left {
+      border-right-color: $color;
+      left: -$width * 2;
+    } @else if $side == right {
+      border-left-color: $color;
+      right: -$width * 2;
+    }
+  }
+  & > :last-child  {
+    margin-bottom: 0;
+  }
+}

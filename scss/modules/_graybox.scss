@@ -1,0 +1,37 @@
+.graybox {
+  background: $gray;
+  color:$white;
+  text-align: center;
+}
+
+.graybox--light {
+  background:$light-gray;
+}
+
+.graybox--dark {
+  background:$dark-gray;
+}
+
+.graybox--very-dark {
+  background:$black;
+}
+
+.graybox--small {
+  line-height: vertical-rhythm(2, $unitless: true);
+}
+
+.graybox--medium {
+  line-height: vertical-rhythm(4, $unitless: true);
+}
+
+.graybox--large {
+  line-height: vertical-rhythm(8, $unitless: true);
+}
+
+.graybox--huge {
+  line-height: vertical-rhythm(16, $unitless: true);
+}
+
+.graybox--gigantic {
+  line-height: vertical-rhythm(32, $unitless: true);
+}

@@ -1,0 +1,101 @@
+/**
+ * This module is heavily inspired by the inuit.css frame work
+ * https://github.com/csswizardry/inuit.css/blob/master/objects/_rules.scss
+ */
+
+.rule {
+    border:none;
+    border-bottom-width:1px;
+    border-bottom-style:solid;
+    border-bottom-color: $light-gray;
+    margin: 0 0 vertical-rhythm(1, $base-font-size, 1px) 0;
+}
+
+.rule--dotted {
+    border-bottom-width:dotted;
+    border-bottom-style:dotted;
+}
+
+.rule--dashed {
+    border-bottom-style:dashed;
+}
+
+.rule--double {
+    border-bottom-width:4px;
+    border-bottom-style: double;
+}
+
+.rule--ornament {
+    position:relative;
+
+    &:after {
+        content:"\00A7";
+        width:$base-font-size;
+        height: $base-font-size;
+        position:absolute;
+        top:   -0.5px;
+        left:  50%;
+        margin-left: -$base-font-size / 2;
+        background: $white;
+        line-height:0;
+        text-align:center;
+        color:$light-gray;
+    }
+
+    /**
+    * Pass in an arbitrary ornament though a data attribute, e.g.:
+    *
+      <hr class="rule  rule--ornament" data-ornament="!">
+    *
+    */
+    &[data-ornament]:after {
+        content:attr(data-ornament);
+    }
+}
+
+.rule--faded,
+.rule--shadow {
+    border-bottom: none;
+}
+
+
+.rule--faded {
+    height: 1px;
+    background: $light-gray;
+    background: -moz-linear-gradient(
+        left, 
+        rgba($light-gray, 0) 0%,
+        rgba($light-gray, 1) 25%,
+        rgba($light-gray, 1) 75%,
+        rgba($light-gray, 0) 100%
+    );
+
+    background: -webkit-linear-gradient(
+        left, 
+        rgba($light-gray, 0) 0%,
+        rgba($light-gray, 1) 25%,
+        rgba($light-gray, 1) 75%,
+        rgba($light-gray, 0) 100%
+    );
+
+    background: linear-gradient(
+        to left, 
+        rgba($light-gray, 0) 0%,
+        rgba($light-gray, 1) 25%,
+        rgba($light-gray, 1) 75%,
+        rgba($light-gray, 0) 100%
+    );
+
+}
+
+.rule--shadow {
+    height: $base-line-height;
+    box-shadow: inset 0 $base-line-height $base-line-height -#{$base-line-height} rgba($black,0.3);
+}
+
+.rule--inset {
+    border-bottom-color: rgba($white, 0.5);
+    border-top-width:1px;
+    border-top-style:solid;
+    border-top-color: rgba($black, 0.5);
+}

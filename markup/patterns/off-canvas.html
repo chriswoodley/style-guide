@@ -1,0 +1,125 @@
+<p>This pattern does not gracefully degrade under IE8 due to the :target psuedo class feature not being present in that browser. In this case, JavaScript will be required to trigger the effect or a polyfill will be needed to make the :target psuedo class compatible with IE 8. If neither can be done, then this pattern should not be used for IE 8.</p>
+<h3>Left positioned off-canvas element with Psuedo :target CSS only experience.</h3>
+
+<!-- We did not append the .is-active class here to simulate the CSS only experience -->
+<div id="off-canvas-1" class="off-canvas off-canvas--left off-canvas-demo">
+
+  <div id="off-canvas-1-off" class="off-canvas__body">
+
+    <header class="off-canvas__toggle">
+      <!-- target the parent container to make the off-canvas element appear -->
+      <a href="#off-canvas-1">Menu</a>
+    </header>
+
+    <nav class="off-canvas__element menu-demo">
+      <div class="off-canvas__toggle">
+        <!--
+          We will need to un-target the parent container to make the off-canvas element disappear.
+          The href could just be # and we could just remove the id attribute from the off-canvas__body.
+          For this demo, the off-canvas__body element is targeted to keep the page from jumping all the way to the top of the style guide.
+        -->
+        <a href="#off-canvas-1-off">Close</a>
+      </div>
+      <ul class="menu menu--stacked unstyled-list">
+        <li class="menu__item"><a href="#">Menu Item One</a></li>
+        <li class="menu__item"><a href="#">Menu Item Two</a></li>
+        <li class="menu__item"><a href="#">Menu Item Three</a></li>
+        <li class="menu__item sub-menu sub-menu--flyout sub-menu-demo"><a href="#">Menu Item Four +</a>
+          <ul class="sub-menu__items unstyled-list">
+            <li><a href="#">Menu Item One</a></li>
+            <li><a href="#">Menu Item Two</a></li>
+            <li><a href="#">Menu Item Three</a></li>
+            <li class="sub-menu sub-menu--flyout sub-menu-demo"><a href="#">Menu Item Three >></a>
+              <ul class="sub-menu__items unstyled-list">
+                <li><a href="#">Menu Item One</a></li>
+                <li><a href="#">Menu Item Two</a></li>
+                <li><a href="#">Menu Item Three</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="menu__item"><a href="#">Menu Item Five</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h1>HTML Ipsum Presents</h1>
+      <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+      <h2>Header Level 2</h2>
+      <ol>
+         <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+         <li>Aliquam tincidunt mauris eu risus.</li>
+      </ol>
+      <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+      <h3>Header Level 3</h3>
+      <ul>
+         <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+         <li>Aliquam tincidunt mauris eu risus.</li>
+      </ul>
+    </main>
+
+  </div>
+  <!--/ .off-canvas__body -->
+
+</div>
+<!--/ .off-canvas -->
+
+
+<p>&nbsp;</p>
+<h3>Right positioned off-canvas element with .is-active class JS experience.</h3>
+
+<!-- We append the .is-active class here to simulate the JS experience -->
+<div id="off-canvas-2" class="off-canvas off-canvas--right off-canvas-demo is-active">
+
+  <div id="off-canvas-2-off" class="off-canvas__body">
+
+    <div class="off-canvas__toggle">
+      <!-- target the parent container to make the off-canvas element appear -->
+      <a href="#off-canvas-2">Menu</a>
+    </div>
+
+    <div class="off-canvas__element">
+      <div class="off-canvas__toggle">
+        <!--
+          We will need to un-target the parent container to make the off-canvas element disappear.
+          The href could just be # and we could just remove the id attribute from the off-canvas__body.
+          For this demo, the off-canvas__body element is targeted to keep the page from jumping all the way to the top of the style guide.
+        -->
+        <a href="#off-canvas-2-off">Close</a>
+      </div>
+      menu items here
+    </div>
+
+    <h1>HTML Ipsum Presents</h1>
+         
+    <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+
+    <h2>Header Level 2</h2>
+             
+    <ol>
+       <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+       <li>Aliquam tincidunt mauris eu risus.</li>
+    </ol>
+
+    <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+
+    <h3>Header Level 3</h3>
+
+    <ul>
+       <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+       <li>Aliquam tincidunt mauris eu risus.</li>
+    </ul>
+
+    <pre><code>
+    #header h1 a { 
+      display: block; 
+      width: 300px; 
+      height: 80px; 
+    }
+    </code></pre>
+
+  </div>
+  <!--/ .off-canvas__body -->
+
+</div>
+<!--/ .off-canvas -->
