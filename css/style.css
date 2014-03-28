@@ -1861,24 +1861,31 @@ img.float-right {
     float: none;
   }
 }
+@media (max-width: 480px) {
+  /* line 6, ../scss/modules/_menu.scss */
+  .menu {
+    display: block;
+    width: inherit;
+  }
+}
 
-/* line 18, ../scss/modules/_menu.scss */
+/* line 23, ../scss/modules/_menu.scss */
 .menu--centered {
   width: auto;
   margin: 0 auto;
 }
 
-/* line 23, ../scss/modules/_menu.scss */
+/* line 28, ../scss/modules/_menu.scss */
 .menu--right {
   width: auto;
   margin-left: auto;
 }
 
-/* line 28, ../scss/modules/_menu.scss */
+/* line 33, ../scss/modules/_menu.scss */
 .menu--justified {
   width: 100%;
 }
-/* line 30, ../scss/modules/_menu.scss */
+/* line 35, ../scss/modules/_menu.scss */
 .menu--justified .menu__item {
   display: table-cell;
   float: none;
@@ -1887,14 +1894,14 @@ img.float-right {
   text-align: center;
 }
 @media (max-width: 480px) {
-  /* line 30, ../scss/modules/_menu.scss */
+  /* line 35, ../scss/modules/_menu.scss */
   .menu--justified .menu__item {
     display: block;
     width: inherit;
   }
 }
 
-/* line 44, ../scss/modules/_menu.scss */
+/* line 49, ../scss/modules/_menu.scss */
 .menu--stacked .menu__item {
   display: block;
   float: none;

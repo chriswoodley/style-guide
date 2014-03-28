@@ -13,6 +13,11 @@
       float: none;
     }
   }
+
+  @media ( max-width: $small-screen ) {
+      display: block;
+      width: inherit;
+    }
 }
 
 .menu--centered {

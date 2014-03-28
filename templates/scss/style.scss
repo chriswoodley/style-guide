@@ -9,22 +9,12 @@
 'modules/graybox',
 'modules/menu',
 'modules/sub-menu',
+'modules/off-canvas-v2',
 'layout/common';
 
-// SUB MENU DEMO
-.sub-menu-demo {
-  a {
-    background: $light-gray;
-    padding: vertical-rhythm( .5 ) 1em;
-    &:hover {
-      background: $dark-gray;
-      color:#fff;
-    }
-  }
-}
 
 // Primary Navigation
-.primary-navigation {
+.menu-demo {
 
   a {
     padding: vertical-rhythm( .5 ) 1em;
