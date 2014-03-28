@@ -1,24 +1,11 @@
-$off-canvas-element-width: 75%;
-
-.off-canvas,
-.off-canvas__body {
-  position: relative;
-  width: 100%;
-}
+$off-canvas-menu-width: 75%;
 
 .off-canvas {
-  overflow-x: hidden;
-  .off-canvas__body {
-    @extend .clearfix;
-  }
-  .off-canvas__element {
-    width: $off-canvas-element-width;
-    top: 0;
-    bottom: 0;
-    position: absolute;
-  }
-  .off-canvas__body,
-  .off-canvas__element {
+    overflow-x: hidden;
+}
+
+.off-canvas__menu,
+.off-canvas__content {
     -webkit-transition-property: left, right;
     -moz-transition-property: left, right;
     transition-property: left, right;
@@ -28,65 +15,75 @@ $off-canvas-element-width: 75%;
     -webkit-transition-timing-function: ease-in-out;
     -moz-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out;
-  }
 }
 
-// Hide off canvas element
+.off-canvas__menu {
+    position: fixed;
+    top:0;
+    bottom:0;
+    z-index: 9999;
+    width: $off-canvas-menu-width;
+}
+
+.off-canvas__content {
+    position: relative;
+
+    // optionaly prevent the content from scrolling
+    .off-canvas--fixed-content & {
+        position: fixed;
+        width:100%;
+    }
+
+}
+
+// off canvas left
 .off-canvas--left {
-  .off-canvas__body {
-    left:0;
-  }
-  .off-canvas__element {
-    left: -$off-canvas-element-width;
-  }
+
+    .off-canvas__menu {
+        left: -$off-canvas-menu-width;
+    }
+
+    .off-canvas__content {
+        left: 0;
+    }
+
+    &:target,
+    &.is-active {
+
+        .off-canvas__menu {
+            left: 0;
+        }
+
+        .off-canvas__content {
+            left: $off-canvas-menu-width;
+        }
+
+    }
+
 }
 
+// off canvas right
 .off-canvas--right {
-  .off-canvas__body {
-    right:0;
-  }
-  .off-canvas__element {
-    right: -$off-canvas-element-width;
-  }
-}
 
-// Show off-canvas element
-// If JS is disabled then the psudeo target class will fire and show the off-canvas element
-// Otherwise, we will use JS to append is-active class to show the off-canvas element.
-// :target does not work in IE8. a polyfill is requred or we use javascript.
-.off-canvas--left.is-active,
-.off-canvas--left:target,
-.off-canvas--right.is-active,
-.off-canvas--right:target {
-  .off-canvas__body {
-    .off-canvas__toggle {
-      display:none;
+    .off-canvas__menu {
+        right: -$off-canvas-menu-width;
     }
-  }
 
-  .off-canvas__element {
-    .off-canvas__toggle {
-      display:block;
+    .off-canvas__content {
+        right: 0;
     }
-  }
-}
 
-.off-canvas--left.is-active,
-.off-canvas--left:target {
-  .off-canvas__body {
-    left: $off-canvas-element-width;
-  }
-  .off-canvas__element {
-    left: -$off-canvas-element-width;
-  }
-}
+    &:target,
+    &.is-active {
 
-.off-canvas--right.is-active,
-.off-canvas--right:target {
-  .off-canvas__body {
-    right: $off-canvas-element-width;
-  }
-  .off-canvas__element {
-    right: -$off-canvas-element-width;
-  }
+        .off-canvas__menu {
+            right: 0;
+        }
+
+        .off-canvas__content {
+            right: $off-canvas-menu-width;
+        }
+
+    }
+
 }

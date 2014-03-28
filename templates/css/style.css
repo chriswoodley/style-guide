@@ -875,13 +875,27 @@ img.float-right {
   width: 100%;
 }
 
-/* line 85, ../scss/_helpers.scss */
+@media screen and (max-width: 480px) {
+  /* line 83, ../scss/_helpers.scss */
+  .hide-from-small-device {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  /* line 89, ../scss/_helpers.scss */
+  .show-on-small-device {
+    display: none;
+  }
+}
+
+/* line 96, ../scss/_helpers.scss */
 .hidden {
   display: none !important;
   visibility: hidden;
 }
 
-/* line 91, ../scss/_helpers.scss */
+/* line 102, ../scss/_helpers.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -897,7 +911,7 @@ img.float-right {
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
  */
-/* line 108, ../scss/_helpers.scss */
+/* line 119, ../scss/_helpers.scss */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -908,23 +922,9 @@ img.float-right {
   width: auto;
 }
 
-/* line 118, ../scss/_helpers.scss */
+/* line 129, ../scss/_helpers.scss */
 .invisible {
   visibility: hidden;
-}
-
-@media screen and (max-width: 480px) {
-  /* line 122, ../scss/_helpers.scss */
-  .hide-from-small-device {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 480px) {
-  /* line 128, ../scss/_helpers.scss */
-  .show-on-small-device {
-    display: none;
-  }
 }
 
 /* line 1, ../scss/modules/_browse-happy.scss */
@@ -1448,29 +1448,76 @@ img.float-right {
   left: 100%;
 }
 
-/* line 3, ../scss/modules/_off-canvas-v2.scss */
-.off-canvas-v2 {
+/* line 3, ../scss/modules/_off-canvas.scss */
+.off-canvas {
   overflow-x: hidden;
 }
 
-/* line 7, ../scss/modules/_off-canvas-v2.scss */
-.off-canvas-v2__menu {
+/* line 8, ../scss/modules/_off-canvas.scss */
+.off-canvas__menu,
+.off-canvas__content {
+  -webkit-transition-property: left, right;
+  -moz-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+/* line 20, ../scss/modules/_off-canvas.scss */
+.off-canvas__menu {
   position: fixed;
   top: 0;
   bottom: 0;
-  left: -75%;
   z-index: 9999;
   width: 75%;
 }
 
-/* line 17, ../scss/modules/_off-canvas-v2.scss */
-.off-canvas-v2__content {
+/* line 28, ../scss/modules/_off-canvas.scss */
+.off-canvas__content {
   position: relative;
 }
-/* line 21, ../scss/modules/_off-canvas-v2.scss */
-.off-canvas-v2--fixed-content .off-canvas-v2__content {
+/* line 32, ../scss/modules/_off-canvas.scss */
+.off-canvas--fixed-content .off-canvas__content {
   position: fixed;
   width: 100%;
+}
+
+/* line 42, ../scss/modules/_off-canvas.scss */
+.off-canvas--left .off-canvas__menu {
+  left: -75%;
+}
+/* line 46, ../scss/modules/_off-canvas.scss */
+.off-canvas--left .off-canvas__content {
+  left: 0;
+}
+/* line 53, ../scss/modules/_off-canvas.scss */
+.off-canvas--left:target .off-canvas__menu, .off-canvas--left.is-active .off-canvas__menu {
+  left: 0;
+}
+/* line 57, ../scss/modules/_off-canvas.scss */
+.off-canvas--left:target .off-canvas__content, .off-canvas--left.is-active .off-canvas__content {
+  left: 75%;
+}
+
+/* line 68, ../scss/modules/_off-canvas.scss */
+.off-canvas--right .off-canvas__menu {
+  right: -75%;
+}
+/* line 72, ../scss/modules/_off-canvas.scss */
+.off-canvas--right .off-canvas__content {
+  right: 0;
+}
+/* line 79, ../scss/modules/_off-canvas.scss */
+.off-canvas--right:target .off-canvas__menu, .off-canvas--right.is-active .off-canvas__menu {
+  right: 0;
+}
+/* line 83, ../scss/modules/_off-canvas.scss */
+.off-canvas--right:target .off-canvas__content, .off-canvas--right.is-active .off-canvas__content {
+  right: 75%;
 }
 
 /* .site-header {
