@@ -1,7 +1,6 @@
 .grid,
 .grid__row,
 .grid__col {
-  display: block;
   @include box-sizing(border-box);
 }
 
