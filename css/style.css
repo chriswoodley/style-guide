@@ -1865,7 +1865,7 @@ img.float-right {
   /* line 6, ../scss/modules/_menu.scss */
   .menu {
     display: block;
-    width: inherit;
+    width: 100%;
   }
 }
 
