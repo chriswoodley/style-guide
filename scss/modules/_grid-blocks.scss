@@ -37,3 +37,7 @@
     }
   }
 }
+
+.grid-blocks--unstyled-list {
+  @extend %unstyled-lists;
+}

@@ -56,7 +56,7 @@
 
     .grid__col--inset-#{$i} {
       margin-right: ( 100% / $grid-columns ) * $i;
-      @extend %grid__col--small-screen-padding-right;
+      @extend %grid__col--small-screen-margin-right;
     }
   }
 

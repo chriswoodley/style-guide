@@ -1,0 +1,33 @@
+.input-group {
+    display: table;
+    margin-bottom: vertical-rhythm();
+}
+
+.input-group__addon,
+.input-group__input {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+.input-group__addon {
+    width: 1%;
+    background: $light-gray;
+    & > * {
+        width: 100%;
+    }
+}
+
+.input-group__input {
+    width: 100%;
+    &>* {
+        width: inherit;
+        line-height:vertical-rhythm( $unitless: true );
+        .input-group--large & {
+            line-height:vertical-rhythm($lines: 1.5, $unitless: true );
+        }
+        .input-group--huge & {
+            line-height:vertical-rhythm($lines: 2, $unitless: true );
+        }
+    }
+}

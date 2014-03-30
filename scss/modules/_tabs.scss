@@ -110,3 +110,7 @@
   }
 
 }
+
+.tabs__nav--unstyled-list {
+  @extend %unstyled-lists;
+}

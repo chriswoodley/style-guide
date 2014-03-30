@@ -1,20 +1,20 @@
 .breadcrumb {
-  display: block;
-  list-style: none;
-  margin: 0;
-  padding: 0;
   background:$light-gray;
   overflow: hidden;
+
   .breadcrumb__item,
   .breadcrumb__link {
     display: inline-block;
   }
+
   .breadcrumb__item {
     position: relative;
     padding-left: pxtoem(31px, $base-font-size);
+
     &:first-child {
       padding-left: pxtoem(14px, $base-font-size);
     }
+
     .breadcrumb__link {
       text-decoration: none;
       @include link-colors( $dark-gray, $dark-gray, $black, $black, $black );
@@ -31,43 +31,56 @@
         pointer-events: none;
         z-index: 999;
       }
+
       &:after {
         border-left-color: $light-gray;
         border-width: 21px;
         margin-top: -21px;
       }
+
       &:before {
         border-left-color: scale_color($light-gray, $lightness: 40%);
         border-width: 23px;
         margin-top: -23px;
       }
+
     }
+
   }
 
   .breadcrumb__item--active {
     background:$dark-gray;
     color:$white;
+
     &:after,
-      &:before {
-        left: 100%;
-        top: 50%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-        z-index: 999;
-      }
-      &:after {
-        border-left-color: $dark-gray;
-        border-width: 21px;
-        margin-top: -21px;
-      }
-      &:before {
-        border-left-color: scale_color($dark-gray, $lightness: 40%);
-        border-width: 23px;
-        margin-top: -23px;
-      }
+    &:before {
+      left: 100%;
+      top: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    &:after {
+      border-left-color: $dark-gray;
+      border-width: 21px;
+      margin-top: -21px;
+    }
+
+    &:before {
+      border-left-color: scale_color($dark-gray, $lightness: 40%);
+      border-width: 23px;
+      margin-top: -23px;
+    }
+
   }
+
+}
+
+.breadcrumb--unstyled-list {
+  @extend %unstyled-lists;
 }

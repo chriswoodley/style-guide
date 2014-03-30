@@ -6,35 +6,49 @@
 
 .sub-menu {
   position: relative;
+
   &>.sub-menu__items {
     position: absolute;
     left: -99999px;
     z-index: 999;
     white-space: nowrap;
+
     @media ( max-width: $small-screen ) {
       position:static;
       max-height: 0px;
       overflow: hidden;
     }
+
   }
 
   &:hover,
   &.sub-menu--active {
+
     &>.sub-menu__items {
       left:auto;
       @media ( max-width: $small-screen ) {
         max-height: 9999px;
       }
     }
+
   }
+
 }
 
 .sub-menu--flyout {
+
   &:hover,
   &.sub-menu--active {
+
     &>.sub-menu__items {
       top:0;
       left:100%;
     }
+
   }
+
+}
+
+.sub-menu--unstyled-list {
+  @extend %unstyled-lists;
 }

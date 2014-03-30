@@ -2,6 +2,7 @@
   display: block;
   text-align: center;
   padding: vertical-rhythm(.25) 0;
+
   .pagination__item {
     display: inline-block;
     margin-right: -4px;
@@ -20,6 +21,7 @@
       padding: vertical-rhythm(.5) 1.25em;
     }
   }
+
 }
 
 .pagination--left {
@@ -32,11 +34,19 @@
 
 .pagination--pager {
   overflow: hidden;
+
   .pagination__item {
     float: left;
     min-width:10em;
+
     & + .pagination__item {
       float: right;
     }
+
   }
+
+}
+
+.pagination--unstyled-list {
+  @extend %unstyled-lists;
 }

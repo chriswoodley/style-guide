@@ -1,7 +1,7 @@
 <p>By default, blocks are only as wide as their content and can simply apply the pattern without width modifiers. This works great with blocks of images. However, if you add image captions…the width of the block grows and can create an underisable grid. I've included a mixin 'grid-block-widths( $parent-container-width: $site-width, $grid-columns: $grid-columns )' that will create the necessary width modifiers. You can pass in the parent container width and the number of columns and it will generate '.grid-blocks--#-up' class modifiers.</p>
 
 <div class="grid-blocks-demo">
-  <ul class="grid-blocks grid-blocks--3-up unstyled-list">
+  <ul class="grid-blocks grid-blocks--3-up grid-blocks--unstyled-list">
     <li class="grid-blocks__block">
       <img src="http://placehold.it/210x210">
       <p>Pellentesque habitant morbi tristique senectus.</p>

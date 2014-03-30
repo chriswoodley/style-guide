@@ -1,25 +1,116 @@
+// global styles
+.tabs,
+.tabs__nav,
+.tabs__nav a,
+.tabs__nav .tabs__nav-item,
+.tabs__content,
+.tabs__content .tabs__content-item {
+  display: block;
+}
+
 .tabs {
+  overflow: hidden;
+}
 
-  .tabs__nav {
-    display: block;
-    overflow: hidden;
-    .tabs__nav-item {
-      display: block;
-      float: left;
+.tabs__nav,
+.tabs__content,
+.tabs__content .tabs__content-item.is-active {
+  position: relative;
+}
+
+.tabs__nav .tabs__nav-item.is-active,
+.tabs_content {
+  background: $white;
+}
+
+// tabs__nav
+.tabs__nav {
+  z-index: 999;
+  @extend .clearfix;
+
+  .tabs__nav-item {
+    float: left;
+    background:$light-gray;
+
+    &+.tabs__nav-item {
+      border-left: 1px solid $white;
+      @media screen and (max-width: $small-screen) {
+        border-top: 1px solid $white;
+        border-left: none;
+      }
+    }
+
+    .tabs--vertical & {
+      float: none;
+      &+.tabs__nav-item {
+        border-top: 1px solid $white;
+        border-left: none;
+      }
+    }
+
+    @media screen and (max-width: $small-screen) {
+      float: none;
+    }
+
+  }
+
+  a {
+    text-decoration: none;
+    color:$dark-gray;
+    padding: vertical-rhythm(0.5) 1em;
+  }
+
+  .tabs--vertical & {
+    float: left;
+    width:20%;
+    @media screen and (max-width: $small-screen) {
+      float: none;
+      width:inherit;
+    }
+  }
+}
+
+// tabs__content
+.tabs__content {
+  border-top: 1px solid $light-gray;
+  margin-top: -1px;
+
+  .tabs__content-item {
+    position: absolute;
+    top:0;
+    left:-9999px;
+    padding: vertical-rhythm(1) 1em;
+
+    &>:last-child {
+      margin-bottom: 0;
+    }
+
+    &.is-active {
+      left:0;
+    }
+
+    .tabs--vertical & {
+      padding: 0 0 0 1em;
+      @media screen and (max-width: $small-screen) {
+        padding: vertical-rhythm(1) 1em;
+      }
+    }
+
+  }
+
+  .tabs--vertical & {
+    float: left;
+    width:80%;
+    margin-top: 0;
+    border-top:none;
+    @media screen and (max-width: $small-screen) {
+      float: none;
+      width:inherit;
     }
   }
 
-   .tabs__nav {
+}
 
-    a {
-      display:block;
-      padding: vertical-rhythm(0.5) 1em;
-    }
-
-  }
-
-  .tabs__content {
-
-  }
-
+.tabs__nav--unstyled-list {
+  @extend %unstyled-lists;
 }
