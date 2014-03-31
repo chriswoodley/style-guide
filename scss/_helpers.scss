@@ -2,6 +2,14 @@
   @extend %clearfix;
 }
 
+.unstyled-list {
+  @extend %unstyled-list;
+}
+
+.inline {
+  @extend %inline;
+}
+
 // TEXT ALIGNMENT
 .text-align-left {
   text-align: left;

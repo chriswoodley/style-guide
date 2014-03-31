@@ -1,4 +1,4 @@
-%unstyled-lists {
+%unstyled-list {
 	margin: 0;
 	padding: 0;
 	list-style:none;
@@ -12,5 +12,13 @@
   }
   &:after {
     clear: both;
+  }
+}
+
+%inline {
+  &>* {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0;
   }
 }

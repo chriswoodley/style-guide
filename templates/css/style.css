@@ -702,10 +702,24 @@ table {
   margin: 0 0 1.5em 0; }
 
 /* line 1, ../scss/_placeholders.scss */
-.grid-blocks--unstyled-list, .menu--unstyled-list, .sub-menu--unstyled-list {
+.grid-blocks--unstyled-list, .menu--unstyled-list, .sub-menu--unstyled-list, .unstyled-list {
   margin: 0;
   padding: 0;
   list-style: none; }
+
+/* line 8, ../scss/_placeholders.scss */
+.clearfix:before, .grid .grid__row:before, .clearfix:after, .grid .grid__row:after {
+  content: " ";
+  display: table; }
+/* line 13, ../scss/_placeholders.scss */
+.clearfix:after, .grid .grid__row:after {
+  clear: both; }
+
+/* line 19, ../scss/_placeholders.scss */
+.inline > * {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0; }
 
 /* line 1, ../scss/modules/_browse-happy.scss */
 .browsehappy {
@@ -1175,76 +1189,62 @@ table {
 .off-canvas--right:target .off-canvas__content, .off-canvas--right.is-active .off-canvas__content {
   right: 75%; }
 
-/* line 2, ../scss/_helpers.scss */
-.clearfix:before, .grid .grid__row:before, .clearfix:after, .grid .grid__row:after {
-  content: " ";
-  display: table; }
-/* line 7, ../scss/_helpers.scss */
-.clearfix:after, .grid .grid__row:after {
-  clear: both; }
-
-/* line 13, ../scss/_helpers.scss */
-.unstyled-list {
-  margin: 0;
-  padding: 0;
-  list-style-type: none; }
-
-/* line 20, ../scss/_helpers.scss */
+/* line 14, ../scss/_helpers.scss */
 .text-align-left {
   text-align: left; }
 
-/* line 24, ../scss/_helpers.scss */
+/* line 18, ../scss/_helpers.scss */
 .text-align-right {
   text-align: right; }
 
-/* line 28, ../scss/_helpers.scss */
+/* line 22, ../scss/_helpers.scss */
 .text-align-center {
   text-align: center; }
 
-/* line 33, ../scss/_helpers.scss */
+/* line 27, ../scss/_helpers.scss */
 .radius {
   border-radius: 4px; }
 
-/* line 36, ../scss/_helpers.scss */
+/* line 30, ../scss/_helpers.scss */
 .top-left-radius {
   border-top-left-radius: 4px; }
 
-/* line 39, ../scss/_helpers.scss */
+/* line 33, ../scss/_helpers.scss */
 .top-right-radius {
   border-top-right-radius: 4px; }
 
-/* line 42, ../scss/_helpers.scss */
+/* line 36, ../scss/_helpers.scss */
 .bottom-left-radius {
   border-bottom-left-radius: 4px; }
 
-/* line 45, ../scss/_helpers.scss */
+/* line 39, ../scss/_helpers.scss */
 .bottom-right-radius {
   border-bottom-right-radius: 4px; }
 
-/* line 50, ../scss/_helpers.scss */
+/* line 44, ../scss/_helpers.scss */
 .float-left {
   float: left; }
 
-/* line 54, ../scss/_helpers.scss */
+/* line 48, ../scss/_helpers.scss */
 img.float-left {
   margin-right: 14px; }
 
-/* line 58, ../scss/_helpers.scss */
+/* line 52, ../scss/_helpers.scss */
 .float-right {
   float: right; }
 
-/* line 62, ../scss/_helpers.scss */
+/* line 56, ../scss/_helpers.scss */
 img.float-right {
   margin-left: 14px; }
 
-/* line 68, ../scss/_helpers.scss */
+/* line 62, ../scss/_helpers.scss */
 .stick-to-top {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%; }
 
-/* line 75, ../scss/_helpers.scss */
+/* line 69, ../scss/_helpers.scss */
 .stick-to-bottom {
   position: fixed;
   bottom: 0;
@@ -1252,21 +1252,21 @@ img.float-right {
   width: 100%; }
 
 @media screen and (max-width: 480px) {
-  /* line 83, ../scss/_helpers.scss */
+  /* line 77, ../scss/_helpers.scss */
   .hide-from-small-device {
     display: none; } }
 
 @media screen and (min-width: 480px) {
-  /* line 89, ../scss/_helpers.scss */
+  /* line 83, ../scss/_helpers.scss */
   .show-on-small-device {
     display: none; } }
 
-/* line 96, ../scss/_helpers.scss */
+/* line 90, ../scss/_helpers.scss */
 .hidden {
   display: none !important;
   visibility: hidden; }
 
-/* line 102, ../scss/_helpers.scss */
+/* line 96, ../scss/_helpers.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -1281,7 +1281,7 @@ img.float-right {
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
  */
-/* line 118, ../scss/_helpers.scss */
+/* line 112, ../scss/_helpers.scss */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -1291,9 +1291,14 @@ img.float-right {
   position: static;
   width: auto; }
 
-/* line 129, ../scss/_helpers.scss */
+/* line 123, ../scss/_helpers.scss */
 .invisible {
   visibility: hidden; }
+
+/* line 127, ../scss/_helpers.scss */
+.base-line-grid {
+  background-image: url(http://basehold.it/i/21/204/40/130);
+  background-repeat: repeat; }
 
 /* line 18, ../scss/style.scss */
 .menu-demo a {

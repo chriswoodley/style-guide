@@ -659,7 +659,7 @@ table {
   margin: 0 0 1.5em 0; }
 
 /* line 1, ../scss/_placeholders.scss */
-.breadcrumb--unstyled-list, .grid-blocks--unstyled-list, .menu--unstyled-list, .pagination--unstyled-list, .sub-menu--unstyled-list, .tabs__nav--unstyled-list {
+.breadcrumb--unstyled-list, .grid-blocks--unstyled-list, .menu--unstyled-list, .pagination--unstyled-list, .sub-menu--unstyled-list, .tabs__nav--unstyled-list, .unstyled-list {
   margin: 0;
   padding: 0;
   list-style: none; }
@@ -680,6 +680,12 @@ table {
 .widget__body:after,
 .widget__footer:after {
   clear: both; }
+
+/* line 19, ../scss/_placeholders.scss */
+.inline > * {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0; }
 
 /* line 1, ../scss/modules/_alert.scss */
 .alert {
@@ -2144,62 +2150,62 @@ table {
   .widget.widget--no-footer-padding > .widget__footer {
     padding: 0; }
 
-/* line 6, ../scss/_helpers.scss */
+/* line 14, ../scss/_helpers.scss */
 .text-align-left {
   text-align: left; }
 
-/* line 10, ../scss/_helpers.scss */
+/* line 18, ../scss/_helpers.scss */
 .text-align-right {
   text-align: right; }
 
-/* line 14, ../scss/_helpers.scss */
+/* line 22, ../scss/_helpers.scss */
 .text-align-center {
   text-align: center; }
 
-/* line 19, ../scss/_helpers.scss */
+/* line 27, ../scss/_helpers.scss */
 .radius {
   border-radius: 4px; }
 
-/* line 22, ../scss/_helpers.scss */
+/* line 30, ../scss/_helpers.scss */
 .top-left-radius {
   border-top-left-radius: 4px; }
 
-/* line 25, ../scss/_helpers.scss */
+/* line 33, ../scss/_helpers.scss */
 .top-right-radius {
   border-top-right-radius: 4px; }
 
-/* line 28, ../scss/_helpers.scss */
+/* line 36, ../scss/_helpers.scss */
 .bottom-left-radius {
   border-bottom-left-radius: 4px; }
 
-/* line 31, ../scss/_helpers.scss */
+/* line 39, ../scss/_helpers.scss */
 .bottom-right-radius {
   border-bottom-right-radius: 4px; }
 
-/* line 36, ../scss/_helpers.scss */
+/* line 44, ../scss/_helpers.scss */
 .float-left {
   float: left; }
 
-/* line 40, ../scss/_helpers.scss */
+/* line 48, ../scss/_helpers.scss */
 img.float-left {
   margin-right: 14px; }
 
-/* line 44, ../scss/_helpers.scss */
+/* line 52, ../scss/_helpers.scss */
 .float-right {
   float: right; }
 
-/* line 48, ../scss/_helpers.scss */
+/* line 56, ../scss/_helpers.scss */
 img.float-right {
   margin-left: 14px; }
 
-/* line 54, ../scss/_helpers.scss */
+/* line 62, ../scss/_helpers.scss */
 .stick-to-top {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%; }
 
-/* line 61, ../scss/_helpers.scss */
+/* line 69, ../scss/_helpers.scss */
 .stick-to-bottom {
   position: fixed;
   bottom: 0;
@@ -2207,21 +2213,21 @@ img.float-right {
   width: 100%; }
 
 @media screen and (max-width: 480px) {
-  /* line 69, ../scss/_helpers.scss */
+  /* line 77, ../scss/_helpers.scss */
   .hide-from-small-device {
     display: none; } }
 
 @media screen and (min-width: 480px) {
-  /* line 75, ../scss/_helpers.scss */
+  /* line 83, ../scss/_helpers.scss */
   .show-on-small-device {
     display: none; } }
 
-/* line 82, ../scss/_helpers.scss */
+/* line 90, ../scss/_helpers.scss */
 .hidden {
   display: none !important;
   visibility: hidden; }
 
-/* line 88, ../scss/_helpers.scss */
+/* line 96, ../scss/_helpers.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -2236,7 +2242,7 @@ img.float-right {
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
  */
-/* line 104, ../scss/_helpers.scss */
+/* line 112, ../scss/_helpers.scss */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -2246,11 +2252,11 @@ img.float-right {
   position: static;
   width: auto; }
 
-/* line 115, ../scss/_helpers.scss */
+/* line 123, ../scss/_helpers.scss */
 .invisible {
   visibility: hidden; }
 
-/* line 119, ../scss/_helpers.scss */
+/* line 127, ../scss/_helpers.scss */
 .base-line-grid {
   background-image: url(http://basehold.it/i/21/204/40/130);
   background-repeat: repeat; }
