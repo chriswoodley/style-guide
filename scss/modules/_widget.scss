@@ -1,7 +1,7 @@
 .widget {
   display: block;
   margin-bottom: vertical-rhythm();
-  overflow: hidden;
+  overflow: auto;
 
   &.widget--no-bottom-margin {
     margin-bottom: 0;

@@ -1176,7 +1176,7 @@ table {
 
 /* line 1, ../scss/modules/_grid-blocks.scss */
 .grid-blocks,
-.grid-blocks .grid-blocks__block {
+.grid-blocks .grid-blocks__item {
   -webkit-box-sizing: "border-box";
   -moz-box-sizing: "border-box";
   box-sizing: "border-box"; }
@@ -1186,7 +1186,7 @@ table {
   margin-left: -8.653px;
   margin-right: -8.653px; }
   /* line 10, ../scss/modules/_grid-blocks.scss */
-  .grid-blocks .grid-blocks__block {
+  .grid-blocks .grid-blocks__item {
     display: inline-block;
     padding-left: 8.653px;
     padding-right: 8.653px;
@@ -1194,7 +1194,7 @@ table {
     margin-bottom: 1.5em;
     vertical-align: top; }
     /* line 17, ../scss/modules/_grid-blocks.scss */
-    .grid-blocks .grid-blocks__block > :last-child {
+    .grid-blocks .grid-blocks__item > :last-child {
       margin-bottom: 0; }
 
 /* line 1, ../scss/modules/_graybox.scss */
@@ -1430,7 +1430,7 @@ table {
 /* line 1, ../scss/modules/_media.scss */
 .media {
   margin-bottom: 1.5em;
-  overflow: hidden; }
+  overflow: auto; }
   /* line 5, ../scss/modules/_media.scss */
   .media .media__element {
     float: left;
@@ -1439,14 +1439,11 @@ table {
     .media .media__element.media__element--right {
       float: right;
       margin-left: 1em; }
-  /* line 14, ../scss/modules/_media.scss */
-  .media .media__content {
-    overflow: hidden; }
-    /* line 15, ../scss/modules/_media.scss */
-    .media .media__content > :last-child {
-      margin-bottom: 0; }
+  /* line 15, ../scss/modules/_media.scss */
+  .media .media__content > :last-child {
+    margin-bottom: 0; }
   @media (max-width: 480px) {
-    /* line 23, ../scss/modules/_media.scss */
+    /* line 22, ../scss/modules/_media.scss */
     .media .media__element,
     .media .media__element.media__element--right {
       float: none;
@@ -2113,7 +2110,7 @@ table {
 .widget {
   display: block;
   margin-bottom: 1.5em;
-  overflow: hidden; }
+  overflow: auto; }
   /* line 6, ../scss/modules/_widget.scss */
   .widget.widget--no-bottom-margin {
     margin-bottom: 0; }
@@ -2385,26 +2382,26 @@ img.float-right {
 .grid-blocks-demo {
   max-width: 600px; }
   /* line 27, ../scss/modules/_grid-blocks.scss */
-  .grid-blocks-demo .grid-blocks--1-up .grid-blocks__block {
+  .grid-blocks-demo .grid-blocks--1-up .grid-blocks__item {
     width: 600px; }
   /* line 27, ../scss/modules/_grid-blocks.scss */
-  .grid-blocks-demo .grid-blocks--2-up .grid-blocks__block {
+  .grid-blocks-demo .grid-blocks--2-up .grid-blocks__item {
     width: 300px; }
   /* line 27, ../scss/modules/_grid-blocks.scss */
-  .grid-blocks-demo .grid-blocks--3-up .grid-blocks__block {
+  .grid-blocks-demo .grid-blocks--3-up .grid-blocks__item {
     width: 200px; }
   /* line 27, ../scss/modules/_grid-blocks.scss */
-  .grid-blocks-demo .grid-blocks--4-up .grid-blocks__block {
+  .grid-blocks-demo .grid-blocks--4-up .grid-blocks__item {
     width: 150px; }
   /* line 27, ../scss/modules/_grid-blocks.scss */
-  .grid-blocks-demo .grid-blocks--5-up .grid-blocks__block {
+  .grid-blocks-demo .grid-blocks--5-up .grid-blocks__item {
     width: 120px; }
   /* line 27, ../scss/modules/_grid-blocks.scss */
-  .grid-blocks-demo .grid-blocks--6-up .grid-blocks__block {
+  .grid-blocks-demo .grid-blocks--6-up .grid-blocks__item {
     width: 100px; }
   @media (max-width: 480px) {
     /* line 34, ../scss/modules/_grid-blocks.scss */
-    .grid-blocks-demo .grid-blocks--1-up .grid-blocks__block, .grid-blocks-demo .grid-blocks--2-up .grid-blocks__block, .grid-blocks-demo .grid-blocks--3-up .grid-blocks__block, .grid-blocks-demo .grid-blocks--4-up .grid-blocks__block, .grid-blocks-demo .grid-blocks--5-up .grid-blocks__block, .grid-blocks-demo .grid-blocks--6-up .grid-blocks__block {
+    .grid-blocks-demo .grid-blocks--1-up .grid-blocks__item, .grid-blocks-demo .grid-blocks--2-up .grid-blocks__item, .grid-blocks-demo .grid-blocks--3-up .grid-blocks__item, .grid-blocks-demo .grid-blocks--4-up .grid-blocks__item, .grid-blocks-demo .grid-blocks--5-up .grid-blocks__item, .grid-blocks-demo .grid-blocks--6-up .grid-blocks__item {
       width: 100%; } }
 
 /* line 127, ../scss/style.scss */
