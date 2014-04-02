@@ -1,5 +1,5 @@
 .grid-blocks,
-.grid-blocks .grid-blocks__block {
+.grid-blocks .grid-blocks__item {
   @include box-sizing('border-box');
 }
 
@@ -7,7 +7,7 @@
   margin-left: - $grid-gutter;
   margin-right: - $grid-gutter;
 
-  .grid-blocks__block {
+  .grid-blocks__item {
     display: inline-block;
     padding-left: $grid-gutter;
     padding-right: $grid-gutter;
@@ -24,7 +24,7 @@
 @mixin grid-block-widths( $parent-container-width: $site-width, $grid-columns: $grid-columns ) {
   @for $i from 1 through $grid-columns {
     .grid-blocks--#{$i}-up {
-      .grid-blocks__block {
+      .grid-blocks__item {
         width: $parent-container-width * ( 1 / $i );
         @extend %grid-blocks--small-screen-width;
       }
