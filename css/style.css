@@ -1419,8 +1419,8 @@ table {
 /* line 55, ../scss/modules/_modal.scss */
 .modal__close-link {
   position: absolute;
-  bottom: 1.5em;
-  right: 1.5em; }
+  top: 7%;
+  right: 7%; }
 
 /* line 61, ../scss/modules/_modal.scss */
 .modal--is-active,

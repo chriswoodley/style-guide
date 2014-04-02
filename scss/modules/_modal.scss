@@ -54,8 +54,8 @@
 
 .modal__close-link {
 	position: absolute;
-	bottom:pxtoem( $base-line-height, $base-font-size );
-	right:pxtoem( $base-line-height, $base-font-size );
+	top: 7%;
+	right: 7%;
 }
 
 .modal--is-active,
