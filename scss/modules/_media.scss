@@ -1,3 +1,9 @@
+.media,
+.media__element,
+.media__content {
+  @include box-sizing(border-box);
+}
+
 .media {
   margin-bottom: vertical-rhythm();
   overflow: auto;
@@ -18,7 +24,7 @@
   }
 
   @media ( max-width: $small-screen ) {
-    
+
     .media__element,
     .media__element.media__element--right {
       float: none;

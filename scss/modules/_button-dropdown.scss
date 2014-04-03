@@ -1,4 +1,5 @@
 .button-dropdown {
+  @include box-sizing(border-box);
   position: relative;
   display: inline-block;
   .button-dropdown__content {

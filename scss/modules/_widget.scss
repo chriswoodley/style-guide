@@ -1,5 +1,6 @@
 .widget {
   display: block;
+  @include box-sizing(border-box);
   margin-bottom: vertical-rhythm();
   overflow: auto;
 

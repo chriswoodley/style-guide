@@ -6,6 +6,7 @@ $off-canvas-menu-width: 75%;
 
 .off-canvas__menu,
 .off-canvas__content {
+    @include box-sizing(border-box);
     -webkit-transition-property: left, right;
     -moz-transition-property: left, right;
     transition-property: left, right;

@@ -1,4 +1,5 @@
 .browsehappy {
+    @include box-sizing(border-box);
     margin: vertical-rhythm(1,$base-font-size) 0;
     background: $light-gray;
     color: $black;
