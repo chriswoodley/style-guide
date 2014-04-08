@@ -12,6 +12,7 @@
   outline: none;
   &:link,
   &:visited {
+    text-decoration: none;
     color:$black;
   }
   &:hover,

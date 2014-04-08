@@ -690,30 +690,33 @@ table {
 /* line 1, ../scss/modules/_alert.scss */
 .alert {
   display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   border-style: solid;
   border-width: 2px;
   padding: 0.60714em;
   margin-bottom: 1.5em; }
 
-/* line 9, ../scss/modules/_alert.scss */
+/* line 10, ../scss/modules/_alert.scss */
 .alert--warning {
   border-color: #ffee80;
   color: #a68f00;
   background-color: #fffad9; }
 
-/* line 15, ../scss/modules/_alert.scss */
+/* line 16, ../scss/modules/_alert.scss */
 .alert--error {
   border-color: #ffc6c3;
   color: #e80d00;
   background-color: #ffe3e1; }
 
-/* line 21, ../scss/modules/_alert.scss */
+/* line 22, ../scss/modules/_alert.scss */
 .alert--success {
   border-color: #bff1c5;
   color: #229930;
   background-color: #dff8e2; }
 
-/* line 27, ../scss/modules/_alert.scss */
+/* line 28, ../scss/modules/_alert.scss */
 .alert--info {
   border-color: #c4e4ff;
   color: #0057a3;
@@ -721,20 +724,23 @@ table {
 
 /* line 1, ../scss/modules/_breadcrumb.scss */
 .breadcrumb {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   background: #cccccc;
   overflow: hidden; }
-  /* line 5, ../scss/modules/_breadcrumb.scss */
+  /* line 6, ../scss/modules/_breadcrumb.scss */
   .breadcrumb .breadcrumb__item,
   .breadcrumb .breadcrumb__link {
     display: inline-block; }
-  /* line 10, ../scss/modules/_breadcrumb.scss */
+  /* line 11, ../scss/modules/_breadcrumb.scss */
   .breadcrumb .breadcrumb__item {
     position: relative;
     padding-left: 2.21429em; }
-    /* line 14, ../scss/modules/_breadcrumb.scss */
+    /* line 15, ../scss/modules/_breadcrumb.scss */
     .breadcrumb .breadcrumb__item:first-child {
       padding-left: 1em; }
-    /* line 18, ../scss/modules/_breadcrumb.scss */
+    /* line 19, ../scss/modules/_breadcrumb.scss */
     .breadcrumb .breadcrumb__item .breadcrumb__link {
       text-decoration: none; }
       /* line 47, ../scss/_mixins.scss */
@@ -752,7 +758,7 @@ table {
       /* line 67, ../scss/_mixins.scss */
       .breadcrumb .breadcrumb__item .breadcrumb__link:focus {
         color: #222222; }
-      /* line 22, ../scss/modules/_breadcrumb.scss */
+      /* line 23, ../scss/modules/_breadcrumb.scss */
       .breadcrumb .breadcrumb__item .breadcrumb__link:after, .breadcrumb .breadcrumb__item .breadcrumb__link:before {
         left: 103%;
         top: 50%;
@@ -763,21 +769,21 @@ table {
         position: absolute;
         pointer-events: none;
         z-index: 999; }
-      /* line 35, ../scss/modules/_breadcrumb.scss */
+      /* line 36, ../scss/modules/_breadcrumb.scss */
       .breadcrumb .breadcrumb__item .breadcrumb__link:after {
         border-left-color: #cccccc;
         border-width: 21px;
         margin-top: -21px; }
-      /* line 41, ../scss/modules/_breadcrumb.scss */
+      /* line 42, ../scss/modules/_breadcrumb.scss */
       .breadcrumb .breadcrumb__item .breadcrumb__link:before {
         border-left-color: #e0e0e0;
         border-width: 23px;
         margin-top: -23px; }
-  /* line 51, ../scss/modules/_breadcrumb.scss */
+  /* line 52, ../scss/modules/_breadcrumb.scss */
   .breadcrumb .breadcrumb__item--active {
     background: #666666;
     color: white; }
-    /* line 55, ../scss/modules/_breadcrumb.scss */
+    /* line 56, ../scss/modules/_breadcrumb.scss */
     .breadcrumb .breadcrumb__item--active:after, .breadcrumb .breadcrumb__item--active:before {
       left: 100%;
       top: 50%;
@@ -788,12 +794,12 @@ table {
       position: absolute;
       pointer-events: none;
       z-index: 999; }
-    /* line 68, ../scss/modules/_breadcrumb.scss */
+    /* line 69, ../scss/modules/_breadcrumb.scss */
     .breadcrumb .breadcrumb__item--active:after {
       border-left-color: #666666;
       border-width: 21px;
       margin-top: -21px; }
-    /* line 74, ../scss/modules/_breadcrumb.scss */
+    /* line 75, ../scss/modules/_breadcrumb.scss */
     .breadcrumb .breadcrumb__item--active:before {
       border-left-color: #a3a3a3;
       border-width: 23px;
@@ -801,6 +807,9 @@ table {
 
 /* line 1, ../scss/modules/_browse-happy.scss */
 .browsehappy {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   margin: 1.5em 0;
   background: #cccccc;
   color: #222222;
@@ -808,6 +817,9 @@ table {
 
 /* line 1, ../scss/modules/_button.scss */
 .button {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   display: inline-block;
   background: #999999;
   border: none;
@@ -818,38 +830,39 @@ table {
   text-shadow: 0px 1px 0px #cccccc;
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3);
   outline: none; }
-  /* line 12, ../scss/modules/_button.scss */
+  /* line 13, ../scss/modules/_button.scss */
   .button:link, .button:visited {
+    text-decoration: none;
     color: #222222; }
-  /* line 16, ../scss/modules/_button.scss */
+  /* line 18, ../scss/modules/_button.scss */
   .button:hover, .button:focus, .button:active {
     color: white;
     text-shadow: 0px -1px 0px #222222;
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3); }
-  /* line 23, ../scss/modules/_button.scss */
+  /* line 25, ../scss/modules/_button.scss */
   .button:hover, .button:focus {
     background: #2ecc40; }
-  /* line 27, ../scss/modules/_button.scss */
+  /* line 29, ../scss/modules/_button.scss */
   .button:active {
     background: #ff4136; }
 
-/* line 32, ../scss/modules/_button.scss */
+/* line 34, ../scss/modules/_button.scss */
 .button--primary {
   background: #0074d9;
   color: white;
   text-shadow: 0px -1px 0px #cccccc;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3); }
-  /* line 37, ../scss/modules/_button.scss */
+  /* line 39, ../scss/modules/_button.scss */
   .button--primary:link, .button--primary:visited {
     color: white; }
 
-/* line 43, ../scss/modules/_button.scss */
+/* line 45, ../scss/modules/_button.scss */
 .button--small {
   padding: 0 .75em;
   font-size: 0.78736em;
   line-height: 1.90511; }
 
-/* line 48, ../scss/modules/_button.scss */
+/* line 50, ../scss/modules/_button.scss */
 .button--large {
   padding: 1.17746em 1.5em;
   font-size: 1.27393em;
@@ -857,21 +870,24 @@ table {
 
 /* line 1, ../scss/modules/_button-dropdown.scss */
 .button-dropdown {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   position: relative;
   display: inline-block; }
-  /* line 4, ../scss/modules/_button-dropdown.scss */
+  /* line 5, ../scss/modules/_button-dropdown.scss */
   .button-dropdown .button-dropdown__content {
     position: absolute;
     left: -9999px;
     z-index: 999;
     min-width: 300%; }
-    /* line 9, ../scss/modules/_button-dropdown.scss */
+    /* line 10, ../scss/modules/_button-dropdown.scss */
     .button-dropdown .button-dropdown__content a {
       display: block; }
-    /* line 13, ../scss/modules/_button-dropdown.scss */
+    /* line 14, ../scss/modules/_button-dropdown.scss */
     .button-dropdown .button-dropdown__content:target, .button-dropdown .button-dropdown__content.is-active {
       left: 0; }
-  /* line 21, ../scss/modules/_button-dropdown.scss */
+  /* line 22, ../scss/modules/_button-dropdown.scss */
   .button-dropdown button:focus + .button-dropdown__content {
     left: 0; }
 
@@ -1286,27 +1302,45 @@ table {
 .input-group__addon,
 .input-group__input {
   display: table-cell;
-  vertical-align: middle; }
+  vertical-align: middle;
+  white-space: nowrap; }
 
-/* line 13, ../scss/modules/_input-group.scss */
+/* line 14, ../scss/modules/_input-group.scss */
 .input-group__addon {
   width: 1%;
+  padding: 0 0.5em;
   background: #cccccc; }
-  /* line 16, ../scss/modules/_input-group.scss */
+  /* line 18, ../scss/modules/_input-group.scss */
   .input-group__addon > * {
     width: 100%; }
 
-/* line 21, ../scss/modules/_input-group.scss */
+/* line 23, ../scss/modules/_input-group.scss */
+.input-group__addon--button {
+  padding: 0;
+  background: transparent; }
+  /* line 26, ../scss/modules/_input-group.scss */
+  .input-group__addon--button button {
+    position: relative;
+    z-index: 2;
+    line-height: 1.35; }
+  /* line 33, ../scss/modules/_input-group.scss */
+  .input-group--large .input-group__addon--button button {
+    line-height: 2.025; }
+  /* line 39, ../scss/modules/_input-group.scss */
+  .input-group--huge .input-group__addon--button button {
+    line-height: 2.775; }
+
+/* line 45, ../scss/modules/_input-group.scss */
 .input-group__input {
   width: 100%; }
-  /* line 23, ../scss/modules/_input-group.scss */
+  /* line 47, ../scss/modules/_input-group.scss */
   .input-group__input > * {
     width: inherit;
     line-height: 1.5; }
-    /* line 26, ../scss/modules/_input-group.scss */
+    /* line 51, ../scss/modules/_input-group.scss */
     .input-group--large .input-group__input > * {
       line-height: 2.25; }
-    /* line 29, ../scss/modules/_input-group.scss */
+    /* line 55, ../scss/modules/_input-group.scss */
     .input-group--huge .input-group__input > * {
       line-height: 3; }
 
@@ -1428,22 +1462,30 @@ table {
   display: block; }
 
 /* line 1, ../scss/modules/_media.scss */
+.media,
+.media__element,
+.media__content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* line 7, ../scss/modules/_media.scss */
 .media {
   margin-bottom: 1.5em;
   overflow: auto; }
-  /* line 5, ../scss/modules/_media.scss */
+  /* line 11, ../scss/modules/_media.scss */
   .media .media__element {
     float: left;
     margin-right: 1em; }
-    /* line 8, ../scss/modules/_media.scss */
+    /* line 14, ../scss/modules/_media.scss */
     .media .media__element.media__element--right {
       float: right;
       margin-left: 1em; }
-  /* line 15, ../scss/modules/_media.scss */
+  /* line 21, ../scss/modules/_media.scss */
   .media .media__content > :last-child {
     margin-bottom: 0; }
   @media (max-width: 480px) {
-    /* line 22, ../scss/modules/_media.scss */
+    /* line 28, ../scss/modules/_media.scss */
     .media .media__element,
     .media .media__element.media__element--right {
       float: none;
@@ -1510,6 +1552,9 @@ table {
 /* line 7, ../scss/modules/_off-canvas.scss */
 .off-canvas__menu,
 .off-canvas__content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-transition-property: left, right;
   transition-property: left, right;
   -webkit-transition-duration: 0.25s;
@@ -1517,7 +1562,7 @@ table {
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out; }
 
-/* line 20, ../scss/modules/_off-canvas.scss */
+/* line 21, ../scss/modules/_off-canvas.scss */
 .off-canvas__menu {
   position: fixed;
   top: 0;
@@ -1525,37 +1570,37 @@ table {
   z-index: 9999;
   width: 75%; }
 
-/* line 28, ../scss/modules/_off-canvas.scss */
+/* line 29, ../scss/modules/_off-canvas.scss */
 .off-canvas__content {
   position: relative; }
-  /* line 32, ../scss/modules/_off-canvas.scss */
+  /* line 33, ../scss/modules/_off-canvas.scss */
   .off-canvas--fixed-content .off-canvas__content {
     position: fixed;
     width: 100%; }
 
-/* line 42, ../scss/modules/_off-canvas.scss */
+/* line 43, ../scss/modules/_off-canvas.scss */
 .off-canvas--left .off-canvas__menu {
   left: -75%; }
-/* line 46, ../scss/modules/_off-canvas.scss */
+/* line 47, ../scss/modules/_off-canvas.scss */
 .off-canvas--left .off-canvas__content {
   left: 0; }
-/* line 53, ../scss/modules/_off-canvas.scss */
+/* line 54, ../scss/modules/_off-canvas.scss */
 .off-canvas--left:target .off-canvas__menu, .off-canvas--left.is-active .off-canvas__menu {
   left: 0; }
-/* line 57, ../scss/modules/_off-canvas.scss */
+/* line 58, ../scss/modules/_off-canvas.scss */
 .off-canvas--left:target .off-canvas__content, .off-canvas--left.is-active .off-canvas__content {
   left: 75%; }
 
-/* line 68, ../scss/modules/_off-canvas.scss */
+/* line 69, ../scss/modules/_off-canvas.scss */
 .off-canvas--right .off-canvas__menu {
   right: -75%; }
-/* line 72, ../scss/modules/_off-canvas.scss */
+/* line 73, ../scss/modules/_off-canvas.scss */
 .off-canvas--right .off-canvas__content {
   right: 0; }
-/* line 79, ../scss/modules/_off-canvas.scss */
+/* line 80, ../scss/modules/_off-canvas.scss */
 .off-canvas--right:target .off-canvas__menu, .off-canvas--right.is-active .off-canvas__menu {
   right: 0; }
-/* line 83, ../scss/modules/_off-canvas.scss */
+/* line 84, ../scss/modules/_off-canvas.scss */
 .off-canvas--right:target .off-canvas__content, .off-canvas--right.is-active .off-canvas__content {
   right: 75%; }
 
@@ -2109,41 +2154,44 @@ table {
 /* line 1, ../scss/modules/_widget.scss */
 .widget {
   display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   margin-bottom: 1.5em;
   overflow: auto; }
-  /* line 6, ../scss/modules/_widget.scss */
+  /* line 7, ../scss/modules/_widget.scss */
   .widget.widget--no-bottom-margin {
     margin-bottom: 0; }
-  /* line 10, ../scss/modules/_widget.scss */
+  /* line 11, ../scss/modules/_widget.scss */
   .widget .widget__header,
   .widget .widget__body,
   .widget .widget__footer {
     padding: 0.75em; }
-    /* line 15, ../scss/modules/_widget.scss */
+    /* line 16, ../scss/modules/_widget.scss */
     .widget .widget__header > :first-child,
     .widget .widget__body > :first-child,
     .widget .widget__footer > :first-child {
       margin-top: 0; }
-    /* line 19, ../scss/modules/_widget.scss */
+    /* line 20, ../scss/modules/_widget.scss */
     .widget .widget__header > :last-child,
     .widget .widget__body > :last-child,
     .widget .widget__footer > :last-child {
       margin-bottom: 0; }
-  /* line 25, ../scss/modules/_widget.scss */
+  /* line 26, ../scss/modules/_widget.scss */
   .widget .widget__header,
   .widget .widget__footer {
     background: #666666;
     color: #cccccc; }
-  /* line 31, ../scss/modules/_widget.scss */
+  /* line 32, ../scss/modules/_widget.scss */
   .widget .widget__body {
     background: #cccccc; }
-  /* line 36, ../scss/modules/_widget.scss */
+  /* line 37, ../scss/modules/_widget.scss */
   .widget.widget--no-header-padding > .widget__header {
     padding: 0; }
-  /* line 42, ../scss/modules/_widget.scss */
+  /* line 43, ../scss/modules/_widget.scss */
   .widget.widget--no-body-padding > .widget__body {
     padding: 0; }
-  /* line 48, ../scss/modules/_widget.scss */
+  /* line 49, ../scss/modules/_widget.scss */
   .widget.widget--no-footer-padding > .widget__footer {
     padding: 0; }
 
