@@ -35,6 +35,19 @@
     }
   }
 
+  &.grid--container {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    @media ( max-width: $small-screen ) {
+      width: 100%;
+      &>.grid__row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+
   @for $i from 1 through $grid-columns {
     .grid__col--#{$i} {
       @extend .grid__col;
