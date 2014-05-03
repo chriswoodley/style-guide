@@ -1,0 +1,43 @@
+.form,
+.form__input {
+    @include box-sizing(border-box);
+    margin-bottom: vertical-rhythm();
+}
+
+.form {
+
+    .form__inline-label {
+        display: block;
+        text-align: right;
+        @media screen and (max-width: $small-screen) {
+           display: inline;
+           text-align: left;
+        }
+    }
+
+    .form__input {
+        width: 100%;
+    }
+
+    .form__error {
+
+        label,
+        .form__input, {
+            color:$red;
+        }
+
+        .form__input,
+        &.form__error--fill {
+            border: 1px solid $red;
+        }
+
+        &.form__error--fill {
+            background: scale-color($red, $lightness: 85%);
+            padding: vertical-rhythm(.5);
+            margin-bottom: vertical-rhythm($offset:2px);
+            .form__input {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
