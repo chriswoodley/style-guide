@@ -179,39 +179,76 @@ video {
 
 /* Forms
    ========================================================================== */
-
-button,
-select,
-textarea {
-  line-height: normal;
-}
-
-input,
-button,
-select,
-textarea {
-  color:$black;
-}
-
-
-input,
-button,
-select,
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
 textarea,
 fieldset {
   border: 1px solid $light-gray;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="range"],
+textarea {
+  width: 100%;
+  outline: none;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+textarea {
+  padding: vertical-rhythm(.5, $base-font-size, 2px);
+  box-shadow: inset 0 2px 5px rgba($light-gray, .5);
+  &:focus {
+    border: 1px solid $blue;
+    box-shadow: none;
+  }
+}
+
+input[disabled] {
+  color:$gray;
 }
 
 input[type="file"] {
   border:none;
 }
 
-input[type="search"] {
-  @include box-sizing('border-box');
-}
-
 textarea {
-  line-height: inherit;
+  display: block;
+  vertical-align: top;
   resize: vertical;
 }
 
