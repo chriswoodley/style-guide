@@ -1,0 +1,32 @@
+/**
+ * Need to use the placholder polyfill for browsers that don't support the placeholder attribute
+ * Also, will need to write some jquery to apply the is-active class on keyup, blur, change, and focus
+ * inspired by: http://dbushell.com/2013/11/08/form-label-design/
+ */
+
+.float-label {
+	$row: vertical-rhythm(1.75, $offset: 1px);
+	position: relative;
+	padding-bottom: $row;
+	.float-label__label,
+	.float-label__input {
+		display: block;
+		position: absolute;
+	}
+	.float-label__label {
+		top: $row / 1.5;
+		@include font-size($small-font-size, $base-font-size);
+		transition: all .3s;
+		opacity: 0;
+	}
+	&.is-active {
+		.float-label__label {
+			opacity:1;
+		}
+		.float-label__input {
+			position: relative;
+			top: $row;
+			margin-top: -$row;
+		}
+	}
+}

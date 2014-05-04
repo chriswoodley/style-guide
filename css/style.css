@@ -986,6 +986,37 @@ table {
     -moz-column-count: 1;
     column-count: 1; } }
 
+/**
+ * Need to use the placholder polyfill for browsers that don't support the placeholder attribute
+ * Also, will need to write some jquery to apply the is-active class on keyup, blur, change, and focus
+ * inspired by: http://dbushell.com/2013/11/08/form-label-design/
+ */
+/* line 7, ../scss/modules/_float-label.scss */
+.float-label {
+  position: relative;
+  padding-bottom: 2.55357em; }
+  /* line 11, ../scss/modules/_float-label.scss */
+  .float-label .float-label__label,
+  .float-label .float-label__input {
+    display: block;
+    position: absolute; }
+  /* line 16, ../scss/modules/_float-label.scss */
+  .float-label .float-label__label {
+    top: 1.70238em;
+    font-size: 0.78736em;
+    line-height: 1.90511;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    opacity: 0; }
+  /* line 23, ../scss/modules/_float-label.scss */
+  .float-label.is-active .float-label__label {
+    opacity: 1; }
+  /* line 26, ../scss/modules/_float-label.scss */
+  .float-label.is-active .float-label__input {
+    position: relative;
+    top: 2.55357em;
+    margin-top: -2.55357em; }
+
 /* line 1, ../scss/modules/_form.scss */
 .form,
 .form__input {
@@ -2409,125 +2440,125 @@ img.float-right {
 
 /* Color swatches
    ========================================================================== */
-/* line 37, ../scss/style.scss */
+/* line 38, ../scss/style.scss */
 .sg-color--a .sg-color-swatch {
   background: #001f3f; }
 
-/* line 38, ../scss/style.scss */
+/* line 39, ../scss/style.scss */
 .sg-color--b .sg-color-swatch {
   background: #0074d9; }
 
-/* line 39, ../scss/style.scss */
+/* line 40, ../scss/style.scss */
 .sg-color--c .sg-color-swatch {
   background: #7fdbff; }
 
-/* line 40, ../scss/style.scss */
+/* line 41, ../scss/style.scss */
 .sg-color--d .sg-color-swatch {
   background: #39cccc; }
 
-/* line 41, ../scss/style.scss */
+/* line 42, ../scss/style.scss */
 .sg-color--e .sg-color-swatch {
   background: #3d9970; }
 
-/* line 42, ../scss/style.scss */
+/* line 43, ../scss/style.scss */
 .sg-color--f .sg-color-swatch {
   background: #2ecc40; }
 
-/* line 43, ../scss/style.scss */
+/* line 44, ../scss/style.scss */
 .sg-color--g .sg-color-swatch {
   background: #01ff70; }
 
-/* line 44, ../scss/style.scss */
+/* line 45, ../scss/style.scss */
 .sg-color--h .sg-color-swatch {
   background: #ffdc00; }
 
-/* line 45, ../scss/style.scss */
+/* line 46, ../scss/style.scss */
 .sg-color--i .sg-color-swatch {
   background: #ff851b; }
 
-/* line 46, ../scss/style.scss */
+/* line 47, ../scss/style.scss */
 .sg-color--j .sg-color-swatch {
   background: #ff4136; }
 
-/* line 47, ../scss/style.scss */
+/* line 48, ../scss/style.scss */
 .sg-color--k .sg-color-swatch {
   background: #85144b; }
 
-/* line 48, ../scss/style.scss */
+/* line 49, ../scss/style.scss */
 .sg-color--l .sg-color-swatch {
   background: #f012be; }
 
-/* line 49, ../scss/style.scss */
+/* line 50, ../scss/style.scss */
 .sg-color--m .sg-color-swatch {
   background: #b10dc9; }
 
-/* line 50, ../scss/style.scss */
+/* line 51, ../scss/style.scss */
 .sg-color--n .sg-color-swatch {
   background: white; }
 
-/* line 51, ../scss/style.scss */
+/* line 52, ../scss/style.scss */
 .sg-color--o .sg-color-swatch {
   background: #cccccc; }
 
-/* line 52, ../scss/style.scss */
+/* line 53, ../scss/style.scss */
 .sg-color--p .sg-color-swatch {
   background: #999999; }
 
-/* line 53, ../scss/style.scss */
+/* line 54, ../scss/style.scss */
 .sg-color--q .sg-color-swatch {
   background: #666666; }
 
-/* line 54, ../scss/style.scss */
+/* line 55, ../scss/style.scss */
 .sg-color--r .sg-color-swatch {
   background: #222222; }
 
-/* line 58, ../scss/style.scss */
+/* line 59, ../scss/style.scss */
 .sub-menu-demo a {
   background: #cccccc;
   padding: 0.75em 1em; }
-  /* line 61, ../scss/style.scss */
+  /* line 62, ../scss/style.scss */
   .sub-menu-demo a:hover {
     background: #666666;
     color: #fff; }
 
-/* line 71, ../scss/style.scss */
+/* line 72, ../scss/style.scss */
 .menu-demo a {
   padding: 0.75em 1em;
   text-decoration: none; }
-/* line 76, ../scss/style.scss */
+/* line 77, ../scss/style.scss */
 .menu-demo .menu__item {
   background: #cccccc; }
-  /* line 78, ../scss/style.scss */
+  /* line 79, ../scss/style.scss */
   .menu-demo .menu__item:hover {
     background: #666666; }
-    /* line 80, ../scss/style.scss */
+    /* line 81, ../scss/style.scss */
     .menu-demo .menu__item:hover > a {
       color: white; }
-  /* line 84, ../scss/style.scss */
+  /* line 85, ../scss/style.scss */
   .menu-demo .menu__item + .menu__item {
     border-left: 1px solid #666666; }
     @media (max-width: 480px) {
-      /* line 84, ../scss/style.scss */
+      /* line 85, ../scss/style.scss */
       .menu-demo .menu__item + .menu__item {
         border-left: none;
         border-top: 1px solid #666666; } }
-/* line 95, ../scss/style.scss */
+/* line 96, ../scss/style.scss */
 .menu-demo .menu--stacked .menu__item + .menu__item {
   border-left: none;
   border-top: 1px solid #666666; }
 
-/* line 107, ../scss/style.scss */
+/* line 108, ../scss/style.scss */
 .pagination-demo .pagination__item + .pagination__item {
   border-left: 1px solid white; }
-/* line 111, ../scss/style.scss */
+/* line 112, ../scss/style.scss */
 .pagination-demo a {
   background: #cccccc; }
-  /* line 113, ../scss/style.scss */
+  /* line 114, ../scss/style.scss */
   .pagination-demo a:hover {
     background: #666666;
     color: white; }
 
-/* line 121, ../scss/style.scss */
+/* line 122, ../scss/style.scss */
 .grid-blocks-demo {
   max-width: 600px; }
   /* line 27, ../scss/modules/_grid-blocks.scss */
@@ -2553,18 +2584,18 @@ img.float-right {
     .grid-blocks-demo .grid-blocks--1-up .grid-blocks__item, .grid-blocks-demo .grid-blocks--2-up .grid-blocks__item, .grid-blocks-demo .grid-blocks--3-up .grid-blocks__item, .grid-blocks-demo .grid-blocks--4-up .grid-blocks__item, .grid-blocks-demo .grid-blocks--5-up .grid-blocks__item, .grid-blocks-demo .grid-blocks--6-up .grid-blocks__item {
       width: 100%; } }
 
-/* line 128, ../scss/style.scss */
+/* line 129, ../scss/style.scss */
 .off-canvas-demo .off-canvas__body {
   background: #cccccc;
   color: #222222; }
-/* line 133, ../scss/style.scss */
+/* line 134, ../scss/style.scss */
 .off-canvas-demo .off-canvas__element {
   background: #666666; }
-  /* line 135, ../scss/style.scss */
+  /* line 136, ../scss/style.scss */
   .off-canvas-demo .off-canvas__element .menu {
     width: 100%; }
 
-/* line 142, ../scss/style.scss */
+/* line 143, ../scss/style.scss */
 .box-arrow-top,
 .box-arrow-right,
 .box-arrow-top-right,
@@ -2575,7 +2606,7 @@ img.float-right {
 .box-arrow-top-left {
   background: #0074d9; }
 
-/* line 153, ../scss/style.scss */
+/* line 154, ../scss/style.scss */
 .box-arrow-top {
   position: relative;
   padding: 0.75em 1em;
@@ -2594,7 +2625,7 @@ img.float-right {
   .box-arrow-top > :last-child {
     margin-bottom: 0; }
 
-/* line 156, ../scss/style.scss */
+/* line 157, ../scss/style.scss */
 .box-arrow-top-right {
   position: relative;
   padding: 0.75em 1em;
@@ -2612,7 +2643,7 @@ img.float-right {
   .box-arrow-top-right > :last-child {
     margin-bottom: 0; }
 
-/* line 159, ../scss/style.scss */
+/* line 160, ../scss/style.scss */
 .box-arrow-right {
   position: relative;
   padding: 0.75em 1em;
@@ -2631,7 +2662,7 @@ img.float-right {
   .box-arrow-right > :last-child {
     margin-bottom: 0; }
 
-/* line 162, ../scss/style.scss */
+/* line 163, ../scss/style.scss */
 .box-arrow-bottom-right {
   position: relative;
   padding: 0.75em 1em;
@@ -2649,7 +2680,7 @@ img.float-right {
   .box-arrow-bottom-right > :last-child {
     margin-bottom: 0; }
 
-/* line 165, ../scss/style.scss */
+/* line 166, ../scss/style.scss */
 .box-arrow-bottom {
   position: relative;
   padding: 0.75em 1em;
@@ -2668,7 +2699,7 @@ img.float-right {
   .box-arrow-bottom > :last-child {
     margin-bottom: 0; }
 
-/* line 168, ../scss/style.scss */
+/* line 169, ../scss/style.scss */
 .box-arrow-bottom-left {
   position: relative;
   padding: 0.75em 1em;
@@ -2686,7 +2717,7 @@ img.float-right {
   .box-arrow-bottom-left > :last-child {
     margin-bottom: 0; }
 
-/* line 171, ../scss/style.scss */
+/* line 172, ../scss/style.scss */
 .box-arrow-left {
   position: relative;
   padding: 0.75em 1em;
@@ -2705,7 +2736,7 @@ img.float-right {
   .box-arrow-left > :last-child {
     margin-bottom: 0; }
 
-/* line 174, ../scss/style.scss */
+/* line 175, ../scss/style.scss */
 .box-arrow-top-left {
   position: relative;
   padding: 0.75em 1em;
@@ -2723,7 +2754,7 @@ img.float-right {
   .box-arrow-top-left > :last-child {
     margin-bottom: 0; }
 
-/* line 181, ../scss/style.scss */
+/* line 182, ../scss/style.scss */
 .button-dropdown-demo .button-dropdown__content {
   background: #eee;
   padding: 10px;
