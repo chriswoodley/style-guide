@@ -1698,41 +1698,42 @@ table {
 .off-canvas__menu {
   position: fixed;
   top: 0;
-  bottom: 0;
   z-index: 9999;
-  width: 75%; }
+  width: 75%;
+  height: 100%;
+  overflow-y: auto; }
 
-/* line 29, ../scss/modules/_off-canvas.scss */
+/* line 30, ../scss/modules/_off-canvas.scss */
 .off-canvas__content {
   position: relative; }
-  /* line 33, ../scss/modules/_off-canvas.scss */
+  /* line 34, ../scss/modules/_off-canvas.scss */
   .off-canvas--fixed-content .off-canvas__content {
     position: fixed;
     width: 100%; }
 
-/* line 43, ../scss/modules/_off-canvas.scss */
+/* line 44, ../scss/modules/_off-canvas.scss */
 .off-canvas--left .off-canvas__menu {
   left: -75%; }
-/* line 47, ../scss/modules/_off-canvas.scss */
+/* line 48, ../scss/modules/_off-canvas.scss */
 .off-canvas--left .off-canvas__content {
   left: 0; }
-/* line 54, ../scss/modules/_off-canvas.scss */
+/* line 55, ../scss/modules/_off-canvas.scss */
 .off-canvas--left:target .off-canvas__menu, .off-canvas--left.is-active .off-canvas__menu {
   left: 0; }
-/* line 58, ../scss/modules/_off-canvas.scss */
+/* line 59, ../scss/modules/_off-canvas.scss */
 .off-canvas--left:target .off-canvas__content, .off-canvas--left.is-active .off-canvas__content {
   left: 75%; }
 
-/* line 69, ../scss/modules/_off-canvas.scss */
+/* line 70, ../scss/modules/_off-canvas.scss */
 .off-canvas--right .off-canvas__menu {
   right: -75%; }
-/* line 73, ../scss/modules/_off-canvas.scss */
+/* line 74, ../scss/modules/_off-canvas.scss */
 .off-canvas--right .off-canvas__content {
   right: 0; }
-/* line 80, ../scss/modules/_off-canvas.scss */
+/* line 81, ../scss/modules/_off-canvas.scss */
 .off-canvas--right:target .off-canvas__menu, .off-canvas--right.is-active .off-canvas__menu {
   right: 0; }
-/* line 84, ../scss/modules/_off-canvas.scss */
+/* line 85, ../scss/modules/_off-canvas.scss */
 .off-canvas--right:target .off-canvas__content, .off-canvas--right.is-active .off-canvas__content {
   right: 75%; }
 
