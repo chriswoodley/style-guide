@@ -1,4 +1,8 @@
 style-guide
 ===========
 
-A library of common CSS patterns
+The Front-end Pattern Library/Style Guide was the result of many years working with CSS frameworks such as Blueprint CSS and Twitter Bootstrap. I've discovered, if I had more control over my code, I would have a better understanding of it. To elaborate, the code would be written in a manner that is familiar to me, how it works, and where when to use it. I feel Pattern Libraries would help the team's workflow. The team's contribution to the pattern library code base would allow them to be familiar with it as well and it would work specifically for their needs.
+
+During the development, I felt the need of some sort of methodology organize the code base. One of the requirements was to make the code DRY and reusable. I dove into the realm of Object Oriented CSS (OCSS). After reading several articles online (SMACCS, BEM, Nicole Sullivan OOCSS), I've finally decided to learn the BEM methodology and integrated some organization techniques from SMACCS. The result was a well structured library full reusable CSS partials. I can pick and choose which partials to import into my main stylesheet. This helped cut down CSS bloat that usually plagues some CSS frameworks if you had no way of importing partials. The other side affect is that I don't have to code something over and over again. This helped my workflow tremendously.
+
+This project was a great learning experience and I recommend any developer thinking about building their own Pattern Library to do it.
