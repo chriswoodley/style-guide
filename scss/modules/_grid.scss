@@ -50,8 +50,10 @@
 
   @for $i from 1 through $grid-columns {
     .grid__col--#{$i} {
-      @extend .grid__col;
       width: ( 100% / $grid-columns ) * $i;
+      @if $i == $grid-columns {
+        float: none;
+      }
       @extend %grid__col--small-screen-width;
     }
     .grid__col--push-#{$i} {
