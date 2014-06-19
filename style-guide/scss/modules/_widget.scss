@@ -1,0 +1,60 @@
+.widget {
+  display: block;
+  margin-bottom: vertical-rhythm();
+  overflow: auto;
+
+  &.widget--no-bottom-margin {
+    margin-bottom: 0;
+  }
+
+  .widget__header,
+  .widget__body,
+  .widget__footer {
+    padding: vertical-rhythm(.5);
+
+    & > :first-child {
+      margin-top: 0;
+    }
+
+    & > :last-child {
+      margin-bottom: 0; // IE 8 will ignore this
+    }
+
+  }
+
+  .widget__header,
+  .widget__footer {
+    background: $dark-gray;
+    color:$light-gray;
+  }
+
+  .widget__body {
+    background: $light-gray;
+  }
+
+  &.widget--no-header-padding {
+    & > .widget__header {
+      padding: 0;
+    }
+  }
+
+  &.widget--no-body-padding {
+    & > .widget__body {
+      padding: 0;
+    }
+  }
+
+  &.widget--no-footer-padding {
+    & > .widget__footer {
+      padding: 0;
+    }
+  }
+
+}
+
+.widget,
+.widget__header,
+.widget__body,
+.widget__footer {
+  @extend .clearfix;
+}

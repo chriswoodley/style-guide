@@ -1,0 +1,1114 @@
+body {
+  line-height: 21px;
+}
+
+/*
+# Base
+
+Styleguide 1
+*/
+* {
+  box-sizing: border-box;
+}
+
+/**
+ * 1. Set default font family.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: "HelveticaNeue", "Helvetica", Arial, sans-serif;
+  /* 1 */
+  font-size: 87.5%;
+  line-height: 1.5;
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+
+.styleguide__elements {
+  background-image: url(http://basehold.it/i/21/204/40/130);
+  background-repeat: repeat;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: middle;
+  /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+
+/*
+# Headings
+
+Heading elements implement six levels of document headings, &lt;h1&gt; is the most important and &lt;h6&gt; is the least. A heading element briefly describes the topic of the section it introduces. Heading information may be used by user agents, for example, to construct a table of contents for a document automatically.
+
+Markup: <h1>Heading level 1</h1>
+<h2>Heading level 2</h2>
+<h3>Heading level 3</h3>
+<h4>Heading level 4</h4>
+<h5>Heading level 5</h5>
+<h6>Heading level 6</h6>
+
+Styleguide 1.0.1
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+  font-size: 2.61793em;
+  line-height: 1.14594;
+  margin-bottom: 0.57297em;
+}
+
+h2 {
+  font-size: 2.06121em;
+  line-height: 1.09159;
+  margin-bottom: 0.72773em;
+}
+
+h3 {
+  font-size: 1.618em;
+  line-height: 1.39061;
+  margin-bottom: 0.92707em;
+}
+
+h4 {
+  font-size: 1.27393em;
+  line-height: 1.17746;
+  margin-bottom: 1.17746em;
+}
+
+h5 {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 1.5em;
+}
+
+h6 {
+  font-size: 0.78736em;
+  line-height: 1.90511;
+  margin-bottom: 1.90511em;
+}
+
+/*
+# Address
+
+The HTML &lt;address&gt; Element may be used by authors to supply contact information for its nearest &lt;article&gt; or &lt;body&gt; ancestor; in the latter case, it applies to the whole document.
+
+Markup: <address>
+  You can contact author at <a href="http://www.somedomain.com/contact">www.somedomain.com</a>.<br>
+  If you see any bugs, please <a href="mailto:webmaster@somedomain.com">contact webmaster</a>.<br>
+  You may also want to visit us:<br>
+  Mozilla Foundation<br>
+  1981 Landings Drive<br>
+  Building K<br>
+  Mountain View, CA 94043-0801<br>
+  USA
+</address>
+
+Styleguide 1.0.2
+*/
+address {
+  margin: 1.5em 0;
+}
+
+/*
+# Paragraphs
+
+The HTML &lt;p&gt; element (or HTML Paragraph Element) represents a paragraph of text. Paragraphs are block-level elements.
+
+Markup: <p>This is the first paragraph of text. This is the first paragraph of text. This is the first paragraph of text. This is the first paragraph of text.</p>
+<p>This is second paragraph of text. This is second paragraph of text. This is second paragraph of text. This is second paragraph of text.</p>
+
+Styleguide 1.0.3
+*/
+p,
+pre,
+figure {
+  margin: 0 0 1.5em 0;
+}
+
+/*
+# Horizontal Rule
+
+In HTML5 the HTML &lt;hr&gt; element represents a thematic break between paragraph-level elements (for example, a change of scene in a story, or a shift of topic with a section). In previous versions of HTML, it represented a horizontal rule. It may still be displayed as a horizontal rule in visual browsers, but is now defined in semantic terms, rather than presentational terms.
+
+Markup: <p>This is the first paragraph of text. This is the first paragraph of text. This is the first paragraph of text. This is the first paragraph of text.</p>
+<hr>
+<p>This is second paragraph of text. This is second paragraph of text. This is second paragraph of text. This is second paragraph of text.</p>
+
+Styleguide 1.0.4
+*/
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  display: block;
+  height: 0;
+  border: 0;
+  border-top: 1px solid #222222;
+  margin: 0 0 1.42857em 0;
+  padding: 0;
+  clear: both;
+}
+
+/*
+# Preformatted Text
+
+The HTML &lt;pre&gt; Element (or HTML Preformatted Text) represents preformatted text. Text within this element is typically displayed in a non-proportional font exactly as it is laid out in the file. Whitespaces inside this element are displayed as typed.
+
+Markup: <!-- Some example CSS code -->
+<pre>
+body {
+  color:red;
+}
+</pre>
+<pre><code class="language-pascal">var i: Integer;
+begin
+   i := 1;
+end.</code></pre>
+
+Styleguide 1.0.5
+*/
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+  overflow: auto;
+}
+
+/*
+# Blockquotes
+
+The HTML &lt;blockquote&gt; Element (or HTML Block Quotation Element) indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation (see Notes for how to change it). A URL for the source of the quotation may be given using the cite attribute, while a text representation of the source can be given using the &lt;cite&gt; element.
+
+Markup: <blockquote cite="http://developer.mozilla.org">
+  <p>This is a quotation taken from the Mozilla Developer Center.</p>
+</blockquote>
+
+Styleguide 1.0.6
+*/
+blockquote {
+  margin: 0 pxtoem(36.651px, 14px) 1.5em pxtoem(36.651px, 14px);
+}
+blockquote > p {
+  display: inline;
+}
+
+/*
+# Lists
+
+The HTML unordered list element (&lt;ul&gt;) represents an unordered list of items, namely a collection of items that do not have a numerical ordering, and their order in the list is meaningless.
+
+The HTML &lt;ol&gt; Element (or HTML Ordered List Element) represents an ordered list of items. Typically, ordered-list items are displayed with a preceding numbering, which can be of any form, like numerals, letters or Romans numerals or even simple bullets.
+
+The HTML List item element (&lt;li&gt;) is used to represent a list item. It should be contained in an ordered list (&lt;ol&gt;), an unordered list (&lt;ul&gt;) or a menu (&lt;menu&gt;), where it represents a single entity in that list.
+
+The HTML &lt;dl&gt; Element (or HTML Description List Element) encloses a list of pairs of terms and descriptions. Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs). The HTML &lt;dt&gt; element (or HTML Definition Term Element) identifies a term in a definition list. The HTML &lt;dd&gt; Element (or HTML Description Element) indicates the description of a term in a description list (&lt;dl&gt;) element.
+
+Markup: <!-- Unordered List -->
+<ul>
+  <li>first item</li>
+  <li>second item</li>
+  <li>third item
+    <ul>
+      <li>sub list item</li>
+      <li>sub list item</li>
+      <li>sub list item</li>
+    </ul>
+  </li>
+</ul>
+<!-- Ordered List -->
+<ol>
+    <li>first item</li>
+    <li>second item</li>
+    <li>third item
+    <ul>
+      <li>sub list item</li>
+      <li>sub list item</li>
+      <li>sub list item</li>
+    </ul>
+  </li>
+</ol>
+<!-- Single term and description -->
+<dl>
+  <dt>Firefox</dt>
+  <dd>A free, open source, cross-platform, graphical web browser
+      developed by the Mozilla Corporation and hundreds of volunteers.</dd>
+</dl>
+<!-- Multiple terms, single description -->
+<dl>
+  <dt>Firefox</dt>
+  <dt>Mozilla Firefox</dt>
+  <dt>Fx</dt>
+  <dd>A free, open source, cross-platform, graphical web browser
+      developed by the Mozilla Corporation and hundreds of volunteers.</dd>
+</dl>
+<!-- Single term, multiple descriptions -->
+<dl>
+  <dt>Firefox</dt>
+  <dd>A free, open source, cross-platform, graphical web browser
+      developed by the Mozilla Corporation and hundreds of volunteers.</dd>
+  <dd>The Red Panda also known as the Lesser Panda, Wah, Bear Cat or Firefox,
+      is a mostly herbivorous mammal, slightly larger than a domestic cat
+      (60 cm long).</dd>
+</dl>
+
+Styleguide 1.0.7
+*/
+dl,
+ul,
+ol {
+  margin: 0 0 1.5em 0;
+}
+
+ul,
+ol {
+  padding: 0 0 0 pxtoem(36.651px, 14px);
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 0 0 pxtoem(36.651px, 14px);
+}
+
+/*
+# Figure & Figcaption
+
+The HTML &lt;figure&gt; Element represents self-contained content, frequently with a caption (&lt;figcaption&gt;), and is typically referenced as a single unit. While it is related to the main flow, its position is independent of the main flow. Usually this is an image, an illustration, a diagram, a code snippet, or a schema that is referenced in the main text, but that can be moved to another page or to an appendix without affecting the main flow.
+
+Markup: <!-- Just a figure -->
+<figure>
+  <img src="http://fpoimg.com/250x210" alt="An awesome picture">
+</figure>
+<!-- Figure with figcaption -->
+<figure>
+  <img src="http://fpoimg.com/250x210" alt="An awesome picture">  
+  <figcaption>Caption for the awesome picture</figcaption>
+</figure>
+
+Styleguide 1.0.8
+*/
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+  margin: 1.5em pxtoem(36.651px, 14px);
+}
+
+figcaption {
+  font-size: 0.78736em;
+  line-height: 1.90511;
+}
+
+/*
+# Standard Links
+
+Your standard hyperlinks.
+Removed the gray background color from active links in IE 10 by setting background to transparent
+
+Markup: <a href="#" class="$modifierClass">Example</a>
+
+:link     - The default state
+:hover    - The mouseover state
+:active   - The mouse down state
+:visited  - Indaicates whether or not the hyperlink has been visited
+
+Styleguide 1.0.9
+*/
+a {
+  background: transparent;
+}
+a:link {
+  color: #0074d9;
+}
+a:visited {
+  color: #0074d9;
+}
+a:hover {
+  color: #2ecc40;
+}
+a:active {
+  color: #ff4136;
+}
+a:focus {
+  color: #ff4136;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/*
+# Emphasis and Strong
+
+The HTML Strong Element (&lt;strong&gt;) gives text strong importance, and is typically displayed in bold.
+The HTML &lt;em&gt; element (or HTML Emphasis Element) marks text that has stress emphasis.
+
+Markup: <p>When doing x it is <strong>imperative</strong> to do y before proceeding.</p>
+<p>In HTML 5, what was previously called <em>block-level</em> content is now called <em>flow</em> content.</p>
+
+Styleguide 1.1.0
+*/
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+
+/*
+# Small
+
+The HTML Small Element (&lt;small&gt;) makes the text font size one size smaller (for example, from large to medium, or from small to x-small) down to the browser's minimum font size.  In HTML5, this element is repurposed to represent side-comments and small print, including copyright and legal text, independent of its styled presentation.
+
+Markup: <p>This is the first sentence.  <small>This whole sentence is in small letters.</small></p>
+
+Styleguide 1.1.1
+*/
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 78.73571%;
+}
+
+/*
+# Quote
+
+The HTML &lt;q&gt; Element (or HTML Quote Element) indicates that the enclosed text is a short inline quotation. This element is intended for short quotations that don't require paragraph breaks; for long quotations use &lt;blockquote&gt; element.
+
+Markup: <p>Everytime Kenny is killed, Stan will announce 
+   <q cite="http://en.wikipedia.org/wiki/Kenny_McCormick#Cultural_impact">
+     Oh my God, you/they killed Kenny!
+   </q>.
+</p>
+
+Styleguide 1.1.2
+*/
+q {
+  quotes: "\201C" "\201D";
+}
+
+/*
+# Definition
+
+The HTML &lt;dfn&gt; element (or HTML Definition Element) represents the defining instance of a term.
+
+Markup: <p><dfn id="def-internet">The Internet</dfn> is a global system of interconnected networks that use the Internet Protocol Suite (TCP/IP) to serve billions of users worldwide.</p>
+<dl>
+  <!-- Define "World-Wide Web" and reference definition for "the Internet" -->
+  <dt>
+    <dfn>
+      <abbr title="World-Wide Web">WWW</abbr>
+    </dfn>
+  </dt>
+  <dd>The World-Wide Web (WWW) is a system of interlinked hypertext documents accessed on <a href="#def-internet">the Internet</a>.</dd>
+</dl>
+
+Styleguide 1.1.3
+*/
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+
+/*
+# Abbreviations
+
+The HTML &lt;abbr&gt; Element (or HTML Abbreviation Element) represents an abbreviation and optionally provides a full description for it. If present, the title attribute must contain this full description and nothing else.
+
+Markup: <p>Tony Blair is the prime minister of the <abbr title="United Kingdom">UK</abbr></p>
+
+Styleguide 1.1.4
+*/
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr {
+  text-transform: uppercase;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/*
+# Code, Pre, Kbd, Samp
+
+The HTML &lt;code&gt; Element represents a fragment of computer code. By default, it is displayed in the browser's default monospace font.
+
+The HTML &lt;samp&gt; element is an element intended to identify sample output from a computer program. It is usually displayed in the browser's default monotype font (such as Lucida Console).
+
+The HTML &lt;kbd&gt; Element (or HTML Keyboard Input Element) represents user input and produces an inline element displayed in the browser's default monotype font.
+
+Markup: <p>Regular text. <code>This is code.</code> Regular text.</p>
+<p>Regular text. <samp>This is sample text.</samp> Regular text.</p>
+<p>Type the following in the Run dialog: <kbd>cmd</kbd><br />Then click the OK button.</p>
+
+Styleguide 1.1.5
+*/
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/*
+# Subscript and Superscript
+
+The HTML Subscript Element (&lt;sub&gt;) defines a span of text that should be displayed, for typographic reasons, lower, and often smaller, than the main span of text.
+The HTML Superscript Element (&lt;sup&gt;) defines a span of text that should be displayed, for typographic reasons, higher, and often smaller, than the main span of text.
+
+Markup: <p>The chemical formula of water is H<sub>2</sub>O</p>
+<p>This text is <sup>superscripted</sup></p>
+
+Styleguide 1.1.6
+*/
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/*
+# Mark
+
+The HTML &lt;mark&gt; Element represents highlighted text, i.e., a run of text marked for reference purpose, due to its relevance in a particular context. For example it can be used in a page showing search results to highlight every instance of the searched for word.
+
+Markup: <p>The &lt;mark&gt; element is used to <mark>highlight</mark> text</p>
+
+Styleguide 1.1.7
+*/
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ffdc00;
+  color: #222222;
+}
+
+/*
+# Images
+
+The HTML &lt;img&gt; Element (or HTML Image Element) represents an image of the document.
+
+Markup: <img src="http://fpoimg.com/200x252" alt="" />
+<a href="https://developer.mozilla.org/" target="_blank"><img src="http://fpoimg.com/200x150?text=Hyperlinked Image" alt="" /></a>
+
+Styleguide 1.1.8
+*/
+img,
+svg {
+  vertical-align: middle;
+}
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+  max-width: 100%;
+  height: auto;
+  image-rendering: -moz-crisp-edges;
+  /* Firefox */
+  image-rendering: -o-crisp-edges;
+  /* Opera */
+  image-rendering: -webkit-optimize-contrast;
+  /* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: bicubic;
+  /* IE (non-standard property) */
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/*
+# Form Buttons
+
+The HTML &lt;button&gt; Element represents a clickable button.
+
+Markup: <!-- Submits the form. --!>
+<button type="submit" >Submit</button>
+<!-- Resets the form. --!>
+<button type="reset" >Reset</button>
+<!-- Does nothing. Typically used with JavaScript --!>
+<button type="button" >Click me</button>
+<!-- Input Submit Button --!>
+<input type="submit" value="Submit" />
+<!-- Input Reset Button --!>
+<input type="reset" value="Reset" />
+
+Styleguide 1.1.9
+*/
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+  color: #999999;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/*
+# Inputs & Labels
+
+The HTML &lt;input&gt; element is used to create interactive controls for web-based forms.
+
+The HTML &lt;label&gt; Element represents a caption for an item in a user interface. It can be associated with a control either by placing the control element inside the label element, or by using the for attribute. Such a control is called the labeled control of the label element.
+
+Markup: <p><label>Text: <input type="text" name="fn" value=""></label></p>
+<p><label for="search">Search: </label><input name="search" type="search" value=""></p>
+<p><label>Tel: <input name="tel" type="tel" value=""> <small>Format: AB12 3CD</small></label></p>
+<p><label for="url">URL: </label><input name="url" type="url" value=""></p>
+<p><label>Email: <input name="email" type="email" value=""> <small>Format: name@host.com</small></label></p>
+<p><label for="pwd">Password: </label><input name="pwd" type="password" value=""></p>
+<p><label>Date: <input name="date" type="date" value=""></label></p>
+<p><label for="t">Time: </label><input name="t" type="time" value=""></p>
+<p><label>Number: <input name="num" type="number" value=""></label></p>
+<p><label for="r">Range: </label><input name="r" type="range" value=""></p>
+<p><label>Checkbox1: <input name="check[]" type="checkbox" value="yes"></label> <label>Checkbox2: <input name="check[]" type="checkbox" value="No"></label></p>
+<p><label>Radio1: <input name="r1" type="radio" value="yes"></label> <label>Radio2: <input name="r1" type="radio" value="No"></label></p>
+<p><label for="clr">Color: </label><input name="clr" type="color" value=""></p>
+<p><label for="fl">File: </label><input name="fl" type="file"></p>
+
+Styleguide 1.2.0
+*/
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+  line-height: normal;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+textarea,
+fieldset {
+  border: 1px solid #cccccc;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="range"],
+textarea {
+  width: 100%;
+  outline: 0;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+textarea {
+  padding: 0.60714em;
+  box-shadow: inset 0 2px 5px rgba(204, 204, 204, 0.5);
+}
+input[type="text"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+  border: 1px solid #0074d9;
+  box-shadow: none;
+}
+
+input[type="file"] {
+  border: none;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  padding: 0;
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+# Textarea
+
+The HTML &lt;textarea&gt; element represents a multi-line plain-text editing control.
+
+Markup: <p>If you have any comments, please let us know: <textarea cols="80" rows="10" name="comments">You rock!</textarea></p>
+
+Styleguide 1.2.1
+*/
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+  display: block;
+  vertical-align: top;
+  resize: vertical;
+  overflow: auto;
+}
+
+textarea[contenteditable] {
+  -webkit-appearance: none;
+}
+
+/*
+# Select
+
+The HTML select (&lt;select&gt;) element represents a control that presents a menu of options. The options within the menu are represented by &lt;option&gt; elements, which can be grouped by <optgroup> elements. Options can be pre-selected for the user.
+
+In a Web form, the HTML &lt;optgroup&gt; element  creates a grouping of options within a &lt;select&gt; element.
+
+Markup: <!-- The second value will be selected initially -->
+<select name="select">
+  <option value="value1">Value 1</option> 
+  <option value="value2" selected>Value 2</option>
+  <option value="value3">Value 3</option>
+</select>
+<!-- Multiple Select -->
+<select name="select" multiple>
+  <option value="value1">Value 1</option> 
+  <option value="value2" selected>Value 2</option>
+  <option value="value3">Value 3</option>
+</select>
+<!-- Select with optgroup -->
+<select>
+  <optgroup label="Group 1">
+    <option>Option 1.1</option>
+  </optgroup> 
+  <optgroup label="Group 2">
+    <option>Option 2.1</option>
+    <option>Option 2.2</option>
+  </optgroup>
+  <optgroup label="Group 3" disabled>
+    <option>Option 3.1</option>
+    <option>Option 3.2</option>
+    <option>Option 3.3</option>
+  </optgroup>
+</select>
+
+Styleguide 1.2.2
+*/
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: bold;
+}
+
+/*
+# Fieldset and Legends
+
+The HTML &lt;fieldset&gt; element is used to group several controls as well as labels (&lt;label&gt;) within a web form.
+
+The HTML &lt;legend&gt; Element (or HTML Legend Field Element) represents a caption for the content of its parent &lt;fieldset&gt;.
+
+Markup: <fieldset>
+  <legend>Title</legend>
+  <input type="radio" name="radio" id="radio"> <label for="radio">Click me</label>
+</fieldset>
+<fieldset>
+  <legend>More Info</legend>
+  <label for="info">Info</label>
+  <input type="text" name="info" id="info">
+</fieldset>
+
+Styleguide 1.2.3
+*/
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  padding: 1.5em;
+  margin: 0 0 1.5em 0;
+}
+fieldset > :last-child {
+  margin-bottom: 0;
+}
+
+label,
+legend {
+  font-weight: bold;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/*
+# Table
+
+The HTML Table Element (&lt;table&gt;) represents data in two dimensions or more.
+
+The HTML &lt;caption&gt; Element (or HTML Table Caption Element) represents the title of a table. Though it is always the first descendant of a &lt;table&gt;, its styling, using CSS, may place it elsewhere, relative to the table.
+
+The HTML &lt;colgroup&gt; Element (or HTML Table Column Group Element) defines a group of columns within a table.
+
+The HTML &lt;col&gt; Element (or HTML Table Column Element) defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a &lt;colgroup&gt; element.
+
+Markup: <p>Simple table</p>
+<table>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+  </tr>
+  <tr>
+    <td>Jane</td>
+    <td>Doe</td>
+  </tr>
+</table>
+<p>Simple table with header</p>
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+  </tr>
+  <tr>
+    <td>Jane</td>
+    <td>Doe</td>
+  </tr>
+</table>
+<p>Table with thead, tfoot, and tbody</p>
+<table>
+  <thead>
+    <tr>
+      <th>Header content 1</th>
+      <th>Header content 2</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td>Footer content 1</td>
+      <td>Footer content 2</td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>Body content 1</td>
+      <td>Body content 2</td>
+    </tr>
+  </tbody>
+</table>
+<p>Table with colgroup</p>
+<table>
+  <colgroup></colgroup>
+  <colgroup></colgroup>
+  <colgroup></colgroup>
+  <colgroup></colgroup>
+  <tr>
+    <th>Countries</th>
+    <th>Capitals</th>
+    <th>Population</th>
+    <th>Language</th>
+  </tr>
+  <tr>
+    <td>USA</td>
+    <td>Washington D.C.</td>
+    <td>309 million</td>
+    <td>English</td>
+  </tr>
+  <tr>
+    <td>Sweden</td>
+    <td>Stockholm</td>
+    <td>9 million</td>
+    <td>Swedish</td>
+  </tr>
+</table>
+<p>Table with colgroup and col</p>
+<table>
+  <colgroup>
+    <col>
+    <col>
+    <col>
+  </colgroup>
+  <tr>
+    <th>Lime</th>
+    <th>Lemon</th>
+    <th>Orange</th>
+  </tr>
+  <tr>
+    <td>Green</td>
+    <td>Yellow</td>
+    <td>Orange</td>
+  </tr>
+</table>
+<p>Simple table with caption</p>
+<table>
+  <caption>Awesome caption</caption>
+  <tr>
+    <td>Awesome data</td>
+  </tr>
+</table>
+
+Styleguide 1.2.4
+*/
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0 0 1.5em 0;
+}
+
+caption {
+  font-size: 0.78736em;
+  line-height: 1.90511;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+colgroup + colgroup {
+  border-left: 1px solid;
+}
+colgroup col + col {
+  border-left: 1px solid;
+}

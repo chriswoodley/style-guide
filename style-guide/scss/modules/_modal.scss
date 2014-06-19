@@ -1,0 +1,63 @@
+// http://codepen.io/shshaw/full/gEiDt
+.modal {
+	position: fixed;
+	top: 0; left: 0; bottom: 0; right: 0;
+	z-index: 9999;
+	background: rgba($black, 0.9);
+	display: none;
+
+	.lt-ie9 & {
+		// http://kilianvalkhof.com/2010/css-xhtml/how-to-use-rgba-in-ie/
+		background:none;
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=1, StartColorStr='#3F222222', EndColorStr='#3F222222')"; /* For IE8 */
+		zoom: 1;
+	}
+}
+
+.modal__content {
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+	width:90%;
+	height: 90%;
+	margin: auto;
+	padding: pxtoem( $base-line-height, $base-font-size );
+	overflow: auto;
+	background: $white;
+	box-shadow: 0 0 40px $black;
+
+	.modal--right & {
+		left:auto;
+		right: pxtoem( $base-line-height, $base-font-size );
+	}
+
+	.modal--left & {
+		left:pxtoem( $base-line-height, $base-font-size );
+		right: auto;
+	}
+
+	.modal--top & {
+		bottom:auto;
+		top: pxtoem( $base-line-height, $base-font-size );
+	}
+
+	.modal--bottom & {
+		bottom: pxtoem( $base-line-height, $base-font-size );
+		top: auto;
+	}
+
+	.modal--small & {
+		width:50%;
+		height: 50%;
+	}
+}
+
+.modal__close-link {
+	position: absolute;
+	top: 7%;
+	right: 7%;
+}
+
+.modal--is-active,
+.modal:target {
+	display: block;
+}
