@@ -1,22 +1,20 @@
-@function vertical-rhythm( $lines: 1, $font-size: $base-font-size, $offset: 0px, $unitless: false ) {
-  $unit: if($unitless, 1, 1em);
-  $offset: ( $offset / $font-size );
-  $rhythm: ( $base-line-height / $font-size ) * $lines;
-  @return $rhythm - $offset * $unit;
-}
-
-@function calc-width($target, $context, $unit:percent) {
-  @if($unit == percent) {
-      @return percentage($target / $context);
-  } @else {
-      @return $context - $target;
-  }
-}
-
-@function em( $to-size, $from-size ) {
-  @return ($to-size / $from-size) * 1em;
-}
-
 @function strip-unit( $val ) {
   @return $val / ($val * 0 + 1);
+}
+
+@function rhythm( $lines: 1, $font-size: $base-font-size, $offset: 0px) {
+  $rhythm: em( ( $base-line-height - $offset ) * $lines, $font-size );
+  @return $rhythm;
+}
+
+@function line-height($lines, $font-size: $base-font-size) {
+  @return ceil($font-size / ($lines * $base-line-height)) * ($lines * $base-line-height) / $font-size;
+}
+
+@function relative( $target, $context) {
+    @return percentage( strip-unit( $target ) / strip-unit( $context ) );
+}
+
+@function em( $target, $context: $base-font-size ) {
+  @return ( strip-unit( $target ) / strip-unit( $context ) ) * 1em;
 }
