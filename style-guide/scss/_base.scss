@@ -6,6 +6,7 @@ Styleguide 1
 
 * {
   box-sizing: border-box;
+
 }
 
 
@@ -17,7 +18,7 @@ Styleguide 1
 html {
   font-family: $font-primary; /* 1 */
   font-size: percentage( $base-font-size / 16px );
-  line-height: $base-line-height / $base-font-size;
+  line-height: $unitless-line-height;
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -122,33 +123,33 @@ h6 {
  */
 
 h1 {
-  @include font-size($h1-font-size, $base-font-size, .5);
-  margin-bottom: vertical-rhythm( 1, $h1-font-size );
+  @include font-size($h1-font-size);
+  margin-bottom: rhythm( 1, $h1-font-size );
 }
 
 h2 {
   @include font-size($h2-font-size, $base-font-size, .5);
-  margin-bottom: vertical-rhythm( 1, $h2-font-size );
+  margin-bottom: rhythm( 1, $h2-font-size );
 }
 
 h3 {
   @include font-size($h3-font-size, $base-font-size, .5);
-  margin-bottom: vertical-rhythm( 1, $h3-font-size );
+  margin-bottom: rhythm( 1, $h3-font-size );
 }
 
 h4 {
-  @include font-size($h4-font-size, $base-font-size, .5);
-  margin-bottom: vertical-rhythm( 1, $h4-font-size );
+  @include font-size($h4-font-size);
+  margin-bottom: rhythm( 1, $h4-font-size );
 }
 
 h5 {
-  @include font-size($h5-font-size, $base-font-size, .5);
-  margin-bottom: vertical-rhythm( 1, $h5-font-size );
+  @include font-size($h5-font-size);
+  margin-bottom: rhythm( 1, $h5-font-size );
 }
 
 h6 {
-  @include font-size($h6-font-size, $base-font-size, .5);
-  margin-bottom: vertical-rhythm( 1, $h6-font-size );
+  @include font-size($h6-font-size);
+  margin-bottom: rhythm( 1, $h6-font-size );
 }
 
 
@@ -172,7 +173,9 @@ Styleguide 1.0.2
 */
 
 address {
-  margin: vertical-rhythm() 0;
+  margin: rhythm() 0;
+  font-style: normal;
+  color: $dark-gray;
 }
 
 
@@ -190,7 +193,7 @@ Styleguide 1.0.3
 p,
 pre,
 figure {
-  margin: 0 0 vertical-rhythm() 0;
+  margin: 0 0 rhythm() 0;
 }
 
 
@@ -214,7 +217,7 @@ hr {
   height: 0;
   border: 0;
   border-top: 1px solid $black;
-  margin: 0 0 vertical-rhythm(1, $base-font-size, 1px) 0;
+  margin: 0 0 rhythm(1, $base-font-size, 1px) 0;
   padding: 0;
   clear: both;
 }
@@ -256,13 +259,28 @@ The HTML &lt;blockquote&gt; Element (or HTML Block Quotation Element) indicates 
 Markup: <blockquote cite="http://developer.mozilla.org">
   <p>This is a quotation taken from the Mozilla Developer Center.</p>
 </blockquote>
+<blockquote>
+  This is a quotation taken from the Mozilla Developer Center.
+  <cite>Chris Woodley</cite>
+</blockquote>
 
 Styleguide 1.0.6
 */
 blockquote {
-  margin: 0 pxtoem( $indent, $base-font-size ) vertical-rhythm() pxtoem( $indent, $base-font-size );
+  margin: 0 em($indent-size) rhythm() em($indent-size);
+  padding-left: em($indent-size / 4);
+  border-left: 4px solid $light-gray;
+  quotes: "\201C""\201D""\2018""\2019";
   & > p {
     display: inline;
+  }
+
+  cite {
+    display:block;
+    color:$gray;
+    &:before {
+      content: "- ";
+    }
   }
 }
 
@@ -331,12 +349,12 @@ Styleguide 1.0.7
  dl,
  ul,
  ol {
-  margin: 0 0 vertical-rhythm() 0;
+  margin: 0 0 rhythm() 0;
  }
 
  ul,
  ol {
-  padding: 0 0 0 pxtoem( $indent, $base-font-size );
+  padding: 0 0 0 em($indent-size);
  }
 
  dt {
@@ -344,7 +362,7 @@ Styleguide 1.0.7
  }
 
  dd {
-  margin: 0 0 0 pxtoem( $indent, $base-font-size );
+  margin: 0 0 0 em($indent-size);
  }
 
 
@@ -370,19 +388,27 @@ Styleguide 1.0.8
  * Address margin not present in IE 8/9 and Safari.
  */
 figure {
-  margin: vertical-rhythm( 1, $base-font-size ) pxtoem( $indent, $base-font-size );
+  margin: rhythm($offset:1px);
+  padding: rhythm();
+  border-top: 1px dotted $light-gray;
+  border-bottom: 1px dotted $light-gray;
+  text-align: center;
 }
 
 figcaption {
-  @include font-size($small-font-size, $base-font-size);
+  @include font-size($small-font-size);
 }
 
 
 /*
 # Standard Links
 
-Your standard hyperlinks.
-Removed the gray background color from active links in IE 10 by setting background to transparent
+Your standard hyperlinks. Removed the gray background color from active links in IE 10 by setting background to transparent. However, you can specifiy a background color for each state using the mixin defined below:
+
+Usage:
+<pre>a {
+  @include link-colors( $foreground: "blue" "green" "red", $background: "black" "gray" "white");
+}</pre>
 
 Markup: <a href="#" class="$modifierClass">Example</a>
 
@@ -394,7 +420,7 @@ Markup: <a href="#" class="$modifierClass">Example</a>
 Styleguide 1.0.9
 */
 a {
-  @include link-colors( $blue, $blue, $green, $red, $red );
+  @include link-colors( $foreground: "blue" "green" "red", $background: false);
   background: transparent;
 }
 
@@ -421,10 +447,12 @@ Styleguide 1.1.0
 
 /**
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ * Fix line height issue.
  */
 b,
 strong {
   font-weight: bold;
+  line-height: 1em; 
 }
 
 
@@ -442,7 +470,7 @@ Styleguide 1.1.1
  * Address inconsistent and variable font size in all browsers.
  */
 small {
-  font-size: percentage( $small-font-size / $base-font-size );
+  @include font-size( $small-font-size );
 }
 
 
@@ -540,6 +568,19 @@ samp {
   font-size: 1em;
 }
 
+p {
+  code,
+  kbd,
+  samp {
+    font-size: 90%;
+    color: $red;
+    background: scale-color($orange, $lightness: 85%);
+    padding: .1em .5em;
+    border-radius: $radius;
+    white-space: nowrap;
+  }
+}
+
 
 /*
 # Subscript and Superscript
@@ -634,15 +675,10 @@ svg:not(:root) {
 
 The HTML &lt;button&gt; Element represents a clickable button.
 
-Markup: <!-- Submits the form. --!>
-<button type="submit" >Submit</button>
-<!-- Resets the form. --!>
+Markup: <button type="submit" >Submit</button>
 <button type="reset" >Reset</button>
-<!-- Does nothing. Typically used with JavaScript --!>
 <button type="button" >Click me</button>
-<!-- Input Submit Button --!>
 <input type="submit" value="Submit" />
-<!-- Input Reset Button --!>
 <input type="reset" value="Reset" />
 
 Styleguide 1.1.9
@@ -674,6 +710,13 @@ textarea {
  */
 button {
   overflow: visible;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+  height: rhythm(1.5);
+  margin: rhythm(.25) 0;
 }
 
 /**
@@ -728,20 +771,18 @@ The HTML &lt;input&gt; element is used to create interactive controls for web-ba
 
 The HTML &lt;label&gt; Element represents a caption for an item in a user interface. It can be associated with a control either by placing the control element inside the label element, or by using the for attribute. Such a control is called the labeled control of the label element.
 
-Markup: <p><label>Text: <input type="text" name="fn" value=""></label></p>
-<p><label for="search">Search: </label><input name="search" type="search" value=""></p>
-<p><label>Tel: <input name="tel" type="tel" value=""> <small>Format: AB12 3CD</small></label></p>
-<p><label for="url">URL: </label><input name="url" type="url" value=""></p>
-<p><label>Email: <input name="email" type="email" value=""> <small>Format: name@host.com</small></label></p>
-<p><label for="pwd">Password: </label><input name="pwd" type="password" value=""></p>
-<p><label>Date: <input name="date" type="date" value=""></label></p>
-<p><label for="t">Time: </label><input name="t" type="time" value=""></p>
-<p><label>Number: <input name="num" type="number" value=""></label></p>
-<p><label for="r">Range: </label><input name="r" type="range" value=""></p>
-<p><label>Checkbox1: <input name="check[]" type="checkbox" value="yes"></label> <label>Checkbox2: <input name="check[]" type="checkbox" value="No"></label></p>
-<p><label>Radio1: <input name="r1" type="radio" value="yes"></label> <label>Radio2: <input name="r1" type="radio" value="No"></label></p>
-<p><label for="clr">Color: </label><input name="clr" type="color" value=""></p>
-<p><label for="fl">File: </label><input name="fl" type="file"></p>
+Markup: <div><label>Text: <input type="text" name="fn" value=""></label></div>
+<div><label for="search">Search: </label><input name="search" type="search" value=""></div>
+<div><label>Tel: <input name="tel" type="tel" value=""> <small>Format: AB12 3CD</small></label></div>
+<div><label for="url">URL: </label><input name="url" type="url" value=""></div>
+<div><label>Email: <input name="email" type="email" value=""> <small>Format: name@host.com</small></label></div>
+<div><label for="pwd">Password: </label><input name="pwd" type="password" value=""></div>
+<div><label>Date: <input name="date" type="date" value=""></label></div>
+<div><label for="t">Time: </label><input name="t" type="time" value=""></div>
+<div><label>Number: <input name="num" type="number" value=""></label></div>
+<div><label>Checkbox1: <input name="check[]" type="checkbox" value="yes"></label> <label>Checkbox2: <input name="check[]" type="checkbox" value="No"></label></div>
+<div><label>Radio1: <input name="r1" type="radio" value="yes"></label> <label>Radio2: <input name="r1" type="radio" value="No"></label></div>
+<div><label for="fl">File: </label><input name="fl" type="file"></div>
 
 Styleguide 1.2.0
 */
@@ -751,7 +792,7 @@ Styleguide 1.2.0
  * the UA stylesheet.
  */
 input {
-  line-height: normal;
+  line-height: line-height(1);
 }
 
 input[type="text"],
@@ -770,6 +811,7 @@ input[type="url"],
 textarea,
 fieldset {
   border: 1px solid $light-gray;
+  border-radius: $radius;
 }
 
 input[type="text"],
@@ -787,7 +829,7 @@ input[type="tel"],
 input[type="url"],
 input[type="range"],
 textarea {
-  width: 100%;
+  width: auto;
   outline: 0;
 }
 
@@ -805,7 +847,8 @@ input[type="email"],
 input[type="tel"],
 input[type="url"],
 textarea {
-  padding: vertical-rhythm(.5, $base-font-size, 2px);
+  padding: rhythm(.25, $base-font-size, 2px);
+  margin: rhythm(.230) 0;
   box-shadow: inset 0 2px 5px rgba($light-gray, .5);
   &:focus {
     border: 1px solid $blue;
@@ -815,6 +858,8 @@ textarea {
 
 input[type="file"] {
   border:none;
+  display: block;
+  width: 100%;
 }
 
 /**
@@ -824,7 +869,10 @@ input[type="file"] {
 input[type="checkbox"],
 input[type="radio"] {
   padding: 0;
+  vertical-align: middle;
+  margin-top: -4px;
 }
+
 
 /**
  * Fix the cursor style for Chrome's increment/decrement buttons. For certain
@@ -852,7 +900,6 @@ input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-
 /*
 # Textarea
 
@@ -871,6 +918,17 @@ textarea {
   vertical-align: top;
   resize: vertical;
   overflow: auto;
+  height: auto;
+  min-height: rhythm(5);
+  width: 100%;
+}
+
+textarea[rows] {
+  height: auto;
+}
+
+textarea[cols] {
+  width: auto;
 }
 
 textarea[contenteditable] {
@@ -891,12 +949,6 @@ Markup: <!-- The second value will be selected initially -->
   <option value="value2" selected>Value 2</option>
   <option value="value3">Value 3</option>
 </select>
-<!-- Multiple Select -->
-<select name="select" multiple>
-  <option value="value1">Value 1</option> 
-  <option value="value2" selected>Value 2</option>
-  <option value="value3">Value 3</option>
-</select>
 <!-- Select with optgroup -->
 <select>
   <optgroup label="Group 1">
@@ -912,6 +964,12 @@ Markup: <!-- The second value will be selected initially -->
     <option>Option 3.3</option>
   </optgroup>
 </select>
+<!-- Multiple Select -->
+<select name="select" multiple>
+  <option value="value1">Value 1</option> 
+  <option value="value2" selected>Value 2</option>
+  <option value="value3">Value 3</option>
+</select>
 
 Styleguide 1.2.2
 */
@@ -924,6 +982,24 @@ optgroup {
   font-weight: bold;
 }
 
+select {
+  height: rhythm(1.5);
+  padding: .25em;
+  margin: rhythm(.25) 0;
+  background-color: $white;
+  border: 1px solid $light-gray;
+  border-radius: $radius;
+
+  &:hover {
+    background-color: scale-color($light-gray, $lightness: 80%);
+    border-color: $gray;
+  }
+
+  &[multiple] {
+    height:auto;
+    padding: rhythm($lines: .5, $offset: 1px) em(10);
+  }
+}
 
 /*
 # Fieldset and Legends
@@ -949,8 +1025,8 @@ Styleguide 1.2.3
  * Define consistent border, margin, and padding.
  */
 fieldset {
-  padding: vertical-rhythm();
-  margin: 0 0 vertical-rhythm() 0;
+  padding: rhythm();
+  margin: 0 0 rhythm() 0;
   &>:last-child {
     margin-bottom: 0;
   }
@@ -959,6 +1035,11 @@ fieldset {
 label,
 legend {
   font-weight: bold;
+  line-height: line-height(.95);
+}
+
+label {
+  display: inline-block;
 }
 
 /**
@@ -966,9 +1047,21 @@ legend {
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
 legend {
+  display: block;
+  width: 100%;
   border: 0; /* 1 */
+  border-bottom: 2px solid #e5e5e5;
   padding: 0; /* 2 */
+  @include font-size($h3-font-size);
+  margin-bottom: rhythm( 1, $h3-font-size, 2px);
 }
+
+fieldset {
+  padding: 0;
+  margin: 0 0 rhythm() 0;
+  border: 0;
+}
+
 
 /*
 # Table
@@ -977,38 +1070,9 @@ The HTML Table Element (&lt;table&gt;) represents data in two dimensions or more
 
 The HTML &lt;caption&gt; Element (or HTML Table Caption Element) represents the title of a table. Though it is always the first descendant of a &lt;table&gt;, its styling, using CSS, may place it elsewhere, relative to the table.
 
-The HTML &lt;colgroup&gt; Element (or HTML Table Column Group Element) defines a group of columns within a table.
-
-The HTML &lt;col&gt; Element (or HTML Table Column Element) defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a &lt;colgroup&gt; element.
-
-Markup: <p>Simple table</p>
+Markup: <p>Table with thead, tfoot, tbody, and caption</p>
 <table>
-  <tr>
-    <td>John</td>
-    <td>Doe</td>
-  </tr>
-  <tr>
-    <td>Jane</td>
-    <td>Doe</td>
-  </tr>
-</table>
-<p>Simple table with header</p>
-<table>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-  </tr>
-  <tr>
-    <td>John</td>
-    <td>Doe</td>
-  </tr>
-  <tr>
-    <td>Jane</td>
-    <td>Doe</td>
-  </tr>
-</table>
-<p>Table with thead, tfoot, and tbody</p>
-<table>
+  <caption>Awesome caption (Table title)</caption>
   <thead>
     <tr>
       <th>Header content 1</th>
@@ -1028,56 +1092,6 @@ Markup: <p>Simple table</p>
     </tr>
   </tbody>
 </table>
-<p>Table with colgroup</p>
-<table>
-  <colgroup></colgroup>
-  <colgroup></colgroup>
-  <colgroup></colgroup>
-  <colgroup></colgroup>
-  <tr>
-    <th>Countries</th>
-    <th>Capitals</th>
-    <th>Population</th>
-    <th>Language</th>
-  </tr>
-  <tr>
-    <td>USA</td>
-    <td>Washington D.C.</td>
-    <td>309 million</td>
-    <td>English</td>
-  </tr>
-  <tr>
-    <td>Sweden</td>
-    <td>Stockholm</td>
-    <td>9 million</td>
-    <td>Swedish</td>
-  </tr>
-</table>
-<p>Table with colgroup and col</p>
-<table>
-  <colgroup>
-    <col>
-    <col>
-    <col>
-  </colgroup>
-  <tr>
-    <th>Lime</th>
-    <th>Lemon</th>
-    <th>Orange</th>
-  </tr>
-  <tr>
-    <td>Green</td>
-    <td>Yellow</td>
-    <td>Orange</td>
-  </tr>
-</table>
-<p>Simple table with caption</p>
-<table>
-  <caption>Awesome caption</caption>
-  <tr>
-    <td>Awesome data</td>
-  </tr>
-</table>
 
 Styleguide 1.2.4
 */
@@ -1086,27 +1100,34 @@ Styleguide 1.2.4
  * Remove most spacing between table cells.
  */
 table {
+  width:100%;
   border-collapse: collapse;
   border-spacing: 0;
-  margin: 0 0 vertical-rhythm() 0;
-}
-
-caption {
-  @include font-size($small-font-size, $base-font-size);
+  margin: 0 0 rhythm() 0;
+  line-height: 1.6;
 }
 
 td,
 th {
-  padding: 0;
+  padding: rhythm(.5) em($base-font-size);
+  vertical-align: top;
 }
 
-colgroup {
- & + colgroup {
-  border-left: 1px solid;
- }
- col {
-  & + col {
-    border-left: 1px solid;
-   }
- }
+th {
+  font-weight: bold;
+  text-align: center;
+}
+
+caption,
+tfoot td {
+  text-align: left;
+}
+
+caption {
+  @include font-size($large-font-size);
+}
+
+tfoot td {
+  @include font-size($small-font-size);
+  padding: rhythm(.525, $small-font-size) em($base-font-size);
 }
