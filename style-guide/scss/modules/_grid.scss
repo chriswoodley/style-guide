@@ -1,102 +1,56 @@
-.grid {
-  max-width: $site-width;
-  margin: 0 auto;
-  padding-left: $grid-gutter;
-  padding-right: $grid-gutter;
-  @media ( max-width: $small-screen ) {
-    width: 90%;
-  }
-
-  .grid__row {
-    margin-left: - $grid-gutter;
-    margin-right: - $grid-gutter;
-    @extend .clearfix;
-  }
-
-  .grid__col {
-    float: left;
+%grid__col {
     position: relative;
-    padding-left: $grid-gutter;
-    padding-right: $grid-gutter;
-    @media ( max-width: $small-screen ) {
-      float:none;
-      padding-left: 0;
-      padding-right: 0;
-      &>.grid__row {
-        margin-left: 0;
-        margin-right: 0;
-      }
-    }
-  }
+    float: left;
+}
 
-  &.grid--container {
-    max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    @media ( max-width: $small-screen ) {
-      width: 100%;
-      &>.grid__row {
-        margin-left: 0;
-        margin-right: 0;
-      }
+@mixin grid( $width: $site-width ) {
+    width: 95%;
+    margin: 0 auto;
+    @media screen and (min-width: $small-screen) {
+        max-width: $width;
     }
-  }
+}
 
-  @for $i from 1 through $grid-columns {
-    .grid__col--#{$i} {
-      width: ( 100% / $grid-columns ) * $i;
-      @if $i == $grid-columns {
-        float: none;
-      }
-      @extend %grid__col--small-screen-width;
-    }
-    .grid__col--push-#{$i} {
-      left: ( 100% / $grid-columns ) * $i;
-      @extend %grid__col--small-screen-left;
-    }
-    .grid__col--pull-#{$i} {
-      right: ( 100% / $grid-columns ) * $i;
-      @extend %grid__col--small-screen-right;
-    }
-    .grid__col--offset-#{$i} {
-      margin-left: ( 100% / $grid-columns ) * $i;
-      @extend %grid__col--small-screen-margin-left;
-    }
+@mixin grid__row() {
+    @extend %clearfix;
+}
 
-    .grid__col--inset-#{$i} {
-      margin-right: ( 100% / $grid-columns ) * $i;
-      @extend %grid__col--small-screen-margin-right;
+@mixin grid__col( $span: 1, $columns: $mobile-columns, $gutter: both, $gutter-size: $mobile-gutter ) {
+
+    @if $span > $columns {
+        @warn "The column span value cannot be greater then the allowable number of columns in the grid.";
+        @debug "Column span is equal to #{$span}";
+        @debug "Number of grid columns is equal to #{$columns}";
+    } @else {
+        width: ( 100% / $columns ) * $span;
+
+        @if $gutter == both {
+            padding: 0 $gutter-size;
+        }
+
+        @if $gutter == left {
+            padding: 0 0 0 $gutter-size;
+        }
+
+        @if $gutter == right {
+            padding: 0 $gutter-size 0 0;
+        }
     }
-  }
 
 }
 
-%grid__col--small-screen-width {
-  @media ( max-width: $small-screen ) {
-    width: 100%;
-  }
+@mixin grid__col--push( $span, $columns ) {
+  left: ( 100% / $columns ) * $span;
 }
 
-%grid__col--small-screen-left {
-  @media ( max-width: $small-screen ) {
-    left: 0;
-  }
+@mixin grid__col--pull( $span, $columns ) {
+  right: ( 100% / $columns ) * $span;
 }
 
-%grid__col--small-screen-right {
-  @media ( max-width: $small-screen ) {
-    right: 0;
-  }
+@mixin grid__col--offset-left( $span, $columns ) {
+  margin-left: ( 100% / $columns ) * $span;
 }
 
-%grid__col--small-screen-margin-left {
-  @media ( max-width: $small-screen ) {
-    margin-left: 0;
-  }
-}
-
-%grid__col--small-screen-margin-right {
-  @media ( max-width: $small-screen ) {
-    margin-right: $grid-gutter;
-  }
+@mixin grid__col--offset-right( $span, $columns ) {
+  margin-right: ( 100% / $columns ) * $span;
 }
