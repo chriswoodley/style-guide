@@ -9,7 +9,7 @@ $double-quotes: "\201C" "\201D";
 // http://modularscale.com/scale/?px1=320&px2=14&ra1=1.618&ra2=0
 $base-font-size: 14px;
 $base-line-height: $base-font-size * 1.5;
-$unitless-line-height: strip-unit($base-line-height) / strip-unit( $base-font-size );
+$unitless-line-height: strip-unit( $base-line-height / $base-font-size );
 
 $h1-font-size: 36.651px;
 $h2-font-size: 28.857px;
@@ -45,12 +45,14 @@ $black: #222222;
 
 
 // LAYOUT
-$site-width:1140px;
+$site-width: em(1140px, 16px);
 
 // GRID
-$grid-columns: 12;
-$grid-gutter: 8.653px;
-$large-grid-gutter: 17.835px;
+$mobile-columns: 4;
+$mobile-gutter: 10px;
+
+$desktop-columns: 12;
+$desktop-gutter: 17.835px;
 
 // COLUMNS
 $column-gap: 22.652px;
@@ -60,8 +62,4 @@ $column-count: 4;
 $radius: 4px;
 
 // BREAK POINTS
-$small-screen: 480px;
-
-body {
-	// line-height: $base-line-height;
-}
+$small-screen: em(768px, 16px);
