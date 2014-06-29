@@ -1,40 +1,67 @@
-@mixin font-size( $to-size: $base-font-size, $from-size: $base-font-size, $lines: 1 ) {
-  font-size: ( $to-size / $from-size) * 1em; 
-  line-height: ceil( $to-size / ( $base-line-height * $lines ) ) * ( ( $base-line-height * $lines ) / $to-size );
-}
-
 @mixin baseline-grid-bg ( $rgb: 204 40 130 ) {
-  $line-height: ( $base-line-height / 1px );
+  $line-height: strip-unit( $base-line-height );
   background-image: url(http://basehold.it/i/#{$line-height}/#{nth($rgb, 1)}/#{nth($rgb, 2)}/#{nth($rgb, 3)}); // with RGB colour
   background-repeat: repeat;
 }
 
-@mixin link-colors( $link-color: false, $link-visited-color: false, $link-hover-color: false, $link-active-color: false, $link-focus-color: false ) {
-  @if $link-color {
-    &:link {
-      color: $link-color;
-    }
-  }
-  @if $link-visited-color {
+@mixin link-colors( $foreground: false, $background: false) {
+
+  @if $foreground and $background {
+    &:link,
     &:visited {
-      color: $link-visited-color;
+      color: unquote(nth($foreground, 1));
+      background-color: unquote(nth($background, 1));
     }
-  }
-  @if $link-hover-color {
-    &:hover {
-      color: $link-hover-color;
-    }
-  }
-  @if $link-active-color {
-    &:active {
-      color: $link-active-color;
-    }
-  }
-  @if $link-focus-color {
+
+    &:hover,
     &:focus {
-      color: $link-focus-color;
+      color: unquote(nth($foreground, 2));
+      background-color: unquote(nth($background, 2));
+    }
+
+    &:active {
+     color: unquote(nth($foreground, 3));
+     background-color: unquote(nth($background, 3));
     }
   }
+
+  @if $foreground and not $background {
+    &:link,
+    &:visited {
+      color: unquote(nth($foreground, 1));
+    }
+
+    &:hover,
+    &:focus {
+      color: unquote(nth($foreground, 2));
+    }
+
+    &:active {
+     color: unquote(nth($foreground, 3));
+    }
+  }
+
+  @if $background and not $foreground {
+    &:link,
+    &:visited {
+      background-color: unquote(nth($background, 1));
+    }
+
+    &:hover,
+    &:focus {
+      background-color: unquote(nth($background, 2));
+    }
+
+    &:active {
+     background-color: unquote(nth($background, 3));
+    }
+  }
+
+}
+
+@mixin font-size( $to, $from: $base-font-size, $lines: 1 ) {
+  font-size: em( $to, $from);
+  line-height: line-height($lines, $to);
 }
 
 @mixin box-arrow($side: top, $color: $blue, $width: $base-font-size) {
