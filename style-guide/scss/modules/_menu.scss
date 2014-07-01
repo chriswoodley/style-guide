@@ -1,57 +1,46 @@
-.menu__item,
-.menu__item a {
-  display: block;
+%menu-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.menu {
-  display: table;
-  width: auto;
-  .menu__item {
-    float: left;
-    @media ( max-width: $small-screen ) {
-      width: inherit;
-      float: none;
+@mixin menu( $align: left ) {
+    @if $align == center or $align == right or $align == justified {
+        display: table;
     }
-  }
-
-  @media ( max-width: $small-screen ) {
-      display: block;
-      width: 100%;
+    @if $align == center  {
+        margin-left: auto;
+        margin-right: auto;
     }
-}
-
-.menu--centered {
-  width: auto;
-  margin: 0 auto;
-}
-
-.menu--right {
-  width: auto;
-  margin-left: auto;
-}
-
-.menu--justified {
-  width:100%;
-  .menu__item {
-    display: table-cell;
-    float: none;
-    width: 1%;
-    vertical-align: middle;
-    text-align: center;
-    @media ( max-width: $small-screen ) {
-      display: block;
-      width: inherit;
+    @if $align == right  {
+        margin-left: auto;
     }
-  }
+    @if $align == justified  {
+        width: 100%;
+    }
+    @content;
 }
 
-.menu--stacked {
-  .menu__item {
+@mixin menu__item( $align: false, $num: 0 ) {
+    position: relative;
+    @if $align == false {
+        display:block;
+        float:left;
+    } @else if $align == justified {
+        display:table-cell;
+        text-align: center;
+        float:none;
+        @if $num > 0 {
+            width: ( 100% / $num);
+        }
+    } @else if $align == stacked {
+        display:block;
+    }
+    @content;
+}
+
+@mixin menu__item-link() {
     display: block;
-    float: none;
-  }
-}
-
-.menu--unstyled-list {
-  @extend %unstyled-list;
+    text-decoration:none;
+    @content;
 }

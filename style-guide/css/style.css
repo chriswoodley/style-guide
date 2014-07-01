@@ -1225,12 +1225,6 @@ tfoot td {
   padding: 1.00018em 1em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/modules\/_grid\.scss}line{font-family:\000031}}
-.grid__col-1, .grid__col-2, .primary, .secondary, .offset-right, .offset-left {
-  position: relative;
-  float: left;
-}
-
 /*
 # Grid
 
@@ -1250,13 +1244,19 @@ Markup: <div class="grid">.grid</div>
 
 Styleguide 2.0.1
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/modules\/_grid\.scss}line{font-family:\000031}}
+.grid__col-1, .grid__col-2, .primary, .secondary, .offset-right, .offset-left {
+  position: relative;
+  float: left;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\0000329}}
 .grid {
   width: 95%;
   margin: 0 auto;
 }
 @media screen and (min-width: 48em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\0000329}}
   .grid {
     max-width: 71.25em;
   }
@@ -1306,13 +1306,13 @@ Markup: <div class="grid">
 
 Styleguide 2.0.3
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\0000383}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\0000384}}
 .grid__col-1 {
   width: 25%;
   padding: 0 10px 0 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\0000388}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\0000389}}
 .grid__col-2 {
   width: 75%;
   padding: 0 0 0 10px;
@@ -1348,14 +1348,14 @@ Markup: <div class="grid">
 
 Styleguide 2.0.4
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003125}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003126}}
 .primary {
   width: 25%;
   padding: 0 10px 0 0;
   left: 75%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003130}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003131}}
 .secondary {
   width: 75%;
   padding: 0 0 0 10px;
@@ -1392,16 +1392,312 @@ Markup: <div class="grid">
 
 Styleguide 2.0.5
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003169}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003170}}
 .offset-right {
   width: 25%;
   padding: 0 10px 0 0;
   margin-right: 25%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003174}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003175}}
 .offset-left {
   width: 25%;
   padding: 0 0 0 10px;
   margin-left: 25%;
+}
+
+/*
+# Menu
+
+Styleguide 3
+*/
+/*
+# Menu and Menu Item Mixin and Menu Reset Placeholder
+
+Both of these mixins defines the styles necessary for the top level navigation module. The <code>%menu-reset</code> placeholder is used to reset the styles of list markup and can be reused for sub menus.
+
+Usage:
+<pre>.menu {
+  @extend %menu-reset;
+  @include menu() {
+    & > .menu__item {
+      @include menu__item();
+    }
+  }
+}</pre>
+
+Markup: <nav role="navigation">
+  <ul class="menu">
+    <li class="menu__item"><a href="#">Item 1</a></li>
+    <li class="menu__item"><a href="#">Item 2</a></li>
+    <li class="menu__item"><a href="#">Item 3</a></li>
+    <li class="menu__item"><a href="#">Item 4</a></li>
+    <li class="menu__item"><a href="#">Item 5</a></li>
+  </ul>
+</nav>
+
+Styleguide 3.0.1
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/modules\/_menu\.scss}line{font-family:\000031}}
+.menu, .menu-1, .menu-2, .menu-3, .menu-4 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003221}}
+.menu > .menu__item {
+  position: relative;
+  display: block;
+  float: left;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003223}}
+.menu > .menu__item > a {
+  display: block;
+  text-decoration: none;
+  padding: .75em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
+.menu > .menu__item > a:link, .menu > .menu__item > a:visited {
+  color: purple;
+  background-color: #e0774c;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000316}}
+.menu > .menu__item > a:hover, .menu > .menu__item > a:focus {
+  color: yellow;
+  background-color: blue;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000322}}
+.menu > .menu__item > a:active {
+  color: yellow;
+  background-color: purple;
+}
+
+/*
+# Menu aligned to the right
+
+Usage:
+<pre>.menu-1 {
+  @extend %menu-reset;
+  @include menu( right ) {
+    & > .menu-1__item {
+      @include menu__item();
+    }
+  }
+}</pre>
+
+Markup: <nav role="navigation">
+  <ul class="menu-1">
+    <li class="menu-1__item"><a href="#">Item 1</a></li>
+    <li class="menu-1__item"><a href="#">Item 2</a></li>
+    <li class="menu-1__item"><a href="#">Item 3</a></li>
+    <li class="menu-1__item"><a href="#">Item 4</a></li>
+    <li class="menu-1__item"><a href="#">Item 5</a></li>
+  </ul>
+</nav>
+
+Styleguide 3.0.2
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003261}}
+.menu-1 {
+  display: table;
+  margin-left: auto;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003264}}
+.menu-1 > .menu-1__item {
+  position: relative;
+  display: block;
+  float: left;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003266}}
+.menu-1 > .menu-1__item > a {
+  display: block;
+  text-decoration: none;
+  padding: .75em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
+.menu-1 > .menu-1__item > a:link, .menu-1 > .menu-1__item > a:visited {
+  color: purple;
+  background-color: #e0774c;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000316}}
+.menu-1 > .menu-1__item > a:hover, .menu-1 > .menu-1__item > a:focus {
+  color: yellow;
+  background-color: blue;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000322}}
+.menu-1 > .menu-1__item > a:active {
+  color: yellow;
+  background-color: purple;
+}
+
+/*
+# Menu aligned to the center
+
+Usage:
+<pre>.menu-2 {
+  @extend %menu-reset;
+  @include menu( center ) {
+    & > .menu-2__item {
+      @include menu__item();
+    }
+  }
+}</pre>
+
+Markup: <nav role="navigation">
+  <ul class="menu-2">
+    <li class="menu-2__item"><a href="#">Item 1</a></li>
+    <li class="menu-2__item"><a href="#">Item 2</a></li>
+    <li class="menu-2__item"><a href="#">Item 3</a></li>
+    <li class="menu-2__item"><a href="#">Item 4</a></li>
+    <li class="menu-2__item"><a href="#">Item 5</a></li>
+  </ul>
+</nav>
+
+Styleguide 3.0.3
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003303}}
+.menu-2 {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003306}}
+.menu-2 > .menu-2__item {
+  position: relative;
+  display: block;
+  float: left;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003308}}
+.menu-2 > .menu-2__item > a {
+  display: block;
+  text-decoration: none;
+  padding: .75em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
+.menu-2 > .menu-2__item > a:link, .menu-2 > .menu-2__item > a:visited {
+  color: purple;
+  background-color: #e0774c;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000316}}
+.menu-2 > .menu-2__item > a:hover, .menu-2 > .menu-2__item > a:focus {
+  color: yellow;
+  background-color: blue;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000322}}
+.menu-2 > .menu-2__item > a:active {
+  color: yellow;
+  background-color: purple;
+}
+
+/*
+# Menu aligned justified
+
+Usage:
+<pre>.menu-3 {
+  @extend %menu-reset;
+  @include menu( justified ) {
+    & > .menu-3__item {
+      @include menu__item( $align: justified, $num: 5 );
+    }
+  }
+}</pre>
+
+Markup: <nav role="navigation">
+  <ul class="menu-3">
+    <li class="menu-3__item"><a href="#">Item 1</a></li>
+    <li class="menu-3__item"><a href="#">Item 2</a></li>
+    <li class="menu-3__item"><a href="#">Item 3</a></li>
+    <li class="menu-3__item"><a href="#">Item 4</a></li>
+    <li class="menu-3__item"><a href="#">Item 5</a></li>
+  </ul>
+</nav>
+
+Styleguide 3.0.4
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003345}}
+.menu-3 {
+  display: table;
+  width: 100%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003348}}
+.menu-3 > .menu-3__item {
+  position: relative;
+  display: table-cell;
+  text-align: center;
+  float: none;
+  width: 20%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003350}}
+.menu-3 > .menu-3__item > a {
+  display: block;
+  text-decoration: none;
+  padding: .75em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
+.menu-3 > .menu-3__item > a:link, .menu-3 > .menu-3__item > a:visited {
+  color: purple;
+  background-color: #e0774c;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000316}}
+.menu-3 > .menu-3__item > a:hover, .menu-3 > .menu-3__item > a:focus {
+  color: yellow;
+  background-color: blue;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000322}}
+.menu-3 > .menu-3__item > a:active {
+  color: yellow;
+  background-color: purple;
+}
+
+/*
+# Menu stacked
+
+Usage:
+<pre>.menu-4 {
+  @extend %menu-reset;
+  @include menu() {
+    & > .menu-4__item {
+      @include menu__item( $align: stacked );
+    }
+  }
+}</pre>
+
+Markup: <nav role="navigation">
+  <ul class="menu-4">
+    <li class="menu-4__item"><a href="#">Item 1</a></li>
+    <li class="menu-4__item"><a href="#">Item 2</a></li>
+    <li class="menu-4__item"><a href="#">Item 3</a></li>
+    <li class="menu-4__item"><a href="#">Item 4</a></li>
+    <li class="menu-4__item"><a href="#">Item 5</a></li>
+  </ul>
+</nav>
+
+Styleguide 3.0.5
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003390}}
+.menu-4 > .menu-4__item {
+  position: relative;
+  display: block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003392}}
+.menu-4 > .menu-4__item > a {
+  display: block;
+  text-decoration: none;
+  padding: .75em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
+.menu-4 > .menu-4__item > a:link, .menu-4 > .menu-4__item > a:visited {
+  color: purple;
+  background-color: #e0774c;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000316}}
+.menu-4 > .menu-4__item > a:hover, .menu-4 > .menu-4__item > a:focus {
+  color: yellow;
+  background-color: blue;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000322}}
+.menu-4 > .menu-4__item > a:active {
+  color: yellow;
+  background-color: purple;
 }

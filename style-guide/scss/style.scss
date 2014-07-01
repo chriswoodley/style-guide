@@ -1,8 +1,7 @@
 @import 'settings',
 'mixins',
 'placeholders',
-'base',
-'modules/grid';
+'base';
 
 
 /*
@@ -25,6 +24,8 @@ Markup: <div class="grid">.grid</div>
 
 Styleguide 2.0.1
 */
+@import 'modules/grid';
+
 .grid {
   @include grid( $site-width );
 }
@@ -175,4 +176,226 @@ Styleguide 2.0.5
   @extend %grid__col;
   @include grid__col( $span: 1, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter );
   @include grid__col--offset-left( $span: 1, $columns: $mobile-columns );
+}
+
+
+
+/*
+# Menu
+
+Styleguide 3
+*/
+
+/*
+# Menu and Menu Item Mixin and Menu Reset Placeholder
+
+Both of these mixins defines the styles necessary for the top level navigation module. The <code>%menu-reset</code> placeholder is used to reset the styles of list markup and can be reused for sub menus.
+
+Usage:
+<pre>.menu {
+  @extend %menu-reset;
+  @include menu() {
+    & > .menu__item {
+      @include menu__item();
+    }
+  }
+}</pre>
+
+Markup: <nav role="navigation">
+  <ul class="menu">
+    <li class="menu__item"><a href="#">Item 1</a></li>
+    <li class="menu__item"><a href="#">Item 2</a></li>
+    <li class="menu__item"><a href="#">Item 3</a></li>
+    <li class="menu__item"><a href="#">Item 4</a></li>
+    <li class="menu__item"><a href="#">Item 5</a></li>
+  </ul>
+</nav>
+
+Styleguide 3.0.1
+*/
+@import 'modules/menu';
+
+.menu {
+  @extend %menu-reset;
+  @include menu() {
+    & > .menu__item {
+      @include menu__item() {
+        & > a {
+          @include menu__item-link() {
+            padding: .75em;
+            @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/*
+# Menu aligned to the right
+
+Usage:
+<pre>.menu-1 {
+  @extend %menu-reset;
+  @include menu( right ) {
+    & > .menu-1__item {
+      @include menu__item();
+    }
+  }
+}</pre>
+
+Markup: <nav role="navigation">
+  <ul class="menu-1">
+    <li class="menu-1__item"><a href="#">Item 1</a></li>
+    <li class="menu-1__item"><a href="#">Item 2</a></li>
+    <li class="menu-1__item"><a href="#">Item 3</a></li>
+    <li class="menu-1__item"><a href="#">Item 4</a></li>
+    <li class="menu-1__item"><a href="#">Item 5</a></li>
+  </ul>
+</nav>
+
+Styleguide 3.0.2
+*/
+
+.menu-1 {
+  @extend %menu-reset;
+  @include menu( $align: right ) {
+    & > .menu-1__item {
+      @include menu__item() {
+        & > a {
+          @include menu__item-link() {
+            padding: .75em;
+            @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+# Menu aligned to the center
+
+Usage:
+<pre>.menu-2 {
+  @extend %menu-reset;
+  @include menu( center ) {
+    & > .menu-2__item {
+      @include menu__item();
+    }
+  }
+}</pre>
+
+Markup: <nav role="navigation">
+  <ul class="menu-2">
+    <li class="menu-2__item"><a href="#">Item 1</a></li>
+    <li class="menu-2__item"><a href="#">Item 2</a></li>
+    <li class="menu-2__item"><a href="#">Item 3</a></li>
+    <li class="menu-2__item"><a href="#">Item 4</a></li>
+    <li class="menu-2__item"><a href="#">Item 5</a></li>
+  </ul>
+</nav>
+
+Styleguide 3.0.3
+*/
+
+.menu-2 {
+  @extend %menu-reset;
+  @include menu( $align: center ) {
+    & > .menu-2__item {
+      @include menu__item() {
+        & > a {
+          @include menu__item-link() {
+            padding: .75em;
+            @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+# Menu aligned justified
+
+Usage:
+<pre>.menu-3 {
+  @extend %menu-reset;
+  @include menu( justified ) {
+    & > .menu-3__item {
+      @include menu__item( $align: justified, $num: 5 );
+    }
+  }
+}</pre>
+
+Markup: <nav role="navigation">
+  <ul class="menu-3">
+    <li class="menu-3__item"><a href="#">Item 1</a></li>
+    <li class="menu-3__item"><a href="#">Item 2</a></li>
+    <li class="menu-3__item"><a href="#">Item 3</a></li>
+    <li class="menu-3__item"><a href="#">Item 4</a></li>
+    <li class="menu-3__item"><a href="#">Item 5</a></li>
+  </ul>
+</nav>
+
+Styleguide 3.0.4
+*/
+
+.menu-3 {
+  @extend %menu-reset;
+  @include menu( $align: justified ) {
+    & > .menu-3__item {
+      @include menu__item( $align: justified, $num: 5 ) {
+        & > a {
+          @include menu__item-link() {
+            padding: .75em;
+            @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+# Menu stacked
+
+Usage:
+<pre>.menu-4 {
+  @extend %menu-reset;
+  @include menu() {
+    & > .menu-4__item {
+      @include menu__item( $align: stacked );
+    }
+  }
+}</pre>
+
+Markup: <nav role="navigation">
+  <ul class="menu-4">
+    <li class="menu-4__item"><a href="#">Item 1</a></li>
+    <li class="menu-4__item"><a href="#">Item 2</a></li>
+    <li class="menu-4__item"><a href="#">Item 3</a></li>
+    <li class="menu-4__item"><a href="#">Item 4</a></li>
+    <li class="menu-4__item"><a href="#">Item 5</a></li>
+  </ul>
+</nav>
+
+Styleguide 3.0.5
+*/
+
+.menu-4 {
+  @extend %menu-reset;
+  @include menu() {
+    & > .menu-4__item {
+      @include menu__item( stacked ) {
+        & > a {
+          @include menu__item-link() {
+            padding: .75em;
+            @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          }
+        }
+      }
+    }
+  }
 }
