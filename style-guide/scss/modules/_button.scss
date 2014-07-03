@@ -1,52 +1,42 @@
-.button {
+// Required button styles
+//
+// additional styling for height, line-height,
+// padding, font-size, text-shadow and border-radius maybe required
+// and passed through as content for flexibility;
+@mixin button($foreground: #333, $background: #ccc) {
+  -webkit-appearance: none;
+  -webkit-user-drag: none;
+  background-color: $background;
+  background-image: none;
+  border-image: none;
+  border: 0;
+  color: $foreground;
+  cursor: pointer;
   display: inline-block;
-  background:$gray;
-  border:none;
-  padding: vertical-rhythm(.5) 1em;
-  font-weight: bold;
-  text-decoration: none;
-  color:$black;
-  text-shadow: 0px 1px 0px $light-gray; // ie 8 fallback
-  text-shadow: 0px 1px 0px rgba(255,255,255,.3);
+  font-style: normal;
+  font-weight: normal;
   outline: none;
-  &:link,
-  &:visited {
-    text-decoration: none;
-    color:$black;
-  }
-  &:hover,
-  &:focus,
-  &:active {
-    color:$white;
-    text-shadow: 0px -1px 0px $black; // ie 8 fallback
-    text-shadow: 0px -1px 0px rgba(0,0,0,.3);
-  }
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  transition: background 50ms ease-out, color 50ms ease-out, box-shadow 50ms ease-out;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  @content;
+
   &:hover,
   &:focus {
-    background:$green;
+    background-color: darken($background, 5%);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, .1));
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .15);
   }
+
   &:active {
-    background:$red;
+    background-color: $background;
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, .1));
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, .5);
+    color: scale-color($foreground, $lightness: 20%);
   }
-}
-
-.button--primary {
-  background:$blue;
-  color:$white;
-  text-shadow: 0px -1px 0px $light-gray; // ie 8 fallback
-  text-shadow: 0px -1px 0px rgba(0,0,0,.3);
-  &:link,
-  &:visited {
-    color:$white;
-  }
-}
-
-.button--small {
-  padding: 0 .75em;
-  @include font-size( $small-font-size );
-}
-
-.button--large {
-  padding: vertical-rhythm( 1, $large-font-size ) 1.5em;
-  @include font-size( $large-font-size );
 }

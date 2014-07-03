@@ -1,42 +1,118 @@
-.form,
-.form__input {
-    margin-bottom: vertical-rhythm();
+// form section contains many groups of controls
+@mixin form--section($space: 1em) {
+  margin-bottom: $space;
+  @content;
 }
 
-.form {
+// form group contains the label and form control
+@mixin form--group($space: .5em) {
+  margin-bottom: $space;
+  @content;
+}
 
-    .form__inline-label {
-        display: block;
-        text-align: right;
-        @media screen and (max-width: $small-screen) {
-           display: inline;
-           text-align: left;
-        }
+// form control is the control itself
+@mixin form--control($size: normal, $type: input, $width: 100%) {
+  width: $width;
+  padding-left: .25em;
+  padding-right: .25em;
+
+  @if $type == input {
+    @if $size == large {
+      font-size: 1.25em;
+      line-height: 1.25;
+      height: 1.5em;
+    } @else if $size == small {
+      font-size: .75em;
+      line-height: 1.2;
+      height: 1.75em;
+    } @else {
+      // just inherit the styles from our base styles
+      font-size: inherit;
+      line-height: inherit;
+      height: inherit;
     }
+  }
 
-    .form__input {
-        width: 100%;
+  // wont work until we do special things in the base styles
+  @if $type == select {
+    @if $size == large {
+      font-size: 1.5em;
+      line-height: 1.5;
+      height: 1.5em;
+    } @else if $size == small {
+      font-size: .75em;
+      line-height: 1;
+      height: 1.5em;
+    } @else {
+      font-size: inherit;
+      line-height: inherit;
+      height: inherit;
     }
+  }
 
-    .form__error {
-
-        label,
-        .form__input, {
-            color:$red;
-        }
-
-        .form__input,
-        &.form__error--fill {
-            border: 1px solid $red;
-        }
-
-        &.form__error--fill {
-            background: scale-color($red, $lightness: 85%);
-            padding: vertical-rhythm(.5);
-            margin-bottom: vertical-rhythm($offset:2px);
-            .form__input {
-                margin-bottom: 0;
-            }
-        }
+  @if $type == textarea {
+    @if $size == large {
+      font-size: 1.25em;
+      line-height: 1.25;
+      min-height: 300px;
+    } @else if $size == small {
+      font-size: .75em;
+      line-height: 1.2;
+      min-height: 100px;
+    } @else {
+      font-size: inherit;
+      line-height: inherit;
+      min-height: inherit;
     }
+  }
+
+  @content;
+}
+
+@mixin form--control-addon($content, $prefix: true, $size: normal) {
+  position: relative;
+
+  &:before,
+  &:after {
+    background: #ccc;
+    bottom: 0;
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 51px;
+    z-index: 999;
+  }
+
+  @if $prefix {
+    padding-left: 50px;
+
+    &:before {
+      content: '#{$content}';
+      left: 0;
+      @if $size == large {
+        line-height: 2.2;
+      } @else if $size == small {
+        line-height: 1.5;
+      } @else {
+        line-height: 1.7;
+      }
+    }
+  } @else {
+    padding-right: 50px;
+
+    &:after {
+      content: '#{$content}';
+      right: 0;
+      @if $size == large {
+        line-height: 2.2;
+      } @else if $size == small {
+        line-height: 1.5;
+      } @else {
+        line-height: 1.7;
+      }
+    }
+  }
 }

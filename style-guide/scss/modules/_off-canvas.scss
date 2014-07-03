@@ -1,11 +1,54 @@
 $off-canvas-menu-width: 75%;
 
-.off-canvas {
-    overflow-x: hidden;
+@mixin off-canvas() {
+  overflow-x: hidden;
 }
 
-.off-canvas__menu,
+@mixin off-canvas--menu($side: left, $active: false) {
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  width: $off-canvas-menu-width;
+  height: 100%;
+  overflow-y: auto;
+  @if $side == right {
+    @if $active {
+      right: 0;
+    } @else {
+      right: -$off-canvas-menu-width;
+    }
+  } @else {
+    @if $active {
+      left: 0;
+    } @else {
+      left: -$off-canvas-menu-width;
+    }
+  }
+}
+
+@mixin off-canvas--content($side: left, $active: false) {
+  @if $active {
+    position: fixed;
+    width: 100%;
+  }
+  @if $side == right {
+    @if $active {
+      right: $off-canvas-menu-width;
+    } @else {
+      right: 0;
+    }
+  } @else {
+    @if $active {
+      left: $off-canvas-menu-width;
+    } @else {
+      left: 0;
+    }
+  }
+}
+
+/* .off-canvas__menu,
 .off-canvas__content {
+    @include box-sizing(border-box);
     -webkit-transition-property: left, right;
     -moz-transition-property: left, right;
     transition-property: left, right;
@@ -15,76 +58,4 @@ $off-canvas-menu-width: 75%;
     -webkit-transition-timing-function: ease-in-out;
     -moz-transition-timing-function: ease-in-out;
     transition-timing-function: ease-in-out;
-}
-
-.off-canvas__menu {
-    position: fixed;
-    top:0;
-    z-index: 9999;
-    width: $off-canvas-menu-width;
-    height:100%;
-    overflow-y: auto;
-}
-
-.off-canvas__content {
-    position: relative;
-
-    // optionaly prevent the content from scrolling
-    .off-canvas--fixed-content & {
-        position: fixed;
-        width:100%;
-    }
-
-}
-
-// off canvas left
-.off-canvas--left {
-
-    .off-canvas__menu {
-        left: -$off-canvas-menu-width;
-    }
-
-    .off-canvas__content {
-        left: 0;
-    }
-
-    &:target,
-    &.is-active {
-
-        .off-canvas__menu {
-            left: 0;
-        }
-
-        .off-canvas__content {
-            left: $off-canvas-menu-width;
-        }
-
-    }
-
-}
-
-// off canvas right
-.off-canvas--right {
-
-    .off-canvas__menu {
-        right: -$off-canvas-menu-width;
-    }
-
-    .off-canvas__content {
-        right: 0;
-    }
-
-    &:target,
-    &.is-active {
-
-        .off-canvas__menu {
-            right: 0;
-        }
-
-        .off-canvas__content {
-            right: $off-canvas-menu-width;
-        }
-
-    }
-
-}
+} */

@@ -1,52 +1,36 @@
-.pagination {
+@mixin pagination($align: center) {
   display: block;
-  text-align: center;
-  padding: vertical-rhythm(.25) 0;
-
-  .pagination__item {
-    display: inline-block;
-    margin-right: -4px;
-  }
-
-  a {
-    display: block;
-    text-decoration: none;
-  }
-
-  .pagination__item--current,
-  a {
-    padding: vertical-rhythm(.25) .5em;
-
-    @media ( max-width: $small-screen ) {
-      padding: vertical-rhythm(.5) 1.25em;
-    }
-  }
-
+  text-align: $align;
+  @content;
 }
 
-.pagination--left {
-  text-align: left;
+@mixin pagination--item() {
+  display: inline-block;
+  margin-right: -(4 / 16) * 1em;
+  @content;
 }
 
-.pagination--right {
-  text-align: right;
-}
 
-.pagination--pager {
+@mixin pager() {
   overflow: hidden;
-
-  .pagination__item {
-    float: left;
-    min-width:10em;
-
-    & + .pagination__item {
-      float: right;
-    }
-
-  }
-
+  @content;
 }
 
-.pagination--unstyled-list {
-  @extend %unstyled-list;
+@mixin pager--item($side: left) {
+  position: relative;
+  text-align: center;
+
+  @if $side == left {
+    float: left;
+  }
+
+  @if $side == right {
+    float: right;
+  }
+
+  @if $side == none {
+    float: none;
+  }
+
+  @content;
 }

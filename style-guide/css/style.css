@@ -8,6 +8,19 @@
   clear: both;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_placeholders\.scss}line{font-family:\0000312}}
+.menu, .menu-1, .menu-2, .menu-3, .menu-4, .sub-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_placeholders\.scss}line{font-family:\0000318}}
+.menu > .menu__item > a, .menu-1 > .menu-1__item > a, .menu-2 > .menu-2__item > a, .menu-3 > .menu-3__item > a, .menu-4 > .menu-4__item > a, .sub-menu a {
+  display: block;
+  text-decoration: none;
+}
+
 /*
 # Base
 
@@ -1412,16 +1425,22 @@ Styleguide 2.0.5
 Styleguide 3
 */
 /*
-# Menu and Menu Item Mixin and Menu Reset Placeholder
+# Menu and Menu Item Mixin and Unstyled List Placeholder
 
-Both of these mixins defines the styles necessary for the top level navigation module. The <code>%menu-reset</code> placeholder is used to reset the styles of list markup and can be reused for sub menus.
+Both of these mixins defines the styles necessary for the top level navigation module. The <code>%unstyled-list</code> placeholder is used to reset the styles of list markup and can be reused for sub menus.
 
 Usage:
 <pre>.menu {
-  @extend %menu-reset;
+  @extend %unstyled-list;
   @include menu() {
     & > .menu__item {
-      @include menu__item();
+      @include menu__item() {
+        & > a {
+          @extend %block-link;
+          padding: .75em;
+          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+        }
+      }
     }
   }
 }</pre>
@@ -1438,23 +1457,14 @@ Markup: <nav role="navigation">
 
 Styleguide 3.0.1
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/modules\/_menu\.scss}line{font-family:\000031}}
-.menu, .menu-1, .menu-2, .menu-3, .menu-4 {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003221}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003227}}
 .menu > .menu__item {
   position: relative;
   display: block;
   float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003223}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003229}}
 .menu > .menu__item > a {
-  display: block;
-  text-decoration: none;
   padding: .75em;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
@@ -1478,10 +1488,16 @@ Styleguide 3.0.1
 
 Usage:
 <pre>.menu-1 {
-  @extend %menu-reset;
+  @extend %unstyled-list;
   @include menu( right ) {
     & > .menu-1__item {
-      @include menu__item();
+      @include menu__item() {
+        & > a {
+          @extend %block-link;
+          padding: .75em;
+          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+        }
+      }
     }
   }
 }</pre>
@@ -1498,21 +1514,19 @@ Markup: <nav role="navigation">
 
 Styleguide 3.0.2
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003261}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003272}}
 .menu-1 {
   display: table;
   margin-left: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003264}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003275}}
 .menu-1 > .menu-1__item {
   position: relative;
   display: block;
   float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003266}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003277}}
 .menu-1 > .menu-1__item > a {
-  display: block;
-  text-decoration: none;
   padding: .75em;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
@@ -1536,10 +1550,16 @@ Styleguide 3.0.2
 
 Usage:
 <pre>.menu-2 {
-  @extend %menu-reset;
+  @extend %unstyled-list;
   @include menu( center ) {
     & > .menu-2__item {
-      @include menu__item();
+      @include menu__item() {
+        & > a {
+          @extend %block-link;
+          padding: .75em;
+          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+        }
+      }
     }
   }
 }</pre>
@@ -1556,22 +1576,20 @@ Markup: <nav role="navigation">
 
 Styleguide 3.0.3
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003303}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003319}}
 .menu-2 {
   display: table;
   margin-left: auto;
   margin-right: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003306}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003322}}
 .menu-2 > .menu-2__item {
   position: relative;
   display: block;
   float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003308}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003324}}
 .menu-2 > .menu-2__item > a {
-  display: block;
-  text-decoration: none;
   padding: .75em;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
@@ -1595,10 +1613,16 @@ Styleguide 3.0.3
 
 Usage:
 <pre>.menu-3 {
-  @extend %menu-reset;
+  @extend %unstyled-list;
   @include menu( justified ) {
     & > .menu-3__item {
-      @include menu__item( $align: justified, $num: 5 );
+      @include menu__item( $align: justified, $num: 5 ) {
+        & > a {
+          @extend %block-link;
+          padding: .75em;
+          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+        }
+      }
     }
   }
 }</pre>
@@ -1615,12 +1639,12 @@ Markup: <nav role="navigation">
 
 Styleguide 3.0.4
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003366}}
 .menu-3 {
   display: table;
   width: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003369}}
 .menu-3 > .menu-3__item {
   position: relative;
   display: table-cell;
@@ -1628,10 +1652,8 @@ Styleguide 3.0.4
   float: none;
   width: 20%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003350}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003371}}
 .menu-3 > .menu-3__item > a {
-  display: block;
-  text-decoration: none;
   padding: .75em;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
@@ -1655,10 +1677,16 @@ Styleguide 3.0.4
 
 Usage:
 <pre>.menu-4 {
-  @extend %menu-reset;
+  @extend %unstyled-list;
   @include menu() {
     & > .menu-4__item {
-      @include menu__item( $align: stacked );
+      @include menu__item( stacked ) {
+        & > a {
+          @extend %block-link;
+          padding: .75em;
+          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+        }
+      }
     }
   }
 }</pre>
@@ -1675,15 +1703,13 @@ Markup: <nav role="navigation">
 
 Styleguide 3.0.5
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003390}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003416}}
 .menu-4 > .menu-4__item {
   position: relative;
   display: block;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003418}}
 .menu-4 > .menu-4__item > a {
-  display: block;
-  text-decoration: none;
   padding: .75em;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
@@ -1700,4 +1726,113 @@ Styleguide 3.0.5
 .menu-4 > .menu-4__item > a:active {
   color: yellow;
   background-color: purple;
+}
+
+/*
+# Sub Menu
+
+Styleguide 4
+*/
+/*
+# Sub Menu and Sub Menu Item Mixins
+
+Both of these mixins defines the styles necessary for dropdown and flyout sub menus.
+
+Usage:
+<pre>.sub-menu {
+  @extend %unstyled-list;
+  @include sub-menu($active: false, $position: true, $flyout: false) {
+    width: 100%;
+    & > .sub-menu__item {
+      @include sub-menu__item() {
+          &:hover {
+            & > .sub-menu {
+              @include sub-menu($active: true, $position: true, $flyout: true);
+            }
+          }
+      }
+    }
+  }
+
+a {
+  @extend %block-link;
+  padding: .75em;
+  @include link-colors( $foreground: "orange" "red" "green", $background: "blue" "green" "red");
+}
+
+}</pre>
+
+Markup: <nav role="navigation">
+  <ul class="menu">
+    <li class="menu__item"><a href="#">Item 1</a></li>
+    <li class="menu__item"><a href="#">Item 2</a></li>
+    <li class="menu__item"><a href="#">Item 3</a></li>
+    <li class="menu__item"><a href="#">Item 4</a>
+      <ul class="sub-menu">
+        <li class="sub-menu__item"><a href="#">Sub Menu Item 1</a></li>
+        <li class="sub-menu__item"><a href="#">Sub Menu Item 2</a></li>
+        <li class="sub-menu__item"><a href="#">Sub Menu Item 3</a></li>
+        <li class="sub-menu__item"><a href="#">Sub Menu Item 4</a>
+        <ul class="sub-menu">
+          <li class="sub-menu__item"><a href="#">Sub Menu Item 1</a></li>
+          <li class="sub-menu__item"><a href="#">Sub Menu Item 2</a></li>
+          <li class="sub-menu__item"><a href="#">Sub Menu Item 3</a></li>
+          <li class="sub-menu__item"><a href="#">Sub Menu Item 4</a></li>
+          <li class="sub-menu__item"><a href="#">Sub Menu Item 5</a></li>
+        </ul>
+        </li>
+        <li class="sub-menu__item"><a href="#">Sub Menu Item 5</a></li>
+      </ul>
+    </li>
+    <li class="menu__item"><a href="#">Item 5</a></li>
+  </ul>
+</nav>
+
+Styleguide 4.0.1
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003496}}
+.menu__item:hover > .sub-menu {
+  position: absolute;
+  left: 0;
+  z-index: 999;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003502}}
+.sub-menu {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  width: 100%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003506}}
+.sub-menu > .sub-menu__item {
+  display: block;
+  width: inherit;
+  position: relative;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003510}}
+.sub-menu > .sub-menu__item:hover > .sub-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 999;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003518}}
+.sub-menu a {
+  padding: .75em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
+.sub-menu a:link, .sub-menu a:visited {
+  color: orange;
+  background-color: blue;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000316}}
+.sub-menu a:hover, .sub-menu a:focus {
+  color: red;
+  background-color: green;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000322}}
+.sub-menu a:active {
+  color: green;
+  background-color: red;
 }

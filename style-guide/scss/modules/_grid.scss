@@ -1,56 +1,54 @@
-%grid__col {
-    position: relative;
-    float: left;
+%grid--col {
+  float: left;
+  position: relative;
 }
 
-@mixin grid( $width: $site-width ) {
-    width: 95%;
-    margin: 0 auto;
-    @media screen and (min-width: $small-screen) {
-        max-width: $width;
-    }
+@mixin grid($width: $site-width, $gutter: $small-gutter) {
+  width: 95%;
+  margin: 0 auto;
+  @media screen and (min-width: $small-screen) {
+    max-width: $width;
+  }
 }
 
-@mixin grid__row() {
-    @extend %clearfix;
+@mixin grid--row($gutter: $small-gutter) {
+  @extend %clearfix;
 }
 
-@mixin grid__col( $span: 1, $columns: $mobile-columns, $gutter: both, $gutter-size: $mobile-gutter ) {
+@mixin grid--col($span: 1, $columns: $small-grid, $gutter: both, $gutter-size: $small-gutter) {
 
-    @if $span > $columns {
-        @warn "The column span value cannot be greater then the allowable number of columns in the grid.";
-        @debug "Column span is equal to #{$span}";
-        @debug "Number of grid columns is equal to #{$columns}";
-    } @else {
-        width: ( 100% / $columns ) * $span;
+  @if $span > $columns {
+    @warn 'The column span value cannot be greater then the allowable number of columns in the grid.';
+  } @else {
+    width: (100% / $columns) * $span;
 
-        @if $gutter == both {
-            padding: 0 $gutter-size;
-        }
-
-        @if $gutter == left {
-            padding: 0 0 0 $gutter-size;
-        }
-
-        @if $gutter == right {
-            padding: 0 $gutter-size 0 0;
-        }
+    @if $gutter == both {
+      padding: 0 $gutter-size;
     }
 
+    @if $gutter == left {
+      padding: 0 0 0 $gutter-size;
+    }
+
+    @if $gutter == right {
+      padding: 0 $gutter-size 0 0;
+    }
+  }
+
 }
 
-@mixin grid__col--push( $span, $columns ) {
-  left: ( 100% / $columns ) * $span;
+@mixin grid--col-push($span, $columns) {
+  left: (100% / $columns) * $span;
 }
 
-@mixin grid__col--pull( $span, $columns ) {
-  right: ( 100% / $columns ) * $span;
+@mixin grid--col-pull($span, $columns) {
+  right: (100% / $columns) * $span;
 }
 
-@mixin grid__col--offset-left( $span, $columns ) {
-  margin-left: ( 100% / $columns ) * $span;
+@mixin grid--col-offset-left($span, $columns) {
+  margin-left: (100% / $columns) * $span;
 }
 
-@mixin grid__col--offset-right( $span, $columns ) {
-  margin-right: ( 100% / $columns ) * $span;
+@mixin grid--col-offset-right($span, $columns) {
+  margin-right: (100% / $columns) * $span;
 }

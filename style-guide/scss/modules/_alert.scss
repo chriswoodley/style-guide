@@ -1,31 +1,27 @@
-.alert {
-  display: block;
-  border-style: solid;
-  border-width: 2px;
-  padding: vertical-rhythm( $lines: .5, $font-size: $base-font-size, $offset: 2px );
-  margin-bottom: vertical-rhythm();
-}
+@mixin alert($type) {
+  padding: 1em !important;
 
-.alert--warning {
-  border-color: scale_color( $yellow, $lightness: 50% );
-  color: scale_color($yellow, $lightness: -35%);
-  background-color: scale_color($yellow,$lightness: 85%);
-}
+  @if $type == notice {
+    background-color: scale-color($blue, $lightness: 80%);
+    border: 1px solid $blue;
+    color: $blue;
+  }
 
-.alert--error {
-  border-color: scale_color( $red, $lightness: 70% );
-  color: scale_color($red, $lightness: -25%);
-  background-color: scale_color($red, $lightness: 85%);
-}
+  @if $type == error {
+    background-color: scale-color($red, $lightness: 80%);
+    border: 1px solid $red;
+    color: $red;
+  }
 
-.alert--success {
-  border-color: scale_color( $green, $lightness: 70% );
-  color: scale_color($green, $lightness: -25%);
-  background-color: scale_color($green, $lightness: 85%);
-}
+  @if $type == success {
+    background-color: scale-color($green, $lightness: 80%);
+    border: 1px solid $green;
+    color: $green;
+  }
 
-.alert--info {
-  border-color: scale_color( $blue, $lightness: 80% );
-  color: scale_color($blue, $lightness: -25%);
-  background-color: scale_color($blue, $lightness: 85%);
+  @if $type == warning {
+    background-color: scale-color($yellow, $lightness: 80%);
+    border: 1px solid $yellow;
+    color: $yellow;
+  }
 }

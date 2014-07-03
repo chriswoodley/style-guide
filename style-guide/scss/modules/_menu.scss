@@ -1,46 +1,34 @@
-%menu-reset {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+@mixin menu($mode: left) {
+  @if $mode == centered or $mode == right or $mode == justified {
+    display: table;
+  }
+  @if $mode == centered  {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @if $mode == right  {
+    margin-left: auto;
+  }
+  @if $mode == justified  {
+    width: 100%;
+  }
+  @content;
 }
 
-@mixin menu( $align: left ) {
-    @if $align == center or $align == right or $align == justified {
-        display: table;
-    }
-    @if $align == center  {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    @if $align == right  {
-        margin-left: auto;
-    }
-    @if $align == justified  {
-        width: 100%;
-    }
-    @content;
-}
-
-@mixin menu__item( $align: false, $num: 0 ) {
-    position: relative;
-    @if $align == false {
-        display:block;
-        float:left;
-    } @else if $align == justified {
-        display:table-cell;
-        text-align: center;
-        float:none;
-        @if $num > 0 {
-            width: ( 100% / $num);
-        }
-    } @else if $align == stacked {
-        display:block;
-    }
-    @content;
-}
-
-@mixin menu__item-link() {
+@mixin menu--item($mode: false, $num: 0) {
+  position: relative;
+  @if $mode == false {
     display: block;
-    text-decoration:none;
-    @content;
+    float: left;
+  } @else if $mode == justified {
+    display: table-cell;
+    text-align: center;
+    float: none;
+    @if $num > 0 {
+      width: (100% / $num);
+    }
+  } @else if $mode == stacked {
+    display: block;
+  }
+  @content;
 }

@@ -187,16 +187,22 @@ Styleguide 3
 */
 
 /*
-# Menu and Menu Item Mixin and Menu Reset Placeholder
+# Menu and Menu Item Mixin and Unstyled List Placeholder
 
-Both of these mixins defines the styles necessary for the top level navigation module. The <code>%menu-reset</code> placeholder is used to reset the styles of list markup and can be reused for sub menus.
+Both of these mixins defines the styles necessary for the top level navigation module. The <code>%unstyled-list</code> placeholder is used to reset the styles of list markup and can be reused for sub menus.
 
 Usage:
 <pre>.menu {
-  @extend %menu-reset;
+  @extend %unstyled-list;
   @include menu() {
     & > .menu__item {
-      @include menu__item();
+      @include menu__item() {
+        & > a {
+          @extend %block-link;
+          padding: .75em;
+          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+        }
+      }
     }
   }
 }</pre>
@@ -216,15 +222,14 @@ Styleguide 3.0.1
 @import 'modules/menu';
 
 .menu {
-  @extend %menu-reset;
+  @extend %unstyled-list;
   @include menu() {
     & > .menu__item {
       @include menu__item() {
         & > a {
-          @include menu__item-link() {
-            padding: .75em;
-            @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
-          }
+          @extend %block-link;
+          padding: .75em;
+          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
         }
       }
     }
@@ -237,10 +242,16 @@ Styleguide 3.0.1
 
 Usage:
 <pre>.menu-1 {
-  @extend %menu-reset;
+  @extend %unstyled-list;
   @include menu( right ) {
     & > .menu-1__item {
-      @include menu__item();
+      @include menu__item() {
+        & > a {
+          @extend %block-link;
+          padding: .75em;
+          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+        }
+      }
     }
   }
 }</pre>
@@ -259,15 +270,14 @@ Styleguide 3.0.2
 */
 
 .menu-1 {
-  @extend %menu-reset;
+  @extend %unstyled-list;
   @include menu( $align: right ) {
     & > .menu-1__item {
       @include menu__item() {
         & > a {
-          @include menu__item-link() {
-            padding: .75em;
-            @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
-          }
+          @extend %block-link;
+          padding: .75em;
+          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
         }
       }
     }
@@ -279,10 +289,16 @@ Styleguide 3.0.2
 
 Usage:
 <pre>.menu-2 {
-  @extend %menu-reset;
+  @extend %unstyled-list;
   @include menu( center ) {
     & > .menu-2__item {
-      @include menu__item();
+      @include menu__item() {
+        & > a {
+          @extend %block-link;
+          padding: .75em;
+          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+        }
+      }
     }
   }
 }</pre>
@@ -301,15 +317,14 @@ Styleguide 3.0.3
 */
 
 .menu-2 {
-  @extend %menu-reset;
+  @extend %unstyled-list;
   @include menu( $align: center ) {
     & > .menu-2__item {
       @include menu__item() {
         & > a {
-          @include menu__item-link() {
-            padding: .75em;
-            @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
-          }
+          @extend %block-link;
+          padding: .75em;
+          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
         }
       }
     }
@@ -321,10 +336,16 @@ Styleguide 3.0.3
 
 Usage:
 <pre>.menu-3 {
-  @extend %menu-reset;
+  @extend %unstyled-list;
   @include menu( justified ) {
     & > .menu-3__item {
-      @include menu__item( $align: justified, $num: 5 );
+      @include menu__item( $align: justified, $num: 5 ) {
+        & > a {
+          @extend %block-link;
+          padding: .75em;
+          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+        }
+      }
     }
   }
 }</pre>
@@ -343,15 +364,14 @@ Styleguide 3.0.4
 */
 
 .menu-3 {
-  @extend %menu-reset;
+  @extend %unstyled-list;
   @include menu( $align: justified ) {
     & > .menu-3__item {
       @include menu__item( $align: justified, $num: 5 ) {
         & > a {
-          @include menu__item-link() {
-            padding: .75em;
-            @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
-          }
+          @extend %block-link;
+          padding: .75em;
+          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
         }
       }
     }
@@ -363,10 +383,16 @@ Styleguide 3.0.4
 
 Usage:
 <pre>.menu-4 {
-  @extend %menu-reset;
+  @extend %unstyled-list;
   @include menu() {
     & > .menu-4__item {
-      @include menu__item( $align: stacked );
+      @include menu__item( stacked ) {
+        & > a {
+          @extend %block-link;
+          padding: .75em;
+          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+        }
+      }
     }
   }
 }</pre>
@@ -385,17 +411,114 @@ Styleguide 3.0.5
 */
 
 .menu-4 {
-  @extend %menu-reset;
+  @extend %unstyled-list;
   @include menu() {
     & > .menu-4__item {
       @include menu__item( stacked ) {
         & > a {
-          @include menu__item-link() {
-            padding: .75em;
-            @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
-          }
+          @extend %block-link;
+          padding: .75em;
+          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
         }
       }
     }
   }
+}
+
+
+/*
+# Sub Menu
+
+Styleguide 4
+*/
+
+/*
+# Sub Menu and Sub Menu Item Mixins
+
+Both of these mixins defines the styles necessary for dropdown and flyout sub menus.
+
+Usage:
+<pre>.sub-menu {
+  @extend %unstyled-list;
+  @include sub-menu($active: false, $position: true, $flyout: false) {
+    width: 100%;
+    & > .sub-menu__item {
+      @include sub-menu__item() {
+          &:hover {
+            & > .sub-menu {
+              @include sub-menu($active: true, $position: true, $flyout: true);
+            }
+          }
+      }
+    }
+  }
+
+a {
+  @extend %block-link;
+  padding: .75em;
+  @include link-colors( $foreground: "orange" "red" "green", $background: "blue" "green" "red");
+}
+
+}</pre>
+
+Markup: <nav role="navigation">
+  <ul class="menu">
+    <li class="menu__item"><a href="#">Item 1</a></li>
+    <li class="menu__item"><a href="#">Item 2</a></li>
+    <li class="menu__item"><a href="#">Item 3</a></li>
+    <li class="menu__item"><a href="#">Item 4</a>
+      <ul class="sub-menu">
+        <li class="sub-menu__item"><a href="#">Sub Menu Item 1</a></li>
+        <li class="sub-menu__item"><a href="#">Sub Menu Item 2</a></li>
+        <li class="sub-menu__item"><a href="#">Sub Menu Item 3</a></li>
+        <li class="sub-menu__item"><a href="#">Sub Menu Item 4</a>
+        <ul class="sub-menu">
+          <li class="sub-menu__item"><a href="#">Sub Menu Item 1</a></li>
+          <li class="sub-menu__item"><a href="#">Sub Menu Item 2</a></li>
+          <li class="sub-menu__item"><a href="#">Sub Menu Item 3</a></li>
+          <li class="sub-menu__item"><a href="#">Sub Menu Item 4</a></li>
+          <li class="sub-menu__item"><a href="#">Sub Menu Item 5</a></li>
+        </ul>
+        </li>
+        <li class="sub-menu__item"><a href="#">Sub Menu Item 5</a></li>
+      </ul>
+    </li>
+    <li class="menu__item"><a href="#">Item 5</a></li>
+  </ul>
+</nav>
+
+Styleguide 4.0.1
+*/
+@import 'modules/sub-menu';
+
+.menu__item {
+  &:hover {
+    &>.sub-menu {
+      @include sub-menu($active: true, $position: true, $flyout: false)
+    }
+  }
+}
+
+.sub-menu {
+  @extend %unstyled-list;
+  @include sub-menu($active: false, $position: true, $flyout: false) {
+    width: 100%;
+    & > .sub-menu__item {
+      @include sub-menu__item() {
+          
+          &:hover {
+            & > .sub-menu {
+              @include sub-menu($active: true, $position: true, $flyout: true);
+            }
+          }
+      }
+    }
+  }
+
+a {
+  @extend %block-link;
+  padding: .75em;
+  @include link-colors( $foreground: "orange" "red" "green", $background: "blue" "green" "red");
+}
+
 }
