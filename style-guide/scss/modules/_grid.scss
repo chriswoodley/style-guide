@@ -3,7 +3,7 @@
   position: relative;
 }
 
-@mixin grid($width: $site-width, $gutter: $small-gutter) {
+@mixin grid($width: $site-width, $gutter: $mobile-gutter) {
   width: 95%;
   margin: 0 auto;
   @media screen and (min-width: $small-screen) {
@@ -11,11 +11,11 @@
   }
 }
 
-@mixin grid--row($gutter: $small-gutter) {
+@mixin grid--row($gutter: $mobile-gutter) {
   @extend %clearfix;
 }
 
-@mixin grid--col($span: 1, $columns: $small-grid, $gutter: both, $gutter-size: $small-gutter) {
+@mixin grid--col($span: 1, $columns: $small-grid, $gutter: both, $gutter-size: $mobile-gutter) {
 
   @if $span > $columns {
     @warn 'The column span value cannot be greater then the allowable number of columns in the grid.';
