@@ -23,30 +23,17 @@
 Styleguide 1
 */
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/**
- * 1. Set default font family.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
- */
 html {
   font-family: "HelveticaNeue", "Helvetica", Arial, sans-serif;
-  /* 1 */
   font-size: 87.5%;
   line-height: 1.5;
   -ms-text-size-adjust: 100%;
-  /* 2 */
   -webkit-text-size-adjust: 100%;
-  /* 2 */
 }
 
-/**
- * Remove default margin.
- */
 body {
   margin: 0;
 }
@@ -56,13 +43,6 @@ body {
   background-repeat: repeat;
 }
 
-/* HTML5 display definitions
-   ========================================================================== */
-/**
- * Correct `block` display not defined for any HTML5 element in IE 8/9.
- * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
- * Correct `block` display not defined for `main` in IE 11.
- */
 article,
 aside,
 details,
@@ -78,18 +58,12 @@ summary {
   display: block;
 }
 
-/**
- * 1. Correct `inline-block` display not defined in IE 8/9.
- * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
- */
 audio,
 canvas,
 progress,
 video {
   display: inline-block;
-  /* 1 */
   vertical-align: middle;
-  /* 2 */
 }
 
 /**
@@ -130,8 +104,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 0;
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 /**
@@ -193,9 +167,9 @@ Markup: <address>
 Styleguide 1.0.2
 */
 address {
-  margin: 1.5em 0;
-  font-style: normal;
   color: #666666;
+  font-style: normal;
+  margin: 1.5em 0;
 }
 
 /*
@@ -211,7 +185,7 @@ Styleguide 1.0.3
 p,
 pre,
 figure {
-  margin: 0 0 1.5em 0;
+  margin: 0 0 1.5em;
 }
 
 /*
@@ -229,13 +203,13 @@ Styleguide 1.0.4
  * Address differences between Firefox and other browsers.
  */
 hr {
-  display: block;
-  height: 0;
   border: 0;
   border-top: 1px solid #222222;
-  margin: 0 0 1.42857em 0;
-  padding: 0;
   clear: both;
+  display: block;
+  height: 0;
+  margin: 0 0 1.42857em;
+  padding: 0;
 }
 
 /*
@@ -279,20 +253,20 @@ Markup: <blockquote cite="http://developer.mozilla.org">
 Styleguide 1.0.6
 */
 blockquote {
+  border-left: 4px solid #cccccc;
   margin: 0 2.61793em 1.5em 2.61793em;
   padding-left: 0.65448em;
-  border-left: 4px solid #cccccc;
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
 blockquote > p {
   display: inline;
 }
 blockquote cite {
-  display: block;
   color: #999999;
+  display: block;
 }
 blockquote cite:before {
-  content: "- ";
+  content: '- ';
 }
 
 /*
@@ -359,7 +333,7 @@ Styleguide 1.0.7
 dl,
 ul,
 ol {
-  margin: 0 0 1.5em 0;
+  margin: 0 0 1.5em;
 }
 
 ul,
@@ -396,10 +370,10 @@ Styleguide 1.0.8
  * Address margin not present in IE 8/9 and Safari.
  */
 figure {
+  border-bottom: 1px dotted #cccccc;
+  border-top: 1px dotted #cccccc;
   margin: 1.42857em;
   padding: 1.5em;
-  border-top: 1px dotted #cccccc;
-  border-bottom: 1px dotted #cccccc;
   text-align: center;
 }
 
@@ -415,7 +389,7 @@ Your standard hyperlinks. Removed the gray background color from active links in
 
 Usage:
 <pre>a {
-  @include link-colors( $foreground: "blue" "green" "red", $background: "black" "gray" "white");
+  @include link-colors($foreground: 'blue' 'green' 'red', $background: 'black' 'gray' 'white');
 }</pre>
 
 Markup: <a href="#" class="$modifierClass">Example</a>
@@ -577,11 +551,11 @@ samp {
 p code,
 p kbd,
 p samp {
-  font-size: 90%;
-  color: #ff4136;
   background: #ffeddd;
-  padding: .1em .5em;
   border-radius: 4px;
+  color: #ff4136;
+  font-size: 90%;
+  padding: .1em .5em;
   white-space: nowrap;
 }
 
@@ -651,18 +625,14 @@ svg {
  * Remove border when inside `a` element in IE 8/9/10.
  */
 img {
-  max-width: 100%;
+  border: 0;
   height: auto;
   image-rendering: -moz-crisp-edges;
-  /* Firefox */
   image-rendering: -o-crisp-edges;
-  /* Opera */
   image-rendering: -webkit-optimize-contrast;
-  /* Webkit (non-standard naming) */
   image-rendering: crisp-edges;
   -ms-interpolation-mode: bicubic;
-  /* IE (non-standard property) */
-  border: 0;
+  max-width: 100%;
 }
 
 /**
@@ -755,8 +725,8 @@ input[type="submit"] {
  */
 button[disabled],
 html input[disabled] {
-  cursor: default;
   color: #999999;
+  cursor: default;
 }
 
 /**
@@ -832,8 +802,8 @@ input[type="tel"],
 input[type="url"],
 input[type="range"],
 textarea {
-  width: auto;
   outline: 0;
+  width: auto;
 }
 
 input[type="text"],
@@ -850,10 +820,9 @@ input[type="email"],
 input[type="tel"],
 input[type="url"],
 textarea {
-  padding: 0.33929em;
-  margin: 0.345em 0;
-  -webkit-box-shadow: inset 0 2px 5px rgba(204, 204, 204, 0.5);
   box-shadow: inset 0 2px 5px rgba(204, 204, 204, 0.5);
+  margin: 0.345em 0;
+  padding: 0.33929em;
 }
 input[type="text"]:focus,
 input[type="search"]:focus,
@@ -870,7 +839,6 @@ input[type="tel"]:focus,
 input[type="url"]:focus,
 textarea:focus {
   border: 1px solid #0074d9;
-  -webkit-box-shadow: none;
   box-shadow: none;
 }
 
@@ -886,9 +854,9 @@ input[type="file"] {
  */
 input[type="checkbox"],
 input[type="radio"] {
+  margin-top: -4px;
   padding: 0;
   vertical-align: middle;
-  margin-top: -4px;
 }
 
 /**
@@ -906,7 +874,6 @@ input[type="number"]::-webkit-outer-spin-button {
  */
 input[type="search"] {
   -webkit-appearance: textfield;
-  /* 1 */
 }
 
 /**
@@ -933,11 +900,11 @@ Styleguide 1.2.1
  */
 textarea {
   display: block;
-  vertical-align: top;
-  resize: vertical;
-  overflow: auto;
   height: auto;
   min-height: 7.5em;
+  overflow: auto;
+  resize: vertical;
+  vertical-align: top;
   width: 100%;
 }
 
@@ -999,12 +966,12 @@ optgroup {
 }
 
 select {
-  height: 2.25em;
-  padding: .25em;
-  margin: 0.375em 0;
   background-color: white;
   border: 1px solid #cccccc;
   border-radius: 4px;
+  height: 2.25em;
+  margin: 0.375em 0;
+  padding: .25em;
 }
 select:hover {
   background-color: whitesmoke;
@@ -1038,8 +1005,8 @@ Styleguide 1.2.3
  * Define consistent border, margin, and padding.
  */
 fieldset {
+  margin: 0 0 1.5em;
   padding: 1.5em;
-  margin: 0 0 1.5em 0;
 }
 fieldset > :last-child {
   margin-bottom: 0;
@@ -1060,22 +1027,21 @@ label {
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
 legend {
-  display: block;
-  width: 100%;
   border: 0;
   /* 1 */
   border-bottom: 2px solid #e5e5e5;
+  display: block;
+  margin-bottom: 0.83878em;
   padding: 0;
-  /* 2 */
+  width: 100%;
   font-size: 1.618em;
   line-height: 1.85414;
-  margin-bottom: 0.83878em;
 }
 
 fieldset {
-  padding: 0;
-  margin: 0 0 1.5em 0;
   border: 0;
+  margin: 0 0 1.5em;
+  padding: 0;
 }
 
 /*
@@ -1114,11 +1080,11 @@ Styleguide 1.2.4
  * Remove most spacing between table cells.
  */
 table {
-  width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  margin: 0 0 1.5em 0;
   line-height: 1.6;
+  margin: 0 0 1.5em;
+  width: 100%;
 }
 
 td,
@@ -1729,19 +1695,32 @@ Usage:
   }
 }</pre>
 
-Markup: <a href="#" class="button">Link Element</a>
+Markup: <a href="#" class="button-link">Link Element</a>
 <input type="submit" name="submit" value="Input Element" class="button">
 <button class="button">Button Element</button>
 
 Styleguide 5.0.1
 */
+.button,
+.button-link {
+  border-radius: 20px;
+  font-size: 1.25em;
+  padding: 0 1em;
+  width: 100%;
+}
+@media screen and (min-width: 48em) {
+  .button,
+  .button-link {
+    font-size: 1em;
+    width: auto;
+  }
+}
+
 .button {
   -webkit-appearance: none;
   -webkit-user-drag: none;
   background-color: blue;
   background-image: none;
-  -webkit-border-image: none;
-  -o-border-image: none;
   border-image: none;
   border: 0;
   color: orange;
@@ -1749,46 +1728,69 @@ Styleguide 5.0.1
   display: inline-block;
   font-style: normal;
   font-weight: normal;
+  height: 2.25em;
+  line-height: 2.25em;
+  margin: 0.375em 0;
   outline: none;
   position: relative;
   text-align: center;
   text-decoration: none;
   text-transform: none;
-  -webkit-transition: background 50ms ease-out, color 50ms ease-out, -webkit-box-shadow 50ms ease-out;
   transition: background 50ms ease-out, color 50ms ease-out, box-shadow 50ms ease-out;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  font-size: 1.25em;
-  height: 2em;
-  line-height: 2;
-  padding: 0 1em;
-  border-radius: 20px;
-  width: 100%;
-}
-@media screen and (min-width: 48em) {
-  .button {
-    font-size: 1em;
-    width: auto;
-  }
 }
 .button:hover, .button:focus {
   background-color: #0000e6;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(rgba(0, 0, 0, 0.1)));
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
-  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2));
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  color: #ffc04d;
 }
 .button:active {
   background-color: blue;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0)), to(rgba(0, 0, 0, 0.1)));
-  background-image: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
   background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
-  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
-  color: #ffb733;
+  color: orange;
+}
+
+.button-link {
+  -webkit-appearance: none;
+  -webkit-user-drag: none;
+  background-color: blue;
+  background-image: none;
+  border-image: none;
+  border: 0;
+  color: orange;
+  cursor: pointer;
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  height: 2.25em;
+  line-height: 2.25em;
+  margin: 0.375em 0;
+  outline: none;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  transition: background 50ms ease-out, color 50ms ease-out, box-shadow 50ms ease-out;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.button-link:link, .button-link:visited {
+  color: orange;
+}
+.button-link:hover, .button-link:focus {
+  background-color: #0000e6;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2));
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  color: #ffc04d;
+}
+.button-link:active {
+  background-color: blue;
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+  color: orange;
 }

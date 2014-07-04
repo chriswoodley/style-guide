@@ -566,27 +566,32 @@ Usage:
   }
 }</pre>
 
-Markup: <a href="#" class="button">Link Element</a>
+Markup: <a href="#" class="button-link">Link Element</a>
 <input type="submit" name="submit" value="Input Element" class="button">
 <button class="button">Button Element</button>
 
 Styleguide 5.0.1
 */
 
-.button {
-  @include button($background: #00f, $foreground: #ffa500) {
-    // MOBILE STYLES
-    font-size: 1.25em;
-    height: 2em;
-    line-height: 2;
-    padding: 0 1em;
-    border-radius: 20px;
-    width: 100%;
+.button,
+.button-link {
+  // MOBILE STYLES
+  border-radius: 20px;
+  font-size: 1.25em;
+  padding: 0 1em;
+  width: 100%;
 
-    //DESKTOP STYLES
-    @media screen and (min-width: $small-screen) {
-      font-size: 1em;
-      width: auto;
-    }
+  //DESKTOP STYLES
+  @media screen and (min-width: $small-screen) {
+    font-size: 1em;
+    width: auto;
   }
+}
+
+.button {
+  @include button($background: #00f, $foreground: #ffa500);
+}
+
+.button-link {
+  @include button($background: #00f, $foreground: #ffa500, $link: true);
 }

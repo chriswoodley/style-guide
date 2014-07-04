@@ -10,22 +10,22 @@ Styleguide 1
 }
 
 
-/**
- * 1. Set default font family.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
- */
+
+ // 1. Set default font family.
+ // 2. Prevent iOS text size adjust after orientation change, without disabling
+ //    user zoom.
+
 html {
-  font-family: $font-primary; /* 1 */
-  font-size: percentage( $base-font-size / 16px );
+  font-family: $font-primary; // 1
+  font-size: percentage($base-font-size / 16px);
   line-height: $unitless-line-height;
-  -ms-text-size-adjust: 100%; /* 2 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  -ms-text-size-adjust: 100%; // 2
+  -webkit-text-size-adjust: 100%; // 2
 }
 
-/**
- * Remove default margin.
- */
+
+// Remove default margin.
+
 body {
   margin: 0;
 }
@@ -35,14 +35,11 @@ body {
 }
 
 
-/* HTML5 display definitions
-   ========================================================================== */
+// HTML5 display definitions
+// Correct `block` display not defined for any HTML5 element in IE 8/9.
+// Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+// Correct `block` display not defined for `main` in IE 11.
 
-/**
- * Correct `block` display not defined for any HTML5 element in IE 8/9.
- * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
- * Correct `block` display not defined for `main` in IE 11.
- */
 article,
 aside,
 details,
@@ -59,16 +56,14 @@ summary {
 }
 
 
-/**
- * 1. Correct `inline-block` display not defined in IE 8/9.
- * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
- */
+// 1. Correct `inline-block` display not defined in IE 8/9.
+// 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
 audio,
 canvas,
 progress,
 video {
-  display: inline-block; /* 1 */
-  vertical-align: middle; /* 2 */
+  display: inline-block; // 1
+  vertical-align: middle; // 2
 }
 
 
@@ -112,8 +107,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 0;
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 
@@ -124,32 +119,32 @@ h6 {
 
 h1 {
   @include font-size($h1-font-size);
-  margin-bottom: rhythm( 1, $h1-font-size );
+  margin-bottom: rhythm(1, $h1-font-size);
 }
 
 h2 {
   @include font-size($h2-font-size, $base-font-size, .5);
-  margin-bottom: rhythm( 1, $h2-font-size );
+  margin-bottom: rhythm(1, $h2-font-size);
 }
 
 h3 {
   @include font-size($h3-font-size, $base-font-size, .5);
-  margin-bottom: rhythm( 1, $h3-font-size );
+  margin-bottom: rhythm(1, $h3-font-size);
 }
 
 h4 {
   @include font-size($h4-font-size);
-  margin-bottom: rhythm( 1, $h4-font-size );
+  margin-bottom: rhythm(1, $h4-font-size);
 }
 
 h5 {
   @include font-size($h5-font-size);
-  margin-bottom: rhythm( 1, $h5-font-size );
+  margin-bottom: rhythm(1, $h5-font-size);
 }
 
 h6 {
   @include font-size($h6-font-size);
-  margin-bottom: rhythm( 1, $h6-font-size );
+  margin-bottom: rhythm(1, $h6-font-size);
 }
 
 
@@ -173,9 +168,9 @@ Styleguide 1.0.2
 */
 
 address {
-  margin: rhythm() 0;
-  font-style: normal;
   color: $dark-gray;
+  font-style: normal;
+  margin: rhythm() 0;
 }
 
 
@@ -193,7 +188,7 @@ Styleguide 1.0.3
 p,
 pre,
 figure {
-  margin: 0 0 rhythm() 0;
+  margin: 0 0 rhythm();
 }
 
 
@@ -213,13 +208,13 @@ Styleguide 1.0.4
  * Address differences between Firefox and other browsers.
  */
 hr {
-  display: block;
-  height: 0;
   border: 0;
   border-top: 1px solid $black;
-  margin: 0 0 rhythm(1, $base-font-size, 1px) 0;
-  padding: 0;
   clear: both;
+  display: block;
+  height: 0;
+  margin: 0 0 rhythm(1, $base-font-size, 1px);
+  padding: 0;
 }
 
 
@@ -267,19 +262,21 @@ Markup: <blockquote cite="http://developer.mozilla.org">
 Styleguide 1.0.6
 */
 blockquote {
+  border-left: 4px solid $light-gray;
   margin: 0 em($indent-size) rhythm() em($indent-size);
   padding-left: em($indent-size / 4);
-  border-left: 4px solid $light-gray;
   quotes: "\201C""\201D""\2018""\2019";
+
   & > p {
     display: inline;
   }
 
   cite {
-    display:block;
-    color:$gray;
+    color: $gray;
+    display: block;
+
     &:before {
-      content: "- ";
+      content: '- ';
     }
   }
 }
@@ -346,24 +343,25 @@ Markup: <!-- Unordered List -->
 
 Styleguide 1.0.7
 */
- dl,
- ul,
- ol {
-  margin: 0 0 rhythm() 0;
- }
 
- ul,
- ol {
+dl,
+ul,
+ol {
+  margin: 0 0 rhythm();
+}
+
+ul,
+ol {
   padding: 0 0 0 em($indent-size);
- }
+}
 
- dt {
+dt {
   font-weight: bold;
- }
+}
 
- dd {
+dd {
   margin: 0 0 0 em($indent-size);
- }
+}
 
 
 /*
@@ -388,10 +386,10 @@ Styleguide 1.0.8
  * Address margin not present in IE 8/9 and Safari.
  */
 figure {
+  border-bottom: 1px dotted $light-gray;
+  border-top: 1px dotted $light-gray;
   margin: rhythm($offset:1px);
   padding: rhythm();
-  border-top: 1px dotted $light-gray;
-  border-bottom: 1px dotted $light-gray;
   text-align: center;
 }
 
@@ -407,7 +405,7 @@ Your standard hyperlinks. Removed the gray background color from active links in
 
 Usage:
 <pre>a {
-  @include link-colors( $foreground: "blue" "green" "red", $background: "black" "gray" "white");
+  @include link-colors($foreground: 'blue' 'green' 'red', $background: 'black' 'gray' 'white');
 }</pre>
 
 Markup: <a href="#" class="$modifierClass">Example</a>
@@ -420,7 +418,7 @@ Markup: <a href="#" class="$modifierClass">Example</a>
 Styleguide 1.0.9
 */
 a {
-  @include link-colors( $foreground: "blue" "green" "red", $background: false);
+  @include link-colors($foreground: 'blue' 'green' 'red', $background: false);
   background: transparent;
 }
 
@@ -470,7 +468,7 @@ Styleguide 1.1.1
  * Address inconsistent and variable font size in all browsers.
  */
 small {
-  @include font-size( $small-font-size );
+  @include font-size($small-font-size);
 }
 
 
@@ -572,11 +570,11 @@ p {
   code,
   kbd,
   samp {
-    font-size: 90%;
-    color: $red;
     background: scale-color($orange, $lightness: 85%);
-    padding: .1em .5em;
     border-radius: $radius;
+    color: $red;
+    font-size: 90%;
+    padding: .1em .5em;
     white-space: nowrap;
   }
 }
@@ -645,21 +643,21 @@ Styleguide 1.1.8
 */
 img,
 svg {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 /**
  * Remove border when inside `a` element in IE 8/9/10.
  */
 img {
-  max-width: 100%;
-  height: auto;
-  image-rendering: -moz-crisp-edges;         /* Firefox */
-  image-rendering:   -o-crisp-edges;         /* Opera */
-  image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
-  image-rendering: crisp-edges;
-  -ms-interpolation-mode: bicubic;  /* IE (non-standard property) */
   border: 0;
+  height: auto;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: bicubic;
+  max-width: 100%;
 }
 
 /**
@@ -715,8 +713,8 @@ button {
 button,
 input[type="submit"],
 input[type="reset"] {
-  height: rhythm(1.5);
-  margin: rhythm(.25) 0;
+  height: $btn-height;
+  margin: $btn-margin 0;
 }
 
 /**
@@ -750,8 +748,8 @@ input[type="submit"] {
  */
 button[disabled],
 html input[disabled] {
+  color: $gray;
   cursor: default;
-  color:$gray;
 }
 
 /**
@@ -829,8 +827,8 @@ input[type="tel"],
 input[type="url"],
 input[type="range"],
 textarea {
-  width: auto;
   outline: 0;
+  width: auto;
 }
 
 input[type="text"],
@@ -847,9 +845,10 @@ input[type="email"],
 input[type="tel"],
 input[type="url"],
 textarea {
-  padding: rhythm(.25, $base-font-size, 2px);
-  margin: rhythm(.230) 0;
   box-shadow: inset 0 2px 5px rgba($light-gray, .5);
+  margin: rhythm(.230) 0;
+  padding: rhythm(.25, $base-font-size, 2px);
+
   &:focus {
     border: 1px solid $blue;
     box-shadow: none;
@@ -857,7 +856,7 @@ textarea {
 }
 
 input[type="file"] {
-  border:none;
+  border: none;
   display: block;
   width: 100%;
 }
@@ -868,9 +867,9 @@ input[type="file"] {
  */
 input[type="checkbox"],
 input[type="radio"] {
+  margin-top: -4px;
   padding: 0;
   vertical-align: middle;
-  margin-top: -4px;
 }
 
 
@@ -888,8 +887,9 @@ input[type="number"]::-webkit-outer-spin-button {
  * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
  */
 input[type="search"] {
-  -webkit-appearance: textfield; /* 1 */
+  -webkit-appearance: textfield; // 1
 }
+
 /**
  * Remove inner padding and search cancel button in Safari and Chrome on OS X.
  * Safari (but not Chrome) clips the cancel button when the search input has
@@ -915,11 +915,11 @@ Styleguide 1.2.1
  */
 textarea {
   display: block;
-  vertical-align: top;
-  resize: vertical;
-  overflow: auto;
   height: auto;
   min-height: rhythm(5);
+  overflow: auto;
+  resize: vertical;
+  vertical-align: top;
   width: 100%;
 }
 
@@ -932,7 +932,7 @@ textarea[cols] {
 }
 
 textarea[contenteditable] {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 
@@ -983,12 +983,12 @@ optgroup {
 }
 
 select {
-  height: rhythm(1.5);
-  padding: .25em;
-  margin: rhythm(.25) 0;
   background-color: $white;
   border: 1px solid $light-gray;
   border-radius: $radius;
+  height: rhythm(1.5);
+  margin: rhythm(.25) 0;
+  padding: .25em;
 
   &:hover {
     background-color: scale-color($light-gray, $lightness: 80%);
@@ -996,7 +996,7 @@ select {
   }
 
   &[multiple] {
-    height:auto;
+    height: auto;
     padding: rhythm($lines: .5, $offset: 1px) em(10);
   }
 }
@@ -1025,8 +1025,9 @@ Styleguide 1.2.3
  * Define consistent border, margin, and padding.
  */
 fieldset {
+  margin: 0 0 rhythm();
   padding: rhythm();
-  margin: 0 0 rhythm() 0;
+
   &>:last-child {
     margin-bottom: 0;
   }
@@ -1047,19 +1048,19 @@ label {
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
 legend {
-  display: block;
-  width: 100%;
   border: 0; /* 1 */
   border-bottom: 2px solid #e5e5e5;
-  padding: 0; /* 2 */
+  display: block;
+  margin-bottom: rhythm(1, $h3-font-size, 2px);
+  padding: 0; //2
+  width: 100%;
   @include font-size($h3-font-size);
-  margin-bottom: rhythm( 1, $h3-font-size, 2px);
 }
 
 fieldset {
-  padding: 0;
-  margin: 0 0 rhythm() 0;
   border: 0;
+  margin: 0 0 rhythm();
+  padding: 0;
 }
 
 
@@ -1100,11 +1101,11 @@ Styleguide 1.2.4
  * Remove most spacing between table cells.
  */
 table {
-  width:100%;
   border-collapse: collapse;
   border-spacing: 0;
-  margin: 0 0 rhythm() 0;
   line-height: 1.6;
+  margin: 0 0 rhythm();
+  width: 100%;
 }
 
 td,
