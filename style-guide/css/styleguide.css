@@ -79,9 +79,9 @@
     font-weight: bold;
 }
 .styleguide__element {
-    position: relative;
-    padding: 20px;
-    overflow: auto;
+    /*position: relative;*/
+    padding: 21px;
+    /*overflow: auto;*/
 }
 .styleguide__element + .styleguide__element {
     margin-top: -5px;
