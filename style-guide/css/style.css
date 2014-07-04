@@ -1,21 +1,17 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_placeholders\.scss}line{font-family:\000032}}
-.grid__row:before, .grid__row:after {
-  content: " ";
+.grid__row:before, .menu:before, .menu-1:before, .menu-2:before, .menu-3:before, .menu-4:before, .grid__row:after, .menu:after, .menu-1:after, .menu-2:after, .menu-3:after, .menu-4:after {
+  content: ' ';
   display: table;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_placeholders\.scss}line{font-family:\000037}}
-.grid__row:after {
+.grid__row:after, .menu:after, .menu-1:after, .menu-2:after, .menu-3:after, .menu-4:after {
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_placeholders\.scss}line{font-family:\0000312}}
 .menu, .menu-1, .menu-2, .menu-3, .menu-4, .sub-menu {
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_placeholders\.scss}line{font-family:\0000318}}
 .menu > .menu__item > a, .menu-1 > .menu-1__item > a, .menu-2 > .menu-2__item > a, .menu-3 > .menu-3__item > a, .menu-4 > .menu-4__item > a, .sub-menu a {
   display: block;
   text-decoration: none;
@@ -26,7 +22,6 @@
 
 Styleguide 1
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\000037}}
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -38,7 +33,6 @@ Styleguide 1
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\0000318}}
 html {
   font-family: "HelveticaNeue", "Helvetica", Arial, sans-serif;
   /* 1 */
@@ -53,12 +47,10 @@ html {
 /**
  * Remove default margin.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\0000329}}
 body {
   margin: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\0000333}}
 .styleguide__elements {
   background-image: url(http://basehold.it/i/21/204/40/130);
   background-repeat: repeat;
@@ -71,7 +63,6 @@ body {
  * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\0000346}}
 article,
 aside,
 details,
@@ -91,7 +82,6 @@ summary {
  * 1. Correct `inline-block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\0000366}}
 audio,
 canvas,
 progress,
@@ -106,7 +96,6 @@ video {
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\0000379}}
 audio:not([controls]) {
   display: none;
   height: 0;
@@ -116,7 +105,6 @@ audio:not([controls]) {
  * Address `[hidden]` styling not present in IE 8/9/10.
  * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\0000389}}
 [hidden],
 template {
   display: none;
@@ -136,7 +124,6 @@ Markup: <h1>Heading level 1</h1>
 
 Styleguide 1.0.1
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003109}}
 h1,
 h2,
 h3,
@@ -151,42 +138,36 @@ h6 {
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari, and Chrome.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003125}}
 h1 {
   font-size: 2.61793em;
   line-height: 1.14594;
   margin-bottom: 0.57297em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003130}}
 h2 {
   font-size: 2.06121em;
   line-height: 1.09159;
   margin-bottom: 0.72773em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003135}}
 h3 {
   font-size: 1.618em;
   line-height: 1.39061;
   margin-bottom: 0.92707em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003140}}
 h4 {
   font-size: 1.27393em;
   line-height: 1.17746;
   margin-bottom: 1.17746em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003145}}
 h5 {
   font-size: 1em;
   line-height: 1.5;
   margin-bottom: 1.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003150}}
 h6 {
   font-size: 0.78736em;
   line-height: 1.90511;
@@ -211,7 +192,6 @@ Markup: <address>
 
 Styleguide 1.0.2
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003175}}
 address {
   margin: 1.5em 0;
   font-style: normal;
@@ -228,7 +208,6 @@ Markup: <p>This is the first paragraph of text. This is the first paragraph of t
 
 Styleguide 1.0.3
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003193}}
 p,
 pre,
 figure {
@@ -249,7 +228,6 @@ Styleguide 1.0.4
 /**
  * Address differences between Firefox and other browsers.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003215}}
 hr {
   display: block;
   height: 0;
@@ -281,7 +259,6 @@ Styleguide 1.0.5
 /**
  * Contain overflow in all browsers.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003249}}
 pre {
   overflow: auto;
 }
@@ -301,23 +278,19 @@ Markup: <blockquote cite="http://developer.mozilla.org">
 
 Styleguide 1.0.6
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003269}}
 blockquote {
   margin: 0 2.61793em 1.5em 2.61793em;
   padding-left: 0.65448em;
   border-left: 4px solid #cccccc;
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003274}}
 blockquote > p {
   display: inline;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003278}}
 blockquote cite {
   display: block;
   color: #999999;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003281}}
 blockquote cite:before {
   content: "- ";
 }
@@ -383,25 +356,21 @@ Markup: <!-- Unordered List -->
 
 Styleguide 1.0.7
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003349}}
 dl,
 ul,
 ol {
   margin: 0 0 1.5em 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003355}}
 ul,
 ol {
   padding: 0 0 0 2.61793em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003360}}
 dt {
   font-weight: bold;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003364}}
 dd {
   margin: 0 0 0 2.61793em;
 }
@@ -426,7 +395,6 @@ Styleguide 1.0.8
 /**
  * Address margin not present in IE 8/9 and Safari.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003390}}
 figure {
   margin: 1.42857em;
   padding: 1.5em;
@@ -435,7 +403,6 @@ figure {
   text-align: center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003398}}
 figcaption {
   font-size: 0.78736em;
   line-height: 1.90511;
@@ -460,19 +427,15 @@ Markup: <a href="#" class="$modifierClass">Example</a>
 
 Styleguide 1.0.9
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003422}}
 a {
   background: transparent;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000329}}
 a:link, a:visited {
   color: blue;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000334}}
 a:hover, a:focus {
   color: green;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000339}}
 a:active {
   color: red;
 }
@@ -480,7 +443,6 @@ a:active {
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003430}}
 a:active,
 a:hover {
   outline: 0;
@@ -501,7 +463,6 @@ Styleguide 1.1.0
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  * Fix line height issue.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003452}}
 b,
 strong {
   font-weight: bold;
@@ -520,7 +481,6 @@ Styleguide 1.1.1
 /**
  * Address inconsistent and variable font size in all browsers.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003472}}
 small {
   font-size: 0.78736em;
   line-height: 1.90511;
@@ -539,7 +499,6 @@ Markup: <p>Everytime Kenny is killed, Stan will announce
 
 Styleguide 1.1.2
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003490}}
 q {
   quotes: "\201C" "\201D";
 }
@@ -565,7 +524,6 @@ Styleguide 1.1.3
 /**
  * Address styling not present in Safari and Chrome.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003517}}
 dfn {
   font-style: italic;
 }
@@ -582,12 +540,10 @@ Styleguide 1.1.4
 /**
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003535}}
 abbr {
   text-transform: uppercase;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003539}}
 abbr[title] {
   border-bottom: 1px dotted;
 }
@@ -610,7 +566,6 @@ Styleguide 1.1.5
 /**
  * Address odd `em`-unit font size rendering in all browsers.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003563}}
 code,
 kbd,
 pre,
@@ -619,7 +574,6 @@ samp {
   font-size: 1em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003572}}
 p code,
 p kbd,
 p samp {
@@ -645,7 +599,6 @@ Styleguide 1.1.6
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003600}}
 sub,
 sup {
   font-size: 75%;
@@ -654,12 +607,10 @@ sup {
   vertical-align: baseline;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003608}}
 sup {
   top: -0.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003612}}
 sub {
   bottom: -0.25em;
 }
@@ -676,7 +627,6 @@ Styleguide 1.1.7
 /**
  * Address styling not present in IE 8/9.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003630}}
 mark {
   background: #ffdc00;
   color: #222222;
@@ -692,7 +642,6 @@ Markup: <img src="http://fpoimg.com/200x252" alt="" />
 
 Styleguide 1.1.8
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003646}}
 img,
 svg {
   vertical-align: middle;
@@ -701,7 +650,6 @@ svg {
 /**
  * Remove border when inside `a` element in IE 8/9/10.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003654}}
 img {
   max-width: 100%;
   height: auto;
@@ -720,7 +668,6 @@ img {
 /**
  * Correct overflow not hidden in IE 9/10/11.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003668}}
 svg:not(:root) {
   overflow: hidden;
 }
@@ -748,7 +695,6 @@ Styleguide 1.1.9
  * 2. Correct font properties not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003698}}
 button,
 input,
 optgroup,
@@ -765,12 +711,10 @@ textarea {
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003711}}
 button {
   overflow: visible;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003715}}
 button,
 input[type="submit"],
 input[type="reset"] {
@@ -784,7 +728,6 @@ input[type="reset"] {
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003728}}
 button,
 select {
   text-transform: none;
@@ -797,7 +740,6 @@ select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003740}}
 button,
 html input[type="button"],
 input[type="reset"],
@@ -811,7 +753,6 @@ input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003751}}
 button[disabled],
 html input[disabled] {
   cursor: default;
@@ -821,7 +762,6 @@ html input[disabled] {
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003760}}
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -854,12 +794,10 @@ Styleguide 1.2.0
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003794}}
 input {
   line-height: 1.5;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003798}}
 input[type="text"],
 input[type="search"],
 input[type="number"],
@@ -879,7 +817,6 @@ fieldset {
   border-radius: 4px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003817}}
 input[type="text"],
 input[type="search"],
 input[type="number"],
@@ -899,7 +836,6 @@ textarea {
   outline: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003836}}
 input[type="text"],
 input[type="search"],
 input[type="number"],
@@ -919,7 +855,6 @@ textarea {
   -webkit-box-shadow: inset 0 2px 5px rgba(204, 204, 204, 0.5);
   box-shadow: inset 0 2px 5px rgba(204, 204, 204, 0.5);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003853}}
 input[type="text"]:focus,
 input[type="search"]:focus,
 input[type="number"]:focus,
@@ -939,7 +874,6 @@ textarea:focus {
   box-shadow: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003859}}
 input[type="file"] {
   border: none;
   display: block;
@@ -950,7 +884,6 @@ input[type="file"] {
  * It's recommended that you don't attempt to style these elements.
  * Remove excess padding in IE 8/9/10.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003869}}
 input[type="checkbox"],
 input[type="radio"] {
   padding: 0;
@@ -963,7 +896,6 @@ input[type="radio"] {
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003882}}
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   height: auto;
@@ -972,7 +904,6 @@ input[type="number"]::-webkit-outer-spin-button {
 /**
  * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003890}}
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
@@ -983,7 +914,6 @@ input[type="search"] {
  * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003898}}
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -1001,7 +931,6 @@ Styleguide 1.2.1
 /**
  * Remove default vertical scrollbar in IE 8/9/10/11.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003916}}
 textarea {
   display: block;
   vertical-align: top;
@@ -1012,17 +941,14 @@ textarea {
   width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003926}}
 textarea[rows] {
   height: auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003930}}
 textarea[cols] {
   width: auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003934}}
 textarea[contenteditable] {
   -webkit-appearance: none;
 }
@@ -1068,12 +994,10 @@ Styleguide 1.2.2
  * Don't inherit the `font-weight` (applied by a rule above).
  * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003981}}
 optgroup {
   font-weight: bold;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003985}}
 select {
   height: 2.25em;
   padding: .25em;
@@ -1082,12 +1006,10 @@ select {
   border: 1px solid #cccccc;
   border-radius: 4px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003993}}
 select:hover {
   background-color: whitesmoke;
   border-color: #999999;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\00003998}}
 select[multiple] {
   height: auto;
   padding: 0.71429em 0.71429em;
@@ -1115,24 +1037,20 @@ Styleguide 1.2.3
 /**
  * Define consistent border, margin, and padding.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\000031027}}
 fieldset {
   padding: 1.5em;
   margin: 0 0 1.5em 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\000031030}}
 fieldset > :last-child {
   margin-bottom: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\000031035}}
 label,
 legend {
   font-weight: bold;
   line-height: 1.425;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\000031041}}
 label {
   display: inline-block;
 }
@@ -1141,7 +1059,6 @@ label {
  * 1. Correct `color` not being inherited in IE 8/9/10/11.
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\000031049}}
 legend {
   display: block;
   width: 100%;
@@ -1155,7 +1072,6 @@ legend {
   margin-bottom: 0.83878em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\000031059}}
 fieldset {
   padding: 0;
   margin: 0 0 1.5em 0;
@@ -1197,7 +1113,6 @@ Styleguide 1.2.4
 /**
  * Remove most spacing between table cells.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\000031102}}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -1206,32 +1121,27 @@ table {
   line-height: 1.6;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\000031110}}
 td,
 th {
   padding: 0.75em 1em;
   vertical-align: top;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\000031116}}
 th {
   font-weight: bold;
   text-align: center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\000031121}}
 caption,
 tfoot td {
   text-align: left;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\000031126}}
 caption {
   font-size: 1.27393em;
   line-height: 1.17746;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_base\.scss}line{font-family:\000031130}}
 tfoot td {
   font-size: 0.78736em;
   line-height: 1.90511;
@@ -1250,26 +1160,23 @@ This mixin defines the max width of the page and is used in context with setting
 
 Usage:
 <pre>.grid {
-  @include grid( $site-width );
+  @include grid($site-width);
 }</pre>
 
 Markup: <div class="grid">.grid</div>
 
 Styleguide 2.0.1
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/modules\/_grid\.scss}line{font-family:\000031}}
 .grid__col-1, .grid__col-2, .primary, .secondary, .offset-right, .offset-left {
-  position: relative;
   float: left;
+  position: relative;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\0000329}}
 .grid {
   width: 95%;
   margin: 0 auto;
 }
 @media screen and (min-width: 48em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\0000329}}
   .grid {
     max-width: 71.25em;
   }
@@ -1282,7 +1189,7 @@ This mixin defines rows within the layout. Its used to clear column floats.
 
 Usage:
 <pre>.grid__row {
-  @include grid__row();
+  @include grid--row();
 }</pre>
 
 Markup: <div class="grid">
@@ -1298,12 +1205,12 @@ This mixin defines columns within a row. The placeholder is used to group common
 
 Usage:
 <pre>.grid__col-1 {
-  @extend %grid__col;
-  @include grid__col( $span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter );
+  @extend %grid--col;
+  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
 }
 .grid__col-2 {
-  @extend %grid__col;
-  @include grid__col( $span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter );
+  @extend %grid--col;
+  @include grid--col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
 }</pre>
 
 Markup: <div class="grid">
@@ -1319,13 +1226,11 @@ Markup: <div class="grid">
 
 Styleguide 2.0.3
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\0000384}}
 .grid__col-1 {
   width: 25%;
   padding: 0 10px 0 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\0000389}}
 .grid__col-2 {
   width: 75%;
   padding: 0 0 0 10px;
@@ -1338,14 +1243,14 @@ This mixin defines column positioning commonly used for source ordering content.
 
 Usage:
 <pre>.primary {
-  @extend %grid__col;
-  @include grid__col( $span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter );
-  @include grid__col--push( $span: 3, $columns: $mobile-columns );
+  @extend %grid--col;
+  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+  @include grid--col-push($span: 3, $columns: $mobile-columns);
 }
 .secondary {
-  @extend %grid__col;
-  @include grid__col( $span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter );
-  @include grid__col--pull( $span: 1, $columns: $mobile-columns );
+  @extend %grid--col;
+  @include grid--col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+  @include grid--col-pull($span: 1, $columns: $mobile-columns);
 }</pre>
 
 Markup: <div class="grid">
@@ -1361,14 +1266,12 @@ Markup: <div class="grid">
 
 Styleguide 2.0.4
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003126}}
 .primary {
   width: 25%;
   padding: 0 10px 0 0;
   left: 75%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003131}}
 .secondary {
   width: 75%;
   padding: 0 0 0 10px;
@@ -1382,14 +1285,14 @@ This mixin defines column offsets using left and right margins.
 
 Usage:
 <pre>.offset-right {
-  @extend %grid__col;
-  @include grid__col( $span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter );
-  @include grid__col--offset-right( $span: 1, $columns: $mobile-columns );
+  @extend %grid--col;
+  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+  @include grid--col-offset-right($span: 1, $columns: $mobile-columns);
 }
 .offset-left {
-  @extend %grid__col;
-  @include grid__col( $span: 1, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter );
-  @include grid__col--offset-left( $span: 1, $columns: $mobile-columns );
+  @extend %grid--col;
+  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+  @include grid--col-offset-left($span: 1, $columns: $mobile-columns);
 }</pre>
 
 Markup: <div class="grid">
@@ -1405,14 +1308,12 @@ Markup: <div class="grid">
 
 Styleguide 2.0.5
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003170}}
 .offset-right {
   width: 25%;
   padding: 0 10px 0 0;
   margin-right: 25%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003175}}
 .offset-left {
   width: 25%;
   padding: 0 0 0 10px;
@@ -1434,11 +1335,11 @@ Usage:
   @extend %unstyled-list;
   @include menu() {
     & > .menu__item {
-      @include menu__item() {
+      @include menu--item() {
         & > a {
           @extend %block-link;
           padding: .75em;
-          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
         }
       }
     }
@@ -1457,27 +1358,22 @@ Markup: <nav role="navigation">
 
 Styleguide 3.0.1
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003227}}
 .menu > .menu__item {
   position: relative;
   display: block;
   float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003229}}
 .menu > .menu__item > a {
   padding: .75em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
 .menu > .menu__item > a:link, .menu > .menu__item > a:visited {
   color: purple;
   background-color: #e0774c;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000316}}
 .menu > .menu__item > a:hover, .menu > .menu__item > a:focus {
   color: yellow;
   background-color: blue;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000322}}
 .menu > .menu__item > a:active {
   color: yellow;
   background-color: purple;
@@ -1489,13 +1385,13 @@ Styleguide 3.0.1
 Usage:
 <pre>.menu-1 {
   @extend %unstyled-list;
-  @include menu( right ) {
+  @include menu(right) {
     & > .menu-1__item {
-      @include menu__item() {
+      @include menu--item() {
         & > a {
           @extend %block-link;
           padding: .75em;
-          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
         }
       }
     }
@@ -1514,32 +1410,26 @@ Markup: <nav role="navigation">
 
 Styleguide 3.0.2
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003272}}
 .menu-1 {
   display: table;
   margin-left: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003275}}
 .menu-1 > .menu-1__item {
   position: relative;
   display: block;
   float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003277}}
 .menu-1 > .menu-1__item > a {
   padding: .75em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
 .menu-1 > .menu-1__item > a:link, .menu-1 > .menu-1__item > a:visited {
   color: purple;
   background-color: #e0774c;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000316}}
 .menu-1 > .menu-1__item > a:hover, .menu-1 > .menu-1__item > a:focus {
   color: yellow;
   background-color: blue;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000322}}
 .menu-1 > .menu-1__item > a:active {
   color: yellow;
   background-color: purple;
@@ -1551,13 +1441,13 @@ Styleguide 3.0.2
 Usage:
 <pre>.menu-2 {
   @extend %unstyled-list;
-  @include menu( center ) {
+  @include menu(center) {
     & > .menu-2__item {
-      @include menu__item() {
+      @include menu--item() {
         & > a {
           @extend %block-link;
           padding: .75em;
-          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
         }
       }
     }
@@ -1576,33 +1466,22 @@ Markup: <nav role="navigation">
 
 Styleguide 3.0.3
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003319}}
-.menu-2 {
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003322}}
 .menu-2 > .menu-2__item {
   position: relative;
   display: block;
   float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003324}}
 .menu-2 > .menu-2__item > a {
   padding: .75em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
 .menu-2 > .menu-2__item > a:link, .menu-2 > .menu-2__item > a:visited {
   color: purple;
   background-color: #e0774c;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000316}}
 .menu-2 > .menu-2__item > a:hover, .menu-2 > .menu-2__item > a:focus {
   color: yellow;
   background-color: blue;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000322}}
 .menu-2 > .menu-2__item > a:active {
   color: yellow;
   background-color: purple;
@@ -1614,13 +1493,13 @@ Styleguide 3.0.3
 Usage:
 <pre>.menu-3 {
   @extend %unstyled-list;
-  @include menu( justified ) {
+  @include menu(justified) {
     & > .menu-3__item {
-      @include menu__item( $align: justified, $num: 5 ) {
+      @include menu--item($align: justified, $num: 5) {
         & > a {
           @extend %block-link;
           padding: .75em;
-          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
         }
       }
     }
@@ -1639,12 +1518,10 @@ Markup: <nav role="navigation">
 
 Styleguide 3.0.4
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003366}}
 .menu-3 {
   display: table;
   width: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003369}}
 .menu-3 > .menu-3__item {
   position: relative;
   display: table-cell;
@@ -1652,21 +1529,17 @@ Styleguide 3.0.4
   float: none;
   width: 20%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003371}}
 .menu-3 > .menu-3__item > a {
   padding: .75em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
 .menu-3 > .menu-3__item > a:link, .menu-3 > .menu-3__item > a:visited {
   color: purple;
   background-color: #e0774c;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000316}}
 .menu-3 > .menu-3__item > a:hover, .menu-3 > .menu-3__item > a:focus {
   color: yellow;
   background-color: blue;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000322}}
 .menu-3 > .menu-3__item > a:active {
   color: yellow;
   background-color: purple;
@@ -1680,11 +1553,11 @@ Usage:
   @extend %unstyled-list;
   @include menu() {
     & > .menu-4__item {
-      @include menu__item( stacked ) {
+      @include menu--item(stacked) {
         & > a {
           @extend %block-link;
           padding: .75em;
-          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
         }
       }
     }
@@ -1703,26 +1576,21 @@ Markup: <nav role="navigation">
 
 Styleguide 3.0.5
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003416}}
 .menu-4 > .menu-4__item {
   position: relative;
   display: block;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003418}}
 .menu-4 > .menu-4__item > a {
   padding: .75em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
 .menu-4 > .menu-4__item > a:link, .menu-4 > .menu-4__item > a:visited {
   color: purple;
   background-color: #e0774c;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000316}}
 .menu-4 > .menu-4__item > a:hover, .menu-4 > .menu-4__item > a:focus {
   color: yellow;
   background-color: blue;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000322}}
 .menu-4 > .menu-4__item > a:active {
   color: yellow;
   background-color: purple;
@@ -1741,25 +1609,27 @@ Both of these mixins defines the styles necessary for dropdown and flyout sub me
 Usage:
 <pre>.sub-menu {
   @extend %unstyled-list;
+
   @include sub-menu($active: false, $position: true, $flyout: false) {
-    width: 100%;
+    width: 200%;
     & > .sub-menu__item {
-      @include sub-menu__item() {
-          &:hover {
-            & > .sub-menu {
-              @include sub-menu($active: true, $position: true, $flyout: true);
+      @include sub-menu--item() {
+        &:hover {
+          & > .sub-menu {
+            @include sub-menu($active: true, $position: true, $flyout: true) {
+              width: 100%;
             }
           }
+        }
       }
     }
   }
 
-a {
-  @extend %block-link;
-  padding: .75em;
-  @include link-colors( $foreground: "orange" "red" "green", $background: "blue" "green" "red");
-}
-
+  a {
+    @extend %block-link;
+    padding: .75em;
+    @include link-colors($foreground: 'orange' 'red' 'green', $background: 'blue' 'green' 'red');
+  }
 }</pre>
 
 Markup: <nav role="navigation">
@@ -1790,49 +1660,135 @@ Markup: <nav role="navigation">
 
 Styleguide 4.0.1
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003496}}
 .menu__item:hover > .sub-menu {
   position: absolute;
   left: 0;
   z-index: 999;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003502}}
 .sub-menu {
   position: absolute;
   left: -9999px;
   z-index: 999;
-  width: 100%;
+  width: 200%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003506}}
 .sub-menu > .sub-menu__item {
   display: block;
   width: inherit;
   position: relative;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003510}}
 .sub-menu > .sub-menu__item:hover > .sub-menu {
   position: absolute;
   top: 0;
   left: 100%;
   z-index: 999;
+  width: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/style\.scss}line{font-family:\00003518}}
 .sub-menu a {
   padding: .75em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000310}}
 .sub-menu a:link, .sub-menu a:visited {
   color: orange;
   background-color: blue;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000316}}
 .sub-menu a:hover, .sub-menu a:focus {
   color: red;
   background-color: green;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/cwoodley\/Sites\/kss\/style-guide\/scss\/_mixins\.scss}line{font-family:\0000322}}
 .sub-menu a:active {
   color: green;
   background-color: red;
+}
+
+/*
+# Button
+
+Styleguide 5
+*/
+/*
+# Button Mixins
+
+Both of these mixins defines the styles necessary for dropdown and flyout sub menus.
+
+Usage:
+<pre>.button {
+  @include button($background: #00f, $foreground: #ffa500) {
+    // MOBILE STYLES
+    font-size: 1.25em;
+    height: 2em;
+    line-height: 2;
+    padding: 0 1em;
+    border-radius: 20px;
+    width: 100%;
+
+    //DESKTOP STYLES
+    @media screen and (min-width: $small-screen) {
+      font-size: 1em;
+      width: auto;
+    }
+  }
+}</pre>
+
+Markup: <a href="#" class="button">Link Element</a>
+<input type="submit" name="submit" value="Input Element" class="button">
+<button class="button">Button Element</button>
+
+Styleguide 5.0.1
+*/
+.button {
+  -webkit-appearance: none;
+  -webkit-user-drag: none;
+  background-color: blue;
+  background-image: none;
+  -webkit-border-image: none;
+  -o-border-image: none;
+  border-image: none;
+  border: 0;
+  color: orange;
+  cursor: pointer;
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  outline: none;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  -webkit-transition: background 50ms ease-out, color 50ms ease-out, -webkit-box-shadow 50ms ease-out;
+  transition: background 50ms ease-out, color 50ms ease-out, box-shadow 50ms ease-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 1.25em;
+  height: 2em;
+  line-height: 2;
+  padding: 0 1em;
+  border-radius: 20px;
+  width: 100%;
+}
+@media screen and (min-width: 48em) {
+  .button {
+    font-size: 1em;
+    width: auto;
+  }
+}
+.button:hover, .button:focus {
+  background-color: #0000e6;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(rgba(0, 0, 0, 0.1)));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.button:active {
+  background-color: blue;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0)), to(rgba(0, 0, 0, 0.1)));
+  background-image: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+  color: #ffb733;
 }
