@@ -17,7 +17,7 @@ This mixin defines the max width of the page and is used in context with setting
 
 Usage:
 <pre>.grid {
-  @include grid( $site-width );
+  @include grid($site-width);
 }</pre>
 
 Markup: <div class="grid">.grid</div>
@@ -27,7 +27,7 @@ Styleguide 2.0.1
 @import 'modules/grid';
 
 .grid {
-  @include grid( $site-width );
+  @include grid($site-width);
 }
 
 
@@ -38,7 +38,7 @@ This mixin defines rows within the layout. Its used to clear column floats.
 
 Usage:
 <pre>.grid__row {
-  @include grid__row();
+  @include grid--row();
 }</pre>
 
 Markup: <div class="grid">
@@ -49,7 +49,7 @@ Styleguide 2.0.2
 */
 
 .grid__row {
-  @include grid__row();
+  @include grid--row();
 }
 
 /*
@@ -59,12 +59,12 @@ This mixin defines columns within a row. The placeholder is used to group common
 
 Usage:
 <pre>.grid__col-1 {
-  @extend %grid__col;
-  @include grid__col( $span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter );
+  @extend %grid--col;
+  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
 }
 .grid__col-2 {
-  @extend %grid__col;
-  @include grid__col( $span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter );
+  @extend %grid--col;
+  @include grid--col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
 }</pre>
 
 Markup: <div class="grid">
@@ -82,13 +82,13 @@ Styleguide 2.0.3
 */
 
 .grid__col-1 {
-  @extend %grid__col;
-  @include grid__col( $span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter );
+  @extend %grid--col;
+  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
 }
 
 .grid__col-2 {
-  @extend %grid__col;
-  @include grid__col( $span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter );
+  @extend %grid--col;
+  @include grid--col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
 }
 
 
@@ -99,14 +99,14 @@ This mixin defines column positioning commonly used for source ordering content.
 
 Usage:
 <pre>.primary {
-  @extend %grid__col;
-  @include grid__col( $span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter );
-  @include grid__col--push( $span: 3, $columns: $mobile-columns );
+  @extend %grid--col;
+  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+  @include grid--col-push($span: 3, $columns: $mobile-columns);
 }
 .secondary {
-  @extend %grid__col;
-  @include grid__col( $span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter );
-  @include grid__col--pull( $span: 1, $columns: $mobile-columns );
+  @extend %grid--col;
+  @include grid--col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+  @include grid--col-pull($span: 1, $columns: $mobile-columns);
 }</pre>
 
 Markup: <div class="grid">
@@ -124,16 +124,16 @@ Styleguide 2.0.4
 */
 
 .primary {
-  @extend %grid__col;
-  @include grid__col( $span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter );
-  @include grid__col--push( $span: 3, $columns: $mobile-columns );
-}
-.secondary {
-  @extend %grid__col;
-  @include grid__col( $span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter );
-  @include grid__col--pull( $span: 1, $columns: $mobile-columns );
+  @extend %grid--col;
+  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+  @include grid--col-push($span: 3, $columns: $mobile-columns);
 }
 
+.secondary {
+  @extend %grid--col;
+  @include grid--col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+  @include grid--col-pull($span: 1, $columns: $mobile-columns);
+}
 
 
 /*
@@ -143,14 +143,14 @@ This mixin defines column offsets using left and right margins.
 
 Usage:
 <pre>.offset-right {
-  @extend %grid__col;
-  @include grid__col( $span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter );
-  @include grid__col--offset-right( $span: 1, $columns: $mobile-columns );
+  @extend %grid--col;
+  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+  @include grid--col-offset-right($span: 1, $columns: $mobile-columns);
 }
 .offset-left {
-  @extend %grid__col;
-  @include grid__col( $span: 1, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter );
-  @include grid__col--offset-left( $span: 1, $columns: $mobile-columns );
+  @extend %grid--col;
+  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+  @include grid--col-offset-left($span: 1, $columns: $mobile-columns);
 }</pre>
 
 Markup: <div class="grid">
@@ -168,16 +168,16 @@ Styleguide 2.0.5
 */
 
 .offset-right {
-  @extend %grid__col;
-  @include grid__col( $span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter );
-  @include grid__col--offset-right( $span: 1, $columns: $mobile-columns );
-}
-.offset-left {
-  @extend %grid__col;
-  @include grid__col( $span: 1, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter );
-  @include grid__col--offset-left( $span: 1, $columns: $mobile-columns );
+  @extend %grid--col;
+  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+  @include grid--col-offset-right($span: 1, $columns: $mobile-columns);
 }
 
+.offset-left {
+  @extend %grid--col;
+  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+  @include grid--col-offset-left($span: 1, $columns: $mobile-columns);
+}
 
 
 /*
@@ -196,11 +196,11 @@ Usage:
   @extend %unstyled-list;
   @include menu() {
     & > .menu__item {
-      @include menu__item() {
+      @include menu--item() {
         & > a {
           @extend %block-link;
           padding: .75em;
-          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
         }
       }
     }
@@ -223,13 +223,14 @@ Styleguide 3.0.1
 
 .menu {
   @extend %unstyled-list;
+
   @include menu() {
     & > .menu__item {
-      @include menu__item() {
+      @include menu--item() {
         & > a {
           @extend %block-link;
           padding: .75em;
-          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
         }
       }
     }
@@ -243,13 +244,13 @@ Styleguide 3.0.1
 Usage:
 <pre>.menu-1 {
   @extend %unstyled-list;
-  @include menu( right ) {
+  @include menu(right) {
     & > .menu-1__item {
-      @include menu__item() {
+      @include menu--item() {
         & > a {
           @extend %block-link;
           padding: .75em;
-          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
         }
       }
     }
@@ -271,13 +272,14 @@ Styleguide 3.0.2
 
 .menu-1 {
   @extend %unstyled-list;
-  @include menu( $align: right ) {
+
+  @include menu($align: right) {
     & > .menu-1__item {
-      @include menu__item() {
+      @include menu--item() {
         & > a {
           @extend %block-link;
           padding: .75em;
-          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
         }
       }
     }
@@ -290,13 +292,13 @@ Styleguide 3.0.2
 Usage:
 <pre>.menu-2 {
   @extend %unstyled-list;
-  @include menu( center ) {
+  @include menu(center) {
     & > .menu-2__item {
-      @include menu__item() {
+      @include menu--item() {
         & > a {
           @extend %block-link;
           padding: .75em;
-          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
         }
       }
     }
@@ -318,13 +320,14 @@ Styleguide 3.0.3
 
 .menu-2 {
   @extend %unstyled-list;
-  @include menu( $align: center ) {
+
+  @include menu($align: center) {
     & > .menu-2__item {
-      @include menu__item() {
+      @include menu--item() {
         & > a {
           @extend %block-link;
           padding: .75em;
-          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
         }
       }
     }
@@ -337,13 +340,13 @@ Styleguide 3.0.3
 Usage:
 <pre>.menu-3 {
   @extend %unstyled-list;
-  @include menu( justified ) {
+  @include menu(justified) {
     & > .menu-3__item {
-      @include menu__item( $align: justified, $num: 5 ) {
+      @include menu--item($align: justified, $num: 5) {
         & > a {
           @extend %block-link;
           padding: .75em;
-          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
         }
       }
     }
@@ -365,13 +368,14 @@ Styleguide 3.0.4
 
 .menu-3 {
   @extend %unstyled-list;
-  @include menu( $align: justified ) {
+
+  @include menu($align: justified) {
     & > .menu-3__item {
-      @include menu__item( $align: justified, $num: 5 ) {
+      @include menu--item($align: justified, $num: 5) {
         & > a {
           @extend %block-link;
           padding: .75em;
-          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
         }
       }
     }
@@ -386,11 +390,11 @@ Usage:
   @extend %unstyled-list;
   @include menu() {
     & > .menu-4__item {
-      @include menu__item( stacked ) {
+      @include menu--item(stacked) {
         & > a {
           @extend %block-link;
           padding: .75em;
-          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
         }
       }
     }
@@ -412,13 +416,14 @@ Styleguide 3.0.5
 
 .menu-4 {
   @extend %unstyled-list;
+
   @include menu() {
     & > .menu-4__item {
-      @include menu__item( stacked ) {
+      @include menu--item(stacked) {
         & > a {
           @extend %block-link;
           padding: .75em;
-          @include link-colors( $foreground: "purple" "yellow" "yellow", $background: "#e0774c" "blue" "purple");
+          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
         }
       }
     }
@@ -440,25 +445,27 @@ Both of these mixins defines the styles necessary for dropdown and flyout sub me
 Usage:
 <pre>.sub-menu {
   @extend %unstyled-list;
+
   @include sub-menu($active: false, $position: true, $flyout: false) {
-    width: 100%;
+    width: 200%;
     & > .sub-menu__item {
-      @include sub-menu__item() {
-          &:hover {
-            & > .sub-menu {
-              @include sub-menu($active: true, $position: true, $flyout: true);
+      @include sub-menu--item() {
+        &:hover {
+          & > .sub-menu {
+            @include sub-menu($active: true, $position: true, $flyout: true) {
+              width: 100%;
             }
           }
+        }
       }
     }
   }
 
-a {
-  @extend %block-link;
-  padding: .75em;
-  @include link-colors( $foreground: "orange" "red" "green", $background: "blue" "green" "red");
-}
-
+  a {
+    @extend %block-link;
+    padding: .75em;
+    @include link-colors($foreground: 'orange' 'red' 'green', $background: 'blue' 'green' 'red');
+  }
 }</pre>
 
 Markup: <nav role="navigation">
@@ -501,24 +508,85 @@ Styleguide 4.0.1
 
 .sub-menu {
   @extend %unstyled-list;
+
   @include sub-menu($active: false, $position: true, $flyout: false) {
-    width: 100%;
+    width: 200%;
+
     & > .sub-menu__item {
-      @include sub-menu__item() {
-          
-          &:hover {
-            & > .sub-menu {
-              @include sub-menu($active: true, $position: true, $flyout: true);
+      @include sub-menu--item() {
+
+        &:hover {
+          & > .sub-menu {
+            @include sub-menu($active: true, $position: true, $flyout: true) {
+              width: 100%;
             }
           }
+        }
       }
     }
   }
 
-a {
-  @extend %block-link;
-  padding: .75em;
-  @include link-colors( $foreground: "orange" "red" "green", $background: "blue" "green" "red");
+  a {
+    @extend %block-link;
+    padding: .75em;
+    @include link-colors($foreground: 'orange' 'red' 'green', $background: 'blue' 'green' 'red');
+  }
 }
 
+
+@import 'modules/button';
+
+/*
+# Button
+
+Styleguide 5
+*/
+
+/*
+# Button Mixins
+
+Both of these mixins defines the styles necessary for dropdown and flyout sub menus.
+
+Usage:
+<pre>.button {
+  @include button($background: #00f, $foreground: #ffa500) {
+    // MOBILE STYLES
+    font-size: 1.25em;
+    height: 2em;
+    line-height: 2;
+    padding: 0 1em;
+    border-radius: 20px;
+    width: 100%;
+
+    //DESKTOP STYLES
+    @media screen and (min-width: $small-screen) {
+      font-size: 1em;
+      width: auto;
+    }
+  }
+}</pre>
+
+Markup: <a href="#" class="button">Link Element</a>
+<input type="submit" name="submit" value="Input Element" class="button">
+<button class="button">Button Element</button>
+
+Styleguide 5.0.1
+*/
+
+.button {
+  @include button($background: #00f, $foreground: #ffa500) {
+    // MOBILE STYLES
+    font-size: 1.25em;
+    height: 2em;
+    line-height: 2;
+    padding: 0 1em;
+    border-radius: 20px;
+    width: 100%;
+
+    //DESKTOP STYLES
+    @media screen and (min-width: $small-screen) {
+      font-size: 1em;
+      width: auto;
+    }
+  }
 }
