@@ -1,11 +1,11 @@
 // form section contains many groups of controls
-@mixin form--section($space: 1em) {
+@mixin form--section($space: rhythm()) {
   margin-bottom: $space;
   @content;
 }
 
 // form group contains the label and form control
-@mixin form--group($space: .5em) {
+@mixin form--group($space: rhythm()) {
   margin-bottom: $space;
   @content;
 }
@@ -13,14 +13,15 @@
 // form control is the control itself
 @mixin form--control($size: normal, $type: input, $width: 100%) {
   width: $width;
-  padding-left: .25em;
-  padding-right: .25em;
+  padding-left: .5em;
+  padding-right: .5em;
+  margin: 0;
 
   @if $type == input {
     @if $size == large {
-      font-size: 1.25em;
-      line-height: 1.25;
-      height: 1.5em;
+      @include font-size(16px, $base-font-size, 1);
+      padding-top: rhythm(.5, 16px, 1px);
+      padding-bottom: rhythm(.5, 16px, 1px);
     } @else if $size == small {
       font-size: .75em;
       line-height: 1.2;
