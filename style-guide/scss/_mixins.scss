@@ -1,27 +1,27 @@
-@mixin baseline-grid-bg ( $rgb: 204 40 130 ) {
-  $line-height: strip-unit( $base-line-height );
+@mixin baseline-grid-bg ($rgb: 204 40 130) {
+  $line-height: strip-unit($base-line-height);
   background-image: url(http://basehold.it/i/#{$line-height}/#{nth($rgb, 1)}/#{nth($rgb, 2)}/#{nth($rgb, 3)}); // with RGB colour
   background-repeat: repeat;
 }
 
-@mixin link-colors( $foreground: false, $background: false) {
+@mixin link-colors($foreground: false, $background: false) {
 
   @if $foreground and $background {
     &:link,
     &:visited {
-      color: unquote(nth($foreground, 1));
       background-color: unquote(nth($background, 1));
+      color: unquote(nth($foreground, 1));
     }
 
     &:hover,
     &:focus {
-      color: unquote(nth($foreground, 2));
       background-color: unquote(nth($background, 2));
+      color: unquote(nth($foreground, 2));
     }
 
     &:active {
-     color: unquote(nth($foreground, 3));
-     background-color: unquote(nth($background, 3));
+      background-color: unquote(nth($background, 3));
+      color: unquote(nth($foreground, 3));
     }
   }
 
@@ -37,7 +37,7 @@
     }
 
     &:active {
-     color: unquote(nth($foreground, 3));
+      color: unquote(nth($foreground, 3));
     }
   }
 
@@ -53,43 +53,44 @@
     }
 
     &:active {
-     background-color: unquote(nth($background, 3));
+      background-color: unquote(nth($background, 3));
     }
   }
 
 }
 
-@mixin font-size( $to, $from: $base-font-size, $lines: 1 ) {
-  font-size: em( $to, $from);
+@mixin font-size($to, $from: $base-font-size, $lines: 1) {
+  font-size: em($to, $from);
   line-height: line-height($lines, $to);
 }
 
 @mixin box-arrow($side: top, $color: $blue, $width: $base-font-size) {
   position: relative;
-  padding: vertical-rhythm( 0.5 ) 1em;
+  padding: vertical-rhythm(.5) 1em;
   margin-bottom: vertical-rhythm();
+
   &:after {
-    content:"";
+    border: $width solid transparent;
+    content: '';
     display: block;
     position: absolute;
-    border: $width solid transparent;
     @if $side == top or $side == bottom {
-      left:50%;
+      left: 50%;
       margin-left: -$width;
     } @else if $side == top-left or $side == bottom-left {
-      left:$width;
+      left: $width;
     } @else if $side == top-right or $side == bottom-right {
-      right:$width;
+      right: $width;
     } @else if $side == right or $side == left {
-      top:50%;
+      top: 50%;
       margin-top: -$width;
     }
     @if $side == top or $side == top-left or $side == top-right {
+      border-bottom-color: $color;
       top: -$width * 2;
-      border-bottom-color:$color;
     } @else if $side == bottom or $side == bottom-left or $side == bottom-right {
       bottom: -$width * 2;
-      border-top-color:$color;
+      border-top-color: $color;
     } @else if $side == left {
       border-right-color: $color;
       left: -$width * 2;
@@ -98,7 +99,8 @@
       right: -$width * 2;
     }
   }
-  & > :last-child  {
+
+  & > :last-child {
     margin-bottom: 0;
   }
 }

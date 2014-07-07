@@ -1,9 +1,9 @@
-@function strip-unit( $val ) {
+@function strip-unit($val) {
   @return $val / ($val * 0 + 1);
 }
 
-@function rhythm( $lines: 1, $font-size: $base-font-size, $offset: 0px) {
-  $rhythm: em( ( $base-line-height - $offset ) * $lines, $font-size );
+@function rhythm($lines: 1, $font-size: $base-font-size, $offset: 0) {
+  $rhythm: em(($base-line-height - $offset) * $lines, $font-size);
   @return $rhythm;
 }
 
@@ -11,10 +11,10 @@
   @return ceil($font-size / ($lines * $base-line-height)) * ($lines * $base-line-height) / $font-size;
 }
 
-@function relative( $target, $context) {
-    @return percentage( strip-unit( $target ) / strip-unit( $context ) );
+@function relative($target, $context) {
+  @return percentage(strip-unit($target) / strip-unit($context));
 }
 
-@function em( $target, $context: $base-font-size ) {
-  @return ( strip-unit( $target ) / strip-unit( $context ) ) * 1em;
+@function em($target, $context: $base-font-size) {
+  @return (strip-unit($target) / strip-unit($context)) * 1em;
 }
