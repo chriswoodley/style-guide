@@ -1,8 +1,8 @@
-.grid__row:before, .menu:before, .menu-1:before, .menu-2:before, .menu-3:before, .menu-4:before, .grid__row:after, .menu:after, .menu-1:after, .menu-2:after, .menu-3:after, .menu-4:after {
+.grid__row:before, .menu:before, .menu-1:before, .menu-2:before, .menu-3:before, .menu-4:before, .form .form__group:before, .grid__row:after, .menu:after, .menu-1:after, .menu-2:after, .menu-3:after, .menu-4:after, .form .form__group:after {
   content: ' ';
   display: table;
 }
-.grid__row:after, .menu:after, .menu-1:after, .menu-2:after, .menu-3:after, .menu-4:after {
+.grid__row:after, .menu:after, .menu-1:after, .menu-2:after, .menu-3:after, .menu-4:after, .form .form__group:after {
   clear: both;
 }
 
@@ -1133,7 +1133,7 @@ Markup: <div class="grid">.grid</div>
 
 Styleguide 2.0.1
 */
-.grid__col-1, .grid__col-2, .primary, .secondary, .offset-right, .offset-left {
+.grid__col-1, .grid__col-2, .primary, .secondary, .offset-right, .offset-left, .form .form__col {
   float: left;
   position: relative;
 }
@@ -1333,16 +1333,16 @@ Styleguide 3.0.1
   padding: .75em;
 }
 .menu > .menu__item > a:link, .menu > .menu__item > a:visited {
-  color: purple;
   background-color: #e0774c;
+  color: purple;
 }
 .menu > .menu__item > a:hover, .menu > .menu__item > a:focus {
-  color: yellow;
   background-color: blue;
+  color: yellow;
 }
 .menu > .menu__item > a:active {
-  color: yellow;
   background-color: purple;
+  color: yellow;
 }
 
 /*
@@ -1389,16 +1389,16 @@ Styleguide 3.0.2
   padding: .75em;
 }
 .menu-1 > .menu-1__item > a:link, .menu-1 > .menu-1__item > a:visited {
-  color: purple;
   background-color: #e0774c;
+  color: purple;
 }
 .menu-1 > .menu-1__item > a:hover, .menu-1 > .menu-1__item > a:focus {
-  color: yellow;
   background-color: blue;
+  color: yellow;
 }
 .menu-1 > .menu-1__item > a:active {
-  color: yellow;
   background-color: purple;
+  color: yellow;
 }
 
 /*
@@ -1441,16 +1441,16 @@ Styleguide 3.0.3
   padding: .75em;
 }
 .menu-2 > .menu-2__item > a:link, .menu-2 > .menu-2__item > a:visited {
-  color: purple;
   background-color: #e0774c;
+  color: purple;
 }
 .menu-2 > .menu-2__item > a:hover, .menu-2 > .menu-2__item > a:focus {
-  color: yellow;
   background-color: blue;
+  color: yellow;
 }
 .menu-2 > .menu-2__item > a:active {
-  color: yellow;
   background-color: purple;
+  color: yellow;
 }
 
 /*
@@ -1499,16 +1499,16 @@ Styleguide 3.0.4
   padding: .75em;
 }
 .menu-3 > .menu-3__item > a:link, .menu-3 > .menu-3__item > a:visited {
-  color: purple;
   background-color: #e0774c;
+  color: purple;
 }
 .menu-3 > .menu-3__item > a:hover, .menu-3 > .menu-3__item > a:focus {
-  color: yellow;
   background-color: blue;
+  color: yellow;
 }
 .menu-3 > .menu-3__item > a:active {
-  color: yellow;
   background-color: purple;
+  color: yellow;
 }
 
 /*
@@ -1550,16 +1550,16 @@ Styleguide 3.0.5
   padding: .75em;
 }
 .menu-4 > .menu-4__item > a:link, .menu-4 > .menu-4__item > a:visited {
-  color: purple;
   background-color: #e0774c;
+  color: purple;
 }
 .menu-4 > .menu-4__item > a:hover, .menu-4 > .menu-4__item > a:focus {
-  color: yellow;
   background-color: blue;
+  color: yellow;
 }
 .menu-4 > .menu-4__item > a:active {
-  color: yellow;
   background-color: purple;
+  color: yellow;
 }
 
 /*
@@ -1654,16 +1654,16 @@ Styleguide 4.0.1
   padding: .75em;
 }
 .sub-menu a:link, .sub-menu a:visited {
-  color: orange;
   background-color: blue;
+  color: orange;
 }
 .sub-menu a:hover, .sub-menu a:focus {
-  color: red;
   background-color: green;
+  color: red;
 }
 .sub-menu a:active {
-  color: green;
   background-color: red;
+  color: green;
 }
 
 /*
@@ -1793,4 +1793,260 @@ Styleguide 5.0.1
   background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
   box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
   color: orange;
+}
+
+/*
+# Form
+
+Styleguide 6
+*/
+/*
+# Form Mixins
+
+The form mixins defines the styles necessary to layout form controls.
+
+Usage:
+<pre>.form {
+  .form__input {
+    @include form--control(large, input);
+  }
+  .form__textarea {
+    @include form--control(large, textarea);
+  }
+  .form__select {
+    @include form--control(large, select);
+  }
+  .form__group {
+    @include form--section(1em) {
+      @include grid--row();
+    }
+  }
+  .form__col {
+    @include form--group(.5em) {
+      @extend %grid--col;
+    }
+  }
+  .at {
+    @include form--control-addon(\0040, false, large);
+  }
+  .title,
+  .nickname,
+  .state,
+  .favorite-options,
+  .also-like-options,
+  .comments {
+    @include grid--col(2, 2, left);
+  }
+  .favorite-options,
+  .also-like-options {
+    label:first-child {
+      display: block;
+    }
+  }
+  .first-name,
+  .last-name {
+    @include grid--col(1, 2, left);
+  }
+  @media screen and (min-width: $small-screen) {
+    .form__input {
+      @include form--control(small, input);
+    }
+    .form__textarea {
+      @include form--control(small, textarea);
+    }
+    .form__select {
+      @include form--control(small, select);
+    }
+    .at {
+      @include form--control-addon(\0040, false, small);
+    }
+    .title,
+    .state {
+      @include grid--col(3, 9, right, $large-gutter);
+    }
+    .first-name,
+    .last-name,
+    .nickname {
+      @include grid--col(3, 9, right, $large-gutter);
+    }
+    .favorite-options,
+    .also-like-options {
+      @include grid--col(3, 9, right, $large-gutter);
+    }
+    .comments {
+      @include grid--col(6, 9, right, $large-gutter);
+    }
+  }
+}</pre>
+
+Markup: <form class="form">
+  <div class="form__group">
+    <div class="form__col title">
+      <label>Title</label>
+      <div class="at"><input type="text" placeholder="title" class="form__input" /></div>
+    </div>
+  </div>
+  <div class="form__group">
+    <div class="form__col first-name">
+      <label>First Name
+        <input type="text" placeholder="large-4.columns" class="form__input" />
+      </label>
+    </div>
+    <div class="form__col last-name">
+      <label>Last Name
+        <input type="text" placeholder="last name" class="form__input" />
+      </label>
+    </div>
+    <div class="form__col nickname">
+        <label>Nickname
+            <input type="text" placeholder="nickname" class="form__input" />
+        </label>
+    </div>
+  </div>
+  <div class="form__group">
+    <div class="form__col state">
+      <label>State
+        <select class="form__select">
+          <option value="husker">Husker</option>
+          <option value="starbuck">Starbuck</option>
+          <option value="hotdog">Hot Dog</option>
+          <option value="apollo">Apollo</option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div class="form__group">
+    <div class="form__col favorite-options">
+      <label>Choose Your Favorite</label>
+      <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Red</label>
+      <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Blue</label>
+    </div>
+    <div class="form__col also-like-options">
+      <label>Check these out</label>
+      <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
+      <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
+    </div>
+  </div>
+  <div class="form__group">
+    <div class="form__col comments">
+      <label>Comments
+        <textarea placeholder="comments" class="form__textarea"></textarea>
+      </label>
+    </div>
+  </div>
+</form>
+
+Styleguide 6.0.1
+*/
+.form {
+  /* @media screen and (min-width: $small-screen) {
+    .form__input {
+      @include form--control(small, input);
+    }
+
+    .form__textarea {
+      @include form--control(small, textarea);
+    }
+
+    .form__select {
+      @include form--control(small, select);
+    }
+
+    .at {
+      @include form--control-addon(\0040, false, small);
+    }
+
+    .title,
+    .state {
+      @include grid--col(3, 9, right, $desktop-gutter);
+    }
+
+    .first-name,
+    .last-name,
+    .nickname {
+      @include grid--col(3, 9, right, $desktop-gutter);
+    }
+
+    .favorite-options,
+    .also-like-options {
+      @include grid--col(3, 9, right, $desktop-gutter);
+    }
+
+    .comments {
+      @include grid--col(6, 9, right, $desktop-gutter);
+    }
+  } */
+}
+.form .form__input {
+  width: 100%;
+  padding-left: .5em;
+  padding-right: .5em;
+  margin: 0;
+  font-size: 1.14286em;
+  line-height: 1.3125;
+  padding-top: 0.625em;
+  padding-bottom: 0.625em;
+}
+.form .form__textarea {
+  width: 100%;
+  padding-left: .5em;
+  padding-right: .5em;
+  margin: 0;
+  font-size: 1.25em;
+  line-height: 1.25;
+  min-height: 300px;
+}
+.form .form__select {
+  width: 100%;
+  padding-left: .5em;
+  padding-right: .5em;
+  margin: 0;
+  font-size: 1.5em;
+  line-height: 1.5;
+  height: 1.5em;
+}
+.form .form__group {
+  margin-bottom: 1.5em;
+}
+.form .form__col {
+  margin-bottom: 1.5em;
+}
+.form .at {
+  position: relative;
+  padding-right: 50px;
+}
+.form .at:before, .form .at:after {
+  background: #ccc;
+  bottom: 0;
+  box-sizing: border-box;
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 51px;
+  z-index: 999;
+}
+.form .at:after {
+  content: "\0040";
+  right: 0;
+  line-height: 2.2;
+}
+.form .title,
+.form .nickname,
+.form .state,
+.form .favorite-options,
+.form .also-like-options,
+.form .comments {
+  width: 100%;
+  padding: 0 0 0 10px;
+}
+.form .favorite-options label:first-child,
+.form .also-like-options label:first-child {
+  display: block;
+}
+.form .first-name,
+.form .last-name {
+  width: 50%;
+  padding: 0 0 0 10px;
 }
