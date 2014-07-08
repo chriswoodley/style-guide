@@ -11,59 +11,29 @@
 }
 
 // form control is the control itself
-@mixin form--control($size: normal, $type: input, $width: 100%) {
+@mixin form--control($size: normal, $textarea: false, $width: 100%) {
   width: $width;
-  padding-left: .5em;
-  padding-right: .5em;
-  margin: 0;
 
-  @if $type == input {
-    @if $size == large {
-      @include font-size(16px, $base-font-size, 1);
-      padding-top: rhythm(.5, 16px, 1px);
-      padding-bottom: rhythm(.5, 16px, 1px);
-    } @else if $size == small {
-      font-size: .75em;
-      line-height: 1.2;
-      height: 1.75em;
+  @if $size == large {
+    @include font-size($large-font-size, $base-font-size);
+    @if $textarea {
+      min-height: rhythm(8, $large-font-size);
     } @else {
-      // just inherit the styles from our base styles
-      font-size: inherit;
-      line-height: inherit;
-      height: inherit;
+      height: rhythm(2, $large-font-size);
     }
-  }
-
-  // wont work until we do special things in the base styles
-  @if $type == select {
-    @if $size == large {
-      font-size: 1.5em;
-      line-height: 1.5;
-      height: 1.5em;
-    } @else if $size == small {
-      font-size: .75em;
-      line-height: 1;
-      height: 1.5em;
+  } @else if $size == small {
+    @include font-size($small-font-size, $base-font-size);
+    @if $textarea {
+      min-height: rhythm(3, $small-font-size);
     } @else {
-      font-size: inherit;
-      line-height: inherit;
-      height: inherit;
+      height: rhythm(1, $small-font-size);
     }
-  }
-
-  @if $type == textarea {
-    @if $size == large {
-      font-size: 1.25em;
-      line-height: 1.25;
-      min-height: 300px;
-    } @else if $size == small {
-      font-size: .75em;
-      line-height: 1.2;
-      min-height: 100px;
+  } @else {
+    @include font-size($base-font-size, $base-font-size);
+    @if $textarea {
+      height: rhythm(5, $base-font-size);
     } @else {
-      font-size: inherit;
-      line-height: inherit;
-      min-height: inherit;
+      height: rhythm(1.5, $base-font-size);
     }
   }
 
@@ -73,47 +43,44 @@
 @mixin form--control-addon($content, $prefix: true, $size: normal) {
   position: relative;
 
-  &:before,
-  &:after {
-    background: #ccc;
-    bottom: 0;
-    box-sizing: border-box;
+  input {
     display: block;
-    overflow: hidden;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 51px;
+    position: relative;
     z-index: 999;
   }
 
+  &:before,
+  &:after {
+    @if $size == large {
+      @include font-size($large-font-size, $base-font-size, 2);
+    } @else if $size == small {
+      @include font-size($small-font-size, $base-font-size, 1);
+    } @else {
+      @include font-size($base-font-size, $base-font-size, 1.5);
+    }
+    background: $light-gray;
+    bottom: 0;
+    display: block;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 50px;
+    z-index: 0;
+  }
+
   @if $prefix {
-    padding-left: 50px;
+    padding-left: 48px;
 
     &:before {
       content: '#{$content}';
-      left: 0;
-      @if $size == large {
-        line-height: 2.2;
-      } @else if $size == small {
-        line-height: 1.5;
-      } @else {
-        line-height: 1.7;
-      }
+      left: 2px;
     }
   } @else {
-    padding-right: 50px;
+    padding-right: 48px;
 
     &:after {
       content: '#{$content}';
-      right: 0;
-      @if $size == large {
-        line-height: 2.2;
-      } @else if $size == small {
-        line-height: 1.5;
-      } @else {
-        line-height: 1.7;
-      }
+      right: 2px;
     }
   }
 }
