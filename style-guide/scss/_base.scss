@@ -375,7 +375,7 @@ Markup: <!-- Just a figure -->
 </figure>
 <!-- Figure with figcaption -->
 <figure>
-  <img src="http://fpoimg.com/250x210" alt="An awesome picture">  
+  <img src="http://fpoimg.com/250x210" alt="An awesome picture">
   <figcaption>Caption for the awesome picture</figcaption>
 </figure>
 
@@ -450,7 +450,7 @@ Styleguide 1.1.0
 b,
 strong {
   font-weight: bold;
-  line-height: 1em; 
+  line-height: 1em;
 }
 
 
@@ -477,7 +477,7 @@ small {
 
 The HTML &lt;q&gt; Element (or HTML Quote Element) indicates that the enclosed text is a short inline quotation. This element is intended for short quotations that don't require paragraph breaks; for long quotations use &lt;blockquote&gt; element.
 
-Markup: <p>Everytime Kenny is killed, Stan will announce 
+Markup: <p>Everytime Kenny is killed, Stan will announce
    <q cite="http://en.wikipedia.org/wiki/Kenny_McCormick#Cultural_impact">
      Oh my God, you/they killed Kenny!
    </q>.
@@ -713,8 +713,9 @@ button {
 button,
 input[type="submit"],
 input[type="reset"] {
-  height: $btn-height;
-  margin: $btn-margin 0;
+  @include font-size($base-font-size, $base-font-size, 1.5);
+  height: rhythm(1.5, $base-font-size);
+  padding: 0 .5em;
 }
 
 /**
@@ -769,29 +770,21 @@ The HTML &lt;input&gt; element is used to create interactive controls for web-ba
 
 The HTML &lt;label&gt; Element represents a caption for an item in a user interface. It can be associated with a control either by placing the control element inside the label element, or by using the for attribute. Such a control is called the labeled control of the label element.
 
-Markup: <div><label>Text: <input type="text" name="fn" value=""></label></div>
+Markup: <div><label for="fn">Text: </label><input type="text" name="fn" value=""></div>
 <div><label for="search">Search: </label><input name="search" type="search" value=""></div>
-<div><label>Tel: <input name="tel" type="tel" value=""> <small>Format: AB12 3CD</small></label></div>
+<div><label for="tel">Tel: </label><input name="tel" type="tel" value=""> <small>Format: AB12 3CD</small></div>
 <div><label for="url">URL: </label><input name="url" type="url" value=""></div>
-<div><label>Email: <input name="email" type="email" value=""> <small>Format: name@host.com</small></label></div>
+<div><label for="email">Email: </label><input name="email" type="email" value=""> <small>Format: name@host.com</small></div>
 <div><label for="pwd">Password: </label><input name="pwd" type="password" value=""></div>
-<div><label>Date: <input name="date" type="date" value=""></label></div>
+<div><label for="date">Date: </label><input name="date" type="date" value=""></div>
 <div><label for="t">Time: </label><input name="t" type="time" value=""></div>
-<div><label>Number: <input name="num" type="number" value=""></label></div>
+<div><label for="num">Number: </label><input name="num" type="number" value=""></div>
 <div><label>Checkbox1: <input name="check[]" type="checkbox" value="yes"></label> <label>Checkbox2: <input name="check[]" type="checkbox" value="No"></label></div>
 <div><label>Radio1: <input name="r1" type="radio" value="yes"></label> <label>Radio2: <input name="r1" type="radio" value="No"></label></div>
 <div><label for="fl">File: </label><input name="fl" type="file"></div>
 
 Styleguide 1.2.0
 */
-
-/**
- * Address Firefox 4+ setting `line-height` on `input` using `!important` in
- * the UA stylesheet.
- */
-input {
-  line-height: line-height(1);
-}
 
 input[type="text"],
 input[type="search"],
@@ -810,6 +803,7 @@ textarea,
 fieldset {
   border: 1px solid $light-gray;
   border-radius: $radius;
+  display: block;
 }
 
 input[type="text"],
@@ -846,13 +840,30 @@ input[type="tel"],
 input[type="url"],
 textarea {
   box-shadow: inset 0 2px 5px rgba($light-gray, .5);
-  margin: rhythm(.230) 0;
-  padding: rhythm(.25, $base-font-size, 2px);
 
   &:focus {
     border: 1px solid $blue;
     box-shadow: none;
   }
+}
+
+
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="url"] {
+  @include font-size($base-font-size, $base-font-size, 1.5);
+  height: rhythm(1.5, $base-font-size);
+  padding: 0 .5em;
 }
 
 input[type="file"] {
@@ -867,7 +878,6 @@ input[type="file"] {
  */
 input[type="checkbox"],
 input[type="radio"] {
-  margin-top: -4px;
   padding: 0;
   vertical-align: middle;
 }
@@ -905,7 +915,7 @@ input[type="search"]::-webkit-search-decoration {
 
 The HTML &lt;textarea&gt; element represents a multi-line plain-text editing control.
 
-Markup: <p>If you have any comments, please let us know: <textarea cols="80" rows="10" name="comments">You rock!</textarea></p>
+Markup: <p>If you have any comments, please let us know: <textarea cols="80" name="comments">You rock!</textarea></p>
 
 Styleguide 1.2.1
 */
@@ -914,9 +924,8 @@ Styleguide 1.2.1
  * Remove default vertical scrollbar in IE 8/9/10/11.
  */
 textarea {
-  display: block;
   height: auto;
-  min-height: rhythm(5);
+  min-height: rhythm(5, $base-font-size);
   overflow: auto;
   resize: vertical;
   vertical-align: top;
@@ -945,7 +954,7 @@ In a Web form, the HTML &lt;optgroup&gt; element  creates a grouping of options 
 
 Markup: <!-- The second value will be selected initially -->
 <select name="select">
-  <option value="value1">Value 1</option> 
+  <option value="value1">Value 1</option>
   <option value="value2" selected>Value 2</option>
   <option value="value3">Value 3</option>
 </select>
@@ -953,7 +962,7 @@ Markup: <!-- The second value will be selected initially -->
 <select>
   <optgroup label="Group 1">
     <option>Option 1.1</option>
-  </optgroup> 
+  </optgroup>
   <optgroup label="Group 2">
     <option>Option 2.1</option>
     <option>Option 2.2</option>
@@ -966,7 +975,7 @@ Markup: <!-- The second value will be selected initially -->
 </select>
 <!-- Multiple Select -->
 <select name="select" multiple>
-  <option value="value1">Value 1</option> 
+  <option value="value1">Value 1</option>
   <option value="value2" selected>Value 2</option>
   <option value="value3">Value 3</option>
 </select>
@@ -986,9 +995,10 @@ select {
   background-color: $white;
   border: 1px solid $light-gray;
   border-radius: $radius;
-  height: rhythm(1.5);
-  margin: rhythm(.25) 0;
-  padding: .25em;
+  display: block;
+  @include font-size($base-font-size, $base-font-size, 1.5);
+  height: rhythm(1.5, $base-font-size);
+  padding: 0 .5em;
 
   &:hover {
     background-color: scale-color($light-gray, $lightness: 80%);
@@ -997,7 +1007,7 @@ select {
 
   &[multiple] {
     height: auto;
-    padding: rhythm($lines: .5, $offset: 1px) em(10);
+    padding: rhythm(.35) em($base-font-size);
   }
 }
 
@@ -1025,10 +1035,11 @@ Styleguide 1.2.3
  * Define consistent border, margin, and padding.
  */
 fieldset {
+  border: 0;
   margin: 0 0 rhythm();
   padding: rhythm();
 
-  &>:last-child {
+  & > :last-child {
     margin-bottom: 0;
   }
 }
@@ -1036,11 +1047,18 @@ fieldset {
 label,
 legend {
   font-weight: bold;
-  line-height: line-height(.95);
+  line-height: 1;
 }
 
 label {
   display: inline-block;
+  vertical-align: middle;
+
+  & input,
+  & select,
+  & textarea {
+    font-weight: normal;
+  }
 }
 
 /**
@@ -1048,7 +1066,7 @@ label {
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
 legend {
-  border: 0; /* 1 */
+  border: 0; // 1
   border-bottom: 2px solid #e5e5e5;
   display: block;
   margin-bottom: rhythm(1, $h3-font-size, 2px);
@@ -1056,13 +1074,6 @@ legend {
   width: 100%;
   @include font-size($h3-font-size);
 }
-
-fieldset {
-  border: 0;
-  margin: 0 0 rhythm();
-  padding: 0;
-}
-
 
 /*
 # Table
