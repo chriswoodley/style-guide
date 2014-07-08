@@ -7,7 +7,7 @@
   @return $rhythm;
 }
 
-@function line-height($lines, $font-size: $base-font-size) {
+@function line-height($lines: 1, $font-size: $base-font-size) {
   @return ceil($font-size / ($lines * $base-line-height)) * ($lines * $base-line-height) / $font-size;
 }
 
