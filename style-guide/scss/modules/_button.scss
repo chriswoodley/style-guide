@@ -15,9 +15,8 @@
   display: inline-block;
   font-style: normal;
   font-weight: normal;
-  height: $btn-height;
-  line-height: $btn-height;
-  margin: $btn-margin 0;
+  height: rhythm(1.5);
+  line-height: line-height(1.5, $base-font-size);
   outline: none;
   position: relative;
   text-align: center;
