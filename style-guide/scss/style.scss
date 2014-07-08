@@ -550,15 +550,12 @@ Both of these mixins defines the styles necessary for dropdown and flyout sub me
 Usage:
 <pre>.button {
   @include button($background: #00f, $foreground: #ffa500) {
-    // MOBILE STYLES
     font-size: 1.25em;
     height: 2em;
     line-height: 2;
     padding: 0 1em;
     border-radius: 20px;
     width: 100%;
-
-    //DESKTOP STYLES
     @media screen and (min-width: $small-screen) {
       font-size: 1em;
       width: auto;
@@ -613,26 +610,26 @@ The form mixins defines the styles necessary to layout form controls.
 Usage:
 <pre>.form {
   .form__input {
-    @include form--control(large, input);
+    @include form--control(large);
   }
   .form__textarea {
-    @include form--control(large, textarea);
+    @include form--control(large, true);
   }
   .form__select {
-    @include form--control(large, select);
+    @include form--control(large);
   }
   .form__group {
-    @include form--section(1em) {
+    @include form--section() {
       @include grid--row();
     }
   }
   .form__col {
-    @include form--group(.5em) {
+    @include form--group() {
       @extend %grid--col;
     }
   }
   .at {
-    @include form--control-addon(\0040, false, large);
+    @include form--control-addon(\0040, true, large);
   }
   .title,
   .nickname,
@@ -654,37 +651,37 @@ Usage:
   }
   @media screen and (min-width: $small-screen) {
     .form__input {
-      @include form--control(small, input);
+      @include form--control(small);
     }
     .form__textarea {
-      @include form--control(small, textarea);
+      @include form--control(small, true);
     }
     .form__select {
-      @include form--control(small, select);
+      @include form--control(small);
     }
     .at {
-      @include form--control-addon(\0040, false, small);
+      @include form--control-addon(\0040, true, small);
     }
     .title,
     .state {
-      @include grid--col(3, 9, right, $large-gutter);
+      @include grid--col(3, 9, right, $desktop-gutter);
     }
     .first-name,
     .last-name,
     .nickname {
-      @include grid--col(3, 9, right, $large-gutter);
+      @include grid--col(3, 9, right, $desktop-gutter);
     }
     .favorite-options,
     .also-like-options {
-      @include grid--col(3, 9, right, $large-gutter);
+      @include grid--col(3, 9, right, $desktop-gutter);
     }
     .comments {
-      @include grid--col(6, 9, right, $large-gutter);
+      @include grid--col(6, 9, right, $desktop-gutter);
     }
   }
 }</pre>
 
-Markup: <form class="form">
+Markup: <form action="" method="get" role="form" class="form">
   <div class="form__group">
     <div class="form__col title">
       <label>Title</label>
@@ -693,50 +690,45 @@ Markup: <form class="form">
   </div>
   <div class="form__group">
     <div class="form__col first-name">
-      <label>First Name
-        <input type="text" placeholder="large-4.columns" class="form__input" />
-      </label>
+      <label for="first_name">First Name</label>
+      <input type="text" name="first_name" placeholder="first name" class="form__input" />
     </div>
     <div class="form__col last-name">
-      <label>Last Name
-        <input type="text" placeholder="last name" class="form__input" />
-      </label>
+      <label for="last_name">Last Name</label>
+      <input type="text" name="last_name" placeholder="last name" class="form__input" />
     </div>
     <div class="form__col nickname">
-        <label>Nickname
-            <input type="text" placeholder="nickname" class="form__input" />
-        </label>
+        <label for="nickname">Nickname</label>
+          <input type="text" name="nickname" placeholder="nickname" class="form__input" />
     </div>
   </div>
   <div class="form__group">
     <div class="form__col state">
-      <label>State
-        <select class="form__select">
-          <option value="husker">Husker</option>
-          <option value="starbuck">Starbuck</option>
-          <option value="hotdog">Hot Dog</option>
-          <option value="apollo">Apollo</option>
-        </select>
-      </label>
+      <label for="state">State</label>
+      <select name="state" class="form__select">
+        <option value="husker">Husker</option>
+        <option value="starbuck">Starbuck</option>
+        <option value="hotdog">Hot Dog</option>
+        <option value="apollo">Apollo</option>
+      </select>
     </div>
   </div>
   <div class="form__group">
     <div class="form__col favorite-options">
-      <label>Choose Your Favorite</label>
-      <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Red</label>
-      <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Blue</label>
+      <p><strong>Choose Your Favorite</strong></p>
+      <label for="pokemonRed"><input type="radio" name="pokemon" value="Red" id="pokemonRed">Red</label>
+      <label for="pokemonBlue"><input type="radio" name="pokemon" value="Blue" id="pokemonBlue">Blue</label>
     </div>
     <div class="form__col also-like-options">
-      <label>Check these out</label>
-      <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
-      <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
+      <p><strong>Check these out</strong></p>
+      <label for="checkbox1"><input type="checkbox" name="checkbox1">Checkbox 1</label>
+      <label for="checkbox2"><input type="checkbox" name="checkbox2">Checkbox 2</label>
     </div>
   </div>
   <div class="form__group">
     <div class="form__col comments">
-      <label>Comments
-        <textarea placeholder="comments" class="form__textarea"></textarea>
-      </label>
+      <label for="comments">Comments</label>
+      <textarea name="comments" placeholder="comments" class="form__textarea"></textarea>
     </div>
   </div>
 </form>
@@ -746,15 +738,15 @@ Styleguide 6.0.1
 
 .form {
   .form__input {
-    @include form--control(large, input);
+    @include form--control(large);
   }
 
   .form__textarea {
-    @include form--control(large, textarea);
+    @include form--control(large, true);
   }
 
   .form__select {
-    @include form--control(large, select);
+    @include form--control(large);
   }
 
   .form__group {
@@ -770,7 +762,7 @@ Styleguide 6.0.1
   }
 
   .at {
-    @include form--control-addon(\0040, false, large);
+    @include form--control-addon(\0040, true, large);
   }
 
   .title,
@@ -794,21 +786,21 @@ Styleguide 6.0.1
     @include grid--col(1, 2, left);
   }
 
-  /* @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen) {
     .form__input {
-      @include form--control(small, input);
+      @include form--control(small);
     }
 
     .form__textarea {
-      @include form--control(small, textarea);
+      @include form--control(small, true);
     }
 
     .form__select {
-      @include form--control(small, select);
+      @include form--control(small);
     }
 
     .at {
-      @include form--control-addon(\0040, false, small);
+      @include form--control-addon(\0040, true, small);
     }
 
     .title,
@@ -830,5 +822,72 @@ Styleguide 6.0.1
     .comments {
       @include grid--col(6, 9, right, $desktop-gutter);
     }
-  } */
+  }
+}
+
+@import 'modules/media';
+
+/*
+# Media
+
+Styleguide 7
+*/
+
+/*
+# Media Mixins
+
+The media mixins defines the styles necessary to layout media along side text.
+
+Usage:
+<pre>.media {
+  @include media() {
+    padding: rhythm();
+    background-color: #ececec;
+  }
+}
+.media__element {
+  @include media--element($align: none) {
+    width: 150px;
+    margin-bottom: rhythm();
+  }
+  @media screen and (min-width: $small-screen) {
+    @include media--element();
+  }
+}
+.media__content {
+  @include media--content();
+}</pre>
+
+Markup: <div class="media">
+  <div class="media__element"><img src="http://fpoimg.com/150x125?text=Preview" alt=""></div>
+  <div class="media__content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div>
+
+Styleguide 7.0.1
+*/
+
+.media {
+  @include media() {
+    padding: rhythm();
+    background-color: #ececec;
+  }
+}
+.media__element {
+  @include media--element(none) {
+    width: 150px;
+    margin-bottom: rhythm();
+  }
+  @media screen and (min-width: $small-screen) {
+    @include media--element();
+  }
+}
+.media__content {
+  @include media--content();
 }
