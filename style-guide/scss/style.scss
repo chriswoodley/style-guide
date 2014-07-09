@@ -548,51 +548,46 @@ Styleguide 5
 Both of these mixins defines the styles necessary for dropdown and flyout sub menus.
 
 Usage:
-<pre>.button {
-  @include button($background: #00f, $foreground: #ffa500) {
-    font-size: 1.25em;
-    height: 2em;
-    line-height: 2;
-    padding: 0 1em;
-    border-radius: 20px;
-    width: 100%;
-    @media screen and (min-width: $small-screen) {
-      font-size: 1em;
-      width: auto;
-    }
+<pre>.button,
+input.button {
+  @include button($background: #00f, $foreground: #ffa500);
+  line-height: line-height(1.5);
+  padding: 0 .75em;
+  &.button--large {
+    @include font-size($large-font-size, $base-font-size, 2);
+  }
+  &.button--small {
+    @include font-size($small-font-size, $base-font-size, 1);
   }
 }</pre>
 
-Markup: <a href="#" class="button-link">Link Element</a>
+Markup: <a href="#" class="button">Link Element</a>
 <input type="submit" name="submit" value="Input Element" class="button">
 <button class="button">Button Element</button>
+<a href="#" class="button button--large">Large Link Element</a>
+<input type="submit" name="submit" value="Large Input Element" class="button button--large">
+<button class="button button--large">Large Button Element</button>
+<a href="#" class="button button--small">Small Link Element</a>
+<input type="submit" name="submit" value="Small Input Element" class="button button--small">
+<button class="button button--small">Small Button Element</button>
 
 Styleguide 5.0.1
 */
 
 .button,
-.button-link {
-  // MOBILE STYLES
-  border-radius: 20px;
-  font-size: 1.25em;
-  padding: 0 1em;
-  width: 100%;
+input.button {
+  @include button($background: #00f, $foreground: #ffa500);
+  line-height: line-height(1.5);
+  padding: 0 .75em;
 
-  //DESKTOP STYLES
-  @media screen and (min-width: $small-screen) {
-    font-size: 1em;
-    width: auto;
+  &.button--large {
+    @include font-size($large-font-size, $base-font-size, 2);
+  }
+
+  &.button--small {
+    @include font-size($small-font-size, $base-font-size, 1);
   }
 }
-
-.button {
-  @include button($background: #00f, $foreground: #ffa500);
-}
-
-.button-link {
-  @include button($background: #00f, $foreground: #ffa500, $link: true);
-}
-
 
 @import 'modules/form';
 
