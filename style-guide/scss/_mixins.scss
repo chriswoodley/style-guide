@@ -7,11 +7,8 @@
 @mixin link-colors($foreground: false, $background: false) {
 
   @if $foreground and $background {
-    &:link,
-    &:visited {
-      background-color: unquote(nth($background, 1));
-      color: unquote(nth($foreground, 1));
-    }
+    background-color: unquote(nth($background, 1));
+    color: unquote(nth($foreground, 1));
 
     &:hover,
     &:focus {
@@ -26,10 +23,7 @@
   }
 
   @if $foreground and not $background {
-    &:link,
-    &:visited {
-      color: unquote(nth($foreground, 1));
-    }
+    color: unquote(nth($foreground, 1));
 
     &:hover,
     &:focus {
@@ -42,10 +36,7 @@
   }
 
   @if $background and not $foreground {
-    &:link,
-    &:visited {
-      background-color: unquote(nth($background, 1));
-    }
+    background-color: unquote(nth($background, 1));
 
     &:hover,
     &:focus {
