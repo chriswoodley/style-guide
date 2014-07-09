@@ -410,10 +410,8 @@ Usage:
 
 Markup: <a href="#" class="$modifierClass">Example</a>
 
-:link     - The default state
 :hover    - The mouseover state
 :active   - The mouse down state
-:visited  - Indaicates whether or not the hyperlink has been visited
 
 Styleguide 1.0.9
 */
@@ -671,7 +669,7 @@ svg:not(:root) {
 /*
 # Form Buttons
 
-The HTML &lt;button&gt; Element represents a clickable button.
+The HTML &lt;button&gt; and &lt;input type="submit" value="Submit" /&gt; element represents a clickable button.
 
 Markup: <button type="submit" >Submit</button>
 <button type="reset" >Reset</button>
@@ -703,6 +701,15 @@ textarea {
   margin: 0; /* 3 */
 }
 
+button,
+input,
+label,
+select,
+textarea {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
@@ -714,7 +721,6 @@ button,
 input[type="submit"],
 input[type="reset"] {
   @include font-size($base-font-size, $base-font-size, 1.5);
-  height: rhythm(1.5, $base-font-size);
   padding: 0 .5em;
 }
 
@@ -803,7 +809,6 @@ textarea,
 fieldset {
   border: 1px solid $light-gray;
   border-radius: $radius;
-  display: block;
 }
 
 input[type="text"],
@@ -861,15 +866,9 @@ input[type="password"],
 input[type="email"],
 input[type="tel"],
 input[type="url"] {
-  @include font-size($base-font-size, $base-font-size, 1.5);
+  @include font-size($base-font-size);
   height: rhythm(1.5, $base-font-size);
-  padding: 0 .5em;
-}
-
-input[type="file"] {
-  border: none;
-  display: block;
-  width: 100%;
+  padding: .25em .5em;
 }
 
 /**
@@ -879,9 +878,7 @@ input[type="file"] {
 input[type="checkbox"],
 input[type="radio"] {
   padding: 0;
-  vertical-align: middle;
 }
-
 
 /**
  * Fix the cursor style for Chrome's increment/decrement buttons. For certain
@@ -910,12 +907,30 @@ input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
+label {
+  font-weight: bold;
+
+  input,
+  select,
+  textarea {
+    font-weight: normal;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    height: $base-font-size;
+    width: $base-font-size;
+    margin-top: -3px;
+  }
+}
+
 /*
 # Textarea
 
 The HTML &lt;textarea&gt; element represents a multi-line plain-text editing control.
 
-Markup: <p>If you have any comments, please let us know: <textarea cols="80" name="comments">You rock!</textarea></p>
+Markup: <p>If you have any comments, please let us know:</p>
+<textarea cols="80" name="comments">You rock!</textarea>
 
 Styleguide 1.2.1
 */
@@ -928,7 +943,6 @@ textarea {
   min-height: rhythm(5, $base-font-size);
   overflow: auto;
   resize: vertical;
-  vertical-align: top;
   width: 100%;
 }
 
@@ -995,10 +1009,9 @@ select {
   background-color: $white;
   border: 1px solid $light-gray;
   border-radius: $radius;
-  display: block;
-  @include font-size($base-font-size, $base-font-size, 1.5);
+  // @include font-size($base-font-size, $lines: 1.5);
   height: rhythm(1.5, $base-font-size);
-  padding: 0 .5em;
+  padding: .375em .25em .375em .25em;
 
   &:hover {
     background-color: scale-color($light-gray, $lightness: 80%);
@@ -1044,23 +1057,6 @@ fieldset {
   }
 }
 
-label,
-legend {
-  font-weight: bold;
-  line-height: 1;
-}
-
-label {
-  display: inline-block;
-  vertical-align: middle;
-
-  & input,
-  & select,
-  & textarea {
-    font-weight: normal;
-  }
-}
-
 /**
  * 1. Correct `color` not being inherited in IE 8/9/10/11.
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
@@ -1069,10 +1065,11 @@ legend {
   border: 0; // 1
   border-bottom: 2px solid #e5e5e5;
   display: block;
+  @include font-size($h3-font-size);
+  font-weight: bold;
   margin-bottom: rhythm(1, $h3-font-size, 2px);
   padding: 0; //2
   width: 100%;
-  @include font-size($h3-font-size);
 }
 
 /*
