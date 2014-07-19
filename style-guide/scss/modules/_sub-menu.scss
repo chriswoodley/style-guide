@@ -1,24 +1,25 @@
-@mixin sub-menu($active: false, $position: true, $flyout: false) {
+%sub-menu-item {
+  display: block;
+  position: relative;
+  width: inherit;
+}
+
+@mixin sub-menu($width: 100%, $position: true) {
   @if $position {
+    left: -9999px;
     position: absolute;
+    z-index: 999;
   } @else {
     position: static;
   }
-  @if not $active {
-    left: -9999px;
-  } @else if $active and not $flyout {
+  width: $width;
+}
+
+@mixin sub-menu-state($active: true, $flyout: false) {
+  @if $active and not $flyout {
     left: 0;
   } @else {
     top: 0;
     left: 100%;
   }
-  z-index: 999;
-  @content;
-}
-
-@mixin sub-menu--item() {
-  display: block;
-  width: inherit;
-  position: relative;
-  @content;
 }
