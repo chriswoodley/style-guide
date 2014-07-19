@@ -1,66 +1,52 @@
-// form section contains many groups of controls
-@mixin form--section($space: rhythm()) {
-  margin-bottom: $space;
-  @content;
+%form-control {
+  transition: border 500ms ease, background 500ms ease, box-shadow 500ms ease;
 }
 
-// form group contains the label and form control
-@mixin form--group($space: rhythm()) {
-  margin-bottom: $space;
-  @content;
-}
-
-// form control is the control itself
-@mixin form--control($size: normal, $textarea: false, $width: 100%) {
-  width: $width;
-
-  @if $size == large {
+@mixin form-control($size: normal, $textarea: false) {
+  @if $size == xlarge {
     @include font-size($large-font-size, $base-font-size);
+    padding: em(6);
     @if $textarea {
-      min-height: rhythm(8, $large-font-size);
+      min-height: rhythm(10, $large-font-size);
     } @else {
       height: rhythm(2, $large-font-size);
     }
-  } @else if $size == small {
-    @include font-size($small-font-size, $base-font-size);
+  } @else if $size == large {
+    @include font-size($large-font-size, $base-font-size);
+    padding: em(3);
     @if $textarea {
-      min-height: rhythm(3, $small-font-size);
+      min-height: rhythm(8, $large-font-size);
     } @else {
-      height: rhythm(1, $small-font-size);
+      height: rhythm(1.5, $large-font-size);
     }
   } @else {
     @include font-size($base-font-size, $base-font-size);
+    padding: em(1) em(3);
     @if $textarea {
-      height: rhythm(5, $base-font-size);
+      min-height: rhythm(5);
     } @else {
-      height: rhythm(1.5, $base-font-size);
+      height: rhythm();
     }
   }
 
-  @content;
+  &:focus {
+    background-color: scale-color($blue, $lightness: 97%);
+    border-color: scale-color($blue, $lightness: 50%);
+    box-shadow: 0 0 5px rgba($blue, .60);
+  }
 }
 
-@mixin form--control-addon($content, $prefix: true, $size: normal) {
+
+%form-control-addon {
   position: relative;
 
+  span,
   input {
     display: block;
-    position: relative;
-    z-index: 999;
   }
 
-  &:before,
-  &:after {
-    @if $size == large {
-      @include font-size($large-font-size, $base-font-size, 2);
-    } @else if $size == small {
-      @include font-size($small-font-size, $base-font-size, 1);
-    } @else {
-      @include font-size($base-font-size, $base-font-size, 1.5);
-    }
-    background: $light-gray;
+  span {
     bottom: 0;
-    display: block;
     position: absolute;
     text-align: center;
     top: 0;
@@ -68,19 +54,30 @@
     z-index: 0;
   }
 
+  input {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// prefix or append an additional element to the control
+@mixin form-control-addon($size: normal, $prefix: true ) {
   @if $prefix {
     padding-left: 48px;
-
-    &:before {
-      content: '#{$content}';
-      left: 2px;
-    }
   } @else {
     padding-right: 48px;
-
-    &:after {
-      content: '#{$content}';
-      right: 2px;
+  }
+  span {
+    background: $light-gray;
+    @if $size == large or $size == xlarge {
+      @include font-size($large-font-size, $base-font-size, 2);
+    } @else {
+      @include font-size($base-font-size, $base-font-size, 1);
+    }
+    @if $prefix {
+      left: 0;
+    } @else {
+      right: 0;
     }
   }
 }
