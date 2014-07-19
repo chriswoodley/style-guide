@@ -1,9 +1,9 @@
 @mixin menu($align: left) {
   @extend %clearfix;
-  @if $align == centered or $align == right or $align == justified {
+  @if $align == center or $align == right or $align == justified {
     display: table;
   }
-  @if $align == centered  {
+  @if $align == center  {
     margin-left: auto;
     margin-right: auto;
   }
@@ -13,10 +13,9 @@
   @if $align == justified  {
     width: 100%;
   }
-  @content;
 }
 
-@mixin menu--item($align: false, $num: 0) {
+@mixin menu-item($align: false, $num: 0) {
   position: relative;
   @if $align == false {
     display: block;
@@ -31,5 +30,4 @@
   } @else if $align == stacked {
     display: block;
   }
-  @content;
 }
