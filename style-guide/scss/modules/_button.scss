@@ -1,16 +1,9 @@
-// Required button styles
-//
-// additional styling for height, line-height,
-// padding, font-size, text-shadow and border-radius maybe required
-// and passed through as content for flexibility;
-@mixin button($foreground: #333, $background: #ccc) {
+%button {
   -webkit-appearance: none;
   -webkit-user-drag: none;
-  background-color: $background;
   background-image: none;
   border-image: none;
   border: 0;
-  color: $foreground;
   cursor: pointer;
   display: inline-block;
   font-style: normal;
@@ -22,9 +15,28 @@
   text-transform: none;
   transition: background 40ms ease-out, color 40ms ease-out, box-shadow 40ms ease-out;
   user-select: none;
-  vertical-align: middle;
   white-space: nowrap;
-  @content;
+}
+
+@mixin button($size: normal, $foreground: #333, $background: #ccc) {
+  background-color: $background;
+  color: $foreground;
+  @if $size == xlarge {
+    @include font-size($large-font-size, $base-font-size, 2);
+    height: rhythm(2, $large-font-size);
+    padding-left: em($large-font-size);
+    padding-right: em($large-font-size);
+  } @else if $size == large {
+    @include font-size($large-font-size, $base-font-size, 1.5);
+    height: rhythm(1.5, $large-font-size);
+    padding-left: em($base-font-size);
+    padding-right: em($base-font-size);
+  } @else {
+    @include font-size($base-font-size, $base-font-size);
+    height: rhythm();
+    padding-left: em($small-font-size);
+    padding-right: em($small-font-size);
+  }
 
   &:hover,
   &:focus {
