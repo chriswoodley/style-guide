@@ -1,0 +1,5 @@
+@mixin background-baseline($rgb: 204 40 130) {
+  $line-height: strip-unit($base-line-height);
+  background-image: url(http://basehold.it/i/#{$line-height}/#{nth($rgb, 1)}/#{nth($rgb, 2)}/#{nth($rgb, 3)}); // with RGB colour
+  background-repeat: repeat;
+}

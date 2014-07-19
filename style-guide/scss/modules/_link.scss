@@ -1,0 +1,45 @@
+@mixin link-colors($foreground: false, $background: false) {
+
+  @if $foreground and $background {
+    background-color: unquote(nth($background, 1));
+    color: unquote(nth($foreground, 1));
+
+    &:hover,
+    &:focus {
+      background-color: unquote(nth($background, 2));
+      color: unquote(nth($foreground, 2));
+    }
+
+    &:active {
+      background-color: unquote(nth($background, 3));
+      color: unquote(nth($foreground, 3));
+    }
+  }
+
+  @if $foreground and not $background {
+    color: unquote(nth($foreground, 1));
+
+    &:hover,
+    &:focus {
+      color: unquote(nth($foreground, 2));
+    }
+
+    &:active {
+      color: unquote(nth($foreground, 3));
+    }
+  }
+
+  @if $background and not $foreground {
+    background-color: unquote(nth($background, 1));
+
+    &:hover,
+    &:focus {
+      background-color: unquote(nth($background, 2));
+    }
+
+    &:active {
+      background-color: unquote(nth($background, 3));
+    }
+  }
+
+}

@@ -1,0 +1,16 @@
+%grid-block {
+  display: inline-block;
+  margin-bottom: rhythm();
+  margin-right: -4px;
+  vertical-align: top;
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin grid-block($container-width, $columns, $gutter: $mobile-gutter) {
+  padding-left: $gutter;
+  padding-right: $gutter;
+  width: ($container-width / $columns);
+}

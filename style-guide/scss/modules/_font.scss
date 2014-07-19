@@ -1,0 +1,4 @@
+@mixin font-size($to, $from: $base-font-size, $lines: 1) {
+  font-size: em($to, $from);
+  line-height: line-height($lines, $to);
+}
