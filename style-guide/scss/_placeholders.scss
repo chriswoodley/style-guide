@@ -24,9 +24,6 @@
 }
 
 %inline {
-  & > * {
-    display: inline-block;
-    vertical-align: middle;
-    margin-bottom: 0;
-  }
+  display: inline-block;
+  width: auto;
 }
