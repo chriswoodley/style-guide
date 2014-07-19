@@ -1,48 +1,18 @@
-.label {
+%label {
   display: inline-block;
+  letter-spacing: .05em;
+  padding: 0 .5em;
   vertical-align: middle;
-  padding: 0 0.5em;
-  background: $light-gray;
-  @include font-size( $small-font-size, $base-font-size, $lines: 1 );
-  color:$black;
-  letter-spacing: 0.05em;
-  text-shadow: 0 1px 0 rgba($white, 0.65);
 }
 
-.label--dark,
-.label--success,
-.label--error,
-.label--info {
-  text-shadow: 0 -1px 0 rgba($black, 0.25);
-}
-
-.label--dark {
-  background:$dark-gray;
-  color:$white;
-}
-
-.label--light {
-  background: scale-color($light-gray, $lightness: 75%);
-  color:$black;
-  text-shadow: none;
-}
-
-.label--success {
-  background: $green;
-  color:$white;
-}
-
-.label--error {
-  background: $red;
-  color:$white;
-}
-
-.label--warning {
-  background: $yellow;
-  color:$black;
-}
-
-.label--info {
-  background: $blue;
-  color:$white;
+@mixin label($size: normal, $background: $light-gray, $foreground: $dark-gray) {
+  background: $background;
+  color: $foreground;
+  @if $size == xlarge {
+    font-size: em($large-font-size, $base-font-size);
+  } @else if $size == large {
+    font-size: 1em;
+  } @else {
+    font-size: em($small-font-size, $base-font-size);
+  }
 }
