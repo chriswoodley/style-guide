@@ -1,5 +1,7 @@
+@import 'settings';
+
 /*
-# Base
+# Base Styles
 
 Styleguide 1
 */
@@ -8,8 +10,6 @@ Styleguide 1
   box-sizing: border-box;
 
 }
-
-
 
  // 1. Set default font family.
  // 2. Prevent iOS text size adjust after orientation change, without disabling
@@ -30,8 +30,10 @@ body {
   margin: 0;
 }
 
+@import 'modules/background';
+
 .styleguide__elements {
-  @include baseline-grid-bg;
+  @include background-baseline();
 }
 
 
@@ -101,6 +103,9 @@ Markup: <h1>Heading level 1</h1>
 
 Styleguide 1.0.1
 */
+
+@import 'modules/font';
+
 h1,
 h2,
 h3,
@@ -263,7 +268,7 @@ Styleguide 1.0.6
 */
 blockquote {
   border-left: 4px solid $light-gray;
-  margin: 0 em($indent-size) rhythm() em($indent-size);
+  margin: 0 em($indent-size) rhythm();
   padding-left: em($indent-size / 4);
   quotes: "\201C""\201D""\2018""\2019";
 
@@ -283,17 +288,11 @@ blockquote {
 
 
 /*
-# Lists
+# Unordered Lists
 
-The HTML unordered list element (&lt;ul&gt;) represents an unordered list of items, namely a collection of items that do not have a numerical ordering, and their order in the list is meaningless.
+The HTML unordered list element (&lt;ul&gt;) represents an unordered list of items, namely a collection of items that do not have a numerical ordering, and their order in the list is meaningless.<br><br>
 
-The HTML &lt;ol&gt; Element (or HTML Ordered List Element) represents an ordered list of items. Typically, ordered-list items are displayed with a preceding numbering, which can be of any form, like numerals, letters or Romans numerals or even simple bullets.
-
-The HTML List item element (&lt;li&gt;) is used to represent a list item. It should be contained in an ordered list (&lt;ol&gt;), an unordered list (&lt;ul&gt;) or a menu (&lt;menu&gt;), where it represents a single entity in that list.
-
-The HTML &lt;dl&gt; Element (or HTML Description List Element) encloses a list of pairs of terms and descriptions. Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs). The HTML &lt;dt&gt; element (or HTML Definition Term Element) identifies a term in a definition list. The HTML &lt;dd&gt; Element (or HTML Description Element) indicates the description of a term in a description list (&lt;dl&gt;) element.
-
-Markup: <!-- Unordered List -->
+Markup:
 <ul>
   <li>first item</li>
   <li>second item</li>
@@ -305,7 +304,22 @@ Markup: <!-- Unordered List -->
     </ul>
   </li>
 </ul>
-<!-- Ordered List -->
+
+Styleguide 1.0.7
+*/
+
+ul {
+  margin: 0 0 rhythm();
+  padding: 0 0 0 em($indent-size);
+}
+
+
+/*
+# Ordered Lists
+
+The HTML &lt;ol&gt; Element (or HTML Ordered List Element) represents an ordered list of items. Typically, ordered-list items are displayed with a preceding numbering, which can be of any form, like numerals, letters or Romans numerals or even simple bullets.<br><br>
+
+Markup:
 <ol>
     <li>first item</li>
     <li>second item</li>
@@ -317,7 +331,21 @@ Markup: <!-- Unordered List -->
     </ul>
   </li>
 </ol>
-<!-- Single term and description -->
+
+Styleguide 1.0.8
+*/
+
+ol {
+  margin: 0 0 rhythm();
+  padding: 0 0 0 em($indent-size);
+}
+
+/*
+# Definition Lists
+
+The HTML &lt;dl&gt; Element (or HTML Description List Element) encloses a list of pairs of terms and descriptions. Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs). The HTML &lt;dt&gt; element (or HTML Definition Term Element) identifies a term in a definition list. The HTML &lt;dd&gt; Element (or HTML Description Element) indicates the description of a term in a description list (&lt;dl&gt;) element.
+
+Markup:
 <dl>
   <dt>Firefox</dt>
   <dd>A free, open source, cross-platform, graphical web browser
@@ -341,18 +369,11 @@ Markup: <!-- Unordered List -->
       (60 cm long).</dd>
 </dl>
 
-Styleguide 1.0.7
+Styleguide 1.0.9
 */
 
-dl,
-ul,
-ol {
+dl {
   margin: 0 0 rhythm();
-}
-
-ul,
-ol {
-  padding: 0 0 0 em($indent-size);
 }
 
 dt {
@@ -362,7 +383,6 @@ dt {
 dd {
   margin: 0 0 0 em($indent-size);
 }
-
 
 /*
 # Figure & Figcaption
@@ -379,7 +399,7 @@ Markup: <!-- Just a figure -->
   <figcaption>Caption for the awesome picture</figcaption>
 </figure>
 
-Styleguide 1.0.8
+Styleguide 1.1.0
 */
 
 /**
@@ -413,8 +433,11 @@ Markup: <a href="#" class="$modifierClass">Example</a>
 :hover    - The mouseover state
 :active   - The mouse down state
 
-Styleguide 1.0.9
+Styleguide 1.1.1
 */
+
+@import 'modules/link';
+
 a {
   @include link-colors($foreground: 'blue' 'green' 'red', $background: false);
   background: transparent;
@@ -438,7 +461,7 @@ The HTML &lt;em&gt; element (or HTML Emphasis Element) marks text that has stres
 Markup: <p>When doing x it is <strong>imperative</strong> to do y before proceeding.</p>
 <p>In HTML 5, what was previously called <em>block-level</em> content is now called <em>flow</em> content.</p>
 
-Styleguide 1.1.0
+Styleguide 1.1.2
 */
 
 /**
@@ -459,7 +482,7 @@ The HTML Small Element (&lt;small&gt;) makes the text font size one size smaller
 
 Markup: <p>This is the first sentence.  <small>This whole sentence is in small letters.</small></p>
 
-Styleguide 1.1.1
+Styleguide 1.1.3
 */
 
 /**
@@ -481,7 +504,7 @@ Markup: <p>Everytime Kenny is killed, Stan will announce
    </q>.
 </p>
 
-Styleguide 1.1.2
+Styleguide 1.1.4
 */
 q {
   quotes: $double-quotes;
@@ -504,7 +527,7 @@ Markup: <p><dfn id="def-internet">The Internet</dfn> is a global system of inter
   <dd>The World-Wide Web (WWW) is a system of interlinked hypertext documents accessed on <a href="#def-internet">the Internet</a>.</dd>
 </dl>
 
-Styleguide 1.1.3
+Styleguide 1.1.5
 */
 
 /**
@@ -522,7 +545,7 @@ The HTML &lt;abbr&gt; Element (or HTML Abbreviation Element) represents an abbre
 
 Markup: <p>Tony Blair is the prime minister of the <abbr title="United Kingdom">UK</abbr></p>
 
-Styleguide 1.1.4
+Styleguide 1.1.6
 */
 
 /**
@@ -550,7 +573,7 @@ Markup: <p>Regular text. <code>This is code.</code> Regular text.</p>
 <p>Regular text. <samp>This is sample text.</samp> Regular text.</p>
 <p>Type the following in the Run dialog: <kbd>cmd</kbd><br />Then click the OK button.</p>
 
-Styleguide 1.1.5
+Styleguide 1.1.7
 */
 
 /**
@@ -587,7 +610,7 @@ The HTML Superscript Element (&lt;sup&gt;) defines a span of text that should be
 Markup: <p>The chemical formula of water is H<sub>2</sub>O</p>
 <p>This text is <sup>superscripted</sup></p>
 
-Styleguide 1.1.6
+Styleguide 1.1.8
 */
 
 /**
@@ -617,7 +640,7 @@ The HTML &lt;mark&gt; Element represents highlighted text, i.e., a run of text m
 
 Markup: <p>The &lt;mark&gt; element is used to <mark>highlight</mark> text</p>
 
-Styleguide 1.1.7
+Styleguide 1.1.9
 */
 
 /**
@@ -637,7 +660,7 @@ The HTML &lt;img&gt; Element (or HTML Image Element) represents an image of the 
 Markup: <img src="http://fpoimg.com/200x252" alt="" />
 <a href="https://developer.mozilla.org/" target="_blank"><img src="http://fpoimg.com/200x150?text=Hyperlinked Image" alt="" /></a>
 
-Styleguide 1.1.8
+Styleguide 1.2.0
 */
 img,
 svg {
@@ -677,7 +700,7 @@ Markup: <button type="submit" >Submit</button>
 <input type="submit" value="Submit" />
 <input type="reset" value="Reset" />
 
-Styleguide 1.1.9
+Styleguide 1.2.1
 */
 
 /**
@@ -701,15 +724,6 @@ textarea {
   margin: 0; /* 3 */
 }
 
-button,
-input,
-label,
-select,
-textarea {
-  display: inline-block;
-  vertical-align: middle;
-}
-
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
@@ -720,7 +734,6 @@ button {
 button,
 input[type="submit"],
 input[type="reset"] {
-  @include font-size($base-font-size, $base-font-size, 1.5);
   padding: 0 .5em;
 }
 
@@ -776,7 +789,10 @@ The HTML &lt;input&gt; element is used to create interactive controls for web-ba
 
 The HTML &lt;label&gt; Element represents a caption for an item in a user interface. It can be associated with a control either by placing the control element inside the label element, or by using the for attribute. Such a control is called the labeled control of the label element.
 
-Markup: <div><label for="fn">Text: </label><input type="text" name="fn" value=""></div>
+We can use the .inline helper class to display the form controls side by side. See the checkbox example.
+
+
+Markup: <div><label>Text: <input type="text" name="fn" value=""></label></div>
 <div><label for="search">Search: </label><input name="search" type="search" value=""></div>
 <div><label for="tel">Tel: </label><input name="tel" type="tel" value=""> <small>Format: AB12 3CD</small></div>
 <div><label for="url">URL: </label><input name="url" type="url" value=""></div>
@@ -785,90 +801,38 @@ Markup: <div><label for="fn">Text: </label><input type="text" name="fn" value=""
 <div><label for="date">Date: </label><input name="date" type="date" value=""></div>
 <div><label for="t">Time: </label><input name="t" type="time" value=""></div>
 <div><label for="num">Number: </label><input name="num" type="number" value=""></div>
-<div><label>Checkbox1: <input name="check[]" type="checkbox" value="yes"></label> <label>Checkbox2: <input name="check[]" type="checkbox" value="No"></label></div>
-<div><label>Radio1: <input name="r1" type="radio" value="yes"></label> <label>Radio2: <input name="r1" type="radio" value="No"></label></div>
+<div><label class="inline">Checkbox1: <input name="check[]" type="checkbox" value="yes"></label> <label class="inline">Checkbox2: <input name="check[]" type="checkbox" value="No"></label></div>
+<div><input name="r1" type="radio" value="yes"> <label for="r1" class="inline">Radio1</label> <input name="r1" type="radio" value="No"> <label for="r1" class="inline">Radio2</label></div>
 <div><label for="fl">File: </label><input name="fl" type="file"></div>
 
-Styleguide 1.2.0
+Styleguide 1.2.2
 */
 
-input[type="text"],
-input[type="search"],
-input[type="number"],
 input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
-input[type="password"],
 input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
 input[type="tel"],
+input[type="text"],
+input[type="time"],
 input[type="url"],
-textarea,
-fieldset {
+input[type="week"] {
   border: 1px solid $light-gray;
-  border-radius: $radius;
-}
-
-input[type="text"],
-input[type="search"],
-input[type="number"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="password"],
-input[type="email"],
-input[type="tel"],
-input[type="url"],
-input[type="range"],
-textarea {
-  outline: 0;
-  width: auto;
-}
-
-input[type="text"],
-input[type="search"],
-input[type="number"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="password"],
-input[type="email"],
-input[type="tel"],
-input[type="url"],
-textarea {
   box-shadow: inset 0 2px 5px rgba($light-gray, .5);
+  display: block;
+  line-height: line-height($offset: 4px);
+  padding: em(1px) em(3px);
+  outline: 0;
+  width: 100%;
 
   &:focus {
     border: 1px solid $blue;
     box-shadow: none;
   }
-}
-
-
-input[type="text"],
-input[type="search"],
-input[type="number"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="password"],
-input[type="email"],
-input[type="tel"],
-input[type="url"] {
-  @include font-size($base-font-size);
-  height: rhythm(1.5, $base-font-size);
-  padding: .25em .5em;
 }
 
 /**
@@ -877,7 +841,9 @@ input[type="url"] {
  */
 input[type="checkbox"],
 input[type="radio"] {
+  height: $base-font-size;
   padding: 0;
+  width: $base-font-size;
 }
 
 /**
@@ -908,19 +874,14 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 label {
+  display: block;
   font-weight: bold;
+  max-width: 100%;
 
   input,
   select,
   textarea {
     font-weight: normal;
-  }
-
-  input[type="checkbox"],
-  input[type="radio"] {
-    height: $base-font-size;
-    width: $base-font-size;
-    margin-top: -3px;
   }
 }
 
@@ -932,18 +893,28 @@ The HTML &lt;textarea&gt; element represents a multi-line plain-text editing con
 Markup: <p>If you have any comments, please let us know:</p>
 <textarea cols="80" name="comments">You rock!</textarea>
 
-Styleguide 1.2.1
+Styleguide 1.2.3
 */
 
 /**
  * Remove default vertical scrollbar in IE 8/9/10/11.
  */
 textarea {
+  border: 1px solid $light-gray;
+  box-shadow: inset 0 2px 5px rgba($light-gray, .5);
+  display: block;
   height: auto;
   min-height: rhythm(5, $base-font-size);
+  outline: 0;
   overflow: auto;
   resize: vertical;
   width: 100%;
+
+  &:focus {
+    border: 1px solid $blue;
+    box-shadow: none;
+  }
+
 }
 
 textarea[rows] {
@@ -994,7 +965,7 @@ Markup: <!-- The second value will be selected initially -->
   <option value="value3">Value 3</option>
 </select>
 
-Styleguide 1.2.2
+Styleguide 1.2.4
 */
 
 /**
@@ -1006,21 +977,19 @@ optgroup {
 }
 
 select {
-  background-color: $white;
   border: 1px solid $light-gray;
-  border-radius: $radius;
-  // @include font-size($base-font-size, $lines: 1.5);
-  height: rhythm(1.5, $base-font-size);
-  padding: .375em .25em .375em .25em;
+  display: block;
+  height: rhythm(1, $offset: 2px);
+  outline: 0;
+  width: 100%;
 
   &:hover {
-    background-color: scale-color($light-gray, $lightness: 80%);
-    border-color: $gray;
+    background-color: scale-color($blue, $lightness: 97%);
+    border-color: $blue;
   }
 
   &[multiple] {
     height: auto;
-    padding: rhythm(.35) em($base-font-size);
   }
 }
 
@@ -1033,7 +1002,7 @@ The HTML &lt;legend&gt; Element (or HTML Legend Field Element) represents a capt
 
 Markup: <fieldset>
   <legend>Title</legend>
-  <input type="radio" name="radio" id="radio"> <label for="radio">Click me</label>
+  <input type="radio" name="radio" id="radio"> <label for="radio" class="inline">Click me</label>
 </fieldset>
 <fieldset>
   <legend>More Info</legend>
@@ -1041,7 +1010,7 @@ Markup: <fieldset>
   <input type="text" name="info" id="info">
 </fieldset>
 
-Styleguide 1.2.3
+Styleguide 1.2.5
 */
 
 /**
@@ -1063,11 +1032,10 @@ fieldset {
  */
 legend {
   border: 0; // 1
-  border-bottom: 2px solid #e5e5e5;
+  border-bottom: 1px solid $light-gray;
   display: block;
   @include font-size($h3-font-size);
-  font-weight: bold;
-  margin-bottom: rhythm(1, $h3-font-size, 2px);
+  margin-bottom: rhythm(1, $h3-font-size, 1px);
   padding: 0; //2
   width: 100%;
 }
@@ -1102,7 +1070,7 @@ Markup: <p>Table with thead, tfoot, tbody, and caption</p>
   </tbody>
 </table>
 
-Styleguide 1.2.4
+Styleguide 1.2.6
 */
 
 /**
