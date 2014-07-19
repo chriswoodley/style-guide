@@ -1,7 +1,5 @@
-@import 'settings',
-'mixins',
-'placeholders',
-'base';
+@import 'base',
+'placeholders';
 
 
 /*
@@ -11,16 +9,16 @@ Styleguide 2
 */
 
 /*
-# Grid Mixin
+# Grid Container
 
 This mixin defines the max width of the page and is used in context with setting column widths within the layout.
 
-Usage:
 <pre>.grid {
   @include grid($site-width);
 }</pre>
 
-Markup: <div class="grid">.grid</div>
+Markup:
+<div class="grid">.grid</div>
 
 Styleguide 2.0.1
 */
@@ -30,44 +28,42 @@ Styleguide 2.0.1
   @include grid($site-width);
 }
 
-
 /*
-# Grid Row Mixin
+# Grid Row
 
 This mixin defines rows within the layout. Its used to clear column floats.
 
-Usage:
 <pre>.grid__row {
-  @include grid--row();
+  @include grid-row();
 }</pre>
 
-Markup: <div class="grid">
+Markup:
+<div class="grid">
   <div class="grid__row">.grid__row</div>
 </div>
 
 Styleguide 2.0.2
 */
-
 .grid__row {
-  @include grid--row();
+  @include grid-row();
 }
 
 /*
-# Grid Column Placeholder and Mixin
+# Grid Column
 
-This mixin defines columns within a row. The placeholder is used to group common styles for all columns.
+This mixin defines columns within a row. The <code>%grid-col</code> placeholder is used to group common styles for all columns.
 
-Usage:
 <pre>.grid__col-1 {
-  @extend %grid--col;
-  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+  @extend %grid-col;
+  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
 }
 .grid__col-2 {
-  @extend %grid--col;
-  @include grid--col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+  @extend %grid-col;
+  @include grid-col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
 }</pre>
 
-Markup: <div class="grid">
+Markup:
+<div class="grid">
   <div class="grid__row">
     <div class="grid__col-1">
       .grid__col-1
@@ -80,36 +76,34 @@ Markup: <div class="grid">
 
 Styleguide 2.0.3
 */
-
 .grid__col-1 {
-  @extend %grid--col;
-  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+  @extend %grid-col;
+  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
 }
 
 .grid__col-2 {
-  @extend %grid--col;
-  @include grid--col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+  @extend %grid-col;
+  @include grid-col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
 }
 
-
 /*
-# Grid Column Push & Pulls
+# Grid Column Ordering
 
 This mixin defines column positioning commonly used for source ordering content.
 
-Usage:
 <pre>.primary {
-  @extend %grid--col;
-  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
-  @include grid--col-push($span: 3, $columns: $mobile-columns);
+  @extend %grid-col;
+  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+  @include grid-col-order($direction: left, $span: 3, $columns: $mobile-columns);
 }
 .secondary {
-  @extend %grid--col;
-  @include grid--col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
-  @include grid--col-pull($span: 1, $columns: $mobile-columns);
+  @extend %grid-col;
+  @include grid-col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+  @include grid-col-order($direction: right, $span: 1, $columns: $mobile-columns);
 }</pre>
 
-Markup: <div class="grid">
+Markup:
+<div class="grid">
   <div class="grid__row">
     <div class="primary">
       .primary
@@ -122,35 +116,32 @@ Markup: <div class="grid">
 
 Styleguide 2.0.4
 */
-
 .primary {
-  @extend %grid--col;
-  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
-  @include grid--col-push($span: 3, $columns: $mobile-columns);
+  @extend %grid-col;
+  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+  @include grid-col-order($direction: left, $span: 3, $columns: $mobile-columns);
 }
 
 .secondary {
-  @extend %grid--col;
-  @include grid--col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
-  @include grid--col-pull($span: 1, $columns: $mobile-columns);
+  @extend %grid-col;
+  @include grid-col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+  @include grid-col-order($direction: right, $span: 1, $columns: $mobile-columns);
 }
-
 
 /*
 # Grid Column Offsets
 
 This mixin defines column offsets using left and right margins.
 
-Usage:
 <pre>.offset-right {
-  @extend %grid--col;
-  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
-  @include grid--col-offset-right($span: 1, $columns: $mobile-columns);
+  @extend %grid-col;
+  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+  @include grid-col-offset($direction: right, $span: 1, $columns: $mobile-columns);
 }
 .offset-left {
-  @extend %grid--col;
-  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
-  @include grid--col-offset-left($span: 1, $columns: $mobile-columns);
+  @extend %grid-col;
+  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+  @include grid-col-offset($direction: left, $span: 1, $columns: $mobile-columns);
 }</pre>
 
 Markup: <div class="grid">
@@ -168,15 +159,15 @@ Styleguide 2.0.5
 */
 
 .offset-right {
-  @extend %grid--col;
-  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
-  @include grid--col-offset-right($span: 1, $columns: $mobile-columns);
+  @extend %grid-col;
+  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+  @include grid-col-offset($direction: right, $span: 1, $columns: $mobile-columns);
 }
 
 .offset-left {
-  @extend %grid--col;
-  @include grid--col($span: 1, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
-  @include grid--col-offset-left($span: 1, $columns: $mobile-columns);
+  @extend %grid-col;
+  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+  @include grid-col-offset($direction: left, $span: 1, $columns: $mobile-columns);
 }
 
 
@@ -186,23 +177,22 @@ Styleguide 2.0.5
 Styleguide 3
 */
 
+@import 'modules/menu';
+
 /*
-# Menu and Menu Item Mixin and Unstyled List Placeholder
+# Default Menu
 
-Both of these mixins defines the styles necessary for the top level navigation module. The <code>%unstyled-list</code> placeholder is used to reset the styles of list markup and can be reused for sub menus.
+These mixins defines the styles necessary for the top level navigation module. The <code>%unstyled-list</code> placeholder is used to reset the styles of list markup and can be reused for sub menus.
 
-Usage:
 <pre>.menu {
   @extend %unstyled-list;
-  @include menu() {
-    & > .menu__item {
-      @include menu--item() {
-        & > a {
-          @extend %block-link;
-          padding: .75em;
-          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-        }
-      }
+  @include menu();
+  &>.menu__item {
+    @include menu-item();
+    &>a {
+      @extend %block-link;
+      padding: .75em;
+      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
     }
   }
 }</pre>
@@ -219,45 +209,39 @@ Markup: <nav role="navigation">
 
 Styleguide 3.0.1
 */
-@import 'modules/menu';
-
 .menu {
   @extend %unstyled-list;
-
-  @include menu() {
-    & > .menu__item {
-      @include menu--item() {
-        & > a {
-          @extend %block-link;
-          padding: .75em;
-          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-        }
-      }
+  @include menu();
+  &>.menu__item {
+    @include menu-item();
+    &>a {
+      @extend %block-link;
+      padding: .75em;
+      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
     }
   }
 }
 
-
 /*
-# Menu aligned to the right
+# Right Menu
 
-Usage:
+Right aligned menu.
+
 <pre>.menu-1 {
   @extend %unstyled-list;
-  @include menu(right) {
-    & > .menu-1__item {
-      @include menu--item() {
-        & > a {
-          @extend %block-link;
-          padding: .75em;
-          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-        }
-      }
+  @include menu($align: right);
+  &>.menu-1__item {
+    @include menu-item();
+    &>a {
+      @extend %block-link;
+      padding: .75em;
+      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
     }
   }
 }</pre>
 
-Markup: <nav role="navigation">
+Markup:
+<nav role="navigation">
   <ul class="menu-1">
     <li class="menu-1__item"><a href="#">Item 1</a></li>
     <li class="menu-1__item"><a href="#">Item 2</a></li>
@@ -269,43 +253,39 @@ Markup: <nav role="navigation">
 
 Styleguide 3.0.2
 */
-
 .menu-1 {
   @extend %unstyled-list;
-
-  @include menu($align: right) {
-    & > .menu-1__item {
-      @include menu--item() {
-        & > a {
-          @extend %block-link;
-          padding: .75em;
-          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-        }
-      }
+  @include menu($align: right);
+  &>.menu-1__item {
+    @include menu-item();
+    &>a {
+      @extend %block-link;
+      padding: .75em;
+      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
     }
   }
 }
 
 /*
-# Menu aligned to the center
+# Center Menu
 
-Usage:
+Center aligned menu.
+
 <pre>.menu-2 {
   @extend %unstyled-list;
-  @include menu(center) {
-    & > .menu-2__item {
-      @include menu--item() {
-        & > a {
-          @extend %block-link;
-          padding: .75em;
-          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-        }
-      }
+  @include menu($align: center);
+  &>.menu-2__item {
+    @include menu-item();
+    & > a {
+      @extend %block-link;
+      padding: .75em;
+      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
     }
   }
 }</pre>
 
-Markup: <nav role="navigation">
+Markup:
+<nav role="navigation">
   <ul class="menu-2">
     <li class="menu-2__item"><a href="#">Item 1</a></li>
     <li class="menu-2__item"><a href="#">Item 2</a></li>
@@ -317,43 +297,39 @@ Markup: <nav role="navigation">
 
 Styleguide 3.0.3
 */
-
 .menu-2 {
   @extend %unstyled-list;
-
-  @include menu($align: center) {
-    & > .menu-2__item {
-      @include menu--item() {
-        & > a {
-          @extend %block-link;
-          padding: .75em;
-          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-        }
-      }
+  @include menu($align: center);
+  &>.menu-2__item {
+    @include menu-item();
+    & > a {
+      @extend %block-link;
+      padding: .75em;
+      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
     }
   }
 }
 
 /*
-# Menu aligned justified
+# Justified Menu
 
-Usage:
+Justified menu that spans accross entire width and has equal width menu items.
+
 <pre>.menu-3 {
   @extend %unstyled-list;
-  @include menu(justified) {
-    & > .menu-3__item {
-      @include menu--item($align: justified, $num: 5) {
-        & > a {
-          @extend %block-link;
-          padding: .75em;
-          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-        }
-      }
+  @include menu($align: justified);
+  &>.menu-3__item {
+    @include menu-item($align: justified, $num: 5);
+    &>a {
+      @extend %block-link;
+      padding: .75em;
+      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
     }
   }
 }</pre>
 
-Markup: <nav role="navigation">
+Markup:
+<nav role="navigation">
   <ul class="menu-3">
     <li class="menu-3__item"><a href="#">Item 1</a></li>
     <li class="menu-3__item"><a href="#">Item 2</a></li>
@@ -365,43 +341,39 @@ Markup: <nav role="navigation">
 
 Styleguide 3.0.4
 */
-
 .menu-3 {
   @extend %unstyled-list;
-
-  @include menu($align: justified) {
-    & > .menu-3__item {
-      @include menu--item($align: justified, $num: 5) {
-        & > a {
-          @extend %block-link;
-          padding: .75em;
-          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-        }
-      }
+  @include menu($align: justified);
+  &>.menu-3__item {
+    @include menu-item($align: justified, $num: 5);
+    &>a {
+      @extend %block-link;
+      padding: .75em;
+      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
     }
   }
 }
 
 /*
-# Menu stacked
+# Stacked Menu
 
-Usage:
+Vertically stacked menu items.
+
 <pre>.menu-4 {
   @extend %unstyled-list;
-  @include menu() {
-    & > .menu-4__item {
-      @include menu--item(stacked) {
-        & > a {
-          @extend %block-link;
-          padding: .75em;
-          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-        }
-      }
+  @include menu();
+  &>.menu-4__item {
+    @include menu-item(stacked);
+    &>a {
+      @extend %block-link;
+      padding: .75em;
+      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
     }
   }
 }</pre>
 
-Markup: <nav role="navigation">
+Markup:
+<nav role="navigation">
   <ul class="menu-4">
     <li class="menu-4__item"><a href="#">Item 1</a></li>
     <li class="menu-4__item"><a href="#">Item 2</a></li>
@@ -413,23 +385,18 @@ Markup: <nav role="navigation">
 
 Styleguide 3.0.5
 */
-
 .menu-4 {
   @extend %unstyled-list;
-
-  @include menu() {
-    & > .menu-4__item {
-      @include menu--item(stacked) {
-        & > a {
-          @extend %block-link;
-          padding: .75em;
-          @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-        }
-      }
+  @include menu();
+  &>.menu-4__item {
+    @include menu-item(stacked);
+    &>a {
+      @extend %block-link;
+      padding: .75em;
+      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
     }
   }
 }
-
 
 /*
 # Sub Menu
@@ -437,38 +404,41 @@ Styleguide 3.0.5
 Styleguide 4
 */
 
+@import 'modules/sub-menu';
+
 /*
-# Sub Menu and Sub Menu Item Mixins
+# Sub Menu
 
-Both of these mixins defines the styles necessary for dropdown and flyout sub menus.
+These mixins defines the styles necessary to create dropdown and flyout sub menus. The <code>%unstyled-list</code> placeholder is used to reset the default list styles. The <code>%sub-menu-item</code> placeholder contains styles for the sub menu items. The <code>%block-link</code> placeholder contains styles to display hyperlinks as blocks.
 
-Usage:
 <pre>.sub-menu {
   @extend %unstyled-list;
+  @include sub-menu($width: 10em, $position: true);
+  & > .sub-menu__item {
+    @extend %sub-menu-item;
 
-  @include sub-menu($active: false, $position: true, $flyout: false) {
-    width: 200%;
-    & > .sub-menu__item {
-      @include sub-menu--item() {
-        &:hover {
-          & > .sub-menu {
-            @include sub-menu($active: true, $position: true, $flyout: true) {
-              width: 100%;
-            }
-          }
-        }
+    &:hover {
+      & > .sub-menu {
+        @include sub-menu-state($active: true, $flyout: true);
       }
     }
   }
-
   a {
     @extend %block-link;
     padding: .75em;
     @include link-colors($foreground: 'orange' 'red' 'green', $background: 'blue' 'green' 'red');
   }
+}
+.menu__item {
+  &:hover {
+    &>.sub-menu {
+      @include sub-menu-state($active: true, $flyout: false);
+    }
+  }
 }</pre>
 
-Markup: <nav role="navigation">
+Markup:
+<nav role="navigation">
   <ul class="menu">
     <li class="menu__item"><a href="#">Item 1</a></li>
     <li class="menu__item"><a href="#">Item 2</a></li>
@@ -496,32 +466,16 @@ Markup: <nav role="navigation">
 
 Styleguide 4.0.1
 */
-@import 'modules/sub-menu';
-
-.menu__item {
-  &:hover {
-    &>.sub-menu {
-      @include sub-menu($active: true, $position: true, $flyout: false)
-    }
-  }
-}
 
 .sub-menu {
   @extend %unstyled-list;
+  @include sub-menu($width: 10em, $position: true);
+  & > .sub-menu__item {
+    @extend %sub-menu-item;
 
-  @include sub-menu($active: false, $position: true, $flyout: false) {
-    width: 200%;
-
-    & > .sub-menu__item {
-      @include sub-menu--item() {
-
-        &:hover {
-          & > .sub-menu {
-            @include sub-menu($active: true, $position: true, $flyout: true) {
-              width: 100%;
-            }
-          }
-        }
+    &:hover {
+      & > .sub-menu {
+        @include sub-menu-state($active: true, $flyout: true);
       }
     }
   }
@@ -533,8 +487,13 @@ Styleguide 4.0.1
   }
 }
 
-
-@import 'modules/button';
+.menu__item {
+  &:hover {
+    &>.sub-menu {
+      @include sub-menu-state($active: true, $flyout: false);
+    }
+  }
+}
 
 /*
 # Button
@@ -542,54 +501,106 @@ Styleguide 4.0.1
 Styleguide 5
 */
 
+@import 'modules/button';
+
 /*
-# Button Mixins
+# Normal Button
 
-Both of these mixins defines the styles necessary for dropdown and flyout sub menus.
+Button mixin for defining button size and colors. The <code>%button</code> placeholder contains required styles that a button needs and is used to group common styles accross all buttons. Both mixin and placeholder are required.
 
-Usage:
 <pre>.button,
 input.button {
-  @include button($background: #00f, $foreground: #ffa500);
-  line-height: line-height(1.5);
-  padding: 0 .75em;
-  &.button--large {
-    @include font-size($large-font-size, $base-font-size, 2);
-  }
-  &.button--small {
-    @include font-size($small-font-size, $base-font-size, 1);
+  @extend %button;
+  @include button(normal, $background: #00f, $foreground: #ffa500);
+  width: 100%;
+
+  @media screen and (min-width: $small-screen) {
+    width: auto;
   }
 }</pre>
 
 Markup: <a href="#" class="button">Link Element</a>
 <input type="submit" name="submit" value="Input Element" class="button">
 <button class="button">Button Element</button>
-<a href="#" class="button button--large">Large Link Element</a>
-<input type="submit" name="submit" value="Large Input Element" class="button button--large">
-<button class="button button--large">Large Button Element</button>
-<a href="#" class="button button--small">Small Link Element</a>
-<input type="submit" name="submit" value="Small Input Element" class="button button--small">
-<button class="button button--small">Small Button Element</button>
 
 Styleguide 5.0.1
 */
-
 .button,
 input.button {
-  @include button($background: #00f, $foreground: #ffa500);
-  line-height: line-height(1.5);
-  padding: 0 .75em;
+  @extend %button;
+  @include button(normal, $background: #00f, $foreground: #ffa500);
+  width: 100%;
 
-  &.button--large {
-    @include font-size($large-font-size, $base-font-size, 2);
-  }
-
-  &.button--small {
-    @include font-size($small-font-size, $base-font-size, 1);
+  @media screen and (min-width: $small-screen) {
+    width: auto;
   }
 }
 
-@import 'modules/form';
+/*
+# Large Button
+
+Button mixin for defining button size and colors. The <code>%button</code> placeholder contains required styles that a button needs and is used to group common styles accross all buttons. Both mixin and placeholder are required.
+
+<pre>.button--large,
+input.button--large {
+  @extend %button;
+  @include button(large, $background: #00f, $foreground: #ffa500);
+  width: 100%;
+
+  @media screen and (min-width: $small-screen) {
+    width: auto;
+  }
+}</pre>
+
+Markup: <a href="#" class="button--large">Link Element</a>
+<input type="submit" name="submit" value="Input Element" class="button--large">
+<button class="button--large">Button Element</button>
+
+Styleguide 5.0.2
+*/
+.button--large,
+input.button--large {
+  @extend %button;
+  @include button(large, $background: #00f, $foreground: #ffa500);
+  width: 100%;
+
+  @media screen and (min-width: $small-screen) {
+    width: auto;
+  }
+}
+
+/*
+# Xlarge Button
+
+Button mixin for defining button size and colors. The <code>%button</code> placeholder contains required styles that a button needs and is used to group common styles accross all buttons. Both mixin and placeholder are required.
+
+<pre>.button--xlarge,
+input.button--xlarge {
+  @extend %button;
+  @include button(xlarge, $background: #00f, $foreground: #ffa500);
+  width: 100%;
+
+  @media screen and (min-width: $small-screen) {
+    width: auto;
+  }
+}</pre>
+
+Markup: <a href="#" class="button--xlarge">Link Element</a>
+<input type="submit" name="submit" value="Input Element" class="button--xlarge">
+<button class="button--xlarge">Button Element</button>
+
+Styleguide 5.0.3
+*/
+.button--xlarge,
+input.button--xlarge {
+  @extend %button;
+  @include button(xlarge, $background: #00f, $foreground: #ffa500);
+  width: 100%;
+
+  @media screen and (min-width: $small-screen) {
+    width: auto;
+  }
+}
 
 /*
 # Form
@@ -597,130 +608,90 @@ input.button {
 Styleguide 6
 */
 
+@import 'modules/form';
+
 /*
-# Form Mixins
+# Form Control
 
-The form mixins defines the styles necessary to layout form controls.
+The form control mixin defines the styles for form controls. The <code>%form-control</code> placeholder contains common styles for form controls. Both are required.
 
-Usage:
 <pre>.form {
-  .form__input {
-    @include form--control(large);
-  }
-  .form__textarea {
-    @include form--control(large, true);
-  }
-  .form__select {
-    @include form--control(large);
-  }
-  .form__group {
-    @include form--section() {
-      @include grid--row();
-    }
+  .form__row {
+    @include grid-row();
+    margin-bottom: rhythm();
   }
   .form__col {
-    @include form--group() {
-      @extend %grid--col;
-    }
+    @extend %grid-col;
+    margin-bottom: rhythm();
   }
-  .at {
-    @include form--control-addon(\0040, true, large);
+  .form__control {
+    @extend %form-control;
+    @include form-control(xlarge);
+  }
+  .form__textarea {
+    @extend %form-control;
+    @include form-control(xlarge, true);
   }
   .title,
   .nickname,
   .state,
-  .favorite-options,
-  .also-like-options,
   .comments {
-    @include grid--col(2, 2, left);
-  }
-  .favorite-options,
-  .also-like-options {
-    label:first-child {
-      display: block;
-    }
+    @include grid-col(2, 2, left);
   }
   .first-name,
   .last-name {
-    @include grid--col(1, 2, left);
+    @include grid-col(1, 2, left);
   }
+
   @media screen and (min-width: $small-screen) {
-    .form__input {
-      @include form--control(small);
+    .form__control {
+      @include form-control(normal);
     }
     .form__textarea {
-      @include form--control(small, true);
-    }
-    .form__select {
-      @include form--control(small);
-    }
-    .at {
-      @include form--control-addon(\0040, true, small);
+      @include form-control(normal, true);
     }
     .title,
     .state {
-      @include grid--col(3, 9, right, $desktop-gutter);
+      @include grid-col(3, 9, right, $desktop-gutter);
     }
     .first-name,
     .last-name,
     .nickname {
-      @include grid--col(3, 9, right, $desktop-gutter);
-    }
-    .favorite-options,
-    .also-like-options {
-      @include grid--col(3, 9, right, $desktop-gutter);
+      @include grid-col(3, 9, right, $desktop-gutter);
     }
     .comments {
-      @include grid--col(6, 9, right, $desktop-gutter);
+      @include grid-col(6, 9, right, $desktop-gutter);
     }
   }
 }</pre>
 
 Markup: <form action="" method="get" role="form" class="form">
-  <div class="form__group">
-    <div class="form__col title">
-      <label>Title</label>
-      <div class="at"><input type="text" placeholder="title" class="form__input" /></div>
-    </div>
-  </div>
-  <div class="form__group">
+  <div class="form__row">
     <div class="form__col first-name">
       <label for="first_name">First Name</label>
-      <input type="text" name="first_name" placeholder="first name" class="form__input" />
+      <input type="text" name="first_name" placeholder="first name" class="form__control" />
     </div>
     <div class="form__col last-name">
       <label for="last_name">Last Name</label>
-      <input type="text" name="last_name" placeholder="last name" class="form__input" />
+      <input type="text" name="last_name" placeholder="last name" class="form__control" />
     </div>
     <div class="form__col nickname">
         <label for="nickname">Nickname</label>
-          <input type="text" name="nickname" placeholder="nickname" class="form__input" />
+          <input type="text" name="nickname" placeholder="nickname" class="form__control" />
     </div>
   </div>
-  <div class="form__group">
+  <div class="form__row">
     <div class="form__col state">
       <label for="state">State</label>
-      <select name="state" class="form__select">
-        <option value="husker">Husker</option>
-        <option value="starbuck">Starbuck</option>
-        <option value="hotdog">Hot Dog</option>
-        <option value="apollo">Apollo</option>
+      <select name="state" class="form__control">
+        <option value="alabama">AL</option>
+        <option value="alaska">AK</option>
+        <option value="arizona">AR</option>
+        <option value="california">CA</option>
       </select>
     </div>
   </div>
-  <div class="form__group">
-    <div class="form__col favorite-options">
-      <p><strong>Choose Your Favorite</strong></p>
-      <label for="pokemonRed"><input type="radio" name="pokemon" value="Red" id="pokemonRed">Red</label>
-      <label for="pokemonBlue"><input type="radio" name="pokemon" value="Blue" id="pokemonBlue">Blue</label>
-    </div>
-    <div class="form__col also-like-options">
-      <p><strong>Check these out</strong></p>
-      <label for="checkbox1"><input type="checkbox" name="checkbox1">Checkbox 1</label>
-      <label for="checkbox2"><input type="checkbox" name="checkbox2">Checkbox 2</label>
-    </div>
-  </div>
-  <div class="form__group">
+  <div class="form__row">
     <div class="form__col comments">
       <label for="comments">Comments</label>
       <textarea name="comments" placeholder="comments" class="form__textarea"></textarea>
@@ -732,95 +703,142 @@ Styleguide 6.0.1
 */
 
 .form {
-  .form__input {
-    @include form--control(large);
-  }
 
-  .form__textarea {
-    @include form--control(large, true);
-  }
-
-  .form__select {
-    @include form--control(large);
-  }
-
-  .form__group {
-    @include form--section() {
-      @include grid--row();
-    }
+  .form__row {
+    @include grid-row();
+    margin-bottom: rhythm();
   }
 
   .form__col {
-    @include form--group() {
-      @extend %grid--col;
-    }
+    @extend %grid-col;
+    margin-bottom: rhythm();
   }
 
-  .at {
-    @include form--control-addon(\0040, true, large);
+  .form__control {
+    @extend %form-control;
+    @include form-control(xlarge);
+  }
+
+  .form__textarea {
+    @extend %form-control;
+    @include form-control(xlarge, true);
   }
 
   .title,
   .nickname,
   .state,
-  .favorite-options,
-  .also-like-options,
   .comments {
-    @include grid--col(2, 2, left);
-  }
-
-  .favorite-options,
-  .also-like-options {
-    label:first-child {
-      display: block;
-    }
+    @include grid-col(2, 2, left);
   }
 
   .first-name,
   .last-name {
-    @include grid--col(1, 2, left);
+    @include grid-col(1, 2, left);
   }
 
   @media screen and (min-width: $small-screen) {
-    .form__input {
-      @include form--control(small);
+    .form__control {
+      @include form-control(normal);
     }
 
     .form__textarea {
-      @include form--control(small, true);
-    }
-
-    .form__select {
-      @include form--control(small);
-    }
-
-    .at {
-      @include form--control-addon(\0040, true, small);
+      @include form-control(normal, true);
     }
 
     .title,
     .state {
-      @include grid--col(3, 9, right, $desktop-gutter);
+      @include grid-col(3, 9, right, $desktop-gutter);
     }
 
     .first-name,
     .last-name,
     .nickname {
-      @include grid--col(3, 9, right, $desktop-gutter);
-    }
-
-    .favorite-options,
-    .also-like-options {
-      @include grid--col(3, 9, right, $desktop-gutter);
+      @include grid-col(3, 9, right, $desktop-gutter);
     }
 
     .comments {
-      @include grid--col(6, 9, right, $desktop-gutter);
+      @include grid-col(6, 9, right, $desktop-gutter);
     }
   }
 }
 
-@import 'modules/media';
+/*
+# Form Control Addon
+
+The form control addon mixin defines the styles for prefixed or appended label addons. The <code>%form-control-addon</code> placeholder contains common styles used for addons. Both are required.
+
+<pre>.url,
+.donate {
+  @include grid-col(2, 2, left);
+}
+.url-addon {
+  @extend %form-control-addon;
+  @include form-control-addon(xlarge, true);
+}
+.donate-addon {
+  @extend %form-control-addon;
+  @include form-control-addon(xlarge, false);
+}
+@media screen and (min-width: $small-screen) {
+  .url-addon {
+    @include form-control-addon(normal, true);
+  }
+  .donate-addon {
+    @include form-control-addon(normal, false);
+  }
+  .url,
+  .donate {
+    @include grid-col(3, 9, right, $desktop-gutter);
+  }
+}</pre>
+
+Markup: <form action="" method="get" role="form" class="form">
+  <div class="form__row">
+    <div class="form__col url">
+      <label for="url">Website</label>
+      <div class="url-addon">
+        <span>http://</span>
+        <input type="text" name="url" placeholder="website address" class="form__control" />
+      </div>
+    </div>
+  </div>
+  <div class="form__row">
+    <div class="form__col dontate">
+      <label for="donate">Amount</label>
+      <div class="donate-addon">
+        <span>.00</span>
+        <input type="number" name="donate" placeholder="10" class="form__control" />
+      </div>
+    </div>
+  </div>
+</form>
+
+Styleguide 6.0.2
+*/
+.url,
+.donate {
+  @include grid-col(2, 2, left);
+}
+.url-addon {
+  @extend %form-control-addon;
+  @include form-control-addon(xlarge, true);
+}
+.donate-addon {
+  @extend %form-control-addon;
+  @include form-control-addon(xlarge, false);
+}
+@media screen and (min-width: $small-screen) {
+  .url-addon {
+    @include form-control-addon(normal, true);
+  }
+  .donate-addon {
+    @include form-control-addon(normal, false);
+  }
+  .url,
+  .donate {
+    @include grid-col(3, 9, right, $desktop-gutter);
+  }
+}
 
 /*
 # Media
@@ -828,29 +846,26 @@ Styleguide 6.0.1
 Styleguide 7
 */
 
+@import 'modules/media';
+
 /*
-# Media Mixins
+# Media Object
 
-The media mixins defines the styles necessary to layout media along side text.
+The media-element mixin defines the styles necessary to layout media along side text. The <code>%media</code> placeholder contains common styles for media blocks. The <code>%media-element</code> placeholder contains common styles for media elements. The <code>%media-content</code> placeholder contains common styles used for all media content. All placeholers and mixins are required.
 
-Usage:
 <pre>.media {
-  @include media() {
-    padding: rhythm();
-    background-color: #ececec;
-  }
+  @extend %media;
 }
 .media__element {
-  @include media--element($align: none) {
-    width: 150px;
-    margin-bottom: rhythm();
-  }
+  @extend %media-element;
+  @include media-element(none, 150px);
+
   @media screen and (min-width: $small-screen) {
-    @include media--element();
+    @include media-element();
   }
 }
 .media__content {
-  @include media--content();
+  @extend %media-content;
 }</pre>
 
 Markup: <div class="media">
@@ -867,22 +882,243 @@ Markup: <div class="media">
 
 Styleguide 7.0.1
 */
-
 .media {
-  @include media() {
-    padding: rhythm();
-    background-color: #ececec;
-  }
+  @extend %media;
 }
+
 .media__element {
-  @include media--element(none) {
-    width: 150px;
-    margin-bottom: rhythm();
-  }
+  @extend %media-element;
+  @include media-element(none, 150px);
+
   @media screen and (min-width: $small-screen) {
-    @include media--element();
+    @include media-element();
   }
 }
+
 .media__content {
-  @include media--content();
+  @extend %media-content;
+}
+
+/*
+# Alert
+
+Styleguide 8
+*/
+
+@import 'modules/alert';
+
+/*
+# Default Alert
+
+The alert mixin defines the base styles for a typical alert or validation message.
+
+Usage:
+<pre>.alert,
+.alert-notice,
+.alert-error,
+.alert-success,
+.alert-warning {
+  @include alert();
+}</pre>
+
+Markup: <div class="alert">
+  <p>This is an alert.</p>
+</div>
+
+Styleguide 8.0.1
+*/
+.alert,
+.alert-notice,
+.alert-error,
+.alert-success,
+.alert-warning {
+  @include alert();
+}
+
+/*
+# Notice Alert
+
+The alert type mixin defines the colors that will be rendered on the alert object.
+
+Usage:
+<pre>.alert-notice {
+  @include alert-type(notice);
+}</pre>
+
+Markup: <div class="alert-notice">
+  <p>This is an notice alert.</p>
+</div>
+
+Styleguide 8.0.2
+*/
+.alert-notice {
+  @include alert-type(notice);
+}
+
+/*
+# Error Alert
+
+The alert type mixin defines the colors that will be rendered on the alert object.
+
+Usage:
+<pre>.alert-error {
+  @include alert-type(error);
+}</pre>
+
+Markup:
+<div class="alert-error">
+  <p>This is an error alert.</p>
+</div>
+
+Styleguide 8.0.3
+*/
+.alert-error {
+  @include alert-type(error);
+}
+
+/*
+# Success Alert
+
+The alert type mixin defines the colors that will be rendered on the alert object.
+
+Usage:
+<pre>.alert-success {
+  @include alert-type(success);
+}</pre>
+
+Markup:
+<div class="alert-success">
+  <p>This is an success alert.</p>
+</div>
+
+Styleguide 8.0.4
+*/
+.alert-success {
+  @include alert-type(success);
+}
+
+/*
+# Warning Alert
+
+The alert type mixin defines the colors that will be rendered on the alert object.
+
+Usage:
+<pre>.alert-warning {
+  @include alert-type(warning);
+}</pre>
+
+Markup:
+<div class="alert-warning">
+  <p>This is an warning alert.</p>
+</div>
+
+Styleguide 8.0.5
+*/
+.alert-warning {
+  @include alert-type(warning);
+}
+
+/*
+# Columns
+
+Styleguide 9
+*/
+
+@import 'modules/column';
+
+/*
+# Columns
+
+The Column mixin contains the styles to apply multiple columns of text on an block element. The <code>%column</code> placeholder is used to add widow and orphan control to the columns. Both are required.
+
+<pre>.columns {
+  @extend %column;
+  @include column(3);
+}</pre>
+
+Markup:
+<div class="columns">
+  <p>Aenean lacinia bibendum nulla sed consectetur. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Donec sed odio dui.</p>
+  <p>Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+  <p>Vestibulum id ligula porta felis euismod semper. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis interdum. Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+</div>
+
+Styleguide 9.0.1
+*/
+.columns {
+  @extend %column;
+  @include column(3);
+}
+
+@import 'helpers';
+
+
+/*
+# Grid Blocks
+
+Styleguide 10
+*/
+
+@import 'modules/grid-block';
+
+/*
+# Grid Block
+
+The grid block mixin contains the styles needed to create fixed width inline block elements that are laid out in a grid format. The <code>%grid-block</code> placeholder contains the base styles for the grid blocks. Both are required.
+
+<pre>.grid-block {
+  @extend %grid-block;
+  @include grid-block($container-width: 320px, $columns: 2);
+
+  @media screen and (min-width: $small-screen) {
+    @include grid-block($container-width: 800px, $columns: 4);
+  }
+}</pre>
+
+Markup:
+<div class="grid-block"><img src="http://fpoimg.com/200x200"></div>
+<div class="grid-block"><img src="http://fpoimg.com/200x200"></div>
+<div class="grid-block"><img src="http://fpoimg.com/200x200"></div>
+<div class="grid-block"><img src="http://fpoimg.com/200x200"></div>
+
+Styleguide 10.0.1
+*/
+
+.grid-block {
+  @extend %grid-block;
+  @include grid-block($container-width: 320px, $columns: 2);
+
+  @media screen and (min-width: $small-screen) {
+    @include grid-block($container-width: 800px, $columns: 4);
+  }
+}
+
+/*
+# Label
+
+Styleguide 11
+*/
+
+@import 'modules/label';
+
+/*
+# label
+
+The label mixin contains the styles needed to create inline labels. The <code>%label</code> placeholder contains the base styles for the labels. Both are required.
+
+<pre>.label {
+  @extend %label;
+  @include label($size: normal, $background: $light-gray, $foreground: $dark-gray);
+}</pre>
+
+Markup:
+<p>Sample text. <span class="label">new</span></p>
+
+Styleguide 11.0.1
+*/
+
+.label {
+  @extend %label;
+  @include label($size: normal, $background: $light-gray, $foreground: $dark-gray);
 }
