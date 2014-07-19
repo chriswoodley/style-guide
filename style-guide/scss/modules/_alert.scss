@@ -1,27 +1,35 @@
-@mixin alert($type) {
-  padding: 1em !important;
+@mixin alert($border: 1px) {
+  padding: rhythm($offset: $border * 2) 1em !important;
+  border-width: $border;
+  border-style: solid;
 
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin alert-type($type) {
   @if $type == notice {
     background-color: scale-color($blue, $lightness: 80%);
-    border: 1px solid $blue;
+    border-color: $blue;
     color: $blue;
   }
 
   @if $type == error {
     background-color: scale-color($red, $lightness: 80%);
-    border: 1px solid $red;
+    border-color: $red;
     color: $red;
   }
 
   @if $type == success {
     background-color: scale-color($green, $lightness: 80%);
-    border: 1px solid $green;
+    border-color: $green;
     color: $green;
   }
 
   @if $type == warning {
     background-color: scale-color($yellow, $lightness: 80%);
-    border: 1px solid $yellow;
+    border-color: $yellow;
     color: $yellow;
   }
 }
