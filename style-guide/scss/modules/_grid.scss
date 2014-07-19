@@ -1,4 +1,4 @@
-%grid--col {
+%grid-col {
   float: left;
   position: relative;
 }
@@ -11,44 +11,39 @@
   }
 }
 
-@mixin grid--row($gutter: $mobile-gutter) {
+@mixin grid-row() {
   @extend %clearfix;
 }
 
-@mixin grid--col($span: 1, $columns: $small-grid, $gutter: both, $gutter-size: $mobile-gutter) {
-
+@mixin grid-col($span: 1, $columns: $mobile-columns, $gutter: both, $gutter-size: $mobile-gutter) {
   @if $span > $columns {
     @warn 'The column span value cannot be greater then the allowable number of columns in the grid.';
   } @else {
     width: (100% / $columns) * $span;
-
     @if $gutter == both {
       padding: 0 $gutter-size;
     }
-
     @if $gutter == left {
       padding: 0 0 0 $gutter-size;
     }
-
     @if $gutter == right {
       padding: 0 $gutter-size 0 0;
     }
   }
-
 }
 
-@mixin grid--col-push($span, $columns) {
-  left: (100% / $columns) * $span;
+@mixin grid-col-order($direction, $span, $columns: $mobile-columns) {
+  @if $direction != left and $direction != right {
+    @warn 'Only value accepted for direction is left or right.';
+  } @else {
+    #{$direction}: (100% / $columns) * $span;
+  }
 }
 
-@mixin grid--col-pull($span, $columns) {
-  right: (100% / $columns) * $span;
-}
-
-@mixin grid--col-offset-left($span, $columns) {
-  margin-left: (100% / $columns) * $span;
-}
-
-@mixin grid--col-offset-right($span, $columns) {
-  margin-right: (100% / $columns) * $span;
+@mixin grid-col-offset($direction, $span, $columns: $mobile-columns) {
+  @if $direction != left and $direction != right {
+    @warn 'Only value accepted for direction is left or right.';
+  } @else {
+    margin-#{$direction}: (100% / $columns) * $span;
+  }
 }
