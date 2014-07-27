@@ -1,0 +1,22 @@
+%responsive-embed {
+  height: 0;
+  overflow: hidden;
+  position: relative;
+
+  iframe,
+  embed,
+  object {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+@mixin responsive-embed($ratio-width: 1, $ratio-height: 1, $video: true) {
+  @if $video {
+    padding-top: 30px;
+  }
+  padding-bottom: percentage($ratio-height / $ratio-width);
+}

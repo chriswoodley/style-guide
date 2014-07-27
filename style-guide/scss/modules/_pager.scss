@@ -1,0 +1,14 @@
+%pager {
+  overflow: auto;
+}
+
+%pager-item {
+  position: relative;
+  text-align: center;
+}
+
+@mixin pager-item($float: false) {
+  @if $float {
+    float: $float;
+  }
+}

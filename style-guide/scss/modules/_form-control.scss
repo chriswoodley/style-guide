@@ -1,0 +1,25 @@
+%form-control {
+  transition: border 500ms ease, background 500ms ease, box-shadow 500ms ease;
+}
+
+@mixin form-control-focus-color($color: $blue) {
+  &:focus {
+    background-color: scale-color($color, $lightness: 97%);
+    border-color: scale-color($color, $lightness: 50%);
+    box-shadow: 0 0 5px rgba($color, .60);
+  }
+}
+
+@mixin form-control($size: $base-font-size, $lines: 1, $textarea: false) {
+  font-size: em($size);
+  @if $textarea {
+    min-height: rhythm($lines, $size);
+  } @else {
+    height: rhythm($lines, $size);
+  }
+  @if $lines <= 1 {
+    padding: em(ceil($size / 5));
+  } @else {
+    padding: em(ceil($size / 2));
+  }
+}

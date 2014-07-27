@@ -1,0 +1,18 @@
+%gray-box {
+  text-align: center;
+}
+
+@mixin gray-box($lines: false, $colors: false) {
+  @if $lines {
+    line-height: line-height($lines);
+  }
+  @if $colors {
+    @each $property, $color in ($colors) {
+      @if $property == background-color or $property == color {
+        #{$property}: grayscale($color);
+      } @else {
+        @warn 'Assuming properties to be background-color or color';
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+%form-control-addon {
+  position: relative;
+}
+
+%form-control-addon-label {
+  bottom: 0;
+  display: block;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  z-index: 0;
+}
+
+%form-control-addon-input {
+  position: relative;
+  z-index: 1;
+}
+
+@mixin form-control-addon($label-class, $side, $width) {
+  @if $side == left or $side == right {
+    padding-#{$side}: $width;
+
+    .#{$label-class} {
+      #{$side}: 0;
+      width: $width;
+    }
+  } @else {
+    @warn 'Assuming side to be right or left';
+  }
+}
+
+@mixin form-control-addon-label($size: false, $lines: false, $colors: false) {
+  @if $size and $lines {
+    font-size: em($size);
+    line-height: line-height($lines, $size);
+  }
+  @if $colors {
+    @each $property, $color in ($colors) {
+      @if $property == background-color or $property == color {
+        #{$property}: $color;
+      } @else {
+        @warn 'Assuming properties to be background-color or color';
+      }
+    }
+  }
+}

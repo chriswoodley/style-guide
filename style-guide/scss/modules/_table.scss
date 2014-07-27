@@ -1,0 +1,49 @@
+@mixin table-size($size: $base-font-size, $lines: 1) {
+  font-size: em($size);
+  line-height: line-height($lines, $size);
+  min-height: rhythm($lines, $size);
+  padding-left: em($size);
+  padding-right: em($size);
+}
+
+@mixin table-color($colors) {
+  @each $property, $color in ($colors) {
+    @if $property == background-color or $property == color {
+      #{$property}: $color;
+    } @else {
+      @warn 'Assuming properties to be background-color or color';
+    }
+  }
+}
+
+@mixin table-body($border-width: false, $colors: false) {
+  @if $colors {
+    @include table-color($colors);
+  }
+
+  @if $border-width {
+    tr {
+      border-bottom: $border-width solid map-get($colors, color);
+    }
+  }
+}
+
+@mixin table-bordered($border-width: 1px, $border-color: $dark-gray) {
+  border: $border-width solid $border-color;
+
+  thead th,
+  tbody td,
+  tfoot td {
+    border-left: $border-width solid $border-color;
+
+    &:first-child {
+      border-left: 0;
+    }
+  }
+}
+
+@mixin table-zebra($el, $colors) {
+  tbody #{$el}:nth-child(odd) {
+    @include table-color($colors);
+  }
+}
