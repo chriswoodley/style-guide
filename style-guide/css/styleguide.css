@@ -69,24 +69,26 @@
     margin-bottom: 0;
 }
 .styleguide__modifiers {
-    margin: 0 0 0 10px;
+    margin: 0;
+    padding: 0;
 }
 .styleguide__modifiers li {
     list-style-type: none;
+    padding-left: 0;
     margin-left: 0;
 }
 .styleguide__modifier-name {
     font-weight: bold;
 }
 .styleguide__element {
-    /*position: relative;*/
+    position: relative;
     padding: 21px;
     /*overflow: auto;*/
 }
 .styleguide__element + .styleguide__element {
-    margin-top: -5px;
+    /*margin-top: -5px;
     padding-top: 15px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #eee;*/
 }
 .styleguide__element__modifier-label {
     display: block;
@@ -97,8 +99,8 @@
     font-size: 11px;
     color: #999;
     background: #f9f9f9;
-    border: 1px solid #eee;
-    border-top: none;
+    /*border: 1px solid #eee;
+    border-top: none;*/
 }
 .styleguide__element__modifier-label--extender:after {
     content: url('/bundles/scankss/images/extender.png');
@@ -114,4 +116,9 @@
 }
 .styleguide__code {
     font-family: Monaco, monospace;
+}
+
+.styleguide__elements {
+  background-image: url(http://basehold.it/i/21/204/40/130);
+  background-repeat: repeat;
 }
