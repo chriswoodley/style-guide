@@ -3,9 +3,13 @@
   widows: 2;
 }
 
-@mixin column($count: 2, $gap: $column-gap, $rule: false) {
-  column-count: $count;
-  column-gap: em($column-gap, $base-font-size);
+@mixin column($count: false, $gap: false, $rule: false) {
+  @if $count {
+    column-count: $count;
+  }
+  @if $gap {
+    column-gap: em($gap, $base-font-size);
+  }
   @if $rule {
     column-rule: 1px solid $black;
   }
