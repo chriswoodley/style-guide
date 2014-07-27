@@ -22,3 +22,14 @@ Icon
 codekit-config.json
 config.codekit
 .codekit-cache
+
+
+### KSS ###
+lib
+test
+vendor
+ACKNOWLEDGEMENTS
+build.xml
+composer.*
+CONTRIBUTING.md
+phpunit.xml.dist
