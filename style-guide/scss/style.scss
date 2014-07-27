@@ -53,36 +53,40 @@ Styleguide 2.0.2
 
 This mixin defines columns within a row. The <code>%grid-col</code> placeholder is used to group common styles for all columns.
 
-<pre>.grid__col-1 {
+<pre>.grid__col {
   @extend %grid-col;
+}
+.grid__col-1 {
   @include grid-col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
 }
-.grid__col-2 {
-  @extend %grid-col;
+.grid__col-3 {
   @include grid-col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
 }</pre>
 
 Markup:
 <div class="grid">
   <div class="grid__row">
-    <div class="grid__col-1">
-      .grid__col-1
+    <div class="grid__col grid__col--1">
+      .grid__col--1
     </div>
-    <div class="grid__col-2">
-      .grid__col-2
+    <div class="grid__col grid__col--3">
+      .grid__col--3
     </div>
   </div>
 </div>
 
 Styleguide 2.0.3
 */
-.grid__col-1 {
+
+.grid__col {
   @extend %grid-col;
+}
+
+.grid__col--1 {
   @include grid-col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
 }
 
-.grid__col-2 {
-  @extend %grid-col;
+.grid__col--3 {
   @include grid-col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
 }
 
@@ -92,23 +96,19 @@ Styleguide 2.0.3
 This mixin defines column positioning commonly used for source ordering content.
 
 <pre>.primary {
-  @extend %grid-col;
-  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
   @include grid-col-order($direction: left, $span: 3, $columns: $mobile-columns);
 }
 .secondary {
-  @extend %grid-col;
-  @include grid-col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
   @include grid-col-order($direction: right, $span: 1, $columns: $mobile-columns);
 }</pre>
 
 Markup:
 <div class="grid">
   <div class="grid__row">
-    <div class="primary">
+    <div class="grid__col grid__col--1 primary">
       .primary
     </div>
-    <div class="secondary">
+    <div class="grid__col grid__col--3 secondary">
       .secondary
     </div>
   </div>
@@ -117,14 +117,10 @@ Markup:
 Styleguide 2.0.4
 */
 .primary {
-  @extend %grid-col;
-  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
   @include grid-col-order($direction: left, $span: 3, $columns: $mobile-columns);
 }
 
 .secondary {
-  @extend %grid-col;
-  @include grid-col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
   @include grid-col-order($direction: right, $span: 1, $columns: $mobile-columns);
 }
 
@@ -133,23 +129,19 @@ Styleguide 2.0.4
 
 This mixin defines column offsets using left and right margins.
 
-<pre>.offset-right {
-  @extend %grid-col;
-  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+<pre>.grid__col-offset-right--1 {
   @include grid-col-offset($direction: right, $span: 1, $columns: $mobile-columns);
 }
-.offset-left {
-  @extend %grid-col;
-  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+.grid__col-offset-left--1 {
   @include grid-col-offset($direction: left, $span: 1, $columns: $mobile-columns);
 }</pre>
 
 Markup: <div class="grid">
   <div class="grid__row">
-    <div class="offset-left">
+    <div class="grid__col grid__col--1 grid__col-offset-left--1">
       .offset-left
     </div>
-    <div class="offset-right">
+    <div class="grid__col grid__col--1 grid__col-offset-right--1">
       .offset-right
     </div>
   </div>
@@ -157,19 +149,13 @@ Markup: <div class="grid">
 
 Styleguide 2.0.5
 */
-
-.offset-right {
-  @extend %grid-col;
-  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+.grid__col-offset-right--1 {
   @include grid-col-offset($direction: right, $span: 1, $columns: $mobile-columns);
 }
 
-.offset-left {
-  @extend %grid-col;
-  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+.grid__col-offset-left--1 {
   @include grid-col-offset($direction: left, $span: 1, $columns: $mobile-columns);
 }
-
 
 /*
 # Menu
@@ -187,17 +173,18 @@ These mixins defines the styles necessary for the top level navigation module. T
 <pre>.menu {
   @extend %unstyled-list;
   @include menu();
-  &>.menu__item {
-    @include menu-item();
-    &>a {
-      @extend %block-link;
-      padding: .75em;
-      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-    }
+}
+.menu__item {
+  @include menu-item();
+  & > a {
+    @extend %block-link;
+    padding: .75em;
+    @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
   }
 }</pre>
 
-Markup: <nav role="navigation">
+Markup:
+<nav role="navigation">
   <ul class="menu">
     <li class="menu__item"><a href="#">Item 1</a></li>
     <li class="menu__item"><a href="#">Item 2</a></li>
@@ -212,13 +199,14 @@ Styleguide 3.0.1
 .menu {
   @extend %unstyled-list;
   @include menu();
-  &>.menu__item {
-    @include menu-item();
-    &>a {
-      @extend %block-link;
-      padding: .75em;
-      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-    }
+}
+
+.menu__item {
+  @include menu-item();
+  & > a {
+    @extend %block-link;
+    padding: .75em;
+    @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
   }
 }
 
@@ -227,42 +215,43 @@ Styleguide 3.0.1
 
 Right aligned menu.
 
-<pre>.menu-1 {
+<pre>.menu-right {
   @extend %unstyled-list;
   @include menu($align: right);
-  &>.menu-1__item {
-    @include menu-item();
-    &>a {
-      @extend %block-link;
-      padding: .75em;
-      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-    }
+}
+.menu-right__item {
+  @include menu-item();
+  & > a {
+    @extend %block-link;
+    padding: .75em;
+    @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
   }
 }</pre>
 
 Markup:
 <nav role="navigation">
-  <ul class="menu-1">
-    <li class="menu-1__item"><a href="#">Item 1</a></li>
-    <li class="menu-1__item"><a href="#">Item 2</a></li>
-    <li class="menu-1__item"><a href="#">Item 3</a></li>
-    <li class="menu-1__item"><a href="#">Item 4</a></li>
-    <li class="menu-1__item"><a href="#">Item 5</a></li>
+  <ul class="menu-right">
+    <li class="menu-right__item"><a href="#">Item 1</a></li>
+    <li class="menu-right__item"><a href="#">Item 2</a></li>
+    <li class="menu-right__item"><a href="#">Item 3</a></li>
+    <li class="menu-right__item"><a href="#">Item 4</a></li>
+    <li class="menu-right__item"><a href="#">Item 5</a></li>
   </ul>
 </nav>
 
 Styleguide 3.0.2
 */
-.menu-1 {
+.menu-right {
   @extend %unstyled-list;
   @include menu($align: right);
-  &>.menu-1__item {
-    @include menu-item();
-    &>a {
-      @extend %block-link;
-      padding: .75em;
-      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-    }
+}
+
+.menu-right__item {
+  @include menu-item();
+  & > a {
+    @extend %block-link;
+    padding: .75em;
+    @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
   }
 }
 
@@ -271,42 +260,43 @@ Styleguide 3.0.2
 
 Center aligned menu.
 
-<pre>.menu-2 {
+<pre>.menu-center {
   @extend %unstyled-list;
   @include menu($align: center);
-  &>.menu-2__item {
-    @include menu-item();
-    & > a {
-      @extend %block-link;
-      padding: .75em;
-      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-    }
+}
+.menu-center__item {
+  @include menu-item();
+  & > a {
+    @extend %block-link;
+    padding: .75em;
+    @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
   }
 }</pre>
 
 Markup:
 <nav role="navigation">
-  <ul class="menu-2">
-    <li class="menu-2__item"><a href="#">Item 1</a></li>
-    <li class="menu-2__item"><a href="#">Item 2</a></li>
-    <li class="menu-2__item"><a href="#">Item 3</a></li>
-    <li class="menu-2__item"><a href="#">Item 4</a></li>
-    <li class="menu-2__item"><a href="#">Item 5</a></li>
+  <ul class="menu-center">
+    <li class="menu-center__item"><a href="#">Item 1</a></li>
+    <li class="menu-center__item"><a href="#">Item 2</a></li>
+    <li class="menu-center__item"><a href="#">Item 3</a></li>
+    <li class="menu-center__item"><a href="#">Item 4</a></li>
+    <li class="menu-center__item"><a href="#">Item 5</a></li>
   </ul>
 </nav>
 
 Styleguide 3.0.3
 */
-.menu-2 {
+.menu-center {
   @extend %unstyled-list;
   @include menu($align: center);
-  &>.menu-2__item {
-    @include menu-item();
-    & > a {
-      @extend %block-link;
-      padding: .75em;
-      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-    }
+}
+
+.menu-center__item {
+  @include menu-item();
+  & > a {
+    @extend %block-link;
+    padding: .75em;
+    @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
   }
 }
 
@@ -315,42 +305,43 @@ Styleguide 3.0.3
 
 Justified menu that spans accross entire width and has equal width menu items.
 
-<pre>.menu-3 {
+<pre>.menu-justified {
   @extend %unstyled-list;
   @include menu($align: justified);
-  &>.menu-3__item {
-    @include menu-item($align: justified, $num: 5);
-    &>a {
-      @extend %block-link;
-      padding: .75em;
-      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-    }
+}
+.menu-justified__item {
+  @include menu-item($align: justified, $num: 5);
+  & > a {
+    @extend %block-link;
+    padding: .75em;
+    @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
   }
 }</pre>
 
 Markup:
 <nav role="navigation">
-  <ul class="menu-3">
-    <li class="menu-3__item"><a href="#">Item 1</a></li>
-    <li class="menu-3__item"><a href="#">Item 2</a></li>
-    <li class="menu-3__item"><a href="#">Item 3</a></li>
-    <li class="menu-3__item"><a href="#">Item 4</a></li>
-    <li class="menu-3__item"><a href="#">Item 5</a></li>
+  <ul class="menu-justified">
+    <li class="menu-justified__item"><a href="#">Item 1</a></li>
+    <li class="menu-justified__item"><a href="#">Item 2</a></li>
+    <li class="menu-justified__item"><a href="#">Item 3</a></li>
+    <li class="menu-justified__item"><a href="#">Item 4</a></li>
+    <li class="menu-justified__item"><a href="#">Item 5</a></li>
   </ul>
 </nav>
 
 Styleguide 3.0.4
 */
-.menu-3 {
+.menu-justified {
   @extend %unstyled-list;
   @include menu($align: justified);
-  &>.menu-3__item {
-    @include menu-item($align: justified, $num: 5);
-    &>a {
-      @extend %block-link;
-      padding: .75em;
-      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-    }
+}
+
+.menu-justified__item {
+  @include menu-item($align: justified, $num: 5);
+  & > a {
+    @extend %block-link;
+    padding: .75em;
+    @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
   }
 }
 
@@ -359,42 +350,43 @@ Styleguide 3.0.4
 
 Vertically stacked menu items.
 
-<pre>.menu-4 {
+<pre>.menu-stacked {
   @extend %unstyled-list;
   @include menu();
-  &>.menu-4__item {
-    @include menu-item(stacked);
-    &>a {
-      @extend %block-link;
-      padding: .75em;
-      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-    }
+}
+.menu-stacked__item {
+  @include menu-item(stacked);
+  & > a {
+    @extend %block-link;
+    padding: .75em;
+    @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
   }
 }</pre>
 
 Markup:
 <nav role="navigation">
-  <ul class="menu-4">
-    <li class="menu-4__item"><a href="#">Item 1</a></li>
-    <li class="menu-4__item"><a href="#">Item 2</a></li>
-    <li class="menu-4__item"><a href="#">Item 3</a></li>
-    <li class="menu-4__item"><a href="#">Item 4</a></li>
-    <li class="menu-4__item"><a href="#">Item 5</a></li>
+  <ul class="menu-stacked">
+    <li class="menu-stacked__item"><a href="#">Item 1</a></li>
+    <li class="menu-stacked__item"><a href="#">Item 2</a></li>
+    <li class="menu-stacked__item"><a href="#">Item 3</a></li>
+    <li class="menu-stacked__item"><a href="#">Item 4</a></li>
+    <li class="menu-stacked__item"><a href="#">Item 5</a></li>
   </ul>
 </nav>
 
 Styleguide 3.0.5
 */
-.menu-4 {
+.menu-stacked {
   @extend %unstyled-list;
   @include menu();
-  &>.menu-4__item {
-    @include menu-item(stacked);
-    &>a {
-      @extend %block-link;
-      padding: .75em;
-      @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
-    }
+}
+
+.menu-stacked__item {
+  @include menu-item(stacked);
+  & > a {
+    @extend %block-link;
+    padding: .75em;
+    @include link-colors($foreground: 'purple' 'yellow' 'yellow', $background: '#e0774c' 'blue' 'purple');
   }
 }
 
@@ -414,24 +406,25 @@ These mixins defines the styles necessary to create dropdown and flyout sub menu
 <pre>.sub-menu {
   @extend %unstyled-list;
   @include sub-menu($width: 10em, $position: true);
-  & > .sub-menu__item {
-    @extend %sub-menu-item;
 
-    &:hover {
-      & > .sub-menu {
-        @include sub-menu-state($active: true, $flyout: true);
-      }
-    }
-  }
   a {
     @extend %block-link;
     padding: .75em;
     @include link-colors($foreground: 'orange' 'red' 'green', $background: 'blue' 'green' 'red');
   }
 }
+.sub-menu__item {
+  @extend %sub-menu-item;
+
+  &:hover {
+    & > .sub-menu {
+      @include sub-menu-state($active: true, $flyout: true);
+    }
+  }
+}
 .menu__item {
   &:hover {
-    &>.sub-menu {
+    & > .sub-menu {
       @include sub-menu-state($active: true, $flyout: false);
     }
   }
@@ -470,15 +463,6 @@ Styleguide 4.0.1
 .sub-menu {
   @extend %unstyled-list;
   @include sub-menu($width: 10em, $position: true);
-  & > .sub-menu__item {
-    @extend %sub-menu-item;
-
-    &:hover {
-      & > .sub-menu {
-        @include sub-menu-state($active: true, $flyout: true);
-      }
-    }
-  }
 
   a {
     @extend %block-link;
@@ -487,9 +471,19 @@ Styleguide 4.0.1
   }
 }
 
+.sub-menu__item {
+  @extend %sub-menu-item;
+
+  &:hover {
+    & > .sub-menu {
+      @include sub-menu-state($active: true, $flyout: true);
+    }
+  }
+}
+
 .menu__item {
   &:hover {
-    &>.sub-menu {
+    & > .sub-menu {
       @include sub-menu-state($active: true, $flyout: false);
     }
   }
@@ -504,31 +498,49 @@ Styleguide 5
 @import 'modules/button';
 
 /*
-# Normal Button
+# Button
 
-Button mixin for defining button size and colors. The <code>%button</code> placeholder contains required styles that a button needs and is used to group common styles accross all buttons. Both mixin and placeholder are required.
+Button mixins for defining button size and colors. The <code>%button</code> placeholder contains required styles that a button needs. Both mixins and placeholder are required.
 
 <pre>.button,
 input.button {
   @extend %button;
-  @include button(normal, $background: #00f, $foreground: #ffa500);
+  @include button($colors: (background-color: $blue, color: $orange), $size: $base-font-size, $lines: 1);
   width: 100%;
 
   @media screen and (min-width: $small-screen) {
     width: auto;
   }
+}
+.button--xlarge,
+input.button--xlarge {
+  @include button($colors: false, $size: $h2-font-size, $lines: 3);
+}
+.button--large,
+input.button--large {
+  @include button($colors: false, $size: $large-font-size, $lines: 2);
+}
+.button--primary,
+input.button--primary {
+  @include button($colors: (background-color: $orange, color: $blue), $size: false, $lines: false);
 }</pre>
 
-Markup: <a href="#" class="button">Link Element</a>
-<input type="submit" name="submit" value="Input Element" class="button">
-<button class="button">Button Element</button>
+Markup:
+<a href="#" class="button $modifierClass">Link Element</a>
+<input type="submit" name="submit" value="Input Element" class="button $modifierClass">
+<button class="button $modifierClass">Button Element</button>
+
+.button--xlarge    - The extra large button
+.button--large     - The large button
+.button--primary   - The primary button
 
 Styleguide 5.0.1
 */
+
 .button,
 input.button {
   @extend %button;
-  @include button(normal, $background: #00f, $foreground: #ffa500);
+  @include button($colors: (background-color: $blue, color: $orange), $size: $base-font-size, $lines: 1);
   width: 100%;
 
   @media screen and (min-width: $small-screen) {
@@ -536,70 +548,19 @@ input.button {
   }
 }
 
-/*
-# Large Button
-
-Button mixin for defining button size and colors. The <code>%button</code> placeholder contains required styles that a button needs and is used to group common styles accross all buttons. Both mixin and placeholder are required.
-
-<pre>.button--large,
-input.button--large {
-  @extend %button;
-  @include button(large, $background: #00f, $foreground: #ffa500);
-  width: 100%;
-
-  @media screen and (min-width: $small-screen) {
-    width: auto;
-  }
-}</pre>
-
-Markup: <a href="#" class="button--large">Link Element</a>
-<input type="submit" name="submit" value="Input Element" class="button--large">
-<button class="button--large">Button Element</button>
-
-Styleguide 5.0.2
-*/
-.button--large,
-input.button--large {
-  @extend %button;
-  @include button(large, $background: #00f, $foreground: #ffa500);
-  width: 100%;
-
-  @media screen and (min-width: $small-screen) {
-    width: auto;
-  }
-}
-
-/*
-# Xlarge Button
-
-Button mixin for defining button size and colors. The <code>%button</code> placeholder contains required styles that a button needs and is used to group common styles accross all buttons. Both mixin and placeholder are required.
-
-<pre>.button--xlarge,
-input.button--xlarge {
-  @extend %button;
-  @include button(xlarge, $background: #00f, $foreground: #ffa500);
-  width: 100%;
-
-  @media screen and (min-width: $small-screen) {
-    width: auto;
-  }
-}</pre>
-
-Markup: <a href="#" class="button--xlarge">Link Element</a>
-<input type="submit" name="submit" value="Input Element" class="button--xlarge">
-<button class="button--xlarge">Button Element</button>
-
-Styleguide 5.0.3
-*/
 .button--xlarge,
 input.button--xlarge {
-  @extend %button;
-  @include button(xlarge, $background: #00f, $foreground: #ffa500);
-  width: 100%;
+  @include button($colors: false, $size: $h2-font-size, $lines: 3);
+}
 
-  @media screen and (min-width: $small-screen) {
-    width: auto;
-  }
+.button--large,
+input.button--large {
+  @include button($colors: false, $size: $large-font-size, $lines: 2);
+}
+
+.button--primary,
+input.button--primary {
+  @include button($colors: (background-color: $orange, color: $blue), $size: false, $lines: false);
 }
 
 /*
@@ -608,82 +569,81 @@ input.button--xlarge {
 Styleguide 6
 */
 
-@import 'modules/form';
+@import 'modules/form-control';
+@import 'modules/form-control-addon';
 
 /*
-# Form Control
+# Form Controls
 
 The form control mixin defines the styles for form controls. The <code>%form-control</code> placeholder contains common styles for form controls. Both are required.
 
-<pre>.form {
-  .form__row {
-    @include grid-row();
-    margin-bottom: rhythm();
+<pre>
+.form-control,
+input.form-control {
+  @extend %form-control;
+  @include form-control($size: xlarge);
+  @include form-control-focus-color($color: $blue);
+}
+.form-control--textarea {
+  @include form-control($size: xlarge, $textarea: true);
+}
+.form-row,
+.form-col {
+  margin-bottom: rhythm();
+}
+.title,
+.nickname,
+.state,
+.comments {
+  @include grid-col(2, 2, left);
+}
+.first-name,
+.last-name {
+  @include grid-col(1, 2, left);
+}
+
+@media screen and (min-width: $small-screen) {
+  .form-control,
+  input.form-control {
+    @include form-control($size: normal);
   }
-  .form__col {
-    @extend %grid-col;
-    margin-bottom: rhythm();
-  }
-  .form__control {
-    @extend %form-control;
-    @include form-control(xlarge);
-  }
-  .form__textarea {
-    @extend %form-control;
-    @include form-control(xlarge, true);
+  .form-control--textarea {
+    @include form-control($size: normal, $textarea: true);
   }
   .title,
-  .nickname,
-  .state,
-  .comments {
-    @include grid-col(2, 2, left);
+  .state {
+    @include grid-col(3, 9, right, $desktop-gutter);
   }
   .first-name,
-  .last-name {
-    @include grid-col(1, 2, left);
+  .last-name,
+  .nickname {
+    @include grid-col(3, 9, right, $desktop-gutter);
   }
-
-  @media screen and (min-width: $small-screen) {
-    .form__control {
-      @include form-control(normal);
-    }
-    .form__textarea {
-      @include form-control(normal, true);
-    }
-    .title,
-    .state {
-      @include grid-col(3, 9, right, $desktop-gutter);
-    }
-    .first-name,
-    .last-name,
-    .nickname {
-      @include grid-col(3, 9, right, $desktop-gutter);
-    }
-    .comments {
-      @include grid-col(6, 9, right, $desktop-gutter);
-    }
+  .comments {
+    @include grid-col(6, 9, right, $desktop-gutter);
   }
 }</pre>
 
-Markup: <form action="" method="get" role="form" class="form">
-  <div class="form__row">
-    <div class="form__col first-name">
+Markup:
+<form action="" method="get" role="form">
+  <div class="grid__row form-row">
+    <div class="grid__col form-col first-name">
       <label for="first_name">First Name</label>
-      <input type="text" name="first_name" placeholder="first name" class="form__control" />
+      <input type="text" name="first_name" placeholder="first name" class="form-control" />
     </div>
-    <div class="form__col last-name">
+    <div class="grid__col form-col last-name">
       <label for="last_name">Last Name</label>
-      <input type="text" name="last_name" placeholder="last name" class="form__control" />
+      <input type="text" name="last_name" placeholder="last name" class="form-control" />
     </div>
-    <div class="form__col nickname">
+    <div class="grid__col form-col nickname">
         <label for="nickname">Nickname</label>
-          <input type="text" name="nickname" placeholder="nickname" class="form__control" />
+          <input type="text" name="nickname" placeholder="nickname" class="form-control" />
     </div>
   </div>
-  <div class="form__row">
-    <div class="form__col state">
+  <div class="grid__row form-row">
+    <div class="grid__col form-col state">
       <label for="state">State</label>
-      <select name="state" class="form__control">
+      <select name="state" class="form-control">
         <option value="alabama">AL</option>
         <option value="alaska">AK</option>
         <option value="arizona">AR</option>
@@ -691,123 +651,115 @@ Markup: <form action="" method="get" role="form" class="form">
       </select>
     </div>
   </div>
-  <div class="form__row">
-    <div class="form__col comments">
+  <div class="grid__row form-row">
+    <div class="grid__col form-col comments">
       <label for="comments">Comments</label>
-      <textarea name="comments" placeholder="comments" class="form__textarea"></textarea>
+      <textarea name="comments" placeholder="comments" class="form-control--textarea"></textarea>
     </div>
   </div>
 </form>
 
 Styleguide 6.0.1
 */
+.form-control,
+input.form-control {
+  @extend %form-control;
+  @include form-control($size: $large-font-size, $lines: 2);
+  @include form-control-focus-color($color: $blue);
+}
 
-.form {
+.form-control--textarea {
+  @include form-control($size: $large-font-size, $lines: 10, $textarea: true);
+}
 
-  .form__row {
-    @include grid-row();
-    margin-bottom: rhythm();
+.form-row,
+.form-col {
+  margin-bottom: rhythm();
+}
+
+.title,
+.nickname,
+.state,
+.comments {
+  @include grid-col(2, 2, left);
+}
+
+.first-name,
+.last-name {
+  @include grid-col(1, 2, left);
+}
+
+@media screen and (min-width: $small-screen) {
+  .form-control,
+  input.form-control {
+    @include form-control($size: $base-font-size, $lines: 1);
   }
 
-  .form__col {
-    @extend %grid-col;
-    margin-bottom: rhythm();
-  }
-
-  .form__control {
-    @extend %form-control;
-    @include form-control(xlarge);
-  }
-
-  .form__textarea {
-    @extend %form-control;
-    @include form-control(xlarge, true);
+  .form-control--textarea {
+    @include form-control($size: $base-font-size, $lines: 10, $textarea: true);
   }
 
   .title,
-  .nickname,
-  .state,
-  .comments {
-    @include grid-col(2, 2, left);
+  .state {
+    @include grid-col(3, 9, right, $desktop-gutter);
   }
 
   .first-name,
-  .last-name {
-    @include grid-col(1, 2, left);
+  .last-name,
+  .nickname {
+    @include grid-col(3, 9, right, $desktop-gutter);
   }
 
-  @media screen and (min-width: $small-screen) {
-    .form__control {
-      @include form-control(normal);
-    }
-
-    .form__textarea {
-      @include form-control(normal, true);
-    }
-
-    .title,
-    .state {
-      @include grid-col(3, 9, right, $desktop-gutter);
-    }
-
-    .first-name,
-    .last-name,
-    .nickname {
-      @include grid-col(3, 9, right, $desktop-gutter);
-    }
-
-    .comments {
-      @include grid-col(6, 9, right, $desktop-gutter);
-    }
+  .comments {
+    @include grid-col(6, 9, right, $desktop-gutter);
   }
 }
 
 /*
-# Form Control Addon
+# Form Control Addons
 
 The form control addon mixin defines the styles for prefixed or appended label addons. The <code>%form-control-addon</code> placeholder contains common styles used for addons. Both are required.
 
-<pre>.url,
-.donate {
-  @include grid-col(2, 2, left);
-}
-.url-addon {
+<pre>.form-control-addon {
   @extend %form-control-addon;
-  @include form-control-addon(xlarge, true);
 }
-.donate-addon {
-  @extend %form-control-addon;
-  @include form-control-addon(xlarge, false);
+.form-control-addon__label {
+  @extend %form-control-addon-label;
+  @include form-control-addon-label-size($size: xlarge);
+  @include form-control-addon-label-color($background: $dark-gray, $foreground: $light-gray);
+
+  @media screen and (min-width: $small-screen) {
+    @include form-control-addon-label-size($size: normal);
+  }
 }
-@media screen and (min-width: $small-screen) {
-  .url-addon {
-    @include form-control-addon(normal, true);
-  }
-  .donate-addon {
-    @include form-control-addon(normal, false);
-  }
-  .url,
-  .donate {
-    @include grid-col(3, 9, right, $desktop-gutter);
-  }
+.form-control-addon__field,
+input.form-control-addon__field {
+  @extend %form-control-addon-input;
+}
+.form-control-addon--prepend {
+  @include form-control-addon($label-class: form-control-addon__label, $side: left, $width: 75px);
+}
+.form-control-addon--append {
+  @include form-control-addon($label-class: form-control-addon__label, $side: right, $width: 75px);
 }</pre>
 
-Markup: <form action="" method="get" role="form" class="form">
-  <div class="form__row">
-    <div class="form__col url">
+Markup:
+<form action="" method="get" role="form">
+  <div class="grid__row form-row">
+    <div class="grid__col form-col url">
       <label for="url">Website</label>
-      <div class="url-addon">
-        <span>http://</span>
-        <input type="text" name="url" placeholder="website address" class="form__control" />
+      <div class="form-control-addon form-control-addon--prepend">
+        <span class="form-control-addon__label">http://</span>
+        <input type="text" name="url" placeholder="website address" class="form-control form-control-addon__field" />
       </div>
     </div>
   </div>
-  <div class="form__row">
-    <div class="form__col dontate">
+  <div class="grid__row form-row">
+    <div class="grid__col form-col donate">
       <label for="donate">Amount</label>
-      <div class="donate-addon">
-        <span>.00</span>
-        <input type="number" name="donate" placeholder="10" class="form__control" />
+      <div class="form-control-addon form-control-addon--append">
+        <span class="form-control-addon__label">.00</span>
+        <input type="number" name="donate" placeholder="10" class="form-control form-control-addon__field" />
       </div>
     </div>
   </div>
@@ -815,29 +767,35 @@ Markup: <form action="" method="get" role="form" class="form">
 
 Styleguide 6.0.2
 */
+.form-control-addon {
+  @extend %form-control-addon;
+}
+
+.form-control-addon__label {
+  @extend %form-control-addon-label;
+  @include form-control-addon-label($size: $large-font-size, $lines: 2, $colors: (background-color: $dark-gray, color: $light-gray));
+
+  @media screen and (min-width: $small-screen) {
+    @include form-control-addon-label($size: $base-font-size, $lines: 1, $colors: false);
+  }
+}
+
+.form-control-addon__field,
+input.form-control-addon__field {
+  @extend %form-control-addon-input;
+}
+
+.form-control-addon--prepend {
+  @include form-control-addon($label-class: form-control-addon__label, $side: left, $width: 75px);
+}
+
+.form-control-addon--append {
+  @include form-control-addon($label-class: form-control-addon__label, $side: right, $width: 75px);
+}
+
 .url,
 .donate {
   @include grid-col(2, 2, left);
-}
-.url-addon {
-  @extend %form-control-addon;
-  @include form-control-addon(xlarge, true);
-}
-.donate-addon {
-  @extend %form-control-addon;
-  @include form-control-addon(xlarge, false);
-}
-@media screen and (min-width: $small-screen) {
-  .url-addon {
-    @include form-control-addon(normal, true);
-  }
-  .donate-addon {
-    @include form-control-addon(normal, false);
-  }
-  .url,
-  .donate {
-    @include grid-col(3, 9, right, $desktop-gutter);
-  }
 }
 
 /*
@@ -913,109 +871,52 @@ Styleguide 8
 The alert mixin defines the base styles for a typical alert or validation message.
 
 Usage:
-<pre>.alert,
-.alert-notice,
-.alert-error,
-.alert-success,
-.alert-warning {
-  @include alert();
+<pre>.alert {
+  @include alert($border: 1px, $color: false);
+}
+.alert--notice {
+  @include alert($border: false, $color: $blue);
+}
+.alert--error {
+  @include alert($border: false, $color: $red);
+}
+.alert--success {
+  @include alert($border: false, $color: $green);
+}
+.alert--warning {
+  @include alert($border: false, $color: $yellow);
 }</pre>
 
-Markup: <div class="alert">
+Markup:
+<div class="alert $modifierClass">
   <p>This is an alert.</p>
 </div>
 
+.alert--notice    - The notice alert.
+.alert--error     - The error alert.
+.alert--warning   - The warning alert.
+.alert--success   - The success alert.
+
 Styleguide 8.0.1
 */
-.alert,
-.alert-notice,
-.alert-error,
-.alert-success,
-.alert-warning {
-  @include alert();
+.alert {
+  @include alert($border: 1px, $color: false);
 }
 
-/*
-# Notice Alert
-
-The alert type mixin defines the colors that will be rendered on the alert object.
-
-Usage:
-<pre>.alert-notice {
-  @include alert-type(notice);
-}</pre>
-
-Markup: <div class="alert-notice">
-  <p>This is an notice alert.</p>
-</div>
-
-Styleguide 8.0.2
-*/
-.alert-notice {
-  @include alert-type(notice);
+.alert--notice {
+  @include alert($border: false, $color: $blue);
 }
 
-/*
-# Error Alert
-
-The alert type mixin defines the colors that will be rendered on the alert object.
-
-Usage:
-<pre>.alert-error {
-  @include alert-type(error);
-}</pre>
-
-Markup:
-<div class="alert-error">
-  <p>This is an error alert.</p>
-</div>
-
-Styleguide 8.0.3
-*/
-.alert-error {
-  @include alert-type(error);
+.alert--error {
+  @include alert($border: false, $color: $red);
 }
 
-/*
-# Success Alert
-
-The alert type mixin defines the colors that will be rendered on the alert object.
-
-Usage:
-<pre>.alert-success {
-  @include alert-type(success);
-}</pre>
-
-Markup:
-<div class="alert-success">
-  <p>This is an success alert.</p>
-</div>
-
-Styleguide 8.0.4
-*/
-.alert-success {
-  @include alert-type(success);
+.alert--success {
+  @include alert($border: false, $color: $green);
 }
 
-/*
-# Warning Alert
-
-The alert type mixin defines the colors that will be rendered on the alert object.
-
-Usage:
-<pre>.alert-warning {
-  @include alert-type(warning);
-}</pre>
-
-Markup:
-<div class="alert-warning">
-  <p>This is an warning alert.</p>
-</div>
-
-Styleguide 8.0.5
-*/
-.alert-warning {
-  @include alert-type(warning);
+.alert--warning {
+  @include alert($border: false, $color: $yellow);
 }
 
 /*
@@ -1033,7 +934,10 @@ The Column mixin contains the styles to apply multiple columns of text on an blo
 
 <pre>.columns {
   @extend %column;
-  @include column(3);
+  @include column($count: 1, $gap: false, $rule: false);
+  @media screen and (min-width: $small-screen) {
+    @include column($count: 4, $gap: $column-gap, $rule: true);
+  }
 }</pre>
 
 Markup:
@@ -1048,11 +952,11 @@ Styleguide 9.0.1
 */
 .columns {
   @extend %column;
-  @include column(3);
+  @include column($count: 1, $gap: false, $rule: false);
+  @media screen and (min-width: $small-screen) {
+    @include column($count: 4, $gap: $column-gap, $rule: true);
+  }
 }
-
-@import 'helpers';
-
 
 /*
 # Grid Blocks
@@ -1069,10 +973,10 @@ The grid block mixin contains the styles needed to create fixed width inline blo
 
 <pre>.grid-block {
   @extend %grid-block;
-  @include grid-block($container-width: 320px, $columns: 2);
+  @include grid-block($container-width: 320px, $columns: 2, $gutter: $mobile-gutter);
 
   @media screen and (min-width: $small-screen) {
-    @include grid-block($container-width: 800px, $columns: 4);
+    @include grid-block($container-width: 800px, $columns: 4, $gutter: $desktop-gutter);
   }
 }</pre>
 
@@ -1087,10 +991,10 @@ Styleguide 10.0.1
 
 .grid-block {
   @extend %grid-block;
-  @include grid-block($container-width: 320px, $columns: 2);
+  @include grid-block($container-width: 320px, $columns: 2, $gutter: $mobile-gutter);
 
   @media screen and (min-width: $small-screen) {
-    @include grid-block($container-width: 800px, $columns: 4);
+    @include grid-block($container-width: 800px, $columns: 4, $gutter: $desktop-gutter);
   }
 }
 
@@ -1103,22 +1007,859 @@ Styleguide 11
 @import 'modules/label';
 
 /*
-# label
+# Default Label
 
 The label mixin contains the styles needed to create inline labels. The <code>%label</code> placeholder contains the base styles for the labels. Both are required.
 
 <pre>.label {
   @extend %label;
-  @include label($size: normal, $background: $light-gray, $foreground: $dark-gray);
+  @include label($size: $base-font-size, $lines: 1, $colors: (background-color: $light-gray, color: $dark-gray));
+}
+.label--large {
+  @include label($size: $large-font-size, $lines: 2, $colors: false);
+}
+.label--xlarge {
+  @include label($size: $h3-font-size, $lines: 2, $colors: false);
+  border-radius: 5px;
 }</pre>
 
 Markup:
-<p>Sample text. <span class="label">new</span></p>
+<p>Sample text. <span class="label $modifierClass">new</span></p>
+
+.label--large   - large label
+.label--xlarge  - extra large label
 
 Styleguide 11.0.1
 */
-
 .label {
   @extend %label;
-  @include label($size: normal, $background: $light-gray, $foreground: $dark-gray);
+  @include label($size: $base-font-size, $lines: 1, $colors: (background-color: $light-gray, color: $dark-gray));
 }
+
+.label--large {
+  @include label($size: $large-font-size, $lines: 2, $colors: false);
+}
+
+.label--xlarge {
+  @include label($size: $h3-font-size, $lines: 2, $colors: false);
+  border-radius: 5px;
+}
+
+/*
+# Gray Box
+
+Styleguide 12
+*/
+
+@import 'modules/gray-box';
+
+/*
+# Default Gray Box
+
+The gray box mixins is used to create gray boxes for the purpose of building HTML wireframes. The <code>%gray-box</code> placeholder contains the base styles for the for the gray boxes. All are required.
+
+<pre>.gray-box {
+  @extend %gray-box;
+  @include gray-box($lines: 4, $colors: (background-color: $blue, color: $orange));
+}
+.gray-box--large {
+  @include gray-box($lines: 8, $colors: false);
+}
+.gray-box--xlarge {
+  @include gray-box($lines: 16, $colors: false);
+}
+.gray-box--xxlarge {
+  @include gray-box($lines: 32, $colors: false);
+}
+.gray-box--dark {
+  @include gray-box($lines: false, $colors: (background-color: $dark-gray, color: $light-gray));
+}
+.gray-box--light {
+  @include gray-box($lines: false, $colors: (background-color: $light-gray, color: $gray));
+}</pre>
+
+Markup:
+<div class="gray-box $modifierClass">Gray Box</div>
+
+.gray-box--large - large graybox
+.gray-box--xlarge - extra large graybox
+.gray-box--xxlarge - double extra large graybox
+.gray-box--dark - dark graybox
+.gray-box--light - light graybox
+
+Styleguide 12.0.1
+*/
+
+.gray-box {
+  @extend %gray-box;
+  @include gray-box($lines: 4, $colors: (background-color: $blue, color: $orange));
+}
+
+.gray-box--large {
+  @include gray-box($lines: 8, $colors: false);
+}
+
+.gray-box--xlarge {
+  @include gray-box($lines: 16, $colors: false);
+}
+
+.gray-box--xxlarge {
+  @include gray-box($lines: 32, $colors: false);
+}
+
+.gray-box--dark {
+  @include gray-box($lines: false, $colors: (background-color: $dark-gray, color: $light-gray));
+}
+
+.gray-box--light {
+  @include gray-box($lines: false, $colors: (background-color: $light-gray, color: $gray));
+}
+
+/*
+# Icon
+
+Styleguide 13
+*/
+
+@import 'modules/icon';
+
+/*
+# Icon
+
+The icon mixin is used to create inline icons for buttons, nav items, labels, or whatever your heart desires. The <code>%icon</code> placeholder contains the base styles for the icons. The icon-content mixin is used to pass in the unicode content of a specific icon. All are required.
+
+<pre>.icon {
+  @extend %icon;
+  @include icon($font: fontawesome, $content: false);
+  @include icon-style($color: $blue, $size: $base-font-size, $valign: 0%);
+}
+.icon--xlarge {
+  @include icon-style($color: false, $size: 24px, $valign: -8%);
+}
+.icon--large {
+  @include icon-style($color: false, $size: 18px, $valign: -6%);
+}
+.icon--contrast {
+  @include icon($font: false, $content: '\f042');
+}
+.icon--envelope {
+  @include icon($font: false, $content: '\f003');
+}</pre>
+
+Markup:
+<span class="icon icon--envelope $modifierClass"></span> Text here.
+
+.icon--xlarge  - extra large icon
+.icon--large   - large icon
+
+Styleguide 13.0.1
+*/
+
+.icon {
+  @extend %icon;
+  @include icon($font: fontawesome, $content: false);
+  @include icon-style($color: $blue, $size: $base-font-size, $valign: 0%);
+}
+
+.icon--xlarge {
+  @include icon-style($color: false, $size: 24px, $valign: -8%);
+}
+
+.icon--large {
+  @include icon-style($color: false, $size: 18px, $valign: -6%);
+}
+
+.icon--contrast {
+  @include icon($font: false, $content: '\f042');
+}
+
+.icon--envelope {
+  @include icon($font: false, $content: '\f003');
+}
+
+/*
+# Off Canvas
+
+Styleguide 14
+*/
+
+@import 'modules/off-canvas';
+
+/*
+# Off Canvas
+
+The Off Canvas mixins are used to create the off canvas menu element. This module is meant to affect the entire viewport and should <strong>not</strong> be nested inside another element like the example shown below. JavaScript is required to dynamically toggle the menu activation. See top left corner of the viewport where the off canvas menu would be located when the module is active.
+<br><br>
+The <code>%off-canvas</code>, <code>%off-canvas-menu</code>, and <code>%off-canvas-transition</code> placeholders defines the base styles for each block element and are all are required.
+
+<pre>.off-canvas {
+  @extend %off-canvas;
+}
+.off-canvas__menu {
+  @extend %off-canvas-menu;
+  @extend %off-canvas-transition;
+  @include off-canvas($el: menu, $side: left, $active: false);
+  .off-canvas--is-active & {
+    @include off-canvas($el: menu, $side: left, $active: true);
+  }
+}
+.off-canvas__content {
+  @include off-canvas($el: content, $side: left, $active: false);
+  @extend %off-canvas-transition;
+  .off-canvas--is-active & {
+    @include off-canvas($el: content, $side: left, $active: true);
+  }
+}</pre>
+
+Markup:
+<div class="off-canvas $modifierClass">
+  <div class="off-canvas__menu">Off Canvas Menu</div>
+  <div class="off-canvas__content">
+    <div><button>Menu</button></div>
+    <p>Off Canvas Content</p>
+  </div>
+</div>
+
+.off-canvas--is-active - active off canvas menu
+
+Styleguide 14.0.1
+*/
+.off-canvas {
+  @extend %off-canvas;
+}
+
+.off-canvas__menu {
+  @extend %off-canvas-menu;
+  @extend %off-canvas-transition;
+  @include off-canvas($el: menu, $side: left, $active: false);
+
+  .off-canvas--is-active & {
+    @include off-canvas($el: menu, $side: left, $active: true);
+  }
+}
+
+.off-canvas__content {
+  @include off-canvas($el: content, $side: left, $active: false);
+  @extend %off-canvas-transition;
+
+  .off-canvas--is-active & {
+    @include off-canvas($el: content, $side: left, $active: true);
+  }
+}
+
+
+/*
+# Responsive Embed
+
+Styleguide 15
+*/
+
+@import 'modules/responsive-embed';
+
+/*
+# Responsive Embeds
+
+The mixins provide styles to create repsonisve iframes and video elements. The <code>%responsive-embed</code> placeholder defines the base styles to make iframes, embeds, and objects responsive. All are required.
+
+<pre>.responsive-embed {
+  @extend %responsive-embed;
+  @include responsive-embed($ratio-width: 1, $ratio-height: 1, $video: false);
+}
+.responsive-embed--video {
+  @include responsive-embed($ratio-width: 16, $ratio-height: 9, $video: true);
+}
+.responsive-embed--map {
+  @include responsive-embed($ratio-width: 4, $ratio-height: 3, $video: false);
+}</pre>
+
+Markup:
+<div class="responsive-embed $modifierClass">
+  <iframe src='http://www.youtube.com/embed/QILiHiTD3uc' frameborder='0' allowfullscreen></iframe>
+</div>
+
+.responsive-embed--video - 16:9 wide screen ratio
+.responsive-embed--map - 4:3 screen ratio
+
+Styleguide 15.0.1
+*/
+.responsive-embed {
+  @extend %responsive-embed;
+  @include responsive-embed($ratio-width: 1, $ratio-height: 1, $video: false);
+}
+
+.responsive-embed--video {
+  @include responsive-embed($ratio-width: 16, $ratio-height: 9, $video: true);
+}
+
+.responsive-embed--map {
+  @include responsive-embed($ratio-width: 4, $ratio-height: 3, $video: false);
+}
+
+
+/*
+# Button Dropdown
+
+Styleguide 16
+*/
+@import 'modules/button-dropdown';
+
+/*
+# Button Dropdown
+
+The mixins provide styles to create button dropdowns. The <code>%button-dropdown</code> and <code>%button-dropdown-content</code> placeholder defines the base styles. Use JavaScript to toggle the dropdown content. All are required.
+
+<pre>.button-dropdown {
+  @extend %button-dropdown;
+}
+.button-dropdown__content {
+  @extend %button-dropdown-content;
+  @include button-dropdown-content($width: 300%, $active: false);
+  .button-dropdown--is-active & {
+    @include button-dropdown-content($width: false, $active: true);
+  }
+}</pre>
+
+Markup:
+<div class="button-dropdown $modifierClass">
+  <button>Menu</button>
+  <div class="button-dropdown__content">
+    <p>The content here. can be a menu, paragraph, or whatever.</p>
+  </div>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+.button-dropdown--is-active - active button dropdown
+
+Styleguide 16.0.1
+*/
+.button-dropdown {
+  @extend %button-dropdown;
+}
+
+.button-dropdown__content {
+  @extend %button-dropdown-content;
+  @include button-dropdown-content($width: 300%, $active: false);
+
+  .button-dropdown--is-active & {
+    @include button-dropdown-content($width: false, $active: true);
+  }
+}
+
+/*
+# Pager
+
+Styleguide 17
+*/
+@import 'modules/pager';
+
+/*
+# Pager
+
+The mixins provide styles to create a pager. The <code>%pager</code> and <code>%pager-item</code> placeholder defines the base styles of the block elements. All are required.
+
+<pre>.pager {
+  @extend %pager;
+}
+.pager__item {
+  @extend %pager-item;
+}
+.pager__item--left {
+  @include pager-item($float: left);
+}
+.pager__item--right {
+  @include pager-item($float: right);
+}
+.pager__item--none {
+  @include pager-item($float: none);
+}</pre>
+
+Markup:
+<div class="pager">
+  <div class="pager__item pager__item--left">left</div>
+  <div class="pager__item pager__item--right">right</div>
+</div>
+
+Styleguide 17.0.1
+*/
+.pager {
+  @extend %pager;
+}
+.pager__item {
+  @extend %pager-item;
+}
+.pager__item--left {
+  @include pager-item($float: left);
+}
+.pager__item--right {
+  @include pager-item($float: right);
+}
+.pager__item--none {
+  @include pager-item($float: none);
+}
+
+/*
+# Pagination
+
+Styleguide 18
+*/
+@import 'modules/pagination';
+
+/*
+# Pagination
+
+The mixins provide styles to create a series of links that represent pagination. The <code>%pagination</code> and <code>%pagination-item</code> placeholder defines the base styles of the block elements. All are required.
+
+<pre>.pagination {
+  @extend %unstyled-list;
+  @extend %pagination;
+}
+.pagination__item {
+  @extend %pagination-item;
+  a {
+    @extend %block-link;
+    @include pagination-link-size($size: $large-font-size, $lines: 2);
+    @media screen and (min-width: $small-screen) {
+      @include pagination-link-size($size: $base-font-size, $lines: 1);
+    }
+  }
+}
+.pagination--center {
+  @include pagination($align: center);
+}
+.pagination--right {
+  @include pagination($align: right);
+}</pre>
+
+Markup:
+<ul class="pagination $modifierClass">
+  <li class="pagination__item"><a href="#">1</a></li>
+  <li class="pagination__item"><a href="#">2</a></li>
+  <li class="pagination__item"><a href="#">3</a></li>
+  <li class="pagination__item"><a href="#">4</a></li>
+  <li class="pagination__item"><a href="#">5</a></li>
+  <li class="pagination__item"><a href="#">6</a></li>
+  <li class="pagination__item"><a href="#">7</a></li>
+  <li class="pagination__item"><a href="#">8</a></li>
+  <li class="pagination__item"><a href="#">9</a></li>
+  <li class="pagination__item"><a href="#">10</a></li>
+</ul>
+
+.pagination--center - center aligned pagination
+.pagination--right  - right aligned pagination
+
+Styleguide 18.0.1
+*/
+.pagination {
+  @extend %unstyled-list;
+  @extend %pagination;
+}
+
+.pagination__item {
+  @extend %pagination-item;
+
+  a {
+    @extend %block-link;
+    @include pagination-link-size($size: $large-font-size, $lines: 2);
+    @media screen and (min-width: $small-screen) {
+      @include pagination-link-size($size: $base-font-size, $lines: 1);
+    }
+  }
+}
+
+.pagination--center {
+  @include pagination($align: center);
+}
+
+.pagination--right {
+  @include pagination($align: right);
+}
+
+/*
+# Tables
+
+Styleguide 19
+*/
+@import 'modules/table';
+
+/*
+# Table
+
+The mixins provide styles to create fancy tables.
+
+<pre>.table {
+  th,
+  td {
+    @include table-size($size: $large-font-size, $lines: 2);
+    @media screen and (min-width: $small-screen) {
+      @include table-size($size: $base-font-size, $lines: 1);
+    }
+  }
+  thead {
+    @include table-color($colors: (background-color: $dark-gray, color: $white));
+  }
+  tbody {
+    @include table-body($border-width: 1px, $colors: (background-color: $white, color: $dark-gray));
+  }
+  tfoot {
+    td {
+      @include table-size($size: $base-font-size, $lines: 1);
+      @media screen and (min-width: $small-screen) {
+        @include table-size($size: $small-font-size, $lines: 1);
+      }
+    }
+  }
+  caption {
+    @include font-size($to: $base-font-size, $lines: 1);
+    @media screen and (min-width: $small-screen) {
+      @include font-size($to: $large-font-size, $lines: 2);
+    }
+  }
+}
+.table--bordered {
+  @include table-bordered($border-width: 1px, $border-color: $dark-gray);
+}
+.table--zebra-row {
+  @include table-zebra($el: tr, $colors: (background-color: $light-gray, color: $dark-gray));
+}
+.table--zebra-col {
+  @include table-zebra($el: td, $colors: (background-color: $light-gray, color: $dark-gray));
+}
+.table--large {
+  th,
+  td {
+    @include table-size($size: $base-font-size, $lines: 1);
+    @media screen and (min-width: $small-screen) {
+      @include table-size($size: $h3-font-size, $lines: 3);
+    }
+  }
+  tfoot {
+    td {
+      @include table-size($size: $small-font-size, $lines: 1);
+      @media screen and (min-width: $small-screen) {
+        @include table-size($size: $base-font-size, $lines: 1);
+      }
+    }
+  }
+}</pre>
+
+Markup:
+<table class="table $modifierClass" cellpadding="0" cellspacing="0" border="0">
+  <thead>
+    <tr>
+      <th>Header 1</th>
+      <th>Header 2</th>
+      <th>Header 3</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="3">Footer</td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>Row 1: cell 1</td>
+      <td>Row 1: cell 2</td>
+      <td>Row 1: cell 3</td>
+    </tr>
+    <tr>
+      <td>Row 2: cell 1</td>
+      <td>Row 2: cell 2</td>
+      <td>Row 2: cell 3</td>
+    </tr>
+    <tr>
+      <td>Row 3: cell 1</td>
+      <td>Row 3: cell 2</td>
+      <td>Row 3: cell 3</td>
+    </tr>
+  </tbody>
+  <caption>This is a table caption</caption>
+</table>
+
+.table--bordered - bordered table
+.table--zebra-row - zebra row table
+.table--zebra-col - zebra column table
+.table--large - large table
+
+Styleguide 19.0.1
+*/
+
+.table {
+  th,
+  td {
+    @include table-size($size: $large-font-size, $lines: 2);
+    @media screen and (min-width: $small-screen) {
+      @include table-size($size: $base-font-size, $lines: 1);
+    }
+  }
+
+  thead {
+    @include table-color($colors: (background-color: $dark-gray, color: $white));
+  }
+
+  tbody {
+    @include table-body($border-width: 1px, $colors: (background-color: $white, color: $dark-gray));
+  }
+
+  tfoot {
+    td {
+      @include table-size($size: $base-font-size, $lines: 1);
+      @media screen and (min-width: $small-screen) {
+        @include table-size($size: $small-font-size, $lines: 1);
+      }
+    }
+  }
+
+  caption {
+    @include font-size($to: $base-font-size, $lines: 1);
+    @media screen and (min-width: $small-screen) {
+      @include font-size($to: $large-font-size, $lines: 2);
+    }
+  }
+}
+
+.table--bordered {
+  @include table-bordered($border-width: 1px, $border-color: $dark-gray);
+}
+
+.table--zebra-row {
+  @include table-zebra($el: tr, $colors: (background-color: $light-gray, color: $dark-gray));
+}
+
+.table--zebra-col {
+  @include table-zebra($el: td, $colors: (background-color: $light-gray, color: $dark-gray));
+}
+
+.table--large {
+  th,
+  td {
+    @include table-size($size: $base-font-size, $lines: 1);
+    @media screen and (min-width: $small-screen) {
+      @include table-size($size: $h3-font-size, $lines: 3);
+    }
+  }
+
+  tfoot {
+    td {
+      @include table-size($size: $small-font-size, $lines: 1);
+      @media screen and (min-width: $small-screen) {
+        @include table-size($size: $base-font-size, $lines: 1);
+      }
+    }
+  }
+}
+
+
+/*
+# Rule
+
+Styleguide 20
+*/
+@import 'modules/rule';
+
+/*
+# Fancy Rules
+
+The mixins provide styles to create fancy horizontal rules.
+
+<pre>.rule {
+  @extend %rule-reset;
+  @include rule($style: solid, $width: 1px, $color: $light-gray);
+}
+.rule--dashed {
+  @include rule($style: dashed, $width: false, $color: false);
+}
+.rule--double {
+  @include rule($style: double, $width: 4px, $color: false);
+}
+hr.rule--faded,
+hr.rule--shadow {
+  @extend %rule-reset;
+}
+.rule--faded {
+  @include rule-fade($width: 1px, $color: $gray);
+}
+.rule--shadow {
+  @include rule-shadow($width: $base-line-height, $color: $black);
+}
+.rule--inset {
+  @extend %rule-inset;
+  @include rule-inset($widths: (bottom: 2px, top: 1px), $colors: (bottom: $light-gray, top: $dark-gray));
+}</pre>
+
+Markup:
+<hr class="rule $modifierClass" />
+
+.rule--dashed - Dashed rule
+.rule--double - Double rule
+.rule--faded  - Faded rule
+.rule--shadow - Shadow rule
+.rule--inset  - Inset rule
+
+Styleguide 20.0.1
+*/
+
+.rule {
+  @extend %rule-reset;
+  @include rule($style: solid, $width: 1px, $color: $light-gray);
+}
+
+.rule--dashed {
+  @include rule($style: dashed, $width: false, $color: false);
+}
+
+.rule--double {
+  @include rule($style: double, $width: 4px, $color: false);
+}
+
+hr.rule--faded,
+hr.rule--shadow {
+  @extend %rule-reset;
+}
+
+.rule--faded {
+  @include rule-fade($width: 1px, $color: $gray);
+}
+
+.rule--shadow {
+  @include rule-shadow($width: $base-line-height, $color: $black);
+}
+
+.rule--inset {
+  @extend %rule-inset;
+  @include rule-inset($widths: (bottom: 2px, top: 1px), $colors: (bottom: $light-gray, top: $dark-gray));
+}
+
+/*
+# Ornamental Rules
+
+The mixins provide styles to create ornamental horizontal rules.
+
+<pre>.rule--ornament {
+  @extend %rule-ornament;
+  @include rule-ornament($content: false, $content-size: $base-font-size, $content-colors: (background-color: $white, color: $light-gray));
+}
+hr.rule.rule--ornament-scissors {
+  @include rule-ornament($content: '\2702', $content-size: false, $content-colors: false);
+}
+.rule--ornament-large {
+  @include rule-ornament($content: false, $content-size: $h1-font-size, $content-colors: false);
+}</pre>
+
+Markup:
+<hr class="rule rule--ornament $modifierClass" data-ornament="!">
+
+.rule--ornament-scissors - override content through styles
+.rule--ornament-large - large ornaments
+
+Styleguide 20.0.2
+*/
+
+.rule--ornament {
+  @extend %rule-ornament;
+  @include rule-ornament($content: false, $content-size: $base-font-size, $content-colors: (background-color: $white, color: $light-gray));
+}
+
+hr.rule.rule--ornament-scissors {
+  @include rule-ornament($content: '\2702', $content-size: false, $content-colors: false);
+}
+
+.rule--ornament-large {
+  @include rule-ornament($content: false, $content-size: $h1-font-size, $content-colors: false);
+}
+
+/*
+# Modal
+
+Styleguide 21
+*/
+@import 'modules/modal';
+
+/*
+# Modal
+
+The mixins provide styles to create modal popups. JavaScript is required to toggle the popup.
+
+<pre>.modal {
+  @extend %modal;
+  @include modal($background: $black, $active: false);
+}
+.modal--is-active {
+  @include modal($background: false, $active: true);
+}
+.modal__content {
+  @extend %modal-content;
+  @include modal-content($padding: em($large-font-size), $background: $white, $align: false, $size: false);
+}
+.modal__content--right {
+  @include modal-content($padding: false, $background: false, $align: right, $size: false);
+}
+.modal__content--left {
+  @include modal-content($padding: false, $background: false, $align: left, $size: false);
+}
+.modal__content--top {
+  @include modal-content($padding: false, $background: false, $align: top, $size: false);
+}
+.modal__content--bottom {
+  @include modal-content($padding: false, $background: false, $align: bottom, $size: false);
+}
+.modal__content--small {
+  @include modal-content($padding: false, $background: false, $align: false, $size: 50%);
+}
+.modal__close {
+  @extend %modal-close;
+  @include modal-close($offset: 3%);
+}</pre>
+
+Markup:
+<div class="modal">
+  <div class="modal__content">
+    <a href="#" class="modal__close">X</a>
+    <p>Some pretty content goes here.</p>
+  </div>
+</div>
+
+Styleguide 21.0.1
+*/
+.modal {
+  @extend %modal;
+  @include modal($background: $black, $active: false);
+}
+
+.modal--is-active {
+  @include modal($background: false, $active: true);
+}
+
+.modal__content {
+  @extend %modal-content;
+  @include modal-content($padding: em($large-font-size), $background: $white, $align: false, $size: false);
+}
+
+.modal__content--right {
+  @include modal-content($padding: false, $background: false, $align: right, $size: false);
+}
+
+.modal__content--left {
+  @include modal-content($padding: false, $background: false, $align: left, $size: false);
+}
+
+.modal__content--top {
+  @include modal-content($padding: false, $background: false, $align: top, $size: false);
+}
+
+.modal__content--bottom {
+  @include modal-content($padding: false, $background: false, $align: bottom, $size: false);
+}
+
+.modal__content--small {
+  @include modal-content($padding: false, $background: false, $align: false, $size: 50%);
+}
+
+.modal__close {
+  @extend %modal-close;
+  @include modal-close($offset: 3%);
+}
+
+
+@import 'helpers';
