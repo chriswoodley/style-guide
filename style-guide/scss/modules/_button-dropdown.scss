@@ -1,26 +1,20 @@
-.button-dropdown {
-  position: relative;
+%button-dropdown {
   display: inline-block;
-  .button-dropdown__content {
-    position: absolute;
-    left:-9999px;
-    z-index: 999;
-    min-width: 300%;
-    a {
-      display: block;
-    }
+  position: relative;
+}
 
-    &:target,
-    &.is-active {
-      left:0;
-    }
+%button-dropdown-content {
+  position: absolute;
+  z-index: 999;
+}
+
+@mixin button-dropdown-content($width: false, $active: false) {
+  @if $active {
+    left: 0;
+  } @else {
+    left: -9999px;
   }
-
-  button {
-    &:focus {
-      &+.button-dropdown__content {
-        left:0;
-      }
-    }
+  @if $width {
+    min-width: $width;
   }
 }
