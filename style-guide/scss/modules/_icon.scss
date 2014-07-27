@@ -1,50 +1,31 @@
-// http://www.entypo.com/
-@font-face {
-    font-family: 'entypo';
-    src: url('/fonts/entypo.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/entypo.woff') format('woff'),
-         url('/fonts/entypo.ttf')  format('truetype'),
-         url('/fonts/entypo.svg#entypo') format('svg');
+%icon {
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.icon {
-    display: inline-block;
-    font-family: entypo, sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    font-size: pxtoem( $base-line-height, $base-font-size );
-    line-height: 1;
-    color:$black;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+@mixin icon($font: false, $content: false) {
+  @if $content {
+    &:before {
+      content: '#{$content}';
+    }
+  }
+  @if $font {
+    font-family: $font;
+  }
 }
 
-.icon--one-half {
-    font-size: pxtoem( $base-line-height, $base-font-size ) * 1.5;
+@mixin icon-style($color: false, $size: false, $valign: false) {
+  @if $color {
+    color: $color;
+  }
+  @if $size {
+    font-size: em($size);
+    line-height: line-height(1, $size);
+    @if $valign {
+      vertical-align: $valign;
+    }
+  }
 }
-
-.icon--2x {
-    font-size: pxtoem( $base-line-height, $base-font-size ) * 2;
-}
-
-.icon--3x {
-    font-size: pxtoem( $base-line-height, $base-font-size ) * 3;
-}
-
-.icon--4x {
-    font-size: pxtoem( $base-line-height, $base-font-size ) * 4;
-}
-
-.icon--5x {
-    font-size: pxtoem( $base-line-height, $base-font-size ) * 5;
-}
-
-// http://www.entypo.com/characters/
-// create icon modifiers you need here
-.icon--phone:before {
-    content: '\1F4DE';
-}
-
-/* .icon--icon-name-here:before {
-    content: '\';
-} */
