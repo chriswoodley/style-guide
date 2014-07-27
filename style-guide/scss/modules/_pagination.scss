@@ -1,36 +1,25 @@
-@mixin pagination($align: center) {
+%pagination {
   display: block;
-  text-align: $align;
-  @content;
+  font-size: 0;
 }
 
-@mixin pagination--item() {
+%pagination-item {
   display: inline-block;
-  margin-right: -(4 / 16) * 1em;
-  @content;
+  font-size: $base-font-size;
 }
 
-
-@mixin pager() {
-  overflow: hidden;
-  @content;
+@mixin pagination($align: false) {
+  @if $align {
+    text-align: $align;
+  }
 }
 
-@mixin pager--item($side: left) {
-  position: relative;
-  text-align: center;
-
-  @if $side == left {
-    float: left;
+@mixin pagination-link-size($size: false, $lines: false) {
+  @if $size and $lines {
+    font-size: em($size);
+    line-height: line-height($lines, $size);
+    height: rhythm($lines, $size);
+    padding-left: em($size / 2);
+    padding-right: em($size / 2);
   }
-
-  @if $side == right {
-    float: right;
-  }
-
-  @if $side == none {
-    float: none;
-  }
-
-  @content;
 }

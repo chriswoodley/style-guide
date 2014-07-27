@@ -1,101 +1,105 @@
-/**
- * This module is heavily inspired by the inuit.css frame work
- * https://github.com/csswizardry/inuit.css/blob/master/objects/_rules.scss
- */
-
-.rule {
-    border:none;
-    border-bottom-width:1px;
-    border-bottom-style:solid;
-    border-bottom-color: $light-gray;
-    margin: 0 0 vertical-rhythm(1, $base-font-size, 1px) 0;
+%rule-reset {
+ border: 0;
 }
 
-.rule--dotted {
-    border-bottom-width:dotted;
-    border-bottom-style:dotted;
+@mixin rule($style: false, $width: false, $color: false) {
+  @if $width {
+    border-bottom-width: $width;
+  }
+  @if $style {
+    border-bottom-style: $style;
+  }
+  @if $color {
+    border-bottom-color: $color;
+  }
+  @if $width {
+    margin-bottom: rhythm(1, $base-font-size, $width);
+  }
 }
 
-.rule--dashed {
-    border-bottom-style:dashed;
-}
-
-.rule--double {
-    border-bottom-width:4px;
-    border-bottom-style: double;
-}
-
-.rule--ornament {
-    position:relative;
-
-    &:after {
-        content:"\00A7";
-        width:$base-font-size;
-        height: $base-font-size;
-        position:absolute;
-        top:   -0.5px;
-        left:  50%;
-        margin-left: -$base-font-size / 2;
-        background: $white;
-        line-height:0;
-        text-align:center;
-        color:$light-gray;
-    }
-
-    /**
-    * Pass in an arbitrary ornament though a data attribute, e.g.:
-    *
-      <hr class="rule  rule--ornament" data-ornament="!">
-    *
-    */
-    &[data-ornament]:after {
-        content:attr(data-ornament);
-    }
-}
-
-.rule--faded,
-.rule--shadow {
-    border-bottom: none;
-}
-
-
-.rule--faded {
-    height: 1px;
-    background: $light-gray;
-    background: -moz-linear-gradient(
-        left, 
-        rgba($light-gray, 0) 0%,
-        rgba($light-gray, 1) 25%,
-        rgba($light-gray, 1) 75%,
-        rgba($light-gray, 0) 100%
-    );
-
-    background: -webkit-linear-gradient(
-        left, 
-        rgba($light-gray, 0) 0%,
-        rgba($light-gray, 1) 25%,
-        rgba($light-gray, 1) 75%,
-        rgba($light-gray, 0) 100%
-    );
-
+@mixin rule-fade($width: false, $color: false) {
+  @if $color {
     background: linear-gradient(
-        to left, 
-        rgba($light-gray, 0) 0%,
-        rgba($light-gray, 1) 25%,
-        rgba($light-gray, 1) 75%,
-        rgba($light-gray, 0) 100%
+        to left,
+        rgba($color, 0) 0%,
+        rgba($color, 1) 25%,
+        rgba($color, 1) 75%,
+        rgba($color, 0) 100%
     );
-
+  }
+  @if $width {
+    height: $width;
+    margin-bottom: rhythm(1, $base-font-size, $width);
+  }
 }
 
-.rule--shadow {
-    height: $base-line-height;
-    box-shadow: inset 0 $base-line-height $base-line-height -#{$base-line-height} rgba($black,0.3);
+@mixin rule-shadow($width: $base-line-height, $color: $black) {
+  box-shadow: inset 0 $width $width -#{$width} rgba($black, .3);
+  height: $width;
+  margin-bottom: rhythm(1, $base-font-size, $width);
 }
 
-.rule--inset {
-    border-bottom-color: rgba($white, 0.5);
-    border-top-width:1px;
-    border-top-style:solid;
-    border-top-color: rgba($black, 0.5);
+%rule-inset {
+  border-top-style: solid;
+}
+
+@mixin rule-inset($widths: false, $colors: false) {
+  @if $colors {
+    @each $side, $color in ($colors) {
+      @if $side == top or $side == bottom {
+        border-#{$side}-color: rgba($color, .5);
+      } @else {
+        @warn "Assuming side colors to be top or bottom";
+      }
+    }
+  }
+  @if $widths {
+    @each $side, $width in ($widths) {
+      @if $side == top or $side == bottom {
+        border-#{$side}-width: $width;
+      } @else {
+        @warn "Assuming side widths to be top or bottom";
+      }
+    }
+    margin-bottom: rhythm(1, $base-font-size, map-get($widths, bottom)+map-get($widths, top));
+  }
+}
+
+%rule-ornament {
+  position:relative;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    line-height: 0;
+    text-align: center;
+  }
+
+  &[data-ornament]:after {
+    content:attr(data-ornament);
+  }
+}
+
+@mixin rule-ornament($content: false, $content-size: false, $content-colors: false) {
+  &:after {
+    @if $content-colors {
+      @each $property, $color in ($content-colors) {
+        @if $property == background-color or $property == color {
+          #{$property}: $color;
+        } @else {
+          @warn "Assuming properties to be background-color or color";
+        }
+      }
+    }
+    @if $content {
+      content: '#{$content}'
+    }
+    @if $content-size {
+      font-size: $content-size;
+      height: $content-size;
+      margin-left: -$content-size / 2;
+      width: $content-size;
+    }
+  }
 }

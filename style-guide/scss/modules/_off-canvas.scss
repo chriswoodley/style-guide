@@ -1,61 +1,45 @@
 $off-canvas-menu-width: 75%;
 
-@mixin off-canvas() {
+%off-canvas {
   overflow-x: hidden;
 }
 
-@mixin off-canvas--menu($side: left, $active: false) {
+%off-canvas-menu {
+  height: 100%;
+  overflow-y: auto;
   position: fixed;
   top: 0;
   z-index: 9999;
-  width: $off-canvas-menu-width;
-  height: 100%;
-  overflow-y: auto;
-  @if $side == right {
-    @if $active {
-      right: 0;
+}
+
+%off-canvas-transition {
+  transition-duration: .25s;
+  transition-property: left, right;
+  transition-timing-function: ease-in-out;
+}
+
+@mixin off-canvas($el, $side: left, $active: false) {
+  @if $el == menu {
+    @if $side == left or $side == right {
+      @if $active {
+        #{$side}: 0
+      } @else {
+        #{$side}: -$off-canvas-menu-width
+      }
     } @else {
-      right: -$off-canvas-menu-width;
+      @warn 'Assuming side is either left or right';
     }
-  } @else {
-    @if $active {
-      left: 0;
-    } @else {
-      left: -$off-canvas-menu-width;
+    width: $off-canvas-menu-width;
+  }
+  @if $el == content {
+    @if $side == left or $side == right {
+      @if $active {
+        position: fixed;
+        width: 100%;
+        #{$side}: $off-canvas-menu-width;
+      } @else {
+        #{$side}: 0;
+      }
     }
   }
 }
-
-@mixin off-canvas--content($side: left, $active: false) {
-  @if $active {
-    position: fixed;
-    width: 100%;
-  }
-  @if $side == right {
-    @if $active {
-      right: $off-canvas-menu-width;
-    } @else {
-      right: 0;
-    }
-  } @else {
-    @if $active {
-      left: $off-canvas-menu-width;
-    } @else {
-      left: 0;
-    }
-  }
-}
-
-/* .off-canvas__menu,
-.off-canvas__content {
-    @include box-sizing(border-box);
-    -webkit-transition-property: left, right;
-    -moz-transition-property: left, right;
-    transition-property: left, right;
-    -webkit-transition-duration: 0.25s;
-    -moz-transition-duration: 0.25s;
-    transition-duration: 0.25s;
-    -webkit-transition-timing-function: ease-in-out;
-    -moz-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out;
-} */
