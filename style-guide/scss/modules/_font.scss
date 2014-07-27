@@ -2,3 +2,16 @@
   font-size: em($to, $from);
   line-height: line-height($lines, $to);
 }
+
+// $fonts: (family1: filename1, family2: filename2, family3: filename3);
+@mixin font-face($fonts) {
+  @each $family, $filename in ($fonts) {
+    @font-face {
+      font-family: '#{$family}';
+      src: url('#{$font-dir}/#{$family}/#{$filename}.eot?#iefix') format('embedded-opentype'),
+           url('#{$font-dir}/#{$family}/#{$filename}.woff') format('woff'),
+           url('#{$font-dir}/#{$family}/#{$filename}.ttf') format('truetype'),
+           url('#{$font-dir}/#{$family}/#{$filename}.svg#entypo') format('svg');
+    }
+  }
+}
