@@ -1,3 +1,15 @@
+%grid-row {
+  &:before,
+  &:after {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
 %grid-col {
   float: left;
   position: relative;
@@ -11,9 +23,10 @@
   }
 }
 
-@mixin grid-row() {
+// use the %grid-row placeholder instead. see top of document
+/* @mixin grid-row() {
   @extend %clearfix;
-}
+} */
 
 @mixin grid-col($span: 1, $columns: $mobile-columns, $gutter: both, $gutter-size: $mobile-gutter) {
   @if $span > $columns {
