@@ -1,6 +1,4 @@
-@import 'base',
-'placeholders';
-
+@import 'base';
 
 /*
 # Grid
@@ -31,10 +29,10 @@ Styleguide 2.0.1
 /*
 # Grid Row
 
-This mixin defines rows within the layout. Its used to clear column floats.
+This <code>%grid-row</code> placeholder defines rows within the layout. It is used to clear column floats.
 
 <pre>.grid__row {
-  @include grid-row();
+  @extend %grid-row;
 }</pre>
 
 Markup:
@@ -45,7 +43,7 @@ Markup:
 Styleguide 2.0.2
 */
 .grid__row {
-  @include grid-row();
+  @extend %grid-row;
 }
 
 /*
@@ -1861,5 +1859,4 @@ Styleguide 21.0.1
   @include modal-close($offset: 3%);
 }
 
-
-@import 'helpers';
+@import 'placeholders';
