@@ -35,6 +35,7 @@ $off-canvas-menu-width: 75%;
     @if $side == left or $side == right {
       @if $active {
         position: fixed;
+        top: 0;
         width: 100%;
         #{$side}: $off-canvas-menu-width;
       } @else {
