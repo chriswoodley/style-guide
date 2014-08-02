@@ -1,5 +1,5 @@
+// LAYOUT
 %clearfix {
-
   &:before,
   &:after {
     content: ' ';
@@ -9,21 +9,56 @@
   &:after {
     clear: both;
   }
-
 }
 
+%inline {
+  display: inline-block;
+  width: auto;
+}
+
+// LISTS
 %unstyled-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
+// LINKS
 %block-link {
   display: block;
   text-decoration: none;
 }
 
-%inline {
-  display: inline-block;
-  width: auto;
+// VISIBILITY
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+%visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+%hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+%hide-from-small-device {
+  @media screen and (max-width: $small-screen) {
+    display: none !important;
+    visibility: hidden;
+  }
+}
+
+%show-on-small-device {
+  @media screen and (min-width: $small-screen) {
+    display: none !important;
+    visibility: hidden;
+  }
 }
