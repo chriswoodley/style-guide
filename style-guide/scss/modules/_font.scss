@@ -1,3 +1,10 @@
+%font-reset {
+  font-style: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @mixin font-size($to, $from: $base-font-size, $lines: 1) {
   font-size: em($to, $from);
   line-height: line-height($lines, $to);
