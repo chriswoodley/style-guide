@@ -23,7 +23,7 @@ Styleguide 2.0.1
 @import 'modules/grid';
 
 .grid {
-  @include grid($site-width);
+  @include grid($width: $site-width);
 }
 
 /*
@@ -43,7 +43,7 @@ Markup:
 Styleguide 2.0.2
 */
 .grid__row {
-  @extend %grid-row;
+  @include grid-row();
 }
 
 /*
@@ -53,12 +53,13 @@ This mixin defines columns within a row. The <code>%grid-col</code> placeholder 
 
 <pre>.grid__col {
   @extend %grid-col;
+  @include grid-col($gutter: (left: $mobile-gutter, right: $mobile-gutter));
 }
-.grid__col-1 {
-  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+.grid__col--1 {
+  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: (left: 0));
 }
-.grid__col-3 {
-  @include grid-col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+.grid__col--3 {
+  @include grid-col($span: 3, $columns: $mobile-columns, $gutter:(right: 0));
 }</pre>
 
 Markup:
@@ -78,14 +79,15 @@ Styleguide 2.0.3
 
 .grid__col {
   @extend %grid-col;
+  @include grid-col($gutter: (left: $mobile-gutter, right: $mobile-gutter));
 }
 
 .grid__col--1 {
-  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: (left: 0));
 }
 
 .grid__col--3 {
-  @include grid-col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+  @include grid-col($span: 3, $columns: $mobile-columns, $gutter:(right: 0));
 }
 
 /*
@@ -506,7 +508,7 @@ input.button {
   @include button($colors: (background-color: $blue, color: $orange), $size: $base-font-size, $lines: 1);
   width: 100%;
 
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     width: auto;
   }
 }
@@ -541,7 +543,7 @@ input.button {
   @include button($colors: (background-color: $blue, color: $orange), $size: $base-font-size, $lines: 1);
   width: 100%;
 
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     width: auto;
   }
 }
@@ -600,7 +602,7 @@ input.form-control {
   @include grid-col(1, 2, left);
 }
 
-@media screen and (min-width: $small-screen) {
+@media screen and (min-width: $small-screen-min) {
   .form-control,
   input.form-control {
     @include form-control($size: normal);
@@ -687,7 +689,7 @@ input.form-control {
   @include grid-col(1, 2, left);
 }
 
-@media screen and (min-width: $small-screen) {
+@media screen and (min-width: $small-screen-min) {
   .form-control,
   input.form-control {
     @include form-control($size: $base-font-size, $lines: 1);
@@ -699,17 +701,17 @@ input.form-control {
 
   .title,
   .state {
-    @include grid-col(3, 9, right, $desktop-gutter);
+    @include grid-col($span: 3, $columns: 9, $gutter: (right: $desktop-gutter));
   }
 
   .first-name,
   .last-name,
   .nickname {
-    @include grid-col(3, 9, right, $desktop-gutter);
+    @include grid-col($span: 3, $columns: 9, $gutter: (right: $desktop-gutter));
   }
 
   .comments {
-    @include grid-col(6, 9, right, $desktop-gutter);
+    @include grid-col($span: 6, $columns: 9, $gutter: (right: $desktop-gutter));
   }
 }
 
@@ -726,7 +728,7 @@ The form control addon mixin defines the styles for prefixed or appended label a
   @include form-control-addon-label-size($size: xlarge);
   @include form-control-addon-label-color($background: $dark-gray, $foreground: $light-gray);
 
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     @include form-control-addon-label-size($size: normal);
   }
 }
@@ -773,7 +775,7 @@ Styleguide 6.0.2
   @extend %form-control-addon-label;
   @include form-control-addon-label($size: $large-font-size, $lines: 2, $colors: (background-color: $dark-gray, color: $light-gray));
 
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     @include form-control-addon-label($size: $base-font-size, $lines: 1, $colors: false);
   }
 }
@@ -816,7 +818,7 @@ The media-element mixin defines the styles necessary to layout media along side 
   @extend %media-element;
   @include media-element(none, 150px);
 
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     @include media-element();
   }
 }
@@ -846,7 +848,7 @@ Styleguide 7.0.1
   @extend %media-element;
   @include media-element(none, 150px);
 
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     @include media-element();
   }
 }
@@ -933,7 +935,7 @@ The Column mixin contains the styles to apply multiple columns of text on an blo
 <pre>.columns {
   @extend %column;
   @include column($count: 1, $gap: false, $rule: false);
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     @include column($count: 4, $gap: $column-gap, $rule: true);
   }
 }</pre>
@@ -951,7 +953,7 @@ Styleguide 9.0.1
 .columns {
   @extend %column;
   @include column($count: 1, $gap: false, $rule: false);
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     @include column($count: 4, $gap: $column-gap, $rule: true);
   }
 }
@@ -973,7 +975,7 @@ The grid block mixin contains the styles needed to create fixed width inline blo
   @extend %grid-block;
   @include grid-block($container-width: 320px, $columns: 2, $gutter: $mobile-gutter);
 
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     @include grid-block($container-width: 800px, $columns: 4, $gutter: $desktop-gutter);
   }
 }</pre>
@@ -991,7 +993,7 @@ Styleguide 10.0.1
   @extend %grid-block;
   @include grid-block($container-width: 320px, $columns: 2, $gutter: $mobile-gutter);
 
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     @include grid-block($container-width: 800px, $columns: 4, $gutter: $desktop-gutter);
   }
 }
@@ -1417,7 +1419,7 @@ The mixins provide styles to create a series of links that represent pagination.
   a {
     @extend %block-link;
     @include pagination-link-size($size: $large-font-size, $lines: 2);
-    @media screen and (min-width: $small-screen) {
+    @media screen and (min-width: $small-screen-min) {
       @include pagination-link-size($size: $base-font-size, $lines: 1);
     }
   }
@@ -1459,7 +1461,7 @@ Styleguide 18.0.1
   a {
     @extend %block-link;
     @include pagination-link-size($size: $large-font-size, $lines: 2);
-    @media screen and (min-width: $small-screen) {
+    @media screen and (min-width: $small-screen-min) {
       @include pagination-link-size($size: $base-font-size, $lines: 1);
     }
   }
@@ -1489,7 +1491,7 @@ The mixins provide styles to create fancy tables.
   th,
   td {
     @include table-size($size: $large-font-size, $lines: 2);
-    @media screen and (min-width: $small-screen) {
+    @media screen and (min-width: $small-screen-min) {
       @include table-size($size: $base-font-size, $lines: 1);
     }
   }
@@ -1502,14 +1504,14 @@ The mixins provide styles to create fancy tables.
   tfoot {
     td {
       @include table-size($size: $base-font-size, $lines: 1);
-      @media screen and (min-width: $small-screen) {
+      @media screen and (min-width: $small-screen-min) {
         @include table-size($size: $small-font-size, $lines: 1);
       }
     }
   }
   caption {
     @include font-size($to: $base-font-size, $lines: 1);
-    @media screen and (min-width: $small-screen) {
+    @media screen and (min-width: $small-screen-min) {
       @include font-size($to: $large-font-size, $lines: 2);
     }
   }
@@ -1527,14 +1529,14 @@ The mixins provide styles to create fancy tables.
   th,
   td {
     @include table-size($size: $base-font-size, $lines: 1);
-    @media screen and (min-width: $small-screen) {
+    @media screen and (min-width: $small-screen-min) {
       @include table-size($size: $h3-font-size, $lines: 3);
     }
   }
   tfoot {
     td {
       @include table-size($size: $small-font-size, $lines: 1);
-      @media screen and (min-width: $small-screen) {
+      @media screen and (min-width: $small-screen-min) {
         @include table-size($size: $base-font-size, $lines: 1);
       }
     }
@@ -1587,7 +1589,7 @@ Styleguide 19.0.1
   th,
   td {
     @include table-size($size: $large-font-size, $lines: 2);
-    @media screen and (min-width: $small-screen) {
+    @media screen and (min-width: $small-screen-min) {
       @include table-size($size: $base-font-size, $lines: 1);
     }
   }
@@ -1603,7 +1605,7 @@ Styleguide 19.0.1
   tfoot {
     td {
       @include table-size($size: $base-font-size, $lines: 1);
-      @media screen and (min-width: $small-screen) {
+      @media screen and (min-width: $small-screen-min) {
         @include table-size($size: $small-font-size, $lines: 1);
       }
     }
@@ -1611,7 +1613,7 @@ Styleguide 19.0.1
 
   caption {
     @include font-size($to: $base-font-size, $lines: 1);
-    @media screen and (min-width: $small-screen) {
+    @media screen and (min-width: $small-screen-min) {
       @include font-size($to: $large-font-size, $lines: 2);
     }
   }
@@ -1633,7 +1635,7 @@ Styleguide 19.0.1
   th,
   td {
     @include table-size($size: $base-font-size, $lines: 1);
-    @media screen and (min-width: $small-screen) {
+    @media screen and (min-width: $small-screen-min) {
       @include table-size($size: $h3-font-size, $lines: 3);
     }
   }
@@ -1641,7 +1643,7 @@ Styleguide 19.0.1
   tfoot {
     td {
       @include table-size($size: $small-font-size, $lines: 1);
-      @media screen and (min-width: $small-screen) {
+      @media screen and (min-width: $small-screen-min) {
         @include table-size($size: $base-font-size, $lines: 1);
       }
     }
