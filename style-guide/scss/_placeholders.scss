@@ -2,12 +2,12 @@
 %clearfix {
   &:before,
   &:after {
-    content: ' ';
-    display: table;
+    content: ' ' !important;
+    display: table !important;
   }
 
   &:after {
-    clear: both;
+    clear: both !important;
   }
 }
 
@@ -33,32 +33,32 @@
 
 // Hide only visually, but have it available for screenreaders: h5bp.com/v
 %visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
 }
 
 // Hide from both screenreaders and browsers: h5bp.com/u
 %hidden {
   display: none !important;
-  visibility: hidden;
+  visibility: hidden !important;
 }
 
 %hide-from-small-device {
-  @media screen and (max-width: $small-screen) {
+  @media screen and (max-width: $small-screen-max) {
     display: none !important;
-    visibility: hidden;
+    visibility: hidden !important;
   }
 }
 
 %show-on-small-device {
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     display: none !important;
-    visibility: hidden;
+    visibility: hidden !important;
   }
 }
