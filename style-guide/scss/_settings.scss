@@ -1,7 +1,7 @@
 @import 'functions';
 
 // FONTS
-$font-dir:  '/fonts';
+$font-dir:  'fonts';
 $font-primary: "HelveticaNeue", "Helvetica", Arial, sans-serif;
 $font-secondary: Georgia, Times, "Times New Roman", serif;
 $double-quotes: '\201C' '\201D';
@@ -13,7 +13,7 @@ $font-icon-secondary: "entypo-social", sans-serif;
 // SIZES
 // http://modularscale.com/scale/?px1=320&px2=14&ra1=1.618&ra2=0
 $base-font-size: 14px;
-$base-line-height: $base-font-size * 1.5;
+$base-line-height: 21px;
 $unitless-line-height: strip-unit($base-line-height / $base-font-size);
 
 $h1-font-size: 36.651px;
@@ -51,7 +51,7 @@ $dark-gray: #666;
 $black: #222;
 
 // LAYOUT
-$site-width: em(1140px, 16px);
+$site-width: 1140px;
 
 // GRID
 $mobile-columns: 4;
@@ -67,4 +67,5 @@ $column-gap: 22.652px;
 $radius: 4px;
 
 // BREAK POINTS
-$small-screen: em(768px, 16px);
+$small-screen-max: em(782px, 16px);
+$small-screen-min: em(783px, 16px);
