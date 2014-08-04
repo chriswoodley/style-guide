@@ -1,6 +1,6 @@
 @font-face {
   font-family: "fontawesome";
-  src: url("/fonts/fontawesome/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/fontawesome/fontawesome-webfont.woff") format("woff"), url("/fonts/fontawesome/fontawesome-webfont.ttf") format("truetype"), url("/fonts/fontawesome/fontawesome-webfont.svg#entypo") format("svg");
+  src: url("fonts/fontawesome/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/fontawesome/fontawesome-webfont.woff") format("woff"), url("fonts/fontawesome/fontawesome-webfont.ttf") format("truetype"), url("fonts/fontawesome/fontawesome-webfont.svg#entypo") format("svg");
 }
 /*
 # Base Styles
@@ -8,8 +8,7 @@
 Styleguide 1
 */
 * {
-  -moz-box-sizing: border-box;
-       box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
@@ -944,30 +943,6 @@ tfoot td {
   text-align: center;
 }
 
-.grid__row:before, .menu:before, .menu-right:before, .menu-center:before, .menu-justified:before, .menu-stacked:before, .clearfix:before, .grid__row:after, .menu:after, .menu-right:after, .menu-center:after, .menu-justified:after, .menu-stacked:after, .clearfix:after {
-  content: ' ';
-  display: table;
-}
-.grid__row:after, .menu:after, .menu-right:after, .menu-center:after, .menu-justified:after, .menu-stacked:after, .clearfix:after {
-  clear: both;
-}
-
-.menu, .menu-right, .menu-center, .menu-justified, .menu-stacked, .sub-menu, .pagination, .unstyled-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.menu__item > a, .menu-right__item > a, .menu-center__item > a, .menu-justified__item > a, .menu-stacked__item > a, .sub-menu a, .pagination__item a {
-  display: block;
-  text-decoration: none;
-}
-
-.inline {
-  display: inline-block;
-  width: auto;
-}
-
 /*
 # Grid
 
@@ -989,26 +964,28 @@ Styleguide 2.0.1
 */
 .grid__col {
   float: left;
+  min-height: 1px;
   position: relative;
 }
 
 .grid {
+  margin-left: auto;
+  margin-left: auto;
   width: 95%;
-  margin: 0 auto;
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 48.9375em) {
   .grid {
-    max-width: 71.25em;
+    max-width: 1140px;
   }
 }
 
 /*
 # Grid Row
 
-This mixin defines rows within the layout. Its used to clear column floats.
+This <code>%grid-row</code> placeholder defines rows within the layout. It is used to clear column floats.
 
 <pre>.grid__row {
-  @include grid-row();
+  @extend %grid-row;
 }</pre>
 
 Markup:
@@ -1025,12 +1002,13 @@ This mixin defines columns within a row. The <code>%grid-col</code> placeholder 
 
 <pre>.grid__col {
   @extend %grid-col;
+  @include grid-col($gutter: (left: $mobile-gutter, right: $mobile-gutter));
 }
-.grid__col-1 {
-  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: right, $gutter-size: $mobile-gutter);
+.grid__col--1 {
+  @include grid-col($span: 1, $columns: $mobile-columns, $gutter: (left: 0));
 }
-.grid__col-3 {
-  @include grid-col($span: 3, $columns: $mobile-columns, $gutter: left, $gutter-size: $mobile-gutter);
+.grid__col--3 {
+  @include grid-col($span: 3, $columns: $mobile-columns, $gutter:(right: 0));
 }</pre>
 
 Markup:
@@ -1047,14 +1025,19 @@ Markup:
 
 Styleguide 2.0.3
 */
+.grid__col {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .grid__col--1 {
+  padding-left: 0;
   width: 25%;
-  padding: 0 10px 0 0;
 }
 
 .grid__col--3 {
+  padding-right: 0;
   width: 75%;
-  padding: 0 0 0 10px;
 }
 
 /*
@@ -1505,8 +1488,7 @@ Styleguide 5
 .button,
 input.button {
   background-image: none;
-  -webkit-border-image: none;
-          border-image: none;
+  border-image: none;
   border: 0;
   cursor: pointer;
   display: inline-block;
@@ -1516,23 +1498,17 @@ input.button {
   text-align: center;
   text-decoration: none;
   text-transform: none;
-  -webkit-transition: background 40ms ease-out, color 40ms ease-out, box-shadow 40ms ease-out;
-          transition: background 40ms ease-out, color 40ms ease-out, box-shadow 40ms ease-out;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  transition: background 40ms ease-out, color 40ms ease-out, box-shadow 40ms ease-out;
+  user-select: none;
   white-space: nowrap;
   -webkit-appearance: none;
   -webkit-user-drag: none;
 }
 .button:hover, .button:focus {
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.15));
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.15));
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 .button:active {
-  background-image: -webkit-linear-gradient(bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.15));
   background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.15));
   box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
 }
@@ -1548,7 +1524,7 @@ input.button {
   @include button($colors: (background-color: $blue, color: $orange), $size: $base-font-size, $lines: 1);
   width: 100%;
 
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     width: auto;
   }
 }
@@ -1598,7 +1574,7 @@ input.button:active {
   background-color: #003ed9;
   color: #ffbe1b;
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 48.9375em) {
   .button,
   input.button {
     width: auto;
@@ -1647,8 +1623,7 @@ Styleguide 6
 */
 .form-control,
 input.form-control {
-  -webkit-transition: border 500ms ease, background 500ms ease, box-shadow 500ms ease;
-          transition: border 500ms ease, background 500ms ease, box-shadow 500ms ease;
+  transition: border 500ms ease, background 500ms ease, box-shadow 500ms ease;
 }
 
 .form-control-addon {
@@ -1700,7 +1675,7 @@ input.form-control {
   @include grid-col(1, 2, left);
 }
 
-@media screen and (min-width: $small-screen) {
+@media screen and (min-width: $small-screen-min) {
   .form-control,
   input.form-control {
     @include form-control($size: normal);
@@ -1788,16 +1763,14 @@ input.form-control:focus {
 .state,
 .comments {
   width: 100%;
-  padding: 0 0 0 10px;
 }
 
 .first-name,
 .last-name {
   width: 50%;
-  padding: 0 0 0 10px;
 }
 
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 48.9375em) {
   .form-control,
   input.form-control {
     font-size: 1em;
@@ -1813,20 +1786,20 @@ input.form-control:focus {
 
   .title,
   .state {
+    padding-right: 17.835px;
     width: 33.33333%;
-    padding: 0 17.835px 0 0;
   }
 
   .first-name,
   .last-name,
   .nickname {
+    padding-right: 17.835px;
     width: 33.33333%;
-    padding: 0 17.835px 0 0;
   }
 
   .comments {
+    padding-right: 17.835px;
     width: 66.66667%;
-    padding: 0 17.835px 0 0;
   }
 }
 /*
@@ -1842,7 +1815,7 @@ The form control addon mixin defines the styles for prefixed or appended label a
   @include form-control-addon-label-size($size: xlarge);
   @include form-control-addon-label-color($background: $dark-gray, $foreground: $light-gray);
 
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     @include form-control-addon-label-size($size: normal);
   }
 }
@@ -1887,7 +1860,7 @@ Styleguide 6.0.2
   background-color: #666666;
   color: #cccccc;
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 48.9375em) {
   .form-control-addon__label {
     font-size: 1em;
     line-height: 1.5;
@@ -1913,7 +1886,6 @@ Styleguide 6.0.2
 .url,
 .donate {
   width: 100%;
-  padding: 0 0 0 10px;
 }
 
 /*
@@ -1949,7 +1921,7 @@ The media-element mixin defines the styles necessary to layout media along side 
   @extend %media-element;
   @include media-element(none, 150px);
 
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     @include media-element();
   }
 }
@@ -1977,7 +1949,7 @@ Styleguide 7.0.1
   margin-right: auto;
   width: 150px;
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 48.9375em) {
   .media__element {
     float: left;
     margin-right: 1em;
@@ -2087,7 +2059,7 @@ The Column mixin contains the styles to apply multiple columns of text on an blo
 <pre>.columns {
   @extend %column;
   @include column($count: 1, $gap: false, $rule: false);
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     @include column($count: 4, $gap: $column-gap, $rule: true);
   }
 }</pre>
@@ -2103,21 +2075,13 @@ Markup:
 Styleguide 9.0.1
 */
 .columns {
-  -webkit-column-count: 1;
-     -moz-column-count: 1;
-          column-count: 1;
+  column-count: 1;
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 48.9375em) {
   .columns {
-    -webkit-column-count: 4;
-       -moz-column-count: 4;
-            column-count: 4;
-    -webkit-column-gap: 1.618em;
-       -moz-column-gap: 1.618em;
-            column-gap: 1.618em;
-    -webkit-column-rule: 1px solid #222222;
-       -moz-column-rule: 1px solid #222222;
-            column-rule: 1px solid #222222;
+    column-count: 4;
+    column-gap: 1.618em;
+    column-rule: 1px solid #222222;
   }
 }
 
@@ -2145,7 +2109,7 @@ The grid block mixin contains the styles needed to create fixed width inline blo
   @extend %grid-block;
   @include grid-block($container-width: 320px, $columns: 2, $gutter: $mobile-gutter);
 
-  @media screen and (min-width: $small-screen) {
+  @media screen and (min-width: $small-screen-min) {
     @include grid-block($container-width: 800px, $columns: 4, $gutter: $desktop-gutter);
   }
 }</pre>
@@ -2163,7 +2127,7 @@ Styleguide 10.0.1
   padding-right: 10px;
   width: 160px;
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 48.9375em) {
   .grid-block {
     padding-left: 17.835px;
     padding-right: 17.835px;
@@ -2393,12 +2357,9 @@ Styleguide 14
 }
 
 .off-canvas__menu, .off-canvas__content {
-  -webkit-transition-duration: .25s;
-          transition-duration: .25s;
-  -webkit-transition-property: left, right;
-          transition-property: left, right;
-  -webkit-transition-timing-function: ease-in-out;
-          transition-timing-function: ease-in-out;
+  transition-duration: .25s;
+  transition-property: left, right;
+  transition-timing-function: ease-in-out;
 }
 
 /*
@@ -2454,6 +2415,7 @@ Styleguide 14.0.1
 }
 .off-canvas--is-active .off-canvas__content {
   position: fixed;
+  top: 0;
   width: 100%;
   left: 75%;
 }
@@ -2654,7 +2616,7 @@ The mixins provide styles to create a series of links that represent pagination.
   a {
     @extend %block-link;
     @include pagination-link-size($size: $large-font-size, $lines: 2);
-    @media screen and (min-width: $small-screen) {
+    @media screen and (min-width: $small-screen-min) {
       @include pagination-link-size($size: $base-font-size, $lines: 1);
     }
   }
@@ -2692,7 +2654,7 @@ Styleguide 18.0.1
   padding-left: 0.63696em;
   padding-right: 0.63696em;
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 48.9375em) {
   .pagination__item a {
     font-size: 1em;
     line-height: 1.5;
@@ -2724,7 +2686,7 @@ The mixins provide styles to create fancy tables.
   th,
   td {
     @include table-size($size: $large-font-size, $lines: 2);
-    @media screen and (min-width: $small-screen) {
+    @media screen and (min-width: $small-screen-min) {
       @include table-size($size: $base-font-size, $lines: 1);
     }
   }
@@ -2737,14 +2699,14 @@ The mixins provide styles to create fancy tables.
   tfoot {
     td {
       @include table-size($size: $base-font-size, $lines: 1);
-      @media screen and (min-width: $small-screen) {
+      @media screen and (min-width: $small-screen-min) {
         @include table-size($size: $small-font-size, $lines: 1);
       }
     }
   }
   caption {
     @include font-size($to: $base-font-size, $lines: 1);
-    @media screen and (min-width: $small-screen) {
+    @media screen and (min-width: $small-screen-min) {
       @include font-size($to: $large-font-size, $lines: 2);
     }
   }
@@ -2762,14 +2724,14 @@ The mixins provide styles to create fancy tables.
   th,
   td {
     @include table-size($size: $base-font-size, $lines: 1);
-    @media screen and (min-width: $small-screen) {
+    @media screen and (min-width: $small-screen-min) {
       @include table-size($size: $h3-font-size, $lines: 3);
     }
   }
   tfoot {
     td {
       @include table-size($size: $small-font-size, $lines: 1);
-      @media screen and (min-width: $small-screen) {
+      @media screen and (min-width: $small-screen-min) {
         @include table-size($size: $base-font-size, $lines: 1);
       }
     }
@@ -2825,7 +2787,7 @@ Styleguide 19.0.1
   padding-left: 1.27393em;
   padding-right: 1.27393em;
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 48.9375em) {
   .table th,
   .table td {
     font-size: 1em;
@@ -2853,7 +2815,7 @@ Styleguide 19.0.1
   padding-left: 1em;
   padding-right: 1em;
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 48.9375em) {
   .table tfoot td {
     font-size: 0.78736em;
     line-height: 1.90511;
@@ -2866,7 +2828,7 @@ Styleguide 19.0.1
   font-size: 1em;
   line-height: 1.5;
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 48.9375em) {
   .table caption {
     font-size: 1.27393em;
     line-height: 2.35492;
@@ -2905,7 +2867,7 @@ Styleguide 19.0.1
   padding-left: 1em;
   padding-right: 1em;
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 48.9375em) {
   .table--large th,
   .table--large td {
     font-size: 1.618em;
@@ -2922,7 +2884,7 @@ Styleguide 19.0.1
   padding-left: 0.78736em;
   padding-right: 0.78736em;
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 48.9375em) {
   .table--large tfoot td {
     font-size: 1em;
     line-height: 1.5;
@@ -3019,7 +2981,6 @@ Styleguide 20.0.1
 }
 
 .rule--faded {
-  background: -webkit-linear-gradient(right, rgba(153, 153, 153, 0) 0%, #999999 25%, #999999 75%, rgba(153, 153, 153, 0) 100%);
   background: linear-gradient(to left, rgba(153, 153, 153, 0) 0%, #999999 25%, #999999 75%, rgba(153, 153, 153, 0) 100%);
   height: 1px;
   margin-bottom: 1.42857em;
@@ -3204,106 +3165,21 @@ Styleguide 21.0.1
   right: 3%;
 }
 
-.text-align-left {
-  text-align: left;
+.grid__row:before, .menu:before, .menu-right:before, .menu-center:before, .menu-justified:before, .menu-stacked:before, .grid__row:after, .menu:after, .menu-right:after, .menu-center:after, .menu-justified:after, .menu-stacked:after {
+  content: ' ' !important;
+  display: table !important;
+}
+.grid__row:after, .menu:after, .menu-right:after, .menu-center:after, .menu-justified:after, .menu-stacked:after {
+  clear: both !important;
 }
 
-.text-align-right {
-  text-align: right;
-}
-
-.text-align-center {
-  text-align: center;
-}
-
-.radius {
-  border-radius: 4px;
-}
-
-.top-left-radius {
-  border-top-left-radius: 4px;
-}
-
-.top-right-radius {
-  border-top-right-radius: 4px;
-}
-
-.bottom-left-radius {
-  border-bottom-left-radius: 4px;
-}
-
-.bottom-right-radius {
-  border-bottom-right-radius: 4px;
-}
-
-.float-left {
-  float: left;
-}
-
-img.float-left {
-  margin-right: 14px;
-}
-
-.float-right {
-  float: right;
-}
-
-img.float-right {
-  margin-left: 14px;
-}
-
-.stick-to-top {
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.stick-to-bottom {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  width: 100%;
-}
-
-@media screen and (max-width: 48em) {
-  .hide-from-small-device {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 48em) {
-  .show-on-small-device {
-    display: none;
-  }
-}
-
-.hidden {
-  display: none !important;
-  visibility: hidden;
-}
-
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
+.menu, .menu-right, .menu-center, .menu-justified, .menu-stacked, .sub-menu, .pagination {
+  list-style: none;
   margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
+  padding: 0;
 }
 
-.invisible {
-  visibility: hidden;
+.menu__item > a, .menu-right__item > a, .menu-center__item > a, .menu-justified__item > a, .menu-stacked__item > a, .sub-menu a, .pagination__item a {
+  display: block;
+  text-decoration: none;
 }
